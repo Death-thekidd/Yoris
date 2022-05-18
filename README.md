@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Yoris-Africa-gold)
 
-# YORIS AFRICA
+# YORIS AFRICA  <img src='Yoris.png' width=25px height=25px>
 
 > Description of the project.
 
@@ -14,6 +14,8 @@
 - GIT
 
 ## Live Demo 
+
+<img src='Yoris.png' width=100px>
 
 [Live Demo Link](https://livedemo.com)
 
