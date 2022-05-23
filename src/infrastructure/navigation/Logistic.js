@@ -4,6 +4,7 @@ import Logisticscreen from '../../features/logictics/screens/logisticscreen';
 import LogisticBooking from '../../features/logictics/screens/logisticBooking';
 import { createStackNavigator } from '@react-navigation/stack'
 import Stores from '../../features/Stores/Stores.screen'
+import Ecommerce from '../../features/ecommerce/ecommerce'
 
 
 /// just the way we use the stack navigation
@@ -63,6 +64,10 @@ export const AccountNavigator = () => {
             <Tabs.Screen
                 name="Store"
                 component={Stores}
+            />
+            <Tabs.Screen
+                name="Ecommerce"
+                component={Ecommerce}
             />
 
             <Tabs.Screen

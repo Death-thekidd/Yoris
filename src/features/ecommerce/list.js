@@ -1,0 +1,1 @@
+export const status = [require('../assets/brand1.png'), require('../assets/brand2.png'), require('../assets/brand3.png'), require('../assets/brand4.png')];
