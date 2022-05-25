@@ -1,8 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image, ScrollView} from 'react-native';
-import {status} from '../data/list';
-import {products} from '../data/list';
+import {status} from './list';
+import {products} from './list';
 
 export default function TestDrive(){
 	return(
