@@ -1,7 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image} from 'react-native';
-import {status} from './list';
+import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image, ScrollView} from 'react-native';
+import {status} from '../data/list';
+import {products} from '../data/list';
 
 export default function TestDrive(){
 	return(
@@ -35,6 +36,27 @@ export default function TestDrive(){
 						/>
 				</View>
 			</View>
+			<View style={styles.ad}>
+				<Image source={require('../assets/ad.png')} style={styles.imageAd}/>
+			</View>
+			<View style={{alignItems:'center', justifyContent:'center', flex:1}}>
+				<FlatList
+						data={products}
+						numColumns={3}
+						showsVerticalScrollIndicator={false}
+						keyExtractor={(item, index)=>index.toString()}
+						renderItem={({item, index})=>
+							<View style={styles.imageVieww}>
+							
+								<Image source={item.image} style={styles.image} key={index}/>
+								<Text style={styles.brandName}>Product Name</Text>
+								<Text style={styles.km}>N0.00</Text>
+							</View>
+						}
+						/>
+
+			</View>
+			<Text style={styles.seeAll}>See all</Text>	
 		</SafeAreaView>
 
 		)
@@ -65,7 +87,8 @@ const styles = StyleSheet.create({
 		fontSize:12, 
 		fontFamily:'Roboto', 
 		fontWeight:'700', 
-		lineHeight:14
+		lineHeight:14,
+		marginLeft:20
 	},
 	brandName:{
 		fontSize:17, 
@@ -97,19 +120,34 @@ const styles = StyleSheet.create({
 		margin:20,
 		borderRadius:5
 	},
+
 	imageView:{
 		alignItems:'center',
 		justifyContent:'center'
 	},
+	imageVieww:{
+		alignItems:'center',
+		justifyContent:'center',
+		margin:0,
+		padding:0
+	},
 	vector:{
 		flexDirection:'row',
 		justifyContent:'space-between',
-		height:'7%',
+		height:'10%',
 		alignItems:'center'
 	},
 	vectorRight:{
 		flexDirection:'row',
 		
+	},
+	ad:{
+		marginTop:40,
+		marginBottom:40  
+	},
+	imageAd:{
+		height:140,
+		width:'100%'
 	}
 
 
