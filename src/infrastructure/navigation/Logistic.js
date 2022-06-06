@@ -2,8 +2,9 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Logisticscreen from '../../features/logictics/screens/logisticscreen';
 import LogisticBooking from '../../features/logictics/screens/logisticBooking';
-import { createStackNavigator } from '@react-navigation/stack'
-import Stores from '../../features/Stores/Stores.screen'
+import LogisticsAddress from '../../features/logictics/screens/logisticsAddress';
+import { createStackNavigator } from '@react-navigation/stack';
+import Stores from '../../features/Stores/Stores.screen';
 
 
 /// just the way we use the stack navigation
@@ -56,7 +57,7 @@ export const AccountNavigator = () => {
         >
 
             <Tabs.Screen
-                name="LOgistic"
+                name="Logistic"
                 component={Logisticscreen}
             />
 
@@ -72,23 +73,13 @@ export const AccountNavigator = () => {
 
             <Tabs.Screen
                 name="Yoris Pay"
-                component={Logisticscreen}
+                component={LogisticsAddress}
             />
-
         </Tabs.Navigator >
 
 
-    )
-}
-
-
-
-
-
-
-
-
-
+    );
+};
 
 const Stack = createStackNavigator();
 // JUST THE WAY IT SOUNDS WE ARE STACKING THE VIEWS
@@ -97,13 +88,9 @@ const Stack = createStackNavigator();
 export const logisticNavigator = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-
             <Stack.Screen name="Main" component={Logisticscreen} />
-            <Stack.Screen name="logisticBooking" component={LogisticBooking} />
-
-
-
+            <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
         </Stack.Navigator>
-    )
-}
+    );
+};
 

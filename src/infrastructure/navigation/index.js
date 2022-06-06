@@ -13,13 +13,8 @@ export const Navigation = () => {
     return (
 
         <NavigationContainer>
-
             {<AccountNavigator />}
-
-
         </NavigationContainer>
-
-
 
     );
 };

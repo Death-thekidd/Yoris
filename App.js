@@ -2,11 +2,7 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from 'react'
 import { theme } from "./src/infrastructure/theme/index";
-
 import { ThemeProvider } from "styled-components/native";
-
-
-
 import { Navigation } from "./src/infrastructure/navigation";
 
 import { LogBox } from 'react-native';
@@ -19,8 +15,6 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 
-
-
 export default function App() {
 
 
@@ -30,10 +24,7 @@ export default function App() {
     if (message.indexOf('Setting a timer') <= -1) {
       _console.warn(message);
     }
-  };
-
-
-
+  }
 
 
 
@@ -52,11 +43,9 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-
-
         <Navigation />
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
-  )
-}
+  );
+};
