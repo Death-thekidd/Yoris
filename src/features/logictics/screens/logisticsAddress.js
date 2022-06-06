@@ -8,10 +8,15 @@ import {
   Column2,
   LogisticsSlot,
   LogisticsBox,
-  LogisticsBtn
+  LogisticsBtnCont,
+   LogisticsBtn
   } from '../components/address.styles';
 
 export default function LogisticsAddress() {
+   const Button = ({ type, text }) => {
+          const backgroundColor = type === "primary" ? "#9A8340" : "#A7A5A6"
+          const color = "type" === "primary" ? "#FFFFFF" : "#000000"
+      }
   return (
     <LogisticsContainer>
       <LogisticsPrimary>Save New Address?</LogisticsPrimary>
@@ -37,7 +42,9 @@ export default function LogisticsAddress() {
           </Column2>
         </LogisticsRow>
       </LogisticsWrapper>
-       <LogisticsBtn>continue</LogisticsBtn>
+       <LogisticsBtnCont>
+          <LogisticsBtn>continue</LogisticsBtn>
+       </LogisticsBtnCont>
     </LogisticsContainer>
   );
 };

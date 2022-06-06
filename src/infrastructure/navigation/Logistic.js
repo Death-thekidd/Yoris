@@ -8,7 +8,7 @@ import Stores from '../../features/Stores/Stores.screen';
 
 
 /// just the way we use the stack navigation
-Tabs = createMaterialTopTabNavigator();
+const Tabs = createMaterialTopTabNavigator();
 
 export const AccountNavigator = () => {
 
@@ -76,8 +76,6 @@ export const AccountNavigator = () => {
                 component={LogisticsAddress}
             />
         </Tabs.Navigator >
-
-
     );
 };
 

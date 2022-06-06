@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { colors } from '../../../infrastructure/theme/colors';
 import { Button } from 'react-native-paper';
 
 export const LogisticsContainer = styled.View`
@@ -6,7 +7,7 @@ export const LogisticsContainer = styled.View`
   align-items: center;
   justify-content: center;
   background-color: #000;
-  width: 100%;
+  flex: 1;
 `;
 
 export const LogisticsPrimary = styled.Text`
@@ -62,13 +63,18 @@ export const LogisticsBox = styled.View`
    border-radius: 5px;
 `;
 
-export const LogisticsBtn = styled(Button)`
-   position: relative;
+export const LogisticsBtnCont = styled.View`
+   color: #000;
+`;
+
+export const LogisticsBtn = styled(Button).attrs(
+  { color: colors.ui.primary, })`
    width: 300px;
    height: 48px;
    top: 30px;
+   position: relative;
    left: 10px;
-   color: #000;
+   padding: 12px;
    background: #C3AD60;
    border-radius: 5px;
 `;
