@@ -42,7 +42,7 @@ export const Column1 = styled.View`
 export const Column2 = styled.View`
    margin-bottom: 15px;
    padding: 0 25px;
-   grid-area: col1;
+   grid-area: col2;
 `;
 
 export const LogisticsSlot = styled.Text`
