@@ -4,8 +4,6 @@ import { StyleSheet, ScrollView } from 'react-native'
 import { Icon } from '../../../../assets/Layer.png'
 
 import {
-
-
   Cover,
   AccountBackground,
   AccountContainer,
@@ -34,9 +32,6 @@ export default function RegisterScreen({ navigation }) {
   return (
 
     <AccountBackground>
-
-
-
       <AuthInput
         label="Full name "
         value={name}
@@ -44,7 +39,6 @@ export default function RegisterScreen({ navigation }) {
         autoCapitalize="none"
         onChangeText={(u) => setName(u)}
       />
-
       <Spacer size="large">
         <AuthInput
           label="E-mail"
@@ -168,7 +162,4 @@ const styles = StyleSheet.create({
     top: 390
 
   },
-
-
-
 })

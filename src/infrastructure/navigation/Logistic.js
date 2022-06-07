@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Logisticscreen from '../../features/logictics/screens/logisticscreen';
 import LogisticBooking from '../../features/logictics/screens/logisticBooking';
 import LogisticsAddress from '../../features/logictics/screens/logisticsAddress';
+import LogisticsLocation from '../../features/logictics/screens/logisticsLocation';
 import { createStackNavigator } from '@react-navigation/stack';
 import Stores from '../../features/Stores/Stores.screen';
 
@@ -15,7 +16,7 @@ export const AccountNavigator = () => {
     return (
         <Tabs.Navigator
             headerMode="none"
-            style={{ backgroundColor: "#A7A5A6", paddingTop: 30, }}
+            style={{ backgroundColor: "#fff", paddingTop: 30, }}
             // screenOptions={{
             //     activeTintColor: "#FFC300",
             //     inactiveTintColor: "#353935",
@@ -60,20 +61,21 @@ export const AccountNavigator = () => {
                 name="Logistic"
                 component={Logisticscreen}
             />
-
             <Tabs.Screen
                 name="Store"
                 component={Stores}
             />
-
             <Tabs.Screen
                 name="Puddle"
                 component={Logisticscreen}
             />
-
             <Tabs.Screen
                 name="Yoris Pay"
                 component={LogisticsAddress}
+            />
+            <Tabs.Screen
+              name="Pick Up"
+              component={LogisticsLocation}
             />
         </Tabs.Navigator >
     );
@@ -88,6 +90,7 @@ export const logisticNavigator = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Main" component={Logisticscreen} />
             <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
+            <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
         </Stack.Navigator>
     );
 };
