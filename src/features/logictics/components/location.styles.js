@@ -140,7 +140,7 @@ export const LocationType = styled.Text`
     font-size: 15px;
     text-align: left;
     position: relative;
-    margin-left: 50px;
+    margin-left: 40px;
     margin-top: 70px;
 `;
 
