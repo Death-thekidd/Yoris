@@ -7,112 +7,97 @@ export const LocationContainer = styled.View`
    background-color: #000;
 `;
 
-export const LocationWrapper = styled.View`
-  display: grid;
-  z-index: 1;
-  margin-left: 30px;
-  padding: 0 24px;
-  margin-top: 5px;
-  justify-content: center;
-`;
+ export const LocationWrapper = styled.View`
+    display: flex;
+    flex-direction: row;
+ `;
 
-export const LocationRow = styled.View`
-  display: grid;
-  grid-auto-columns: minmax(auto, 1fr);
-  align-items: center;
-  grid-template-areas: ${({imgStart}) => (imgStart ? `'col3 col2 col1'` : `'col1 col2 col3'`)}
-`;
+  export const LocationRow = styled.View`
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     padding: 10px;
+     align-items: center;
+  `;
 
-export const Column1 = styled.View`
-   padding: 0 30px;
-   grid-area: col1;
-`;
+  export const ImageBackground = styled.Image`
+       width: 15px;
+       position: relative;
+       height: 15px;
+  `;
 
-export const Column2 = styled.View`
-   padding: 0 25px;
-   grid-area: col2;
-`;
+  export const LocationPrimary = styled.Text`
+        color: #C3AD60;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 400;
+        font-family: 'Roboto';
+  `;
 
-export const Column3 = styled.View`
-  padding: 0 30px;
-  grid-area: col3;
-`;
+  export const ImageCancel = styled.Image`
+        width: 15px;
+        position: relative;
+        height: 15px;
+  `;
 
-export const ImageBackground = styled.ImageBackground`
-     width: 20px;
-     position: relative;
-     height: 20px;
-`;
+  export const ImageLocation = styled.Image`
+       width: 15px;
+       position: relative;
+       height:  15px;
+  `;
 
-export const LocationPrimary = styled.Text`
-      color: #C3AD60;
-      text-align: left;
-      font-size: 17px;
-      font-weight: 400;
-      margin-left: 10px;
-      font-family: 'Roboto';
-`;
-
-export const ImageCancel = styled.ImageBackground`
-      width: 20px;
-      position: relative;
-      left: 60px;
-      height: 20px;
-`;
-
-export const ImageLocation = styled.ImageBackground`
-     width: 20px;
-     position: relative;
-     top: 20px;
-     height: 20px;
-`;
-
-export const LocationSecondary = styled.Text`
-   color: #fff;
-   margin-top: 50px;
-   font-size: 14px;
-   text-align: left;
-   font-family: 'Roboto';
-   font-weight: 400;
-`;
-
-export const LocationTertiary = styled.Text`
-  color: #fff;
-  margin-top: 60px;
-  font-size: 14px;
-  text-align: left;
-  margin-left: 10px;
-  font-family: 'Roboto';
-  font-weight: 300;
-`;
-
-export const LocationSaved = styled.Text`
-      position: relative;
-       color: #4E4E4E;
-       font-family: 'Roboto';
-       font-size: 15px;
-       text-align: left;
-       margin-left: 40px;
-       margin-top: 70px;
-`;
-
-export const LocationBox = styled.View`
-     position: relative;
-     width: 128px;
-     height: 96px;
-     top: 20px;
+  export const LocationSecondary = styled.Text`
      color: #fff;
-     text-align: center;
+     font-size: 15px;
+     text-align: left;
+     font-family: 'Roboto';
+     font-weight: 400;
+  `;
+
+
+  export const LocationSaved = styled.Text`
+         position: relative;
+         color: #fff;
+         font-family: 'Roboto';
+         top: 20px;
+         right: 20px;
+         font-size: 15px;
+         text-align: left;
+  `;
+
+ export const LocationTertiary = styled.Text`
+       position: relative;
+        color: #4E4E4E;
+        font-family: 'Roboto';
+        font-size: 13px;
+        text-align: left;
+        top: 10px;
+        right: 60px;
+ `;
+
+
+export const LocationBox = styled.Text`
+     position: relative;
+     width: 80px;
+     height: 70px;
+     color: #fff;
+     font-size: 5px;
      background: #4E4E4E;
      border-radius: 5px;
-     padding: 25px;
+     top: 15px;
+     left: 10px;
+     padding: 20px;
+     text-align: center;
 `;
 
-export const LocationScroll = styled.View`
+export const LocationScroll = styled.Text`
    position: relative;
-   width: 70px;
-   height: 96px;
-   top: 20px;
+   width: 65px;
+   height: 70px;
+   top: 15px;
+   font-size: 5px;
+   left: 10px;
+   text-align: right;
    color: #fff;
    padding: 25px;
    background: #4E4E4E;
@@ -124,7 +109,8 @@ export const LocationSwitch = styled.View`
    position: relative;
    width: 32px;
    height: 16px;
-   top: 30px;
+   top: 20px;
+   right: 10px;
    border-radius: 15px;
    background: #1DB704;
 `;
@@ -139,32 +125,29 @@ export const LocationType = styled.Text`
     font-family: 'Roboto';
     font-size: 15px;
     text-align: left;
+    right: 40px;
     position: relative;
-    margin-left: 40px;
-    margin-top: 70px;
+    top: 20px;
 `;
 
-export const LocationNumber = styled.View`
+export const LocationNumber = styled.Text`
    position: relative;
-   width: 320px;
+   width: 260px;
    height: 48px;
-   left: 40px;
    color: #fff;
-   top: 10px;
-   margin-bottom: 30px;
+   top: 30px;
+   margin-bottom: 15px;
    padding: 12px;
-   text-align: left;
    background: #4E4E4E;
-   border-radius: 5px;
+   border-radius: 3px;
 `;
 
 export const LocationBtn = styled.Text`
    position: relative;
-   width: 300px;
-   height: 48px;
-   margin-top: 15px;
-   left: 40px;
+   width: 260px
+   height: 90px;
    padding: 12px;
+   top: 20px;
    text-align: center;
    color: #000;
    font-weight: 400;

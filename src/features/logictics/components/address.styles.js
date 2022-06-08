@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { colors } from '../../../infrastructure/theme/colors';
 import { Button } from 'react-native-paper';
 
+
 export const LogisticsContainer = styled.View`
   display: flex;
   align-items: center;
@@ -14,67 +15,65 @@ export const LogisticsPrimary = styled.Text`
    margin-top: 60px;
    color: #fff;
    text-align: center;
-   font-size: 15px;
+   font-size: 20px;
    font-weight: bold;
 `;
 
-export const LogisticsWrapper = styled.View`
-  display: grid;
-  z-index: 1;
-  margin-left: 30px;
-  padding: 0 24px;
-  margin-top: 40px;
-  justify-content: center;
-`;
+ export const LogisticsWrapper = styled.View`
+    display: flex;
+    flex-flow: row;
+ `;
 
-export const LogisticsRow = styled.View`
-  display: grid;
-  grid-auto-columns: minmax(auto, 1fr);
-  align-items: center;
-  grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2'`)};
-`;
+ export const LogisticsRow = styled.View`
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 25px;
+    align-items: center;
+ `;
 
-export const Column1 = styled.View`
-  margin-bottom: 15px;
-  padding: 0 18px;
-  grid-area: col1;
-`;
+ export const LogisticsSlot = styled.Text`
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    left: 20px;
+    font-size: 13px;
+    font-family: 'Roboto';
+ `;
 
-export const Column2 = styled.View`
-   margin-bottom: 15px;
-   padding: 0 25px;
-   grid-area: col2;
-`;
+ export const LogisticsReplace = styled.Text`
+       display: flex;
+       flex-flow: row;
+       justify-content: center;
+       align-items: center;
+       color: #fff;
+       font-size: 13px;
+       font-family: 'Roboto';
+ `;
 
-export const LogisticsSlot = styled.Text`
-  color: #fff;
-  font-size: 10px;
-  text-align: left;
-  margin-top: 20px;
-  font-family: 'Roboto';
-`;
+ export const LogisticsBox = styled.View`
+    position: relative;
+    width: 100px;
+    height: 96px;
+    background: #4E4E4E;
+    border-radius: 5px;
+    top: 20px;
+    left: 20px;
+ `;
 
-export const LogisticsBox = styled.View`
-   position: relative;
-   width: 128px;
-   height: 96px;
-   top: 20px;
-   background: #4E4E4E;
-   border-radius: 5px;
-`;
-
-export const LogisticsBtnCont = styled.View`
-   color: #000;
-`;
-
-export const LogisticsBtn = styled(Button).attrs(
-  { color: colors.ui.primary, })`
-   width: 300px;
+export const LogisticsBtn = styled.Text`
+   width: 280px;
    height: 48px;
    top: 30px;
    position: relative;
    left: 10px;
    padding: 12px;
+   color: #000;
+   text-align: center;
+   font-size: 15px;
+   text-transform: uppercase;
    background: #C3AD60;
    border-radius: 5px;
 `;

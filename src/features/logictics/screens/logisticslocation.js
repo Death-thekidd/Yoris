@@ -3,19 +3,15 @@ import {
       LocationContainer,
       LocationWrapper,
       LocationRow,
-      Column1,
-      Column2,
-      Column3,
-      LocationText,
       ImageBackground,
       LocationPrimary,
       ImageCancel,
       ImageLocation,
       LocationSecondary,
-      LocationSaved,
+      LocationTertiary,
       LocationBox,
       LocationScroll,
-      LocationTertiary,
+      LocationSaved,
       LocationSwitch,
       ImageEllipse,
       LocationType,
@@ -28,53 +24,51 @@ export default function LogisticsLocation() {
       <LocationContainer>
         <LocationWrapper>
           <LocationRow>
-            <Column1>
-              <ImageBackground source={require('../../../../assets/backIcon.png')} />
-            </Column1>
-            <Column2>
-              <LocationPrimary>Pickup Location</LocationPrimary>
-            </Column2>
-            <Column3>
-               <ImageCancel source={require('../../../../assets/cancel.png')} />
-            </Column3>
+               <ImageBackground source={require('../../../../assets/backIcon.png')} />
           </LocationRow>
           <LocationRow>
-             <Column1>
-                <ImageLocation source={require('../../../../assets/location.png')} />
-             </Column1>
-             <Column2>
-               <LocationSecondary>Use Current Location</LocationSecondary>
-             </Column2>
+              <LocationPrimary>Pickup Location</LocationPrimary>
           </LocationRow>
-           <LocationSaved>Saved Addresses</LocationSaved>
-           <LocationRow>
-             <Column1>
-                <LocationBox>Address 1</LocationBox>
-             </Column1>
-             <Column2>
-               <LocationBox>Address 2</LocationBox>
-             </Column2>
-             <Column3>
-                <LocationScroll>Addres</LocationScroll>
-             </Column3>
-           </LocationRow>
-           <LocationRow>
-              <Column1>
-                 <LocationTertiary>Save new address</LocationTertiary>
-              </Column1>
-              <Column2>
-                 <LocationSwitch>
-                     <ImageEllipse source={require('../../../../assets/Ellipse.png')} />
-                </LocationSwitch>
-              </Column2>
-           </LocationRow>
-           <LocationType>Type in new location</LocationType>
-           <LocationNumber>House number</LocationNumber>
-           <LocationNumber>Street address</LocationNumber>
-           <LocationNumber>Bus stop</LocationNumber>
-           <LocationNumber>Local Govt area</LocationNumber>
-            <LocationBtn>continue</LocationBtn>
+          <LocationRow>
+              <ImageCancel source={require('../../../../assets/cancel.png')} />
+          </LocationRow>
         </LocationWrapper>
+        <LocationWrapper>
+           <LocationRow>
+             <ImageLocation source={require('../../../../assets/location.png')} />
+           </LocationRow>
+           <LocationRow>
+               <LocationSecondary>Use Current Location</LocationSecondary>
+           </LocationRow>
+        </LocationWrapper>
+         <LocationTertiary>Saved Address</LocationTertiary>
+        <LocationWrapper>
+          <LocationRow>
+              <LocationBox>Address 1</LocationBox>
+          </LocationRow>
+          <LocationRow>
+              <LocationBox>Address 2</LocationBox>
+          </LocationRow>
+          <LocationRow>
+             <LocationScroll>Addres</LocationScroll>
+          </LocationRow>
+        </LocationWrapper>
+         <LocationWrapper>
+             <LocationRow>
+               <LocationSaved>Save new address</LocationSaved>
+             </LocationRow>
+             <LocationRow>
+                <LocationSwitch>
+                  <ImageEllipse source={require('../../../../assets/Ellipse.png')} />
+                </LocationSwitch>
+             </LocationRow>
+         </LocationWrapper>
+         <LocationType>Type in new location</LocationType>
+         <LocationNumber>House number</LocationNumber>
+         <LocationNumber>Street address</LocationNumber>
+         <LocationNumber>Bus stop</LocationNumber>
+         <LocationNumber>Local Govt area</LocationNumber>
+         <LocationBtn>continue</LocationBtn>
       </LocationContainer>
    );
 };

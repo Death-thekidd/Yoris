@@ -4,12 +4,10 @@ import {
   LogisticsPrimary,
   LogisticsWrapper,
   LogisticsRow,
-  Column1,
-  Column2,
   LogisticsSlot,
+  LogisticsReplace,
   LogisticsBox,
-  LogisticsBtnCont,
-   LogisticsBtn
+  LogisticsBtn
   } from '../components/address.styles';
 
 export default function LogisticsAddress() {
@@ -22,29 +20,25 @@ export default function LogisticsAddress() {
       <LogisticsPrimary>Save New Address?</LogisticsPrimary>
       <LogisticsWrapper>
          <LogisticsRow>
-            <Column1>
-              <LogisticsSlot>Create new slot</LogisticsSlot>
-              <LogisticsBox></LogisticsBox>
-            </Column1>
-            <Column2>
-              <LogisticsSlot>Replace</LogisticsSlot>
-              <LogisticsBox></LogisticsBox>
-            </Column2>
+             <LogisticsSlot>Create new slot</LogisticsSlot>
+             <LogisticsBox></LogisticsBox>
          </LogisticsRow>
+         <LogisticsRow>
+             <LogisticsReplace>Replace</LogisticsReplace>
+             <LogisticsBox></LogisticsBox>
+         </LogisticsRow>
+      </LogisticsWrapper>
+      <LogisticsWrapper>
         <LogisticsRow>
-          <Column1>
-             <LogisticsSlot>Replace</LogisticsSlot>
-             <LogisticsBox></LogisticsBox>
-          </Column1>
-          <Column2>
-             <LogisticsSlot>Replace</LogisticsSlot>
-             <LogisticsBox></LogisticsBox>
-          </Column2>
+           <LogisticsReplace>Replace</LogisticsReplace>
+           <LogisticsBox></LogisticsBox>
+        </LogisticsRow>
+        <LogisticsRow>
+           <LogisticsReplace>Replace</LogisticsReplace>
+           <LogisticsBox></LogisticsBox>
         </LogisticsRow>
       </LogisticsWrapper>
-       <LogisticsBtnCont>
-          <LogisticsBtn>continue</LogisticsBtn>
-       </LogisticsBtnCont>
+      <LogisticsBtn>continue</LogisticsBtn>
     </LogisticsContainer>
   );
 };
