@@ -4,7 +4,7 @@ export const LocationContainer = styled.View`
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: #000;
+   background-color: #000000;
 `;
 
  export const LocationWrapper = styled.View`
