@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import {
       LocationContainer,
       LocationWrapper,
@@ -21,6 +22,7 @@ import {
 
 export default function LogisticsLocation() {
    return (
+    <ScrollView>
       <LocationContainer>
         <LocationWrapper>
           <LocationRow>
@@ -50,7 +52,7 @@ export default function LogisticsLocation() {
               <LocationBox>Address 2</LocationBox>
           </LocationRow>
           <LocationRow>
-             <LocationScroll>Addres</LocationScroll>
+             <LocationScroll>Address 3</LocationScroll>
           </LocationRow>
         </LocationWrapper>
          <LocationWrapper>
@@ -70,5 +72,6 @@ export default function LogisticsLocation() {
          <LocationNumber>Local Govt area</LocationNumber>
          <LocationBtn>continue</LocationBtn>
       </LocationContainer>
+      </ScrollView>
    );
 };

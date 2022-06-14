@@ -7,7 +7,8 @@ import {
   LogisticsSlot,
   LogisticsReplace,
   LogisticsBox,
-  LogisticsBtn
+  LogisticsBtn,
+  LocationReceived
   } from '../components/address.styles';
 
 export default function LogisticsAddress() {

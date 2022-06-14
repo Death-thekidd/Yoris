@@ -28,12 +28,9 @@ background: #4d4100;
 export const ViewList = styled.TouchableOpacity`
 margin-right: 30px;
 justify-content: center;
-
 `;
 export const List = styled.FlatList`
 padding: 18px;
-
-
 `
 export const LogicticsBacground = styled.View`
               flex: 1;

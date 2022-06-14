@@ -1,7 +1,8 @@
 import React from 'react';
+import { FlatList, Dimensions } from 'react-native';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Logisticscreen from '../../features/logictics/screens/logisticscreen';
-import LogisticBooking from '../../features/logictics/screens/logisticBooking';
+import LogisticsBooking from '../../features/logictics/screens/logisticBooking';
 import LogisticsAddress from '../../features/logictics/screens/logisticsAddress';
 import LogisticsLocation from '../../features/logictics/screens/logisticsLocation';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -77,6 +78,10 @@ export const AccountNavigator = () => {
               name="Pick Up"
               component={LogisticsLocation}
             />
+            <Tabs.Screen
+            name="Booking"
+            component={LogisticsBooking}
+            />
         </Tabs.Navigator >
     );
 };
@@ -91,6 +96,7 @@ export const logisticNavigator = () => {
             <Stack.Screen name="Main" component={Logisticscreen} />
             <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
             <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
+            <Stack.Screen name="logisticsBooking" component={LogisticsBooking} />
         </Stack.Navigator>
     );
 };
