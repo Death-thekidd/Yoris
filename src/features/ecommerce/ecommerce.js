@@ -1,10 +1,10 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image, ScrollView} from 'react-native';
+import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {status} from './list';
 import {products} from './list';
 
-export default function TestDrive(){
+export default function TestDrive({navigation}){
 	return(
 		<SafeAreaView style= {styles.container}>
 			<View style={styles.vector}>
@@ -18,7 +18,9 @@ export default function TestDrive(){
 				<Text style={styles.industryText}>Industry 1</Text>
 				<View>
 					<View style={styles.seeAllView}>
+					<TouchableOpacity onPress={()=>navigation.navigate('Ecommerce2')}>
 						<Text style={styles.seeAll}>See all</Text>
+					</TouchableOpacity>	
 					</View>
 						<FlatList
 						data={status}
@@ -26,12 +28,12 @@ export default function TestDrive(){
 						keyExtractor={(item, index)=>index.toString()}
 						showsHorizontalScrollIndicator={false}
 						renderItem={({item, index})=>
-							<View style={styles.imageView}>
+							<TouchableOpacity style={styles.imageView} onPress={()=>navigation.navigate('Ecommerce3')}>
 							
 								<Image source={item} style={styles.image} key={index}/>
 								<Text style={styles.brandName}>Brand Name</Text>
 								<Text style={styles.km}>70Km away</Text>
-							</View>
+							</TouchableOpacity>
 						}
 						/>
 				</View>
@@ -115,8 +117,8 @@ const styles = StyleSheet.create({
 		height:'10%'
 	},
 	image:{
-		height:80,
-		width:80,
+		height:60,
+		width:60,
 		margin:20,
 		borderRadius:5
 	},
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
 	imageVieww:{
 		alignItems:'center',
 		justifyContent:'center',
-		margin:0,
+		margin:10,
 		padding:0
 	},
 	vector:{

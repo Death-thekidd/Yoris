@@ -5,10 +5,42 @@ import LogisticBooking from '../../features/logictics/screens/logisticBooking';
 import { createStackNavigator } from '@react-navigation/stack'
 import Stores from '../../features/Stores/Stores.screen'
 import Ecommerce from '../../features/ecommerce/ecommerce'
+import Ecommerce2 from '../../features/ecommerce/ecommerce2'
+import Ecommerce3 from '../../features/ecommerce/ecommerce3'
 
 
 /// just the way we use the stack navigation
-Tabs = createMaterialTopTabNavigator();
+const Tabs = createMaterialTopTabNavigator();
+const Screens = createStackNavigator();
+
+const NewScreen = ()=>{
+    return(
+         <Screens.Navigator>
+
+                <Screens.Screen
+                    name="Ecommerce"
+                    component={Ecommerce}
+                    options={{
+      headerShown: false,}}
+                />
+                <Screens.Screen
+                    name="Ecommerce2"
+                    component={Ecommerce2}
+                    options={{
+      headerShown: false,}}
+                />
+                <Screens.Screen
+                    name="Ecommerce3"
+                    component={Ecommerce3}
+                    options={{
+      headerShown: false,}}
+                />
+            </Screens.Navigator>
+
+
+        )
+    
+}
 
 export const AccountNavigator = () => {
 
@@ -67,9 +99,10 @@ export const AccountNavigator = () => {
             />
             <Tabs.Screen
                 name="Ecommerce"
-                component={Ecommerce}
+                component={NewScreen}
+                options={{
+      headerShown: false,}}
             />
-
             <Tabs.Screen
                 name="Puddle"
                 component={Logisticscreen}
