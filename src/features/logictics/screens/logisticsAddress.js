@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 import {
   LogisticsContainer,
   LogisticsPrimary,
@@ -17,6 +18,7 @@ export default function LogisticsAddress() {
           const color = "type" === "primary" ? "#FFFFFF" : "#000000"
       }
   return (
+   <SafeAreaView>
     <LogisticsContainer>
       <LogisticsPrimary>Save New Address?</LogisticsPrimary>
       <LogisticsWrapper>
@@ -41,5 +43,6 @@ export default function LogisticsAddress() {
       </LogisticsWrapper>
       <LogisticsBtn>continue</LogisticsBtn>
     </LogisticsContainer>
+   </SafeAreaView>
   );
 };

@@ -4,7 +4,11 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Logisticscreen from '../../features/logictics/screens/logisticscreen';
 import LogisticsBooking from '../../features/logictics/screens/logisticBooking';
 import LogisticsAddress from '../../features/logictics/screens/logisticsAddress';
-import LogisticsLocation from '../../features/logictics/screens/logisticsLocation';
+import LogisticsLocation from '../../features/logictics/screens/logisticslocation';
+import LogisticsSender from '../../features/logictics/screens/logisticsSender';
+import LogisticsReceived from '../../features/logictics/screens/logisticsReceived';
+import LogisticsGoods from '../../features/logictics/screens/logisticsGoods';
+import LogisticsVehicle from '../../features/logictics/screens/logisticsVehicle';
 import { createStackNavigator } from '@react-navigation/stack';
 import Stores from '../../features/Stores/Stores.screen';
 
@@ -13,11 +17,10 @@ import Stores from '../../features/Stores/Stores.screen';
 const Tabs = createMaterialTopTabNavigator();
 
 export const AccountNavigator = () => {
-
     return (
         <Tabs.Navigator
             headerMode="none"
-            style={{ backgroundColor: "#fff", paddingTop: 30, }}
+            style={{ backgroundColor: "#fff", paddingTop: 10, }}
             // screenOptions={{
             //     activeTintColor: "#FFC300",
             //     inactiveTintColor: "#353935",
@@ -67,10 +70,6 @@ export const AccountNavigator = () => {
                 component={Stores}
             />
             <Tabs.Screen
-                name="Puddle"
-                component={Logisticscreen}
-            />
-            <Tabs.Screen
                 name="Yoris Pay"
                 component={LogisticsAddress}
             />
@@ -81,6 +80,22 @@ export const AccountNavigator = () => {
             <Tabs.Screen
             name="Booking"
             component={LogisticsBooking}
+            />
+            <Tabs.Screen
+            name="sender"
+            component={LogisticsSender}
+            />
+            <Tabs.Screen
+            name="received"
+            component={LogisticsReceived}
+            />
+            <Tabs.Screen
+            name="goods"
+            component={LogisticsGoods}
+            />
+            <Tabs.Screen
+            name="vehicle"
+            component={LogisticsVehicle}
             />
         </Tabs.Navigator >
     );
@@ -97,6 +112,10 @@ export const logisticNavigator = () => {
             <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
             <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
             <Stack.Screen name="logisticsBooking" component={LogisticsBooking} />
+            <Stack.Screen name="logisticsSender" component={LogisticsSender} />
+            <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
+            <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
+            <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
         </Stack.Navigator>
     );
 };

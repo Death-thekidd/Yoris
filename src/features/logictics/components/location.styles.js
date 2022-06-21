@@ -1,12 +1,10 @@
 import styled from 'styled-components/native';
-import { TextInput } from 'react-native-paper';
 
 export const LocationContainer = styled.View`
    display: flex;
    align-items: center;
    justify-content: center;
    background-color: #000;
-   padding-top: 25px;
    flex: 1;
 `;
 

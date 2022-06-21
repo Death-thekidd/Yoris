@@ -64,16 +64,16 @@ export const LogisticsPrimary = styled.Text`
  `;
 
 export const LogisticsBtn = styled.Text`
-   width: 280px;
-   height: 48px;
-   top: 30px;
-   position: relative;
-   left: 10px;
-   padding: 12px;
-   color: #000;
-   text-align: center;
-   font-size: 15px;
-   text-transform: uppercase;
-   background: #C3AD60;
-   border-radius: 5px;
+     position: relative;
+     width: 260px
+     height: 80px;
+     padding: 12px;
+     top: 30px;
+     text-align: center;
+     color: #000;
+     font-weight: 400;
+     font-size: 18px;
+     background: #C3AD60;
+     border-radius: 5px;
+     text-transform: uppercase;
 `;
