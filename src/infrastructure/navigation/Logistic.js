@@ -47,7 +47,6 @@ export const AccountNavigator = () => {
     return (
         <Tabs.Navigator
             headerMode="none"
-            style={{ backgroundColor: "#A7A5A6", paddingTop: 30, }}
             // screenOptions={{
             //     activeTintColor: "#FFC300",
             //     inactiveTintColor: "#353935",
@@ -57,6 +56,8 @@ export const AccountNavigator = () => {
             // }}
             screenOptions={{
                 activeTintColor: "#50d3a7",
+                 tabBarActiveTintColor: '#fff',
+              tabBarInactiveTintColor: '#ddd',
                 inactiveTintColor: "white",
                 tabBarPressColor: '#cec6c6',
                 tabBarShowIcon: true,

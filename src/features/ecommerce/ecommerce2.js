@@ -8,6 +8,7 @@ import {products} from './list';
 import {productsPage2} from './list';
 import {products2Page2} from './list';
 import {VectorHeader} from '../../components/screenComponents/components';
+import styled from 'styled-components/native'
 
 
 export default function TestDrive({navigation}){

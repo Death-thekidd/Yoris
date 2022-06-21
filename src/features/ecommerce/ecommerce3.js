@@ -9,14 +9,44 @@ import {productsPage2} from './list';
 import {products2Page2} from './list';
 import {VectorHeader2} from '../../components/screenComponents/components';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import styled from 'styled-components/native';
+
 
 
 const Tabs = createMaterialTopTabNavigator();
 
 
+const StyledText= styled.Text`
+  
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+letter-spacing: -0.333333px;
+
+color: #FFFFFF;
+`;
+
+const StyledText1= styled.Text`
+  
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 42px;
+text-align: center;
+letter-spacing: -0.333333px;
+
+color: #FFFFFF;
+`;
+
+
+
 const Products=()=>{
 	return(
-		<View style={{alignItems:'center', justifyContent:'center', flex:1}}>
+		<View style={{alignItems:'center', justifyContent:'center', flex:1, backgroundColor:'#000000'}}>
 				<FlatList
 						data={products}
 						numColumns={3}
@@ -71,8 +101,10 @@ export default function TestDrive({navigation}){
 
 			</View>
 			<View style={{alignItems:'center'}}>
-				<Text style={{color:'white', fontWeight:'700', fontSize:26}}>Brand Name</Text>
-				<Text style={{color:'white', fontSize:14, width:'70%', alignItems:'center'}}>jfgjkdsbvjkdfbsjvfbujdfbvjdfsbvujkfbujndfbsvhdfsjvbjkdfbvjk,drfoigjrf</Text>
+				<StyledText1>Brand Name</StyledText1>
+				<View style={{alignItems:'center', justifyContent:'center', width:'90%' }}>
+				<StyledText >jfgjkdsbvjkdfbsjvfbujdfbvjdfsbvujkfbuf</StyledText>
+				</View>
 			</View>
 			<View style={styles.buttons}>
 				<TouchableOpacity style={styles.button}><Text style={{fontSize:15}}>Follow</Text><Icon2 name="plus" style={{marginLeft:20}} size={25} /></TouchableOpacity>
@@ -81,19 +113,18 @@ export default function TestDrive({navigation}){
 
 			 <Tabs.Navigator
             headerMode="none"
-             headerMode="none"
-            style={{ backgroundColor: "#A7A5A6", paddingTop: 30, }}
             screenOptions={{
-                activeTintColor: "#50d3a7",
-                inactiveTintColor: "white",
-                tabBarPressColor: '#cec6c6',
                 tabBarShowIcon: true,
+                tabBarActiveTintColor: '#fff',
+        	  tabBarInactiveTintColor: '#ddd',
+                tabBarIndicatorStyle: {
+                    backgroundColor: '#C3AD60',
+                },
 
                 tabBarStyle: {
-                    borderTopColor: "000000",
-                    borderTopWidth: 0,
-                    elevation: 0,
-                    backgroundColor: '#0B090A',
+                    borderTopWidth: 2,
+                    elevation: 10,
+                    backgroundColor: '#000',
                     borderRadius: 1
 
                 }
@@ -156,7 +187,7 @@ const styles = StyleSheet.create({
 		fontSize:17, 
 		fontWeight:'400', 
 		fontFamily:'Roboto', 
-		color:'white', 
+		color:'#fff', 
 		fontSize:15,
 		paddingBottom:5
 	},
