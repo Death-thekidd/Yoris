@@ -71,21 +71,20 @@ export const ImageVehicle = styled.Image`
 
 export const VehicleSecondary = styled.Text`
    color: #fff;
-   font-size: 17px;
+   font-size: 13px;
+   position: relative;
    left: 70px;
 `;
 
-export const VehicleTertiary = styled.Text`
-   color: #fff;
-   font-size: 17px;
-   left: 50px;
-`;
 
 export const VehicleText = styled.Text`
    color: #C4C4C4;
    font-size: 10px;
+   position: relative;
    left: 70px;
+   opacity: 0.5;
 `;
+
 
 export const VehicleBtn = styled.Text`
    position: relative;

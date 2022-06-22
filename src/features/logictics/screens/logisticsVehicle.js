@@ -12,6 +12,8 @@ import {
     ImageVehicle,
     VehicleSecondary,
     VehicleTertiary,
+    VehicleJet,
+    VehicleCopy,
     VehicleText,
     VehicleBtn
   } from '../components/vehicle.styles';
@@ -62,7 +64,7 @@ export default function LogisticsVehicle() {
                <ImageVehicle source={require('../../../../assets/vehicle5.png')} />
             </VehicleRow>
             <VehicleRow>
-               <VehicleTertiary>Bus</VehicleTertiary>
+               <VehicleSecondary>Bus</VehicleSecondary>
                <VehicleText>Medium - Large size</VehicleText>
                <VehicleText>packages,inter state.</VehicleText>
             </VehicleRow>
@@ -74,7 +76,7 @@ export default function LogisticsVehicle() {
              <ImageVehicle source={require('../../../../assets/vehicle3.png')} />
            </VehicleRow>
            <VehicleRow>
-             <VehicleTertiary>Aeroplane</VehicleTertiary>
+             <VehicleSecondary>Aeroplane</VehicleSecondary>
              <VehicleText>All size packages</VehicleText>
              <VehicleText>Local and International</VehicleText>
              <VehicleText>express delivery</VehicleText>
@@ -87,7 +89,7 @@ export default function LogisticsVehicle() {
               <ImageVehicle source={require('../../../../assets/vehicle2.png')} />
            </VehicleRow>
            <VehicleRow>
-             <VehicleTertiary>Ship</VehicleTertiary>
+             <VehicleSecondary>Ship</VehicleSecondary>
              <VehicleText>All size packages</VehicleText>
              <VehicleText>Local and International</VehicleText>
            </VehicleRow>

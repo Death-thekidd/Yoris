@@ -59,7 +59,7 @@ export const LogisticsPrimary = styled.Text`
     height: 96px;
     background: #4E4E4E;
     border-radius: 5px;
-    top: 20px;
+    top: 10px;
     left: 20px;
  `;
 

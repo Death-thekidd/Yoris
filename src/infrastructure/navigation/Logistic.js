@@ -9,6 +9,7 @@ import LogisticsSender from '../../features/logictics/screens/logisticsSender';
 import LogisticsReceived from '../../features/logictics/screens/logisticsReceived';
 import LogisticsGoods from '../../features/logictics/screens/logisticsGoods';
 import LogisticsVehicle from '../../features/logictics/screens/logisticsVehicle';
+import LogisticsShipping from '../../features/logictics/screens/logisticsShipping';
 import { createStackNavigator } from '@react-navigation/stack';
 import Stores from '../../features/Stores/Stores.screen';
 
@@ -97,6 +98,10 @@ export const AccountNavigator = () => {
             name="vehicle"
             component={LogisticsVehicle}
             />
+            <Tabs.Screen 
+            name="shipping"
+            component={LogisticsShipping} 
+            />
         </Tabs.Navigator >
     );
 };
@@ -116,6 +121,7 @@ export const logisticNavigator = () => {
             <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
             <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
             <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
+            <Stack.Screen name="logisticsShipping" component={LogisticsShipping} />
         </Stack.Navigator>
     );
 };
