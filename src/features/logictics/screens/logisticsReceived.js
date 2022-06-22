@@ -28,8 +28,6 @@ export default function LogisticsReceived() {
    const [Receiver, setReceiver] = useState("");
    const [phoneNumber, setPhoneNumber] = useState("");
    return (
-    <SafeAreaView>
-    <ScrollView>
      <LocationContainer>
         <LocationWrapper>
            <LocationRow>
@@ -97,7 +95,5 @@ export default function LogisticsReceived() {
             </LocationWrapper>
             <LocationBtn>continue</LocationBtn>
      </LocationContainer>
-     </ScrollView>
-    </SafeAreaView>
    );
 };

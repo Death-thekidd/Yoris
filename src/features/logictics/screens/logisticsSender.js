@@ -29,8 +29,6 @@ export default function LogisticsSender() {
      const [Sender, setSender] = useState("");
      const [phoneNumber, setPhoneNumber] = useState("");
    return (
-   <SafeAreaView>
-   <ScrollView>
    <LocationContainer>
      <LocationWrapper>
         <LocationRow>
@@ -104,7 +102,5 @@ export default function LogisticsSender() {
          <LocationNumber>Local Govt area</LocationNumber>
          <LocationBtn>continue</LocationBtn>
      </LocationContainer>
-     </ScrollView>
-     </SafeAreaView>
    );
 };
