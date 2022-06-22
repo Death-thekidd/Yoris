@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React from "react";
 import { SafeAreaView } from "react-native";
+=======
+import React from 'react';
+>>>>>>> f61d0493021ea5ae83500f94fc66a7b3675860bb
 import {
   LogisticsContainer,
   LogisticsPrimary,
