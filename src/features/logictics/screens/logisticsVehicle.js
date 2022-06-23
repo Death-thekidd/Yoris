@@ -1,5 +1,4 @@
 import React from "react";
-import { SafeAreaView, ScrollView } from "react-native";
 import {
   VehicleContainer,
   VehicleWrapper,

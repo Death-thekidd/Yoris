@@ -8,6 +8,7 @@ export default function LogisticsInfo({
   secondLabel,
   secondValue,
   style,
+  helper,
 }) {
   const { width } = Dimensions.get("window");
   return (
@@ -18,15 +19,19 @@ export default function LogisticsInfo({
           width: width / 1.3,
           // marginVertical: 10,
           justifyContent: "center",
-          padding: 15,
+          padding: 10,
           alignSelf: "center",
           borderRadius: 5,
         },
         style,
       ]}
     >
-      <LogisticsInfoItem label={firstLabel} value={firstValue} />
-      <LogisticsInfoItem label={secondLabel} value={secondValue} />
+      <LogisticsInfoItem
+        label={firstLabel}
+        value={firstValue}
+        helper={helper}
+      />
+      <LogisticsInfoItem label={secondLabel} value={secondValue} second />
     </View>
   );
 }

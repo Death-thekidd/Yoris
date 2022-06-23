@@ -27,8 +27,6 @@ export default function Selector({
       onSelect={onSelect}
       defaultButtonText={defaultButtonText}
       buttonStyle={{
-        height: 25,
-        width: 135,
         borderRadius: 6,
         backgroundColor: "#9A8340",
         ...buttonStyle,

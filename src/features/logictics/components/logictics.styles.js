@@ -4,9 +4,9 @@ import { colors } from "../../../infrastructure/theme/colors";
 import { fonts } from "../../../infrastructure/theme/fonts";
 
 export const Title = styled.Text`
-  textalign: center;
-  justifycontent: space-between;
-  alignitems: center;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
   color: #8b9100;
   font-weight: bold;
   text-transform: uppercase;
@@ -17,19 +17,34 @@ export const CategoryView = styled.View`
 
 export const LogisticsInfoItem = styled.View`
   flex-direction: row;
-  margin-vertical: 5;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  justify-content: space-around;
 `;
 export const LogisticsInfoItemText = styled.Text`
   color: #fff;
-  padding-right: 20px;
-  padding-left: 20px;
+  text-align: left;
 `;
 export const LogisticsInfoItemTextBold = styled.Text`
   color: #fff;
+  font-weight: bold;
+`;
+export const LogisticsInfoItemHelperContainer = styled.Text`
   padding-left: 20px;
   padding-right: 20px;
   font-weight: bold;
+  flex-direction: column;
+`;
+export const LogisticsInfoItemHelperText = styled.Text`
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: #fff;
+  padding: 0 8px;
+  font-size: 12.3px;
   align-self: flex-end;
+  /* text-align: center; */
+  justify-content: center;
+  width: 135%;
 `;
 
 export const LogisticsCountryContainer = styled.View`
@@ -43,10 +58,10 @@ export const LogisticsCountryText = styled.Text`
 `;
 
 export const LogisticsHeaderIconContainer = styled.View`
-justifyContent: space-between;
-flexDirection: row
-alignContent: space-between;
-padding: 20px;
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: space-between;
+  padding: 20px;
 `;
 
 export const ItemView = styled.View`
@@ -102,24 +117,25 @@ export const LogisticBtn = styled(Button).attrs({ color: colors.ui.primary })`
   justify-content: center;
 `;
 
-export const ContinueButton = styled(Button).attrs({
-  color: colors.ui.primary,
-})`
-  font-weight: 900;
-  font-size: 110px;
+export const ContinueButton = styled.Pressable`
   margin-top: 10px;
-
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 `;
+
+export const ContinuewButtonText = styled.Text`
+  color: ${colors.ui.primary};
+  /* font-weight: 500; */
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+`;
+
 export const ContinueView = styled.View`
-    width: 330px;
-    height: 64px;
-
-    text-align:center;
-    align-self:center
-    background: #C3AD60;
-    border: 1px solid #9A8340;
-    border-radius: 10px;
-    
-
-  `;
+  width: 330px;
+  height: 64px;
+  text-align: center;
+  align-self: center;
+  background: #c3ad60;
+  border: 1px solid #9a8340;
+  border-radius: 10px;
+`;

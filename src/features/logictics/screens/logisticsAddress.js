@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React from "react";
 import { SafeAreaView } from "react-native";
-=======
-import React from 'react';
->>>>>>> f61d0493021ea5ae83500f94fc66a7b3675860bb
 import {
   LogisticsContainer,
   LogisticsPrimary,
@@ -17,10 +13,6 @@ import {
 } from "../components/address.styles";
 
 export default function LogisticsAddress() {
-  const Button = ({ type, text }) => {
-    const backgroundColor = type === "primary" ? "#9A8340" : "#A7A5A6";
-    const color = "type" === "primary" ? "#FFFFFF" : "#000000";
-  };
   return (
     <LogisticsContainer>
       <LogisticsPrimary>Save New Address?</LogisticsPrimary>

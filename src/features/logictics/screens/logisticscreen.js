@@ -6,17 +6,11 @@ import {
   LogisticsCountryText,
   LogisticsCountryContainer,
   LogisticsHeaderIconContainer,
+  ContinuewButtonText,
 } from "../components/logictics.styles";
 import { getNames } from "country-list";
 import { Spacer } from "../../../components/spacer/spacer.component";
-import {
-  Text,
-  View,
-  Dimensions,
-  Image,
-  Pressable,
-  StyleSheet,
-} from "react-native";
+import { Text, View, Image, Pressable, StyleSheet } from "react-native";
 import Selector from "../../../components/Selector";
 import LogisticsInfo from "../components/LogisticsInfo";
 import LogisticsButtonTabGroup from "../components/LogisticsButtonTabGroup";
@@ -76,7 +70,7 @@ export default function Logisticscreen({ navigation }) {
   const {
     showDatepicker,
     show: showDateTimePicker,
-    onChange,
+    onChange: onChangeDate,
     date,
     mode,
     showTimepicker,
@@ -115,10 +109,10 @@ export default function Logisticscreen({ navigation }) {
         {isInternationalActive && (
           <View
             style={{
-              marginHorizontal: 15,
+              // marginHorizontal: 15,
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: "flex-start",
             }}
           >
             <LogisticsCountryContainer>
@@ -128,6 +122,11 @@ export default function Logisticscreen({ navigation }) {
                 data={countries}
                 defaultButtonText={"Select Country"}
                 setSelectedItem={setSelectedFrom}
+                buttonStyle={{
+                  // padding: 10,
+                  height: 35,
+                  width: 125,
+                }}
               />
               {/* Send  */}
             </LogisticsCountryContainer>
@@ -139,6 +138,10 @@ export default function Logisticscreen({ navigation }) {
                 data={countries}
                 defaultButtonText={"Select Country"}
                 setSelectedItem={setSelectedTo}
+                buttonStyle={{
+                  height: 35,
+                  width: 125,
+                }}
               />
             </LogisticsCountryContainer>
           </View>
@@ -178,6 +181,7 @@ export default function Logisticscreen({ navigation }) {
               <LogisticsInfo
                 firstLabel={"Charge"}
                 firstValue={"$100 per CBM"}
+                helper={"CBM = Cubic Meter"}
                 secondLabel={"Time Frame"}
                 secondValue={"45 - 60 days"}
               />
@@ -210,9 +214,9 @@ export default function Logisticscreen({ navigation }) {
         <Spacer size="xxl">
           <ContinueView>
             <ContinueButton
-              onPress={() => navigation.navigate("logisticBooking")}
+              onPress={() => navigation.navigate("logisticsBooking")}
             >
-              continue
+              <ContinuewButtonText> continue</ContinuewButtonText>
             </ContinueButton>
           </ContinueView>
         </Spacer>
@@ -224,7 +228,7 @@ export default function Logisticscreen({ navigation }) {
           value={date}
           mode={mode}
           is24Hour={true}
-          onChange={onChange}
+          onChange={onChangeDate}
           style={{
             backgroundColor: "#9A8340",
           }}

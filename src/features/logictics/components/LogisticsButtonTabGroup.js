@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     borderColor: "#C3AD60",
     borderWidth: 2,
     marginVertical: 5,
+    boxShadow: "inset 4px 4px 8px rgba(0, 0, 0, 0.25)",
   },
 });

@@ -11,6 +11,11 @@ import LogisticsGoods from "../../features/logictics/screens/logisticsGoods";
 import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle";
 import { createStackNavigator } from "@react-navigation/stack";
 import Stores from "../../features/Stores/Stores.screen";
+import {
+  PaymentScreen,
+  PaymentOptions,
+  ConfirmedPayment,
+} from "../../features/payment/screens";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
@@ -29,6 +34,8 @@ export const AccountNavigator = () => {
       // }}
       screenOptions={{
         activeTintColor: "#50d3a7",
+        tabBarActiveTintColor: "#fff",
+        tabBarInactiveTintColor: "#ddd",
         inactiveTintColor: "white",
         tabBarPressColor: "#cec6c6",
         tabBarShowIcon: true,
@@ -37,16 +44,14 @@ export const AccountNavigator = () => {
         },
 
         tabBarStyle: {
-          borderTopColor: "9A8340",
+          borderTopColor: "#9A8340",
           borderTopWidth: 2,
           elevation: 10,
           backgroundColor: "#0B090A",
           borderRadius: 1,
         },
       }}
-      tabBarOptions={{
-        showIcon: true,
-        pressColor: "#856",
+      /* tabBarOptions={{
         scrollEnabled: false,
         tabStyle: {
           backgroundColor: "#000",
@@ -64,7 +69,7 @@ export const AccountNavigator = () => {
           width: "90%",
           labelStyle: { fontSize: 2 },
         },
-      }}
+      }} */
     >
       <Tabs.Screen name="Logistic" component={Logisticscreen} />
       <Tabs.Screen name="Store" component={Stores} />
@@ -74,7 +79,6 @@ export const AccountNavigator = () => {
       <Tabs.Screen name="sender" component={LogisticsSender} />
       <Tabs.Screen name="received" component={LogisticsReceived} />
       <Tabs.Screen name="goods" component={LogisticsGoods} />
-      <Tabs.Screen name="vehicle" component={LogisticsVehicle} />
     </Tabs.Navigator>
   );
 };
@@ -93,7 +97,10 @@ export const logisticNavigator = () => {
       <Stack.Screen name="logisticsSender" component={LogisticsSender} />
       <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
       <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
-      <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
+      {/* <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} /> */}
+      <Stack.Screen name="paymentScreen" component={PaymentScreen} />
+      <Stack.Screen name="paymentOptions" component={PaymentOptions} />
+      <Stack.Screen name="confirmedPayment" component={ConfirmedPayment} />
     </Stack.Navigator>
   );
 };
