@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { TextInput } from 'react-native-paper';
 
 export const LocationContainer = styled.View`
    display: flex;
@@ -177,9 +178,9 @@ export const LocationReceived = styled.Text`
    right: 80px;
 `;
 
-export const LocationInput = styled.View`
+export const LocationInput = styled(TextInput)`
    width: 70%;
-   height: 7px;
+   height: 3px;
    margin-right: auto;
    margin-left: auto;
    position: relative;
@@ -204,12 +205,12 @@ export const LocationPhone = styled.Text`
     text-align: left;
 `;
 
-export const PhoneInput = styled.View`
+
+export const PhoneInput = styled(TextInput)`
      width: 200px;
-     height: 7px;
+     height: 3px;
      position: relative;
      top: 10px;
      background: #C4C4C4;
-     right: 10px;
-     border: 3px;
+     border-bottom: 3px;
 `;
