@@ -2,20 +2,50 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {status} from './list';
+import {ads} from './list';
 import {products} from './list';
+import styled from 'styled-components/native';
 
-export default function TestDrive({navigation}){
+
+
+const Industry= styled.Text`
+  
+		color:#C3AD60;
+		font-family: Roboto; 
+		font-weight: 400;
+		font-size: 15px; 
+		line-height:21.09px; 
+		margin-left:20px;
+`;
+
+
+const StyledCart= styled.Image`
+		width: 20px;
+		height: 20px;
+		margin-left:20px;
+`;
+
+const StyledHamburger= styled.Image`
+		width: 20px;
+		height: 20px;
+		margin-right:20px;
+`;
+
+
+export default function Ecommerce({navigation}){
 	return(
 		<SafeAreaView style= {styles.container}>
 			<View style={styles.vector}>
-				<Icon name="shopping-cart" style={{marginLeft:20}} size={25} color="#C3AD60" />
+			<TouchableOpacity onPress={()=>navigation.navigate('Ecommerce6')}>
+				<StyledCart source={require('../assets/cart.png')}/>
+			</TouchableOpacity>	
 				<View style={styles.vectorRight}>
-					<Icon name="search" style={{marginRight:25}} size={25} color="#C3AD60" />
-					<Icon name="align-right" style={{marginRight:20}} size={25} color="#C3AD60" />
+					<Icon name="search" style={{marginRight:30}} size={20} color="#C3AD60" />
+					<StyledHamburger source={require('../assets/hamburger.png')}/>
 				</View>
 			</View>
 			<View style={styles.industry}>
-				<Text style={styles.industryText}>Industry 1</Text>
+				<Industry>Industry</Industry>
 				<View>
 					<View style={styles.seeAllView}>
 					<TouchableOpacity onPress={()=>navigation.navigate('Ecommerce2')}>
@@ -38,9 +68,20 @@ export default function TestDrive({navigation}){
 						/>
 				</View>
 			</View>
-			<View style={styles.ad}>
-				<Image source={require('../assets/ad.png')} style={styles.imageAd}/>
-			</View>
+			<View style={styles.industry}>
+			<FlatList
+						data={ads}
+						horizontal={true}
+						keyExtractor={(item, index)=>index.toString()}
+						showsHorizontalScrollIndicator={false}
+						renderItem={({item, index})=>
+							<View style={styles.ad}>
+								<Image source={item} key={index} style={styles.imageAd}/>
+							</View>
+						}
+						/>
+			</View>			
+			
 			<View style={{alignItems:'center', justifyContent:'center', flex:1}}>
 				<FlatList
 						data={products}
@@ -49,16 +90,17 @@ export default function TestDrive({navigation}){
 						keyExtractor={(item, index)=>index.toString()}
 						renderItem={({item, index})=>
 							<View style={styles.imageVieww}>
-							
+							<TouchableOpacity onPress={()=>navigation.navigate('Ecommerce5')} style={styles.imageView}>
 								<Image source={item.image} style={styles.image} key={index}/>
 								<Text style={styles.brandName}>Product Name</Text>
 								<Text style={styles.km}>N0.00</Text>
+							</TouchableOpacity>	
 							</View>
 						}
 						/>
 
 			</View>
-			<Text style={styles.seeAll}>See all</Text>	
+			<TouchableOpacity onPress={()=>navigation.navigate('Ecommerce4')}><Text style={styles.seeAll}>See all</Text></TouchableOpacity>	
 		</SafeAreaView>
 
 		)
@@ -70,7 +112,9 @@ const styles = StyleSheet.create({
 	},
 	industry:{
 		height:'30%', 
-		justifyContent:'center'
+		justifyContent:'center',
+
+		
 	},
 	industryText:{
 		color:'#C3AD60', 
@@ -97,11 +141,12 @@ const styles = StyleSheet.create({
 		fontWeight:'400', 
 		fontFamily:'Roboto', 
 		color:'white', 
-		fontSize:15
+		fontSize:10,
 	},
 	km:{
 		color:'#4E4E4E', 
-		fontFamily:'Roboto'
+		fontFamily:'Roboto',
+		fontSize:10
 	},
 	input:{
 		backgroundColor:'#444444',
@@ -120,9 +165,12 @@ const styles = StyleSheet.create({
 		height:60,
 		width:60,
 		margin:20,
-		borderRadius:5
+		borderRadius:17,
 	},
-
+	ad:{
+		marginTop:15,
+		marginBottom:15
+	},
 	imageView:{
 		alignItems:'center',
 		justifyContent:'center'
@@ -143,13 +191,13 @@ const styles = StyleSheet.create({
 		flexDirection:'row',
 		
 	},
-	ad:{
-		marginTop:40,
-		marginBottom:40  
-	},
 	imageAd:{
-		height:140,
-		width:'100%'
+		width:400,
+		marginLeft:5,
+		height:'100%',
+		resizeMode:'cover',
+		resizeMethod:'auto',
+		borderRadius:20,
 	}
 
 

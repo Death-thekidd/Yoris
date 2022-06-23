@@ -10,6 +10,7 @@ import {products2Page2} from './list';
 import {VectorHeader2} from '../../components/screenComponents/components';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import styled from 'styled-components/native';
+import Posts from './posts'
 
 
 
@@ -44,9 +45,16 @@ color: #FFFFFF;
 
 
 
-const Products=()=>{
+
+
+
+
+
+
+
+const Products=({navigation})=>{
 	return(
-		<View style={{alignItems:'center', justifyContent:'center', flex:1, backgroundColor:'#000000'}}>
+		<View style={styles.products}>
 				<FlatList
 						data={products}
 						numColumns={3}
@@ -54,10 +62,11 @@ const Products=()=>{
 						keyExtractor={(item, index)=>index.toString()}
 						renderItem={({item, index})=>
 							<View style={styles.imageVieww}>
-							
+							<TouchableOpacity onPress={()=>navigation.navigate('Ecommerce5')} style={styles.imageView}>
 								<Image source={item.image} style={styles.image} key={index}/>
 								<Text style={styles.brandName}>Product Name</Text>
 								<Text style={styles.km}>N0.00</Text>
+							</TouchableOpacity>	
 							</View>
 						}
 						/>
@@ -65,15 +74,10 @@ const Products=()=>{
 			</View>
 		)
 }
-const Posts=()=>{
-	return(
-		<View style={{alignItems:'center', justifyContent:'center', flex:1}}>
-			</View>
-		)
-}
+
 const Reviews=()=>{
 	return(
-		<View style={{alignItems:'center', justifyContent:'center', flex:1}}>
+		<View style={{alignItems:'center', justifyContent:'center', flex:1, backgroundColor:'#000000'}}>
 			</View>
 		)
 }
@@ -81,17 +85,19 @@ const Reviews=()=>{
 
 
 
-export default function TestDrive({navigation}){
+export default function Ecommerce3({navigation}){
 	const [brandView, setBrandView]= useState(true);
 	const handleBrandView = ()=>{
 		setBrandView(!brandView)
 	}
+	const handleCart = ()=>{navigation.navigate('Ecommerce6')};
 	
 	return(
 		<SafeAreaView style= {styles.container}>
 			<VectorHeader2
 			goBack={()=>navigation.goBack()}
-			handleBrandView={()=>handleBrandView()}/>
+			handleBrandView={()=>handleBrandView()}
+			handleCart={()=>handleCart()}/>
 			<View style={styles.header}>
 				<View>
 					<Image source={require('../assets/header.png')} style={styles.imageAd}/>
@@ -103,7 +109,7 @@ export default function TestDrive({navigation}){
 			<View style={{alignItems:'center'}}>
 				<StyledText1>Brand Name</StyledText1>
 				<View style={{alignItems:'center', justifyContent:'center', width:'90%' }}>
-				<StyledText >jfgjkdsbvjkdfbsjvfbujdfbvjdfsbvujkfbuf</StyledText>
+				<StyledText >Brand Description: Lorem ipsum dolor, sit ahmet... This is pretty much the brand’s bio.</StyledText>
 				</View>
 			</View>
 			<View style={styles.buttons}>
@@ -188,12 +194,15 @@ const styles = StyleSheet.create({
 		fontWeight:'400', 
 		fontFamily:'Roboto', 
 		color:'#fff', 
-		fontSize:15,
-		paddingBottom:5
+		fontSize:10,
+		textAlign:'center',
 	},
 	km:{
 		color:'#4E4E4E', 
 		fontFamily:'Roboto',
+		fontSize:10,
+		textAlign:'center',
+
 	},
 	input:{
 		backgroundColor:'#444444',
@@ -212,7 +221,13 @@ const styles = StyleSheet.create({
 		height:60,
 		width:60,
 		margin:20,
-		borderRadius:5
+		borderRadius:17
+	},
+	image2:{
+		borderRadius:50,
+		width:55,
+		height:55,
+		marginLeft:25
 	},
 
 	imageView:{
@@ -246,6 +261,12 @@ const styles = StyleSheet.create({
 		top:'50%',
 		padding:0,
 		margin:0
+	},
+	products:{
+		flex:1, 
+		backgroundColor:'#000000', 
+		justifyContent:'center',
+		alignItems:'center'
 	},
 	button:{
 		borderRadius:25,

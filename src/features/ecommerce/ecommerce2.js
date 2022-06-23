@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-import Icon from 'react-native-vector-icons/Feather';
-import Icon2  from 'react-native-vector-icons/AntDesign';
-import Icon3 from 'react-native-vector-icons/MaterialIcons';
 import {View, SafeAreaView, Text, StyleSheet, TextInput, FlatList, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {status} from './list';
 import {products} from './list';
@@ -11,17 +8,19 @@ import {VectorHeader} from '../../components/screenComponents/components';
 import styled from 'styled-components/native'
 
 
-export default function TestDrive({navigation}){
+export default function Ecommerce2({navigation}){
 	const [brandView, setBrandView]= useState(true);
 	const handleBrandView = ()=>{
 		setBrandView(!brandView)
 	}
+	const handleCart = ()=>{navigation.navigate('Ecommerce6')};
 	
 	return(
 		<SafeAreaView style= {styles.container}>
 			<VectorHeader
 			goBack={()=>navigation.goBack()}
-			handleBrandView={()=>handleBrandView()}/>
+			handleBrandView={()=>handleBrandView()}
+			handleCart={()=>handleCart()}/>
 
 			<View style={{flex:1}}>
 				<View style={{flexDirection:'row', justifyContent:'space-between', marginLeft:20, marginRight:20}}>
@@ -45,11 +44,13 @@ export default function TestDrive({navigation}){
 						keyExtractor={(item, index)=>index.toString()}
 						renderItem={({item, index})=>
 							<View style={styles.imageVieww}>
-							
+							<TouchableOpacity style={styles.imageView} onPress={()=>navigation.navigate('Ecommerce3')}>
 								<Image source={item.image} style={styles.image} key={index}/>
-								<Text style={styles.brandName}>Product Name</Text>
+								<Text style={styles.brandName}>Brand Name</Text>
 								<Text style={styles.km}>N0.00</Text>
+							</TouchableOpacity>
 							</View>
+
 						}
 						/>
 
@@ -64,12 +65,13 @@ export default function TestDrive({navigation}){
 						keyExtractor={(item, index)=>index.toString()}
 						renderItem={({item, index})=>
 							<View style={styles.imageVieww2}>
-							
+							<TouchableOpacity style={styles.imageView} onPress={()=>navigation.navigate('Ecommerce3')}>
 								<Image source={item.image} style={styles.image} key={index}/>
 								<View style={{flexDirection:'column', marginTop:20}}>
-									<Text style={styles.brandName}>Product Name</Text>
+									<Text style={styles.brandName}>Brand Name</Text>
 									<Text style={styles.km}>Lorem ipsum dolor, sit ahmet...</Text>
 								</View>
+							</TouchableOpacity>	
 							</View>
 						}
 						/>
@@ -100,11 +102,13 @@ export default function TestDrive({navigation}){
 						keyExtractor={(item, index)=>index.toString()}
 						renderItem={({item, index})=>
 							<View style={styles.imageVieww}>
-							
+							<TouchableOpacity style={styles.imageView} onPress={()=>navigation.navigate('Ecommerce3')}>
 								<Image source={item.image} style={styles.image} key={index}/>
-								<Text style={styles.brandName}>Product Name</Text>
+								<Text style={styles.brandName}>Brand Name</Text>
 								<Text style={styles.km}>N0.00</Text>
+							</TouchableOpacity>	
 							</View>
+							
 						}
 						/>
 
@@ -119,12 +123,13 @@ export default function TestDrive({navigation}){
 						keyExtractor={(item, index)=>index.toString()}
 						renderItem={({item, index})=>
 							<View style={styles.imageVieww2}>
-							
+							<TouchableOpacity style={styles.imageView} onPress={()=>navigation.navigate('Ecommerce3')}>
 								<Image source={item.image} style={styles.image} key={index}/>
 								<View style={{flexDirection:'column', marginTop:20}}>
-									<Text style={styles.brandName}>Product Name</Text>
+									<Text style={styles.brandName}>Brand Name</Text>
 									<Text style={styles.km}>Lorem ipsum dolor, sit ahmet...</Text>
 								</View>
+							</TouchableOpacity>	
 							</View>
 						}
 						/>
@@ -170,12 +175,12 @@ const styles = StyleSheet.create({
 		fontWeight:'400', 
 		fontFamily:'Roboto', 
 		color:'white', 
-		fontSize:15,
-		paddingBottom:5
+		fontSize:10,
 	},
 	km:{
 		color:'#4E4E4E', 
 		fontFamily:'Roboto',
+		fontSize:10
 	},
 	input:{
 		backgroundColor:'#444444',
@@ -194,7 +199,7 @@ const styles = StyleSheet.create({
 		height:60,
 		width:60,
 		margin:20,
-		borderRadius:5
+		borderRadius:17
 	},
 
 	imageView:{

@@ -7,6 +7,10 @@ import Stores from '../../features/Stores/Stores.screen'
 import Ecommerce from '../../features/ecommerce/ecommerce'
 import Ecommerce2 from '../../features/ecommerce/ecommerce2'
 import Ecommerce3 from '../../features/ecommerce/ecommerce3'
+import Ecommerce4 from '../../features/ecommerce/ecommerce4'
+import Ecommerce5 from '../../features/ecommerce/ecommerce5'
+import Ecommerce6 from '../../features/ecommerce/ecommerce6'
+import Ecommerce7 from '../../features/ecommerce/ecommerce7'
 
 
 /// just the way we use the stack navigation
@@ -32,6 +36,30 @@ const NewScreen = ()=>{
                 <Screens.Screen
                     name="Ecommerce3"
                     component={Ecommerce3}
+                    options={{
+      headerShown: false,}}
+                />
+                <Screens.Screen
+                    name="Ecommerce4"
+                    component={Ecommerce4}
+                    options={{
+      headerShown: false,}}
+                />
+                <Screens.Screen
+                    name="Ecommerce5"
+                    component={Ecommerce5}
+                    options={{
+      headerShown: false,}}
+                />
+                <Screens.Screen
+                    name="Ecommerce6"
+                    component={Ecommerce6}
+                    options={{
+      headerShown: false,}}
+                />
+                <Screens.Screen
+                    name="Ecommerce7"
+                    component={Ecommerce7}
                     options={{
       headerShown: false,}}
                 />
