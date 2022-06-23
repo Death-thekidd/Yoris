@@ -10,6 +10,8 @@ import LogisticsReceived from '../../features/logictics/screens/logisticsReceive
 import LogisticsGoods from '../../features/logictics/screens/logisticsGoods';
 import LogisticsVehicle from '../../features/logictics/screens/logisticsVehicle';
 import LogisticsShipping from '../../features/logictics/screens/logisticsShipping';
+import LogisticsDetails from '../../features/logictics/screens/logisticsDetails';
+import LogisticsOrder from '../../features/logictics/screens/logisticsOrder';
 import { createStackNavigator } from '@react-navigation/stack';
 import Stores from '../../features/Stores/Stores.screen';
 
@@ -98,6 +100,14 @@ export const AccountNavigator = () => {
             name="vehicle"
             component={LogisticsVehicle}
             />
+            <Tabs.Screen
+            name="details"
+            component={ LogisticsDetails} 
+            />
+            <Tabs.Screen
+            name="order"
+            component={LogisticsOrder}
+            />
             <Tabs.Screen 
             name="shipping"
             component={LogisticsShipping} 
@@ -121,6 +131,8 @@ export const logisticNavigator = () => {
             <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
             <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
             <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
+            <Stack.Screen name="logisticsDetails" component={ LogisticsDetails} />
+            <Stack.Screen name="logisticsOrder" component={LogisticsOrder} />
             <Stack.Screen name="logisticsShipping" component={LogisticsShipping} />
         </Stack.Navigator>
     );

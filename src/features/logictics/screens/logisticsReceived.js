@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useState, useCallback } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import {
   LocationContainer,
@@ -20,13 +20,31 @@ import {
   LocationInput,
   ImageDrop,
   LocationPhone,
+  InputDevice,
   PhoneInput,
   LocationBtn
   } from '../components/location.styles';
 
 export default function LogisticsReceived() {
-   const [Receiver, setReceiver] = useState("");
-   const [phoneNumber, setPhoneNumber] = useState("");
+   const [ text, setText ] = useState("");
+   const [inputValue, setInputValue] = useState("");
+   const [ values, setValues] = useState([]);
+   const handleKeyDown = useCallback(
+     (event) => {
+      if (event.key === 'Enter' || event.keyCode === 13) {
+         const value = inputValue.trim();
+         if (value.length > 0) {
+            setValues([...values, value]);
+         }
+         setInputValue('');
+      } else if (event.key === 'Backspace' || event.keyCode === 8) {
+         if (inputValue.length === 0 && values.length > 0) {
+            setValues(values.slice(0, -1));
+         }
+      }
+     },
+     [inputValue, values]
+   );
    return (
     <SafeAreaView>
     <ScrollView>
@@ -72,11 +90,11 @@ export default function LogisticsReceived() {
             <LocationLine></LocationLine>
             <LocationReceived>Receiver's name</LocationReceived>
             <LocationInput
-             value={Receiver}
-             textContentType="Receiver's name"
-             keyboardType="email-address"
-             autoCapitalize="none"
-             mode='outlined'
+             value={text}
+             onKeyDown={handleKeyDown}
+             onChange={(event) => {
+               setInputValue(event.target.value);
+             }}
              />
           <LocationWrapper>
                <LocationRow>
@@ -87,11 +105,11 @@ export default function LogisticsReceived() {
                </LocationRow>
                <LocationRow>
                    <PhoneInput
-                     value={phoneNumber}
-                     textContentType="phone number"
-                     keyboardType="phone-number"
-                     autoCapitalize="none"
-                     mode="outline"
+                     value={text}
+                     onKeyDown={handleKeyDown}
+                     onChange={(event) => {
+                       setInputValue(event.target.value);
+                      }}
                      />
                </LocationRow>
             </LocationWrapper>

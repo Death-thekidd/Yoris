@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { TextInput } from 'react-native-paper';
 
 
 export const ShippingContainer = styled.View`
@@ -6,6 +7,7 @@ export const ShippingContainer = styled.View`
    align-items: center;
    justify-content: center;
    background-color: #000;
+   padding: 10px;
    flex: 1;
 `;
 
@@ -64,17 +66,17 @@ export const ShippingFeatures = styled.View`
 export const ShippingAddress = styled.Text`
    color: #fff;
    text-align: left;
-   font-size: 15px;
+   font-size: 12px;
    margin-top: 20px;
-   left: 40px;
+   left: 20px;
    font-weight: 300;
 `;
 
 export const ImageShipping = styled.Image`
-    left: 205px;
+    left: 220px;
     position: relative;
     width: 20px;
-    top: 20px;
+    top: 10px;
 `;
 
 export const ShippingBox = styled.Text`
@@ -98,7 +100,7 @@ export const ShippingLabel = styled.View`
    background-color: #C3AD60;
    height: 50px;
    width: 50px;
-   border-radius: 100px;
+   border-radius: 60px;
    z-index: 2000;
    left: 10px;
    margin-top: 20px;
@@ -108,8 +110,8 @@ export const ShippingLabel = styled.View`
 export const ImageBitmap = styled.Image`
    width: 20px;
    height: 20px;
-   top: 20px;
-   left: 13px;
+   top: 10px;
+   left: 15px;
    position: relative;
 `;
 

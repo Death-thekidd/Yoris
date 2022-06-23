@@ -5,6 +5,7 @@ export const VehicleContainer = styled.View`
    align-items: center;
    justify-content: center;
    background-color: #000;
+   padding: 10px;
    flex: 1;
 `;
 
@@ -65,13 +66,14 @@ export const VehicleShip = styled.View`
 
 export const ImageVehicle = styled.Image`
    position: absolute;
-   left: 20px;
-   top: 20px;
+   left: 10px;
+   top: 30px;
 `;
 
 export const VehicleSecondary = styled.Text`
    color: #fff;
    font-size: 13px;
+   top: 10px;
    position: relative;
    left: 70px;
 `;
@@ -82,13 +84,14 @@ export const VehicleText = styled.Text`
    font-size: 10px;
    position: relative;
    left: 70px;
+   top: 5px;
    opacity: 0.5;
 `;
 
 
 export const VehicleBtn = styled.Text`
    position: relative;
-   width: 260px
+   width: 260px;
    height: 80px;
    padding: 12px;
    top: 43px;
