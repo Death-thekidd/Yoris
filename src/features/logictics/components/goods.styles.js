@@ -47,7 +47,7 @@ export const GoodsInput = styled.View`
    display: flex;
 `;
 
-export const GoodsLabel = styled.View`
+export const GoodsLabel = styled.TouchableOpacity`
    background-color: #C3AD60;
    height: 73px;
    width: 73px;
