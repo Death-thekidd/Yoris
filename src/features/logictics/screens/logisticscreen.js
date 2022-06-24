@@ -30,8 +30,10 @@ import { Layout } from "../../../components/Layout";
 export default function Logisticscreen() {
   const navigation = useNavigation();
   const countries = getNames();
+  const [isMultiple, setIsMultiple] = useState(false);
   const [selectedFrom, setSelectedFrom] = useState();
   const [selectedTo, setSelectedTo] = useState();
+
   const [
     { isInternationalActive, isLocalActive, isExpressActive, isRegularActive },
     setIsActive,
@@ -101,6 +103,11 @@ export default function Logisticscreen() {
           padding: 20,
         }}
       />
+
+      <View style={[styles.row]}>
+        <Pressable>One Off</Pressable>
+        <Pressable>Multiple</Pressable>
+      </View>
 
       {/* Container */}
       <View style={[styles.container]}>
@@ -233,9 +240,7 @@ export default function Logisticscreen() {
 
         <Spacer size="xxl">
           <ContinueView>
-            <ContinueButton
-              onPress={() => navigation.navigate("logisticsBooking")}
-            >
+            <ContinueButton onPress={() => navigation.navigate("Yoris Pay")}>
               <ContinuewButtonText>continue</ContinuewButtonText>
             </ContinueButton>
           </ContinueView>

@@ -21,14 +21,17 @@ import {
    LocationSwitch,
    ImageEllipse,
    LocationType,
-   LocationNumber,
+   Input,
    LocationBtn
   } from '../components/location.styles.js';
 
 export default function LogisticsSender() {
+     const [ text, setText ] = useState("");
      const [Sender, setSender] = useState("");
      const [phoneNumber, setPhoneNumber] = useState("");
    return (
+   <SafeAreaView>
+   <ScrollView>
    <LocationContainer>
      <LocationWrapper>
         <LocationRow>
@@ -96,11 +99,33 @@ export default function LogisticsSender() {
             </LocationRow>
          </LocationWrapper>
          <LocationType>Type in new location</LocationType>
-         <LocationNumber>House number</LocationNumber>
-         <LocationNumber>Street address</LocationNumber>
-         <LocationNumber>Bus stop</LocationNumber>
-         <LocationNumber>Local Govt area</LocationNumber>
+         <Input 
+          type="text" 
+          placeholder={"House number"}
+          placeholderTextColor={"#fff"}
+          required
+        />
+        <Input 
+          type="text"
+          placeholder={"Street address"}
+          placeholderTextColor={"#fff"}
+          required
+          />
+          <Input 
+            type="text"
+            placeholder={"Bus stop"}
+            placeholderTextColor={"#fff"}
+            required
+            />
+            <Input 
+              type="text"
+              placeholder={"Local Govt area"}
+              placeholderTextColor={"#fff"}
+              required
+              />
          <LocationBtn>continue</LocationBtn>
      </LocationContainer>
+     </ScrollView>
+     </SafeAreaView>
    );
 };

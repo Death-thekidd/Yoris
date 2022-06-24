@@ -1,10 +1,13 @@
 import styled from "styled-components/native";
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button } from 'react-native-paper';
 
 export const VehicleContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #000;
+  padding: 20px;
   flex: 1;
 `;
 
@@ -41,7 +44,7 @@ export const ImageCancel = styled.Image`
   height: 15px;
 `;
 
-export const VehicleCycle = styled.View`
+export const VehicleCycle = styled.TouchableOpacity`
   position: relative;
   width: 250px;
   height: 80px;
@@ -49,16 +52,7 @@ export const VehicleCycle = styled.View`
   margin-bottom: 20px;
   border: 1px solid #c3ad60;
   border-radius: 10px;
-`;
-
-export const VehicleShip = styled.View`
-  position: relative;
-  width: 250px;
-  height: 100px;
-  top: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #c3ad60;
-  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
 `;
 
 export const ImageVehicle = styled.Image`
@@ -82,17 +76,17 @@ export const VehicleText = styled.Text`
   opacity: 0.5;
 `;
 
-export const VehicleBtn = styled.Text`
-  position: relative;
+export const VehicleBtn = styled(Button).attrs({ color: colors.ui.primary })`
   width: 260px;
-  height: 80px;
+  height: 60px;
   padding: 12px;
-  top: 43px;
+  top: 35px;
   text-align: center;
   color: #000;
   font-weight: 400;
   font-size: 18px;
   background: #c3ad60;
   border-radius: 5px;
+  margin-bottom: 35px;
   text-transform: uppercase;
 `;

@@ -1,5 +1,5 @@
-import React from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView, ScrollView, FlatList } from "react-native";
 import {
   LocationContainer,
   LocationWrapper,
@@ -16,17 +16,21 @@ import {
   LocationSwitch,
   ImageEllipse,
   LocationType,
-  LocationNumber,
+  Input,
   LocationBtn,
 } from "../components/location.styles";
 
-export default function LogisticsLocation() {
+export default function LogisticsLocation({ navigation }) {
+  const [ text, setText ] = useState('');
   return (
+   <SafeAreaView>
+    <ScrollView>
     <LocationContainer>
       <LocationWrapper>
         <LocationRow>
           <ImageBackground
             source={require("../../../../assets/backIcon.png")}
+            onPress={() => {}}
           />
         </LocationRow>
         <LocationRow>
@@ -45,17 +49,7 @@ export default function LogisticsLocation() {
         </LocationRow>
       </LocationWrapper>
       <LocationTertiary>Saved Address</LocationTertiary>
-      <LocationWrapper>
-        <LocationRow>
-          <LocationBox>Address 1</LocationBox>
-        </LocationRow>
-        <LocationRow>
-          <LocationBox>Address 2</LocationBox>
-        </LocationRow>
-        <LocationRow>
-          <LocationScroll>Address 3</LocationScroll>
-        </LocationRow>
-      </LocationWrapper>
+      
       <LocationWrapper>
         <LocationRow>
           <LocationSaved>Save new address</LocationSaved>
@@ -67,11 +61,36 @@ export default function LogisticsLocation() {
         </LocationRow>
       </LocationWrapper>
       <LocationType>Type in new location</LocationType>
-      <LocationNumber>House number</LocationNumber>
-      <LocationNumber>Street address</LocationNumber>
-      <LocationNumber>Bus stop</LocationNumber>
-      <LocationNumber>Local Govt area</LocationNumber>
+      <Input  
+        placeholder={"House number"}
+        placeholderTextColor={"#fff"}
+        onChangeText={newText => setText(newText)}
+        defaultValue={text}
+        />
+        <Input 
+          type="text"
+          placeholder={"Street address"}
+          placeholderTextColor={"#fff"}
+          onChangeText={newText => setText(newText)}
+          defaultValue={text}
+          />
+          <Input 
+            type="text"
+            placeholder={"Bus stop"}
+            placeholderTextColor={"#fff"}
+            onChangeText={newText => setText(newText)}
+            defaultValue={text}
+            />
+            <Input 
+              type="text"
+              placeholder={"Local Govt area"}
+              placeholderTextColor={"#fff"}
+              onChangeText={newText => setText(newText)}
+              defaultValue={text}
+              />
       <LocationBtn>continue</LocationBtn>
     </LocationContainer>
+    </ScrollView>
+    </SafeAreaView>
   );
-}
+};

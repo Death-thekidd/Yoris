@@ -146,19 +146,19 @@ export const LocationNumber = styled.Text`
   border-radius: 3px;
 `;
 
-export const LocationBtn = styled.Text`
-   position: relative;
-   width: 260px
-   height: 80px;
-   padding: 12px;
-   top: 43px;
-   text-align: center;
-   color: #000;
-   font-weight: 400;
-   font-size: 18px;
-   background: #C3AD60;
-   border-radius: 5px;
-   text-transform: uppercase;
+export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary })`
+  width: 260px;
+  height: 60px;
+  padding: 12px;
+  top: 40px;
+  text-align: center;
+  color: #000;
+  font-weight: 400;
+  font-size: 18px;
+  background: #c3ad60;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
 `;
 
 export const LocationLine = styled.View`

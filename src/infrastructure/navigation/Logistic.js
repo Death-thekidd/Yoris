@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import Logisticscreen from "../../features/logictics/screens/logisticscreen";
 import LogisticsBooking from "../../features/logictics/screens/logisticBooking";
 import LogisticsAddress from "../../features/logictics/screens/logisticsAddress";
@@ -9,6 +10,9 @@ import LogisticsSender from "../../features/logictics/screens/logisticsSender";
 import LogisticsReceived from "../../features/logictics/screens/logisticsReceived";
 import LogisticsGoods from "../../features/logictics/screens/logisticsGoods";
 import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle";
+import LogisticsDetails from "../../features/logictics/screens/logisticsDetails";
+import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
+import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
 import { createStackNavigator } from "@react-navigation/stack";
 import Stores from "../../features/Stores/Stores.screen";
 import {
@@ -58,19 +62,23 @@ const Stack = createStackNavigator();
 
 const LogisticNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Main" component={Logisticscreen} />
-      <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
-      <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
-      <Stack.Screen name="logisticsBooking" component={LogisticsBooking} />
-      <Stack.Screen name="logisticsSender" component={LogisticsSender} />
-      <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
-      <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
-      {/* <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} /> */}
-      <Stack.Screen name="paymentScreen" component={PaymentScreen} />
-      <Stack.Screen name="paymentOptions" component={PaymentOptions} />
-      <Stack.Screen name="confirmedPayment" component={ConfirmedPayment} />
-      <Stack.Screen name="orderHistory" component={OrderHistory} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Main" component={Logisticscreen} />
+        <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
+        <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
+        <Stack.Screen name="logisticsBooking" component={LogisticsBooking} />
+        <Stack.Screen name="logisticsSender" component={LogisticsSender} />
+        <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
+        <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
+        <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
+        <Stack.Screen name="logisticsOrder" component={LogisticsOrder} />
+        <Stack.Screen name="shipping" component={LogisticsShipping} />
+        <Stack.Screen name="paymentScreen" component={PaymentScreen} />
+        <Stack.Screen name="paymentOptions" component={PaymentOptions} />
+        <Stack.Screen name="confirmedPayment" component={ConfirmedPayment} />
+        <Stack.Screen name="orderHistory" component={OrderHistory} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
