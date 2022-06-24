@@ -7,5 +7,9 @@ import { Tab } from "./Logistic";
 export const Navigation = () => {
   // const { isAuthenticated } = useContext(AuthenticationContext);
 
-  return <NavigationContainer>{<Tab />}</NavigationContainer>;
+  return (
+    <NavigationContainer>
+      <Tab />
+    </NavigationContainer>
+  );
 };
