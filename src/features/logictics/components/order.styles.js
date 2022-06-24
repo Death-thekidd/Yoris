@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
-import { SafeAreaView } from 'react-native';
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button } from 'react-native-paper';
 
 export const OrderContainer = styled.View`
      display: flex;
@@ -102,32 +103,16 @@ export const OrderNumber = styled.Text`
    text-align: left;
 `;
 
-export const Input = styled.Image`
-   width: 13px;
-   height: 13px;
-   top: 50px;
-   right: 80px;
+export const OrderBox = styled.View`
+  flex-direction: row;
+  margin-top: 15px;
 `;
 
 export const Span = styled.Text`
    font-size: 10px;
    color: #fff;
-   top: 35px;
+   top: 10px;
    left: 15px;
    font-weight: 300;
    font-family: 'Roboto';
-`;
-
-export const OrderBtn = styled.Text`
-  position: relative;
-   width: 260px;
-   height: 52px;
-   padding: 12px;
-   top: 43px;
-   text-align: center;
-   color: #000;
-   font-weight: 400;
-   font-size: 18px;
-   background: #C3AD60;
-   border-radius: 5px;
 `;

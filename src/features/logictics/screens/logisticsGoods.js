@@ -1,4 +1,5 @@
 import React from "react";
+import { SafeAreaView, ScrollView } from 'react-native';
 import {
   GoodsContainer,
   GoodsWrapper,
@@ -10,16 +11,18 @@ import {
   GoodsLabel,
   ImageGoods,
   GoodsText,
-  GoodsBox,
-  GoodsBtn,
+  Input
 } from "../components/goods.styles";
+import { LocationBtn } from '../components/location.styles';
 
 export default function LogisticsGoods() {
   return (
+   <SafeAreaView>
+    <ScrollView>
     <GoodsContainer>
       <GoodsWrapper>
         <GoodsRow>
-          <ImageBackground source={require("../../../../assets/Group.png")} />
+          <ImageBackground source={require("../../../../assets/backIcon.png")} />
         </GoodsRow>
         <GoodsRow>
           <GoodsPrimary>Type of Goods</GoodsPrimary>
@@ -48,7 +51,7 @@ export default function LogisticsGoods() {
         <GoodsRow>
           <GoodsInput type="checkbox" id="navi-toggle">
             <GoodsLabel>
-              <ImageGoods source={require("../../../../assets/Group.png")} />
+              <ImageGoods source={require("../../../../assets/group.png")} />
             </GoodsLabel>
             <GoodsText>Clothes</GoodsText>
           </GoodsInput>
@@ -80,8 +83,14 @@ export default function LogisticsGoods() {
           </GoodsInput>
         </GoodsRow>
       </GoodsWrapper>
-      <GoodsBox>Others (Specify);</GoodsBox>
-      <GoodsBtn>continue</GoodsBtn>
+      <Input 
+        type="text"
+        placeholder={"Others (Specify);"}
+        placeholderTextColor={"#fff"}
+      />
+      <LocationBtn>continue</LocationBtn>
     </GoodsContainer>
+    </ScrollView>
+    </SafeAreaView>
   );
 }

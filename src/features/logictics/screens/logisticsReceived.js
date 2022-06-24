@@ -14,13 +14,12 @@ import {
   LocationSwitch,
   ImageEllipse,
   LocationType,
-  LocationNumber,
+  Input,
   LocationLine,
   LocationReceived,
   LocationInput,
   ImageDrop,
   LocationPhone,
-  InputDevice,
   PhoneInput,
   LocationBtn
   } from '../components/location.styles';
@@ -46,6 +45,8 @@ export default function LogisticsReceived() {
      [inputValue, values]
    );
    return (
+    <SafeAreaView>
+     <ScrollView>
      <LocationContainer>
         <LocationWrapper>
            <LocationRow>
@@ -81,10 +82,26 @@ export default function LogisticsReceived() {
                   </LocationRow>
             </LocationWrapper>
             <LocationType>Type in new location</LocationType>
-            <LocationNumber>House number</LocationNumber>
-            <LocationNumber>Street address</LocationNumber>
-            <LocationNumber>Bus stop</LocationNumber>
-            <LocationNumber>Local Govt area</LocationNumber>
+            <Input 
+              type="text" 
+              placeholder={"House number"}
+              placeholderTextColor={"#fff"}
+              />
+            <Input 
+               type="text"
+               placeholder={"Street Address"}
+               placeholderTextColor={"#fff"}
+               />
+            <Input 
+               type="text"
+               placeholder={"Bus stop"}
+               placeholderTextColor={"#fff"}
+               />
+             <Input 
+                type="text"
+                placeholder={"Local Govt Area"}
+                placeholderTextColor={"#fff"}
+                />
             <LocationLine></LocationLine>
             <LocationReceived>Receiver's name</LocationReceived>
             <LocationInput
@@ -113,5 +130,7 @@ export default function LogisticsReceived() {
             </LocationWrapper>
             <LocationBtn>continue</LocationBtn>
      </LocationContainer>
+     </ScrollView>
+     </SafeAreaView>
    );
 };

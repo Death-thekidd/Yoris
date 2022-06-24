@@ -12,7 +12,7 @@ export const LogisticsContainer = styled.View`
 `;
 
 export const LogisticsPrimary = styled.Text`
-   margin-top: 60px;
+   margin-top: 30px;
    color: #fff;
    text-align: center;
    font-size: 20px;
@@ -63,17 +63,17 @@ export const LogisticsPrimary = styled.Text`
     left: 20px;
  `;
 
-export const LogisticsBtn = styled.Text`
-     position: relative;
+export const LogisticsBtn = styled(Button).attrs({ color: colors.ui.primary})`
      width: 260px
-     height: 80px;
+     height: 60px;
      padding: 12px;
-     top: 30px;
-     text-align: center;
+     top: 3px;
+     align-items: center;
      color: #000;
+     left: 10px;
      font-weight: 400;
      font-size: 18px;
      background: #C3AD60;
-     border-radius: 5px;
+     border-radius: 10px;
      text-transform: uppercase;
 `;

@@ -11,11 +11,11 @@ import {
     ShippingFeatures,
     ShippingAddress,
     ImageShipping,
-    ShippingBox,
+    ShippingBoxInput,
     ShippingInput,
     ShippingLabel,
     ImageBitmap,
-    ShippingNumber,
+    ShippingTracking,
     ShippingBtn
   } from '../components/shipping.styles';
 
@@ -37,7 +37,11 @@ export default function LogisticsShipping() {
          <ShippingAddress>Yoris Address</ShippingAddress>
          <ImageShipping source={require('../../../../assets/location.png')} />
       </ShippingFeatures>
-      <ShippingBox>Tracking Number From Shipping Company</ShippingBox>
+      <ShippingBoxInput 
+      type="text"
+      placeholder={"Tracking Number From Shipping Company"}
+      placeholderTextColor={"#fff"}
+       />
       <ShippingWrapper>
          <ShippingRow>
             <ShippingInput type="checkbox" id="navi-toggle">
@@ -75,7 +79,7 @@ export default function LogisticsShipping() {
             </ShippingInput>
          </ShippingRow>
       </ShippingWrapper>
-      <ShippingNumber>Add Tracking Number</ShippingNumber>
+      <ShippingTracking>Add More Tracking Number</ShippingTracking>
       <ShippingBtn>continue</ShippingBtn>
     </ShippingContainer>
     </ScrollView>

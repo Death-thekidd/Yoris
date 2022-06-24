@@ -1,4 +1,5 @@
 import React from "react";
+import { SafeAreaView, ScrollView } from 'react-native';
 import {
   VehicleContainer,
   VehicleWrapper,
@@ -7,22 +8,20 @@ import {
   VehiclePrimary,
   ImageCancel,
   VehicleCycle,
-  VehicleShip,
   ImageVehicle,
   VehicleSecondary,
-  VehicleTertiary,
   VehicleText,
-  VehicleBtn,
+  VehicleBtn
 } from "../components/vehicle.styles";
 
 export default function LogisticsVehicle() {
   return (
+    <SafeAreaView>
+    <ScrollView>
     <VehicleContainer>
       <VehicleWrapper>
         <VehicleRow>
-          <ImageBackground
-            source={require("../../../../assets/backIcon.png")}
-          />
+          <ImageBackground source={require("../../../../assets/backIcon.png")} />
         </VehicleRow>
         <VehicleRow>
           <VehiclePrimary>Vehicle Specification</VehiclePrimary>
@@ -61,38 +60,40 @@ export default function LogisticsVehicle() {
             <ImageVehicle source={require("../../../../assets/vehicle5.png")} />
           </VehicleRow>
           <VehicleRow>
-            <VehicleTertiary>Bus</VehicleTertiary>
+            <VehicleSecondary>Bus</VehicleSecondary>
             <VehicleText>Medium - Large size</VehicleText>
             <VehicleText>packages,inter state.</VehicleText>
           </VehicleRow>
         </VehicleWrapper>
       </VehicleCycle>
-      <VehicleShip>
+      <VehicleCycle>
         <VehicleWrapper>
-          <VehicleRow>
-            <ImageVehicle source={require("../../../../assets/vehicle3.png")} />
-          </VehicleRow>
-          <VehicleRow>
-            <VehicleTertiary>Aeroplane</VehicleTertiary>
-            <VehicleText>All size packages</VehicleText>
-            <VehicleText>Local and International</VehicleText>
-            <VehicleText>express delivery</VehicleText>
-          </VehicleRow>
+           <VehicleRow>
+             <ImageVehicle source={require("../../../../assets/vehicle3.png")} />
+           </VehicleRow>
+           <VehicleRow>
+             <VehicleSecondary>Aeroplane</VehicleSecondary>
+             <VehicleText>All size packages</VehicleText>
+             <VehicleText>Local and International</VehicleText>
+             <VehicleText>express delivery</VehicleText>
+           </VehicleRow>
         </VehicleWrapper>
-      </VehicleShip>
-      <VehicleShip>
+      </VehicleCycle>
+      <VehicleCycle>
         <VehicleWrapper>
-          <VehicleRow>
-            <ImageVehicle source={require("../../../../assets/vehicle2.png")} />
-          </VehicleRow>
-          <VehicleRow>
-            <VehicleTertiary>Ship</VehicleTertiary>
-            <VehicleText>All size packages</VehicleText>
-            <VehicleText>Local and International</VehicleText>
-          </VehicleRow>
+           <VehicleRow>
+              <ImageVehicle source={require("../../../../assets/vehicle2.png")} />
+           </VehicleRow>
+           <VehicleRow>
+              <VehicleSecondary>Ship</VehicleSecondary>
+              <VehicleText>All size packages</VehicleText>
+              <VehicleText>Local and International</VehicleText>
+           </VehicleRow>
         </VehicleWrapper>
-      </VehicleShip>
+      </VehicleCycle>
       <VehicleBtn>continue</VehicleBtn>
     </VehicleContainer>
+    </ScrollView>
+    </SafeAreaView>
   );
 }

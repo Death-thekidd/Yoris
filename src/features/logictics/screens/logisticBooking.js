@@ -16,7 +16,7 @@ import {
   LocationSwitch,
   ImageEllipse,
   LocationType,
-  LocationNumber,
+  Input,
   LocationLine,
   LocationReceived,
   LocationInput,
@@ -29,6 +29,8 @@ export default function LogisticsBooking() {
   const [Receiver, setReceiver] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   return (
+    <SafeAreaView>
+    <ScrollView>
     <LocationContainer>
       <LocationWrapper>
         <LocationRow>
@@ -66,10 +68,30 @@ export default function LogisticsBooking() {
         </LocationRow>
       </LocationWrapper>
       <LocationType>Type in new location</LocationType>
-      <LocationNumber>House number</LocationNumber>
-      <LocationNumber>Street address</LocationNumber>
-      <LocationNumber>Bus stop</LocationNumber>
-      <LocationNumber>Local Govt area</LocationNumber>
+      <Input 
+        type="text" 
+        placeholder={"House number"}
+        placeholderTextColor={"#fff"}
+        required
+        />
+        <Input 
+          type="text"
+          placeholder={"Street address"}
+          placeholderTextColor={"#fff"}
+          required
+          />
+          <Input 
+            type="text"
+            placeholder={"Bus stop"}
+            placeholderTextColor={"#fff"}
+            required
+            />
+            <Input 
+              type="text"
+              placeholder={"Local Govt area"}
+              placeholderTextColor={"#fff"}
+              required
+              />
       <LocationLine></LocationLine>
       <LocationReceived>Receiver's name</LocationReceived>
       <LocationInput
@@ -97,5 +119,7 @@ export default function LogisticsBooking() {
         </LocationRow>
       </LocationWrapper>
     </LocationContainer>
+    </ScrollView>
+    </SafeAreaView>
   );
 }

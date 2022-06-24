@@ -1,10 +1,12 @@
 import styled from 'styled-components/native';
+import { TextInput } from 'react-native-paper';
 
 export const GoodsContainer = styled.View`
      display: flex;
      align-items: center;
      justify-content: center;
      background-color: #000;
+     padding: 40px;
      flex: 1;
 `;
 
@@ -71,29 +73,14 @@ export const GoodsText = styled.Text`
     text-align: left;
 `;
 
-export const GoodsBox = styled.Text`
+export const Input = styled(TextInput)`
      position: relative;
      width: 260px;
-     height: 48px;
+     height: 25px;
      color: #fff;
-     top: 50px;
+     top: 30px;
      margin-bottom: 20px;
      padding: 12px;
      background: #4E4E4E;
      border-radius: 3px;
-`;
-
-export const GoodsBtn = styled.Text`
-    position: relative;
-     width: 260px
-     height: 80px;
-     padding: 12px;
-     top: 43px;
-     text-align: center;
-     color: #000;
-     font-weight: 400;
-     font-size: 18px;
-     background: #C3AD60;
-     border-radius: 5px;
-     text-transform: uppercase;
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import { TextInput } from 'react-native-paper';
-
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button, TextInput } from 'react-native-paper';
 
 export const ShippingContainer = styled.View`
    display: flex;
@@ -79,13 +79,12 @@ export const ImageShipping = styled.Image`
     top: 10px;
 `;
 
-export const ShippingBox = styled.Text`
-   position: relative;
+export const ShippingBoxInput = styled(TextInput)`
    width: 260px;
-   height: 48px;
+   height: 30px;
    color: #fff;
    top: 50px;
-   font-size: 10px;
+   font-size: 8.5px;
    padding: 12px;
    margin-bottom: 50px;
    background: #4E4E4E;
@@ -110,34 +109,37 @@ export const ShippingLabel = styled.View`
 export const ImageBitmap = styled.Image`
    width: 20px;
    height: 20px;
-   top: 10px;
+   top: 17px;
    left: 15px;
-   position: relative;
+   right: 15px;
 `;
 
-export const ShippingNumber = styled.Text`
-   position: relative;
+
+export const ShippingTracking = styled(Button).attrs({ color: colors.brand.primary })`
    width: 260px;
-   height: 48px;
-   top: 20px;
+   height: 65px;
+   top: 40px;
    border: 1px solid #C3AD60;
-   text-align: center;
-   padding: 12px;
+   align-items: center;
    color: #C3AD60;
+   padding: 12px;
+   font-weight: 400;
+   font-size: 18px;
    border-radius: 10px;
+   text-transform: uppercase;
 `;
 
-export const ShippingBtn = styled.Text`
-   position: relative;
+export const ShippingBtn = styled(Button).attrs({ color: colors.ui.primary })`
    width: 260px
-   height: 80px;
+   height: 60px;
    padding: 12px;
-   top: 43px;
+   top: 55px;
    text-align: center;
    color: #000;
    font-weight: 400;
    font-size: 18px;
    background: #C3AD60;
    border-radius: 5px;
+   margin-bottom: 50px;
    text-transform: uppercase;
 `;

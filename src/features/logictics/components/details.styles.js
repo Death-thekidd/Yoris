@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button } from 'react-native-paper';
 
 export const DetailsContainer = styled.View`
      display: flex;
@@ -147,15 +149,17 @@ export const ImageBike = styled.Image`
   left: 20px
 `;
 
-export const DetailsBtn = styled.Text`
-   position: relative;
+export const DetailsBtn = styled(Button).attrs({ color: colors.brand.primary })`
    width: 260px;
-   height: 48px;
+   height: 65px;
    top: 70px;
    border: 1px solid #C3AD60;
-   text-align: center;
-   padding: 12px;
+   align-items: center;
    color: #C3AD60;
+   padding: 12px;
+   font-weight: 400;
+   font-size: 18px;
+   margin-bottom: 30px;
    border-radius: 10px;
    text-transform: uppercase;
 `;
