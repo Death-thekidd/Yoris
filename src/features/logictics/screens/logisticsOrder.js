@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
+import { Checkbox } from 'react-native-paper';
 import { 
      OrderContainer,
      ImageBackground,
@@ -13,12 +14,13 @@ import {
      OrderTag,
      OrderEstimate,
      OrderNumber,
-     Input,
-     Span,
-     OrderBtn
+     OrderBox,
+     Span
   } from '../components/order.styles';
+import { LocationBtn } from '../components/location.styles';
 
 export default function LogisticsOrder() {
+   const [checked, setChecked] = useState(true);
   return (
   <SafeAreaView>
    <ScrollView>
@@ -49,8 +51,20 @@ export default function LogisticsOrder() {
           <OrderEstimate>Estimated Cost:</OrderEstimate>
           <OrderNumber>N 0.00</OrderNumber>
        </OrderCycle>
-       <Input source={require('../../../../assets/checkbox.png')} /><Span>Read Terms and conditions?</Span>
-       <OrderBtn>Process To Payment</OrderBtn>
+        <OrderWrapper>
+           <OrderBox>
+             <Checkbox 
+              status={checked ? 'checked' : 'unchecked'}
+              onPress={() => {
+                setChecked(!checked);
+              }}
+              color={"#fff"}
+              uncheckedColor={"red"}
+             />
+              <Span>Read Terms and conditions?</Span>
+           </OrderBox>
+        </OrderWrapper>
+       <LocationBtn>Process To Payment</LocationBtn>
     </OrderContainer>
     </ScrollView>
     </SafeAreaView>

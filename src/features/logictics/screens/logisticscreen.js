@@ -234,7 +234,7 @@ export default function Logisticscreen() {
         <Spacer size="xxl">
           <ContinueView>
             <ContinueButton
-              onPress={() => navigation.navigate("logisticsBooking")}
+              onPress={() => navigation.navigate("Yoris Pay")}
             >
               <ContinuewButtonText>continue</ContinuewButtonText>
             </ContinueButton>

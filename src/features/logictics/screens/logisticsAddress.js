@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import {
   LogisticsContainer,
   LogisticsPrimary,
@@ -8,11 +8,10 @@ import {
   LogisticsSlot,
   LogisticsReplace,
   LogisticsBox,
-  LogisticsBtn,
-  LocationReceived,
+  LogisticsBtn
 } from "../components/address.styles";
 
-export default function LogisticsAddress() {
+export default function LogisticsAddress({ navigation }) {
   return (
     <LogisticsContainer>
       <LogisticsPrimary>Save New Address?</LogisticsPrimary>
@@ -36,7 +35,7 @@ export default function LogisticsAddress() {
           <LogisticsBox></LogisticsBox>
         </LogisticsRow>
       </LogisticsWrapper>
-      <LogisticsBtn>continue</LogisticsBtn>
+      <LogisticsBtn onPress={()=>navigation.navigate('location')}>continue</LogisticsBtn>
     </LogisticsContainer>
   );
 }
