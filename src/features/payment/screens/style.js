@@ -9,8 +9,7 @@ export const PaymentContainer = styled.View`
 `;
 
 export const Section = styled.View`
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
 `;
 
 export const Title = styled.Text`

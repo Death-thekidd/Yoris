@@ -8,7 +8,7 @@ export default function ({
   iconLeft,
   iconRight,
   headerTitle,
-  headerStyle,
+  headerTitleStyle,
 }) {
   return (
     <Section
@@ -32,7 +32,7 @@ export default function ({
               textAlign: "left",
               fontSize: 20,
             },
-            headerStyle,
+            headerTitleStyle,
           ]}
         >
           {headerTitle}

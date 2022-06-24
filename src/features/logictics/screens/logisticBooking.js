@@ -1,101 +1,84 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView } from "react-native";
-import {
-  LocationContainer,
-  LocationWrapper,
-  LocationRow,
-  ImageBackground,
-  LocationPrimary,
-  ImageCancel,
-  ImageLocation,
-  LocationSecondary,
-  LocationTertiary,
-  LocationBox,
-  LocationScroll,
-  LocationSaved,
-  LocationSwitch,
-  ImageEllipse,
-  LocationType,
-  LocationNumber,
-  LocationLine,
-  LocationReceived,
-  LocationInput,
-  ImageDrop,
-  LocationPhone,
-  PhoneInput,
-} from "../components/location.styles";
+import { SafeAreaView, ScrollView, TextInput, View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import Header from "../../../components/Header";
+import { LayoutScrollView, Section, Text } from "../../../components/Layout";
+import AddressBox from "../components/AddressBox/AddressBox";
+import { Input } from "../components/location.styles";
 
 export default function LogisticsBooking() {
-  const [Receiver, setReceiver] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [values, setValues] = useState("");
+  const inputs = [
+    {
+      name: "houseNumber",
+      placeHolder: "House Number",
+    },
+    {
+      name: "streetAddress",
+      placeHolder: "Street address",
+    },
+    {
+      name: "busStop",
+      placeHolder: "Bus stop",
+    },
+    {
+      name: "localGovtArea",
+      placeHolder: "Local Govt area",
+    },
+  ];
+  // const onChange =
   return (
-    <LocationContainer>
-      <LocationWrapper>
-        <LocationRow>
-          <ImageBackground
-            source={require("../../../../assets/backIcon.png")}
-          />
-        </LocationRow>
-        <LocationRow>
-          <LocationPrimary>Drop-Off Location</LocationPrimary>
-        </LocationRow>
-        <LocationRow>
-          <ImageCancel source={require("../../../../assets/cancel.png")} />
-        </LocationRow>
-      </LocationWrapper>
-      <LocationTertiary>Saved Address</LocationTertiary>
-      <LocationWrapper>
-        <LocationRow>
-          <LocationBox>Address 1</LocationBox>
-        </LocationRow>
-        <LocationRow>
-          <LocationBox>Address 2</LocationBox>
-        </LocationRow>
-        <LocationRow>
-          <LocationScroll>Addres</LocationScroll>
-        </LocationRow>
-      </LocationWrapper>
-      <LocationWrapper>
-        <LocationRow>
-          <LocationSaved>Save new address</LocationSaved>
-        </LocationRow>
-        <LocationRow>
-          <LocationSwitch>
-            <ImageEllipse source={require("../../../../assets/Ellipse.png")} />
-          </LocationSwitch>
-        </LocationRow>
-      </LocationWrapper>
-      <LocationType>Type in new location</LocationType>
-      <LocationNumber>House number</LocationNumber>
-      <LocationNumber>Street address</LocationNumber>
-      <LocationNumber>Bus stop</LocationNumber>
-      <LocationNumber>Local Govt area</LocationNumber>
-      <LocationLine></LocationLine>
-      <LocationReceived>Receiver's name</LocationReceived>
-      <LocationInput
-        value={Receiver}
-        textContentType="Receiver's name"
-        keyboardType="email-address"
-        autoCapitalize="none"
-        mode="outlined"
+    <LayoutScrollView>
+      <Header
+        iconLeft={require("../../../../assets/backIcon.png")}
+        iconRight={require("../../../../assets/cancelGold.png")}
+        headerTitle={"Drop-Off Location"}
+        headerTitleStyle={{
+          color: "#C3AD60",
+        }}
       />
-      <LocationWrapper>
-        <LocationRow>
-          <ImageDrop source={require("../../../../assets/drop.png")} />
-        </LocationRow>
-        <LocationRow>
-          <LocationPhone>+234</LocationPhone>
-        </LocationRow>
-        <LocationRow>
-          <PhoneInput
-            value={phoneNumber}
-            textContentType="phone number"
-            keyboardType="phone-number"
-            autoCapitalize="none"
-            mode="outline"
-          />
-        </LocationRow>
-      </LocationWrapper>
-    </LocationContainer>
+
+      <Section>
+        <Text
+          style={{
+            color: "#4E4E4E",
+          }}
+        >
+          Saved Address
+        </Text>
+        {/* Address's */}
+        <FlatList
+          data={["add 1", "", "", ""]}
+          horizontal
+          renderItem={({ item, index }) => (
+            <AddressBox text={`Address ${index}`} />
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
+      </Section>
+
+      <Section>
+        <Text>Type in new location</Text>
+
+        <View>
+          {inputs.map((input, i) => (
+            <TextInput
+              key={i + input.name}
+              onChangeText={(text) =>
+                setValues((states) => ({ ...states, [input.name]: text }))
+              }
+              placeholder={input.placeHolder}
+              placeholderTextColor={"white"}
+              style={{
+                backgroundColor: "#4E4E4E",
+                borderRadius: 5,
+                marginVertical: 5,
+                padding: 10,
+              }}
+            />
+          ))}
+        </View>
+      </Section>
+    </LayoutScrollView>
   );
 }

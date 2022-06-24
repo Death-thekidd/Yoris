@@ -16,69 +16,38 @@ import {
   PaymentOptions,
   ConfirmedPayment,
 } from "../../features/payment/screens";
+import OrderHistory from "../../features/logictics/screens/OrderHistory";
+import SingleOrder from "../../features/logictics/screens/SingleOrder";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
 
-export const AccountNavigator = () => {
+export const Tab = () => {
   return (
     <Tabs.Navigator
       headerMode="none"
-      style={{ backgroundColor: "#fff" }}
-      // screenOptions={{
-      //     activeTintColor: "#FFC300",
-      //     inactiveTintColor: "#353935",
-      //     style: {
-      //         labelStyle: { fontSize: 1 },
-      //     }
-      // }}
       screenOptions={{
         activeTintColor: "#50d3a7",
-        tabBarActiveTintColor: "#fff",
-        tabBarInactiveTintColor: "#ddd",
+        tabBarActiveTintColor: "#C3AD60",
+        tabBarInactiveTintColor: "#C3AD60",
         inactiveTintColor: "white",
-        tabBarPressColor: "#cec6c6",
+        tabBarPressColor: "transparent",
         tabBarShowIcon: true,
         tabBarIndicatorStyle: {
           backgroundColor: "#9A8340",
         },
 
         tabBarStyle: {
-          borderTopColor: "#9A8340",
-          borderTopWidth: 2,
           elevation: 10,
           backgroundColor: "#0B090A",
           borderRadius: 1,
         },
       }}
-      /* tabBarOptions={{
-        scrollEnabled: false,
-        tabStyle: {
-          backgroundColor: "#000",
-          borderRadius: 10,
-          margin: 12,
-          justifyContent: "center",
-          alignContent: "center",
-        },
-        indicatorStyle: { backgroundColor: "#987", opacity: 0.05 },
-        style: {
-          backgroundColor: "#000000",
-          borderRadius: 30,
-          margin: 24,
-          height: 72,
-          width: "90%",
-          labelStyle: { fontSize: 2 },
-        },
-      }} */
     >
-      <Tabs.Screen name="Logistic" component={Logisticscreen} />
-      <Tabs.Screen name="Store" component={Stores} />
-      <Tabs.Screen name="Yoris Pay" component={LogisticsAddress} />
-      <Tabs.Screen name="Pick Up" component={LogisticsLocation} />
-      <Tabs.Screen name="Booking" component={LogisticsBooking} />
-      <Tabs.Screen name="sender" component={LogisticsSender} />
-      <Tabs.Screen name="received" component={LogisticsReceived} />
-      <Tabs.Screen name="goods" component={LogisticsGoods} />
+      {/* <Tabs.Screen name="Puddle" component={Puddle */}
+      <Tabs.Screen name="Stores" component={Stores} />
+      <Tabs.Screen name="Logistics" component={LogisticNavigator} />
+      {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
     </Tabs.Navigator>
   );
 };
@@ -87,7 +56,7 @@ const Stack = createStackNavigator();
 // JUST THE WAY IT SOUNDS WE ARE STACKING THE VIEWS
 // read the documentation
 
-export const logisticNavigator = () => {
+const LogisticNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Main" component={Logisticscreen} />
@@ -101,6 +70,7 @@ export const logisticNavigator = () => {
       <Stack.Screen name="paymentScreen" component={PaymentScreen} />
       <Stack.Screen name="paymentOptions" component={PaymentOptions} />
       <Stack.Screen name="confirmedPayment" component={ConfirmedPayment} />
+      <Stack.Screen name="orderHistory" component={OrderHistory} />
     </Stack.Navigator>
   );
 };

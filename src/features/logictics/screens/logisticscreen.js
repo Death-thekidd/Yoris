@@ -10,14 +10,25 @@ import {
 } from "../components/logictics.styles";
 import { getNames } from "country-list";
 import { Spacer } from "../../../components/spacer/spacer.component";
-import { Text, View, Image, Pressable, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  Pressable,
+  StyleSheet,
+  TouchableWithoutFeedback,
+} from "react-native";
 import Selector from "../../../components/Selector";
 import LogisticsInfo from "../components/LogisticsInfo";
 import LogisticsButtonTabGroup from "../components/LogisticsButtonTabGroup";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import useDateTimePicker from "../../../hooks/useDateTimePicker";
+import { useNavigation } from "@react-navigation/native";
+import Header from "../../../components/Header";
+import { Layout } from "../../../components/Layout";
 
-export default function Logisticscreen({ navigation }) {
+export default function Logisticscreen() {
+  const navigation = useNavigation();
   const countries = getNames();
   const [selectedFrom, setSelectedFrom] = useState();
   const [selectedTo, setSelectedTo] = useState();
@@ -77,11 +88,20 @@ export default function Logisticscreen({ navigation }) {
   } = useDateTimePicker();
 
   return (
-    <LogicticsBacground>
-      <LogisticsHeaderIconContainer>
-        <Image source={require("../../../../assets/delivery.png")} />
-        <Image source={require("../../../../assets/history.png")} />
-      </LogisticsHeaderIconContainer>
+    <Layout
+      styles={{
+        paddingHorizontal: 50,
+      }}
+    >
+      <Header
+        iconLeft={require("../../../../assets/delivery.png")}
+        iconRight={require("../../../../assets/history.png")}
+        onRightIconPress={() => navigation.navigate("orderHistory")}
+        containerStyle={{
+          padding: 20,
+        }}
+      />
+
       {/* Container */}
       <View style={[styles.container]}>
         {/**
@@ -216,7 +236,7 @@ export default function Logisticscreen({ navigation }) {
             <ContinueButton
               onPress={() => navigation.navigate("logisticsBooking")}
             >
-              <ContinuewButtonText> continue</ContinuewButtonText>
+              <ContinuewButtonText>continue</ContinuewButtonText>
             </ContinueButton>
           </ContinueView>
         </Spacer>
@@ -234,7 +254,7 @@ export default function Logisticscreen({ navigation }) {
           }}
         />
       )}
-    </LogicticsBacground>
+    </Layout>
   );
 }
 
