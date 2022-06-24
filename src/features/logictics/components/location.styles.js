@@ -147,7 +147,7 @@ export const LocationNumber = styled.Text`
   border-radius: 3px;
 `;
 
-export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary })`
+export const LocationBtn = styled(Button)`
   width: 260px;
   height: 60px;
   padding: 12px;

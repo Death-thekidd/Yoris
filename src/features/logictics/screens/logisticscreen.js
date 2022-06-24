@@ -105,8 +105,8 @@ export default function Logisticscreen() {
       />
 
       <View style={[styles.row]}>
-        <Pressable>One Off</Pressable>
-        <Pressable>Multiple</Pressable>
+        <Pressable></Pressable>
+        <Pressable></Pressable>
       </View>
 
       {/* Container */}
