@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, ScrollView, FlatList } from "react-native";
 import {
   LocationContainer,
@@ -21,6 +21,7 @@ import {
 } from "../components/location.styles";
 
 export default function LogisticsLocation({ navigation }) {
+  const [ text, setText ] = useState('');
   return (
    <SafeAreaView>
     <ScrollView>
@@ -29,7 +30,7 @@ export default function LogisticsLocation({ navigation }) {
         <LocationRow>
           <ImageBackground
             source={require("../../../../assets/backIcon.png")}
-            onPress={()=>navigation.navigate('Booking')}
+            onPress={() => {}}
           />
         </LocationRow>
         <LocationRow>
@@ -60,29 +61,36 @@ export default function LogisticsLocation({ navigation }) {
         </LocationRow>
       </LocationWrapper>
       <LocationType>Type in new location</LocationType>
-      <Input 
-        type="text" 
+      <Input  
         placeholder={"House number"}
         placeholderTextColor={"#fff"}
+        onChangeText={newText => setText(newText)}
+        defaultValue={text}
         />
         <Input 
           type="text"
           placeholder={"Street address"}
           placeholderTextColor={"#fff"}
+          onChangeText={newText => setText(newText)}
+          defaultValue={text}
           />
           <Input 
             type="text"
             placeholder={"Bus stop"}
             placeholderTextColor={"#fff"}
+            onChangeText={newText => setText(newText)}
+            defaultValue={text}
             />
             <Input 
               type="text"
               placeholder={"Local Govt area"}
               placeholderTextColor={"#fff"}
+              onChangeText={newText => setText(newText)}
+              defaultValue={text}
               />
       <LocationBtn>continue</LocationBtn>
     </LocationContainer>
     </ScrollView>
     </SafeAreaView>
   );
-}
+};

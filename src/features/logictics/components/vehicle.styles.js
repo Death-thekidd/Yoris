@@ -44,7 +44,7 @@ export const ImageCancel = styled.Image`
   height: 15px;
 `;
 
-export const VehicleCycle = styled.View`
+export const VehicleCycle = styled.TouchableOpacity`
   position: relative;
   width: 250px;
   height: 80px;
@@ -52,6 +52,7 @@ export const VehicleCycle = styled.View`
   margin-bottom: 20px;
   border: 1px solid #c3ad60;
   border-radius: 10px;
+  transition: all 0.2s ease-in-out;
 `;
 
 export const ImageVehicle = styled.Image`
