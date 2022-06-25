@@ -75,6 +75,7 @@ const LogisticNavigator = () => {
       <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
       <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
       <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
+      <Stack.Screen name="logisticsDetails" component={LogisticsDetails} />
       <Stack.Screen name="logisticsOrder" component={LogisticsOrder} />
       <Stack.Screen name="shipping" component={LogisticsShipping} />
       <Stack.Screen name="paymentScreen" component={PaymentScreen} />

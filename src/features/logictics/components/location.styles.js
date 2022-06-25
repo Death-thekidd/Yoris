@@ -1,17 +1,13 @@
 import styled from "styled-components/native";
-import { TextInput } from "react-native-paper";
-import style from "./AddressBox/style";
-import { Button } from "react-native";
-
-export const Input = styled.TextInput`
-  background: #4e4e4e;
-`;
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button, TextInput } from "react-native-paper";
 
 export const LocationContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #000;
+  padding: 20px;
   flex: 1;
 `;
 
@@ -135,10 +131,9 @@ export const LocationType = styled.Text`
   top: 40px;
 `;
 
-export const LocationNumber = styled.Text`
-  position: relative;
+export const Input = styled(TextInput)`
   width: 260px;
-  height: 48px;
+  height: 30px;
   color: #fff;
   top: 50px;
   margin-bottom: 20px;
@@ -147,18 +142,18 @@ export const LocationNumber = styled.Text`
   border-radius: 3px;
 `;
 
-export const LocationBtn = styled(Button)`
+export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary })`
   width: 260px;
   height: 60px;
   padding: 12px;
-  top: 40px;
+  top: 60px;
   text-align: center;
   color: #000;
   font-weight: 400;
   font-size: 18px;
   background: #c3ad60;
   border-radius: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   text-transform: uppercase;
 `;
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from "react-native";
+import { Button } from 'react-native-paper';
 import {
   GoodsContainer,
   GoodsWrapper,
@@ -15,16 +16,18 @@ import {
 } from "../components/goods.styles";
 import { LocationBtn } from "../components/location.styles";
 
-export default function LogisticsGoods() {
+export default function LogisticsGoods({ navigation }) {
   return (
     <SafeAreaView>
       <ScrollView>
         <GoodsContainer>
           <GoodsWrapper>
             <GoodsRow>
+              <Button onPress={() => navigation.navigate("logisticBooking")}>
               <ImageBackground
                 source={require("../../../../assets/backIcon.png")}
               />
+              </Button>
             </GoodsRow>
             <GoodsRow>
               <GoodsPrimary>Type of Goods</GoodsPrimary>
@@ -58,7 +61,7 @@ export default function LogisticsGoods() {
               <GoodsInput type="checkbox" id="navi-toggle">
                 <GoodsLabel>
                   <ImageGoods
-                    source={require("../../../../assets/Group.png")}
+                    source={require("../../../../assets/group.png")}
                   />
                 </GoodsLabel>
                 <GoodsText>Clothes</GoodsText>
@@ -102,7 +105,7 @@ export default function LogisticsGoods() {
             placeholder={"Others (Specify);"}
             placeholderTextColor={"#fff"}
           />
-          <LocationBtn>continue</LocationBtn>
+          <LocationBtn onPress={()=>navigation.navigate('shipping')}>continue</LocationBtn>
         </GoodsContainer>
       </ScrollView>
     </SafeAreaView>

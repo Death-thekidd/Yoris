@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
+import { Button } from 'react-native-paper';
 import { 
      DetailsContainer,
      DetailsWrapper,
@@ -22,14 +23,18 @@ import {
      DetailsBtn
  } from '../components/details.styles';
 
-export default function LogisticsDetails() {
+export default function LogisticsDetails({ navigation }) {
     return(
     <SafeAreaView>
     <ScrollView>
      <DetailsContainer>
        <DetailsWrapper>
           <DetailsRow>
-             <ImageBackground source={require('../../../../assets/backIcon.png')} />
+            <Button onPress={() => navigation.navigate("logisticBooking")}>
+              <ImageBackground
+                source={require("../../../../assets/backIcon.png")}
+              />
+           </Button>
           </DetailsRow>
           <DetailsRow>
              <DetailsPrimary>Confirm Details</DetailsPrimary>

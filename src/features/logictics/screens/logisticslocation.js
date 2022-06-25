@@ -49,7 +49,17 @@ export default function LogisticsLocation({ navigation }) {
         </LocationRow>
       </LocationWrapper>
       <LocationTertiary>Saved Address</LocationTertiary>
-      
+      <LocationWrapper>
+                <LocationRow>
+                     <LocationBox>Address 1</LocationBox>
+                </LocationRow>
+                <LocationRow>
+                     <LocationBox>Address 2</LocationBox>
+                </LocationRow>
+                <LocationRow>
+                    <LocationScroll>Address 3</LocationScroll>
+                 </LocationRow>
+              </LocationWrapper>
       <LocationWrapper>
         <LocationRow>
           <LocationSaved>Save new address</LocationSaved>

@@ -32,48 +32,71 @@ export const LogisticsPrimary = styled.Text`
     align-items: center;
  `;
 
- export const LogisticsSlot = styled.Text`
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    left: 20px;
-    font-size: 13px;
-    font-family: 'Roboto';
+ export const AddressBtn = styled(Button).attrs({ color: colors.ui.primary})`
+    width: 128px;
+    height: 64px;
+    background: #C3AD60;
+    font-size: 12px;
+    padding: 12px;
+    left: 30px;
+    top: 20px;
+    font-weight: 200;
+    border-radius: 15px;
  `;
 
- export const LogisticsReplace = styled.Text`
-       display: flex;
-       flex-flow: row;
-       justify-content: center;
-       align-items: center;
-       color: #fff;
-       font-size: 13px;
-       font-family: 'Roboto';
+ export const AddressCover = styled(Button).attrs({ color: colors.ui.quaternary })`
+    width: 128px;
+    height: 64px;;
+   background: #4E4E4E;
+   font-size: 12px;
+   top: 20px;
+   font-weight: 200;
+   padding: 12px;
+   border-radius: 15px;
  `;
 
- export const LogisticsBox = styled.View`
-    position: relative;
-    width: 100px;
-    height: 96px;
-    background: #4E4E4E;
-    border-radius: 5px;
-    top: 10px;
-    left: 20px;
- `;
+//  export const LogisticsSlot = styled.Text`
+//     display: flex;
+//     flex-flow: row;
+//     justify-content: center;
+//     align-items: center;
+//     color: #fff;
+//     left: 20px;
+//     font-size: 13px;
+//     font-family: 'Roboto';
+//  `;
 
-export const LogisticsBtn = styled(Button).attrs({ color: colors.ui.primary})`
-     width: 260px
-     height: 60px;
-     padding: 12px;
-     top: 3px;
-     align-items: center;
-     color: #000;
-     left: 10px;
-     font-weight: 400;
-     font-size: 18px;
-     background: #C3AD60;
-     border-radius: 10px;
-     text-transform: uppercase;
-`;
+//  export const LogisticsReplace = styled.Text`
+//        display: flex;
+//        flex-flow: row;
+//        justify-content: center;
+//        align-items: center;
+//        color: #fff;
+//        font-size: 13px;
+//        font-family: 'Roboto';
+//  `;
+
+//  export const LogisticsBox = styled.View`
+//     position: relative;
+//     width: 100px;
+//     height: 96px;
+//     background: #4E4E4E;
+//     border-radius: 5px;
+//     top: 10px;
+//     left: 20px;
+//  `;
+
+// export const LogisticsBtn = styled(Button).attrs({ color: colors.ui.primary})`
+//      width: 260px
+//      height: 60px;
+//      padding: 12px;
+//      top: 3px;
+//      align-items: center;
+//      color: #000;
+//      left: 10px;
+//      font-weight: 400;
+//      font-size: 18px;
+//      background: #C3AD60;
+//      border-radius: 10px;
+//      text-transform: uppercase;
+// `;

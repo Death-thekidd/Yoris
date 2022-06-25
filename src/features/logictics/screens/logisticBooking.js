@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, TextInput, View } from "react-native";
+import {  TextInput, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Header from "../../../components/Header";
 import { LayoutScrollView, Section, Text } from "../../../components/Layout";
 import AddressBox from "../components/AddressBox/AddressBox";
-import { Input } from "../components/location.styles";
 
 export default function LogisticsBooking() {
   const [values, setValues] = useState("");

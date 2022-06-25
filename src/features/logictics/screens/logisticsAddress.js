@@ -1,14 +1,11 @@
 import React from "react";
-import { SafeAreaView, ScrollView } from "react-native";
 import {
   LogisticsContainer,
   LogisticsPrimary,
   LogisticsWrapper,
   LogisticsRow,
-  LogisticsSlot,
-  LogisticsReplace,
-  LogisticsBox,
-  LogisticsBtn
+  AddressBtn,
+  AddressCover
 } from "../components/address.styles";
 
 export default function LogisticsAddress({ navigation }) {
@@ -16,6 +13,14 @@ export default function LogisticsAddress({ navigation }) {
     <LogisticsContainer>
       <LogisticsPrimary>Save New Address?</LogisticsPrimary>
       <LogisticsWrapper>
+        <LogisticsRow>
+           <AddressBtn onPress={()=>navigation.navigate('logisticsGoods')}>Yes</AddressBtn>
+        </LogisticsRow>
+        <LogisticsRow>
+            <AddressCover>No</AddressCover>
+        </LogisticsRow>
+      </LogisticsWrapper>
+      {/* <LogisticsWrapper>
         <LogisticsRow>
           <LogisticsSlot>Create new slot</LogisticsSlot>
           <LogisticsBox></LogisticsBox>
@@ -35,7 +40,7 @@ export default function LogisticsAddress({ navigation }) {
           <LogisticsBox></LogisticsBox>
         </LogisticsRow>
       </LogisticsWrapper>
-      <LogisticsBtn onPress={()=>navigation.navigate('location')}>continue</LogisticsBtn>
+      <LogisticsBtn onPress={()=>navigation.navigate('logisticsGoods')}>continue</LogisticsBtn> */}
     </LogisticsContainer>
   );
 }

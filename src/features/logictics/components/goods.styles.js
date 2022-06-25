@@ -6,7 +6,7 @@ export const GoodsContainer = styled.View`
      align-items: center;
      justify-content: center;
      background-color: #000;
-     padding: 40px;
+     padding: 60px;
      flex: 1;
 `;
 
@@ -24,23 +24,23 @@ export const GoodsRow = styled.View`
 `;
 
 export const ImageBackground = styled.Image`
-    width: 15px;
+    width: 26.19px;
     position: relative;
-    height: 15px;
+    height: 20px;
 `;
 
 export const GoodsPrimary = styled.Text`
      color: #C3AD60;
-     text-align: left;
+     right: 10px;
      font-size: 20px;
      font-weight: 400;
      font-family: 'Roboto';
 `;
 
 export const ImageCancel = styled.Image`
-     width: 15px;
+     width: 20.07px;px;
      position: relative;
-     height: 15px;
+     height: 20px;
 `;
 
 export const GoodsInput = styled.View`

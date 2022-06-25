@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import { colors } from "../../../infrastructure/theme/colors";
-import { Button } from 'react-native-paper';
+
 
 export const OrderContainer = styled.View`
      display: flex;
@@ -12,9 +11,9 @@ export const OrderContainer = styled.View`
 `;
 
 export const ImageBackground = styled.Image`
-   width: 20px;
-   right: 100px;
-   height: 15px;
+   width: 26.19px;
+   position: relative;
+   height: 20px;
 `;
 
 export const OrderCycle = styled.View`
