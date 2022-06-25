@@ -21,7 +21,7 @@ export default function ({
         containerStyle,
       ]}
     >
-      <Pressable style={{}} onPress={onLeftIconPress}>
+      <Pressable style={{}} onPress={() => {}}>
         {iconLeft && <Image source={iconLeft} />}
       </Pressable>
       {headerTitle && (
@@ -30,6 +30,7 @@ export default function ({
             {
               color: "#fff",
               textAlign: "left",
+              marginLeft: 20,
               fontSize: 20,
             },
             headerTitleStyle,
@@ -38,7 +39,9 @@ export default function ({
           {headerTitle}
         </Text>
       )}
-      <Pressable style={{}} onPress={onRightIconPress}>
+      <Pressable style={{ 
+        marginLeft: 20,
+      }} onPress={onRightIconPress}>
         {iconRight && <Image source={iconRight} />}
       </Pressable>
     </Section>

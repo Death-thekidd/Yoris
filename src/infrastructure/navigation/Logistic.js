@@ -3,12 +3,7 @@ import { FlatList, Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Logisticscreen from "../../features/logictics/screens/logisticscreen";
-import LogisticsBooking from "../../features/logictics/screens/logisticBooking";
 import LogisticsAddress from "../../features/logictics/screens/logisticsAddress";
-import LogisticsLocation from "../../features/logictics/screens/logisticslocation";
-import LogisticsSender from "../../features/logictics/screens/logisticsSender";
-import LogisticsReceived from "../../features/logictics/screens/logisticsReceived";
-import LogisticsGoods from "../../features/logictics/screens/logisticsGoods";
 import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle";
 import LogisticsDetails from "../../features/logictics/screens/logisticsDetails";
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
@@ -76,12 +71,8 @@ const LogisticNavigator = () => {
       <Stack.Screen name="confirmOrder" component={ConfirmOrder} />
 
       <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
-      <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
-      <Stack.Screen name="logisticsBooking" component={LogisticsBooking} />
-      <Stack.Screen name="logisticsSender" component={LogisticsSender} />
-      <Stack.Screen name="logisticsReceived" component={LogisticsReceived} />
-      <Stack.Screen name="logisticsGoods" component={LogisticsGoods} />
       <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
+      <Stack.Screen name="logisticsDetails" component={LogisticsDetails} />
       <Stack.Screen name="logisticsOrder" component={LogisticsOrder} />
       <Stack.Screen name="shipping" component={LogisticsShipping} />
       <Stack.Screen name="paymentScreen" component={PaymentScreen} />

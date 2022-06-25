@@ -1,5 +1,6 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from 'react-native';
+import { Button } from 'react-native-paper';
 import {
   VehicleContainer,
   VehicleWrapper,
@@ -14,14 +15,18 @@ import {
   VehicleBtn
 } from "../components/vehicle.styles";
 
-export default function LogisticsVehicle() {
+export default function LogisticsVehicle({ navigation }) {
   return (
     <SafeAreaView>
     <ScrollView>
     <VehicleContainer>
       <VehicleWrapper>
         <VehicleRow>
-          <ImageBackground source={require("../../../../assets/backIcon.png")} />
+        <Button onPress={() => navigation.navigate("shipping")}>
+           <ImageBackground
+             source={require("../../../../assets/backIcon.png")}
+            />
+          </Button>
         </VehicleRow>
         <VehicleRow>
           <VehiclePrimary>Vehicle Specification</VehiclePrimary>
@@ -30,7 +35,7 @@ export default function LogisticsVehicle() {
           <ImageCancel source={require("../../../../assets/cancel.png")} />
         </VehicleRow>
       </VehicleWrapper>
-      <VehicleCycle>
+      <VehicleCycle onPress={() => navigation.navigate("logisticsOrder")}>
         <VehicleWrapper>
           <VehicleRow>
             <ImageVehicle source={require("../../../../assets/vehicle1.png")} />
@@ -42,7 +47,7 @@ export default function LogisticsVehicle() {
           </VehicleRow>
         </VehicleWrapper>
       </VehicleCycle>
-      <VehicleCycle>
+      <VehicleCycle onPress={() => navigation.navigate("logisticsDetails")}>
         <VehicleWrapper>
           <VehicleRow>
             <ImageVehicle source={require("../../../../assets/vehicle4.png")} />

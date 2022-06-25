@@ -25,9 +25,9 @@ export const DetailsRow = styled.View`
 `;
 
 export const ImageBackground = styled.Image`
-    width: 15px;
+    width: 26.19px;
     position: relative;
-    height: 15px;
+    height: 20px;
 `;
 
 export const DetailsPrimary = styled.Text`
@@ -39,9 +39,9 @@ export const DetailsPrimary = styled.Text`
 `;
 
 export const ImageCancel = styled.Image`
-     width: 15px;
+     width: 20.07px;px;
      position: relative;
-     height: 15px;
+     height: 20px;
 `;
 
 export const DetailsSecondary = styled.Text`

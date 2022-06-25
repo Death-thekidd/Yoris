@@ -25,23 +25,23 @@ export const VehicleRow = styled.View`
 `;
 
 export const ImageBackground = styled.Image`
-  width: 15px;
+  width: 26.19px;
   position: relative;
-  height: 15px;
+  height: 20px;
 `;
 
 export const VehiclePrimary = styled.Text`
   color: #c3ad60;
-  text-align: left;
   font-size: 20px;
   font-weight: 400;
   font-family: "Roboto";
+  right: 20px;
 `;
 
 export const ImageCancel = styled.Image`
-  width: 15px;
-  position: relative;
-  height: 15px;
+   width: 20.07px;px;
+   position: relative;
+   height: 20px;
 `;
 
 export const VehicleCycle = styled.TouchableOpacity`

@@ -7,7 +7,7 @@ export const ShippingContainer = styled.View`
   align-items: center;
   justify-content: center;
   background-color: #000;
-  padding: 10px;
+  padding: 25px;
   flex: 1;
 `;
 
@@ -25,14 +25,14 @@ export const ShippingRow = styled.View`
 `;
 
 export const ImageBackground = styled.Image`
-  width: 15px;
-  position: relative;
-  height: 15px;
+    width: 26.19px;
+    position: relative;
+    height: 20px
 `;
 
 export const ShippingPrimary = styled.Text`
   color: #c3ad60;
-  text-align: left;
+  right: 15px;
   font-size: 20px;
   font-weight: 400;
   font-family: "Roboto";

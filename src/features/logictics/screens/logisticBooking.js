@@ -48,7 +48,7 @@ export default function LogisticsBooking() {
         </Text>
         {/* Address's */}
         <FlatList
-          data={["add 1", "", "", ""]}
+          data={["add 1", "", "", ""]} /* simulates incoming backend data */
           horizontal
           renderItem={({ item, index }) => (
             <AddressBox text={`Address ${index}`} />
