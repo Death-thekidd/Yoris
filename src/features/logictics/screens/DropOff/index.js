@@ -1,19 +1,19 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { FlatList, Pressable, TextInput, View } from "react-native";
 import Header from "../../../../components/Header";
 import Selector from "../../../../components/Selector";
-import { getCodes, getCodeList, getData } from "country-list";
 import { countries } from "countries-list";
-import { Layout, Section, Text } from "../../../../components/Layout";
+import {
+  Layout,
+  LayoutScrollView,
+  Section,
+  Text,
+} from "../../../../components/Layout";
 import AddressBox from "../../components/AddressBox/AddressBox";
 import { useState } from "react";
-import { useEffect } from "react";
-import {
-  ContinueButton,
-  ContinueView,
-  ContinuewButtonText,
-} from "../../components/logictics.styles";
 import { Button } from "../../../../components/Button";
+import MultiItem from "../../components/MultiItem";
+import { Row } from "../../components/VehicleType/styles";
 
 const itemCategory = ["Food"];
 export default () => {
@@ -21,12 +21,13 @@ export default () => {
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
   const [values, setValues] = useState(null);
   const { goBack, navigate } = useNavigation();
+  const { params } = useRoute();
   const codes = [];
   for (let code in countries) {
     codes.push(`+ ${countries[code].phone}`);
   }
   return (
-    <Layout
+    <LayoutScrollView
       style={{
         paddingHorizontal: 30,
       }}
@@ -40,6 +41,21 @@ export default () => {
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
+      <Row>
+        <MultiItem
+          title="Drop-Off Location"
+          address="15 AP street, Federal Low-cost Housing Estate, Ikorodu."
+          containerStyle={{
+            marginRight: 10,
+          }}
+          bottomComp={
+            <>
+              <Text style={{ color: "#000" }}>Receiver’s Name</Text>
+              <Text style={{ color: "#000" }}>Receiver’s Phone</Text>
+            </>
+          }
+        />
+      </Row>
 
       <Section
         style={{
@@ -177,16 +193,19 @@ export default () => {
       </Section>
 
       <Section>
-        <Button style={{ marginBottom: 10 }}>
-          <Text style={{ color: "#C3AD60", fontSize: 24 }}>Add New</Text>
-        </Button>
+        {params.multiDropOff && (
+          <Button style={{ marginBottom: 10 }}>
+            <Text style={{ color: "#C3AD60", fontSize: 24 }}>Add New</Text>
+          </Button>
+        )}
+
         <Button
           style={{ backgroundColor: "#C3AD60" }}
-          onPress={() => navigate("confirmOrder", {})}
+          onPress={() => navigate("confirmOrder", params)}
         >
           <Text style={{ color: "#000", fontSize: 24 }}>Continue</Text>
         </Button>
       </Section>
-    </Layout>
+    </LayoutScrollView>
   );
 };

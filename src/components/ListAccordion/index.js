@@ -104,7 +104,12 @@ export function ListAccordion() {
 
       <Section
         style={[
-          { marginTop: 0, flexDirection: "row", justifyContent: "center" },
+          {
+            marginTop: 0,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingHorizontal: 30,
+          },
         ]}
       >
         <Image

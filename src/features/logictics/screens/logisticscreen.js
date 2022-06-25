@@ -1,16 +1,11 @@
 import React, { useCallback, useState } from "react";
-import {
-  ContinueButton,
-  ContinueView,
-  ContinuewButtonText,
-} from "../components/logictics.styles";
-import { Spacer } from "../../../components/spacer/spacer.component";
 import { View, Pressable, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../../../components/Header";
 import { Layout, Text } from "../../../components/Layout";
 import OneOff from "../components/OneOff";
 import Multiple from "../components/Multiple";
+import { Button } from "../../../components/Button";
 
 export default function Logisticscreen() {
   const navigation = useNavigation();
@@ -69,15 +64,17 @@ export default function Logisticscreen() {
         {!isMultiple ? (
           <>
             <OneOff />
-            <Spacer size="xxl">
-              <ContinueView>
-                <ContinueButton
-                  onPress={() => navigation.navigate("Yoris Pay")}
-                >
-                  <ContinuewButtonText>continue</ContinuewButtonText>
-                </ContinueButton>
-              </ContinueView>
-            </Spacer>
+            <Button
+              onPress={() =>
+                navigation.navigate("pickUp", {
+                  singlePickup: true,
+                  singleDropOff: true,
+                })
+              }
+              style={{ backgroundColor: "#C3AD60", marginTop: 74 }}
+            >
+              <Text style={{ fontSize: 24 }}>Continue</Text>
+            </Button>
           </>
         ) : (
           <Multiple />

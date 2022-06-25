@@ -1,19 +1,33 @@
 import { Image } from "react-native";
 import { Text } from "../../../../components/Layout";
-import { Container, Contents } from "./styles";
+import { PressableContainer, Contents, Row } from "./styles";
+import { Pressable } from "react-native";
+import { FontAwesome } from "../../../../components/Icons";
 
-export default ({ vehicle, desc, imgSrc }) => {
+export default ({
+  vehicle,
+  desc,
+  imgSrc,
+  itemKey,
+  onVehicleSelect,
+  selectedVehicle,
+}) => {
   return (
-    <Container>
-      <Text
-        style={{
-          paddingHorizontal: 15,
-          fontWeight: "700",
-          fontSize: 14,
-        }}
-      >
-        {vehicle || "Not passed"}
-      </Text>
+    <PressableContainer onPress={() => onVehicleSelect(itemKey)}>
+      <Row style={{ paddingHorizontal: 15 }}>
+        <Text
+          style={{
+            fontWeight: "700",
+            fontSize: 14,
+          }}
+        >
+          {vehicle || "Not passed"}
+        </Text>
+        {selectedVehicle === itemKey && (
+          <FontAwesome name="check" color="#C3AD60" />
+        )}
+      </Row>
+
       <Contents style={{}}>
         <Image
           // style={{ paddingRight: 5 }}
@@ -28,6 +42,6 @@ export default ({ vehicle, desc, imgSrc }) => {
           {desc || "PassDesc"}
         </Text>
       </Contents>
-    </Container>
+    </PressableContainer>
   );
 };

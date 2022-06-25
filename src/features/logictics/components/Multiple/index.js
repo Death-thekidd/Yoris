@@ -6,7 +6,12 @@ export default () => {
   const navigation = useNavigation();
   const buttons = [
     {
-      navigateToScreen: "pickUp",
+      routeParams: {
+        singlePickup: true,
+        singleDropOff: false,
+        multiPickup: false,
+        multiDropOff: true,
+      },
       textRight: "Single Pickup",
       textLeft: "Multiple DropOff",
       textStyle: {
@@ -15,7 +20,12 @@ export default () => {
       },
     },
     {
-      navigateToScreen: "screenName",
+      routeParams: {
+        singlePickup: false,
+        singleDropOff: false,
+        multiPickup: true,
+        multiDropOff: true,
+      },
       textRight: "Multiple Pickup",
       textLeft: "Multiple DropOff",
       textStyle: {
@@ -24,9 +34,14 @@ export default () => {
       },
     },
     {
-      navigateToScreen: "screenName",
-      textRight: "Single Pickup",
-      textLeft: "Multiple DropOff",
+      routeParams: {
+        singlePickup: false,
+        singleDropOff: true,
+        multiPickup: true,
+        multiDropOff: false,
+      },
+      textRight: "Multiple Pickup",
+      textLeft: "Single DropOff",
       textStyle: {
         fontSize: 18,
         color: "#000",
@@ -35,9 +50,9 @@ export default () => {
   ];
   return (
     <Constainer>
-      {buttons.map(({ textLeft, textRight, textStyle, navigateToScreen }) => (
+      {buttons.map(({ textLeft, textRight, textStyle, routeParams }) => (
         <StyledMultiButton
-          onPress={() => navigation.navigate(String(navigateToScreen))}
+          onPress={() => navigation.navigate("pickUp", routeParams)}
         >
           <Text style={[textStyle]}>{textRight}</Text>
           <Text style={[textStyle]}>{textLeft}</Text>
