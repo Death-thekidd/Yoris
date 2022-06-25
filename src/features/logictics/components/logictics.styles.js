@@ -132,7 +132,7 @@ export const ContinuewButtonText = styled.Text`
 
 export const ContinueView = styled.View`
   width: 330px;
-  height: 64px;
+  height: 48px;
   text-align: center;
   align-self: center;
   background: #c3ad60;

@@ -22,6 +22,9 @@ import {
 } from "../../features/payment/screens";
 import OrderHistory from "../../features/logictics/screens/OrderHistory";
 import SingleOrder from "../../features/logictics/screens/SingleOrder";
+import PickUp from "../../features/logictics/screens/PickUp";
+import DropOff from "../../features/logictics/screens/DropOff";
+import ConfirmOrder from "../../features/logictics/screens/ConfirmOrder";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
@@ -68,6 +71,10 @@ const LogisticNavigator = () => {
       }}
     >
       <Stack.Screen name="Main" component={Logisticscreen} />
+      <Stack.Screen name="pickUp" component={PickUp} />
+      <Stack.Screen name="dropOff" component={DropOff} />
+      <Stack.Screen name="confirmOrder" component={ConfirmOrder} />
+
       <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
       <Stack.Screen name="logisticLocation" component={LogisticsLocation} />
       <Stack.Screen name="logisticsBooking" component={LogisticsBooking} />

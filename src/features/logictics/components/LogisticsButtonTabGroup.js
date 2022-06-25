@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   buttonTabGroup: {
     flexDirection: "row",
     backgroundColor: "#9A8340",
+    height: 64,
     alignSelf: "center",
     justifyContent: "space-between",
     borderRadius: 5,
