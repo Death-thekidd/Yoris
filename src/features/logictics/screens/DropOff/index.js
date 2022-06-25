@@ -41,7 +41,7 @@ export default () => {
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
-      <Row>
+      {/*  <Row>
         <MultiItem
           title="Drop-Off Location"
           address="15 AP street, Federal Low-cost Housing Estate, Ikorodu."
@@ -55,7 +55,7 @@ export default () => {
             </>
           }
         />
-      </Row>
+      </Row> */}
 
       <Section
         style={{
