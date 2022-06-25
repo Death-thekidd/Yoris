@@ -146,6 +146,7 @@ export default () => {
         <View
           style={{
             flexDirection: "row",
+            alignItems: "center",
             marginTop: 20,
           }}
         >

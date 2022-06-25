@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from "react-native";
-import { Button } from 'react-native-paper';
+import { Button } from "react-native-paper";
 import {
   ShippingContainer,
   ShippingWrapper,
@@ -27,7 +27,7 @@ export default function LogisticsShipping({ navigation }) {
         <ShippingContainer>
           <ShippingWrapper>
             <ShippingRow>
-             <Button onPress={() => navigation.navigate("logisticsGoods")}>
+              <Button onPress={() => navigation.navigate("logisticsGoods")}>
                 <ImageBackground
                   source={require("../../../../assets/backIcon.png")}
                 />
@@ -74,7 +74,7 @@ export default function LogisticsShipping({ navigation }) {
               <ShippingInput type="checkbox" id="navi-toggle">
                 <ShippingLabel>
                   <ImageBitmap
-                    source={require("../../../../assets/group.png")}
+                    source={require("../../../../assets/Group.png")}
                   />
                 </ShippingLabel>
               </ShippingInput>
@@ -99,7 +99,9 @@ export default function LogisticsShipping({ navigation }) {
             </ShippingRow>
           </ShippingWrapper>
           <ShippingTracking>Add More Tracking Number</ShippingTracking>
-          <ShippingBtn onPress={() => navigation.navigate("logisticsVehicle")}>continue</ShippingBtn>
+          <ShippingBtn onPress={() => navigation.navigate("logisticsVehicle")}>
+            continue
+          </ShippingBtn>
         </ShippingContainer>
       </ScrollView>
     </SafeAreaView>
