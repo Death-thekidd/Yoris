@@ -10,6 +10,7 @@ import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
 import { createStackNavigator } from "@react-navigation/stack";
 import Stores from "../../features/Stores/Stores.screen";
+
 import {
   PaymentScreen,
   PaymentOptions,
@@ -69,7 +70,6 @@ const LogisticNavigator = () => {
       <Stack.Screen name="pickUp" component={PickUp} />
       <Stack.Screen name="dropOff" component={DropOff} />
       <Stack.Screen name="confirmOrder" component={ConfirmOrder} />
-
       <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
       <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
       <Stack.Screen name="logisticsDetails" component={LogisticsDetails} />
