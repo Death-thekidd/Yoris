@@ -21,7 +21,7 @@ export default function ({
         containerStyle,
       ]}
     >
-      <Pressable style={{}} onPress={() => onLeftIconPress()}>
+      <Pressable style={{}} onPress={() => {onLeftIconPress}}>
         {iconLeft && <Image source={iconLeft} />}
       </Pressable>
       {headerTitle && (

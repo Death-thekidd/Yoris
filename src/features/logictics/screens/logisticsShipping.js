@@ -27,7 +27,7 @@ export default function LogisticsShipping({ navigation }) {
         <ShippingContainer>
           <ShippingWrapper>
             <ShippingRow>
-              <Button onPress={() => navigation.navigate("logisticsGoods")}>
+              <Button onPress={() => navigation.navigate("logisticBooking")}>
                 <ImageBackground
                   source={require("../../../../assets/backIcon.png")}
                 />
@@ -74,7 +74,7 @@ export default function LogisticsShipping({ navigation }) {
               <ShippingInput type="checkbox" id="navi-toggle">
                 <ShippingLabel>
                   <ImageBitmap
-                    source={require("../../../../assets/Group.png")}
+                    source={require("../../../../assets/group.png")}
                   />
                 </ShippingLabel>
               </ShippingInput>
