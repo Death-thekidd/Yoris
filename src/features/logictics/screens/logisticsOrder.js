@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { Checkbox } from 'react-native-paper';
-import { Pressable } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import { 
      OrderContainer,
      ImageBackground,
@@ -26,11 +26,11 @@ export default function LogisticsOrder({ navigation }) {
   <SafeAreaView>
    <ScrollView>
     <OrderContainer>
-      <Pressable style={{ right: 100}} onPress={() => navigation.navigate("logisticsVehicle")}>
+      <Button style={{ right: 100}} onPress={() => navigation.navigate("logisticsVehicle")}>
          <ImageBackground
            source={require("../../../../assets/backIcon.png")}
           />
-       </Pressable>
+       </Button>
        <OrderCycle>
           <OrderPrimary>#oRDerNuMbeR</OrderPrimary>
           <OrderText>Type of good</OrderText>
@@ -69,7 +69,7 @@ export default function LogisticsOrder({ navigation }) {
               <Span>Read Terms and conditions?</Span>
            </OrderBox>
         </OrderWrapper>
-       <LocationBtn>Process To Payment</LocationBtn>
+       <LocationBtn onPress={() => navigation.navigate("paymentScreen")}>Process To Payment</LocationBtn>
     </OrderContainer>
     </ScrollView>
     </SafeAreaView>
