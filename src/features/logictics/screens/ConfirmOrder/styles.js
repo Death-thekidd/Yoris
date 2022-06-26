@@ -10,3 +10,8 @@ export const DetailOrderNumber = styled.Text`
   color: #fff;
   font-size: 24px;
 `;
+
+export const Seperator = styled.View`
+  border: 1px solid #4e4e4e;
+  margin: 15px 0;
+`;

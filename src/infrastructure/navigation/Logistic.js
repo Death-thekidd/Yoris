@@ -65,7 +65,7 @@ const LogisticNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Main" component={Logisticscreen} />
+      <Stack.Screen name="logisticsMain" component={Logisticscreen} />
       <Stack.Screen name="pickUp" component={PickUp} />
       <Stack.Screen name="dropOff" component={DropOff} />
       <Stack.Screen name="confirmOrder" component={ConfirmOrder} />
@@ -77,7 +77,7 @@ const LogisticNavigator = () => {
       <Stack.Screen name="shipping" component={LogisticsShipping} />
       <Stack.Screen name="paymentScreen" component={PaymentScreen} />
       <Stack.Screen name="paymentOptions" component={PaymentOptions} />
-      <Stack.Screen name="confirmedPayment" component={ConfirmedPayment} />
+      <Stack.Screen name="confirmPayment" component={ConfirmedPayment} />
       <Stack.Screen name="orderHistory" component={OrderHistory} />
     </Stack.Navigator>
   );

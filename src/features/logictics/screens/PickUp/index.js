@@ -10,9 +10,13 @@ import {
   Section,
   Text,
 } from "../../../../components/Layout";
+import Modal from "../../../../components/Modal";
+import { Row } from "../../../../components/Modal/styles";
+import AddLocationInput from "../../components/AddLocationInput";
 import AddressBox from "../../components/AddressBox/AddressBox";
 import MultiItem from "../../components/MultiItem";
 import VehicleType from "../../components/VehicleType";
+
 const vehicles = [
   {
     desc: "Medium - Large size packages.",
@@ -31,20 +35,19 @@ const vehicles = [
   },
 ];
 export default () => {
-  const { goBack, navigate, setParams } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [values, setValues] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [pickups, setPickups] = useState([]);
 
   const onVehicleChange = (key) => {
     setSelectedVehicle(key);
     // console.log("Vehicle =>", vehicles[key]);
   };
 
-  useEffect(
-    () => console.log("Vehicle =>", selectedVehicle),
-    [selectedVehicle]
-  );
+  useEffect(() => console.log("Pickups =>", pickups), [pickups]);
 
   return (
     <LayoutScrollView style={{ paddingHorizontal: 30 }}>
@@ -57,10 +60,26 @@ export default () => {
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
-      <MultiItem
-        title="Pick-Up Location"
-        address="15 AP street, Federal Low-cost Housing Estate, Ikorodu."
-      />
+
+      {params.multiPickup && (
+        <FlatList
+          data={pickups}
+          renderItem={({ index, item }) => (
+            <MultiItem
+              title="Pick-Up Location"
+              address={item.address}
+              containerStyle={{
+                marginRight: 10,
+                width: 310,
+              }}
+            />
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          snapToAlignment={"center"}
+        />
+      )}
+
       <Section
         style={{
           flexDirection: "row",
@@ -72,38 +91,9 @@ export default () => {
         <Image source={require("../../../../../assets/mapPointerGold.png")} />
         <Text style={{ fontSize: 24 }}>Use Current Location</Text>
       </Section>
-      <Section
-        style={{
-          marginBottom: 0,
-        }}
-      >
-        <Text style={{ marginBottom: 10 }}>Add Pickup Location</Text>
-        <TextInput
-          onChangeText={(text) =>
-            setValues((states) => ({ ...states, address: text }))
-          }
-          placeholder={"Address"}
-          placeholderTextColor={"white"}
-          style={{
-            backgroundColor: "#4E4E4E",
-            borderRadius: 5,
-            marginVertical: 5,
-            padding: 10,
-            color: "#fff",
-          }}
-        />
-      </Section>
-      <Section>
-        <Text style={{ marginBottom: 10 }}>Saved Addresses</Text>
-        <FlatList
-          data={["add 1", "", "", ""]}
-          horizontal
-          renderItem={({ item, index }) => (
-            <AddressBox text={`Address ${index}`} />
-          )}
-          showsHorizontalScrollIndicator={false}
-        />
-      </Section>
+
+      <AddLocationInput label={"Add Pickup Location"} setValues={setValues} />
+
       <Section
         style={{
           flexDirection: "row",
@@ -127,19 +117,51 @@ export default () => {
       </Section>
       <Section>
         {params.multiPickup && (
-          <Button style={{ marginBottom: 10 }}>
-            <Text style={{ color: "#C3AD60", fontSize: 24 }}>
-              Add More Pickup
-            </Text>
+          <Button
+            style={{ marginBottom: 10 }}
+            onPress={() =>
+              setPickups((prevPickups) => [...prevPickups, values])
+            }
+          >
+            <Text style={{ color: "#C3AD60", fontSize: 24 }}>Add Pickup</Text>
           </Button>
         )}
 
-        <Button
-          style={{ backgroundColor: "#C3AD60" }}
-          onPress={() => navigate("dropOff", params)}
-        >
-          <Text style={{ color: "#000", fontSize: 24 }}>Continue</Text>
-        </Button>
+        <Modal
+          ModalTitle={() => (
+            <Text style={{ fontSize: 24, color: "#000", marginBottom: 15 }}>
+              Save New Address?
+            </Text>
+          )}
+          BottomRow={() => (
+            <>
+              <Button
+                style={{
+                  backgroundColor: "#000",
+                  marginRight: 30,
+                  paddingHorizontal: 30,
+                }}
+                onPress={() => {
+                  setModalVisible(false);
+                  navigate("dropOff", { ...params, pickups });
+                }}
+              >
+                <Text style={{ color: "#fff", fontSize: 24 }}>No</Text>
+              </Button>
+              <Button
+                style={{ backgroundColor: "#C3AD60", paddingHorizontal: 30 }}
+                onPress={() => {
+                  setModalVisible(false);
+                  navigate("dropOff", { ...params, pickups });
+                }}
+              >
+                <Text style={{ color: "#000", fontSize: 24 }}>Yes</Text>
+              </Button>
+            </>
+          )}
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+        />
       </Section>
     </LayoutScrollView>
   );

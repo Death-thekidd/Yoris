@@ -1,19 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import {
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, Image, Pressable, StyleSheet } from "react-native";
+import { Button } from "../../../components/Button";
 import Input from "../../../components/input";
-import { Spacer } from "../../../components/spacer/spacer.component";
-import {
-  ContinueButton,
-  ContinueView,
-  ContinuewButtonText,
-} from "../../logictics/components/logictics.styles";
+import { Text } from "../../../components/Layout";
 import {
   CardDateContainer,
   CardDateDevider,
@@ -40,6 +30,7 @@ export default function PaymentScreen({ navigation }) {
   const [cardCvvNumber, setCardCvvNumber] = useState("");
   const [cardYear, setCardYear] = useState("");
   const [cardMonth, setCardMonth] = useState("");
+  const { navigate } = useNavigation();
   return (
     <PaymentContainer>
       {/* Back Icon */}
@@ -112,15 +103,9 @@ export default function PaymentScreen({ navigation }) {
         </CardInfoContainer>
       </Section>
 
-      <Spacer size="xxl">
-        <ContinueView>
-          <ContinueButton
-            onPress={() => navigation.navigate("logisticBooking")}
-          >
-            <ContinuewButtonText>continue</ContinuewButtonText>
-          </ContinueButton>
-        </ContinueView>
-      </Spacer>
+      <Button onPress={() => navigate("confirmPayment")}>
+        <Text style={{ fontSize: 24, color: "#fff" }}>Continue</Text>
+      </Button>
     </PaymentContainer>
   );
 }

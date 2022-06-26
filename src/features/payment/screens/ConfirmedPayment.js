@@ -1,6 +1,14 @@
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
 import { View, Text } from "react-native";
 import { SubTitle, Title } from "./style";
 export default function () {
+  const { navigate } = useNavigation();
+
+  const redirect = () => setTimeout(() => navigate("logisticsMain"), 5000);
+  useEffect(() => {
+    redirect();
+  }, []);
   return (
     <View
       style={{

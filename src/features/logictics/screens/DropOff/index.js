@@ -14,6 +14,7 @@ import { useState } from "react";
 import { Button } from "../../../../components/Button";
 import MultiItem from "../../components/MultiItem";
 import { Row } from "../../components/VehicleType/styles";
+import AddLocationInput from "../../components/AddLocationInput";
 
 const itemCategory = ["Food"];
 export default () => {
@@ -41,58 +42,34 @@ export default () => {
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
-      {/*  <Row>
-        <MultiItem
-          title="Drop-Off Location"
-          address="15 AP street, Federal Low-cost Housing Estate, Ikorodu."
-          containerStyle={{
-            marginRight: 10,
-          }}
-          bottomComp={
-            <>
-              <Text style={{ color: "#000" }}>Receiver’s Name</Text>
-              <Text style={{ color: "#000" }}>Receiver’s Phone</Text>
-            </>
-          }
-        />
-      </Row> */}
-
-      <Section
-        style={{
-          marginBottom: 0,
-        }}
-      >
-        <Text style={{ marginBottom: 10 }}>Type in new location</Text>
-        <TextInput
-          onChangeText={(text) =>
-            setValues((states) => ({ ...states, address: text }))
-          }
-          placeholder={"Address"}
-          placeholderTextColor={"white"}
-          style={{
-            backgroundColor: "#4E4E4E",
-            borderRadius: 5,
-            marginVertical: 5,
-            padding: 10,
-            color: "#fff",
-          }}
-        />
-      </Section>
-      <Section
-        style={{
-          marginBottom: 5,
-        }}
-      >
-        <Text style={{ marginBottom: 10 }}>Saved Addresses</Text>
+      {params.multiDropOff && (
         <FlatList
-          data={["add 1", "", "", ""]}
-          horizontal
-          renderItem={({ item, index }) => (
-            <AddressBox text={`Address ${index}`} />
+          data={["", "", ""]}
+          renderItem={() => (
+            <MultiItem
+              title="Drop-Off Location"
+              address="15 AP street, Federal Low-cost Housing Estate, Ikorodu."
+              containerStyle={{
+                marginRight: 10,
+                width: 310,
+              }}
+              bottomComp={
+                <>
+                  <Text style={{ color: "#000" }}>Receiver’s Name</Text>
+                  <Text style={{ color: "#000" }}>Receiver’s Phone</Text>
+                </>
+              }
+            />
           )}
+          horizontal
           showsHorizontalScrollIndicator={false}
+          snapToAlignment={"center"}
         />
-      </Section>
+      )}
+
+      <AddLocationInput label={"Add DropOff Location"} setValues={setValues} />
+
+      {/* Category Selector */}
       <Section
         style={{
           alignItems: "center",

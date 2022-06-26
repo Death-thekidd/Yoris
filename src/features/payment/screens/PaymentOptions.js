@@ -1,15 +1,10 @@
-import { View, Image, Text, Pressable } from "react-native";
-import { FontAwesome } from "../../../components/Icons";
+import { View, Image } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { useState } from "react";
-import { Spacer } from "../../../components/spacer/spacer.component";
-import {
-  ContinueButton,
-  ContinueView,
-  ContinuewButtonText,
-} from "../../logictics/components/logictics.styles";
-import { Section } from "./style";
 import Header from "../../../components/Header";
+import { Button } from "../../../components/Button";
+import { Text } from "../../../components/Layout";
+import { useNavigation } from "@react-navigation/native";
 
 const methods = [
   {
@@ -27,8 +22,9 @@ const methods = [
     value: "paypal",
   },
 ];
-export default function ({ navigation }) {
+export default function () {
   const [value, setValue] = useState();
+  const { goBack, navigate } = useNavigation();
   return (
     <View
       style={{
@@ -42,7 +38,7 @@ export default function ({ navigation }) {
       <Header
         iconLeft={require("../../../../assets/cancelGold.png")}
         headerTitle={"Choose Payment Method"}
-        onLeftIconPress={() => navigation.goBack()}
+        onLeftIconPress={() => goBack()}
       />
 
       <RadioButton.Group
@@ -73,7 +69,9 @@ export default function ({ navigation }) {
             >
               <Image style={{ resizeMode: "contain" }} source={imageSource} />
               {text && (
-                <Text style={{ fontSize: 18.5, marginLeft: 25 }}>{text}</Text>
+                <Text style={{ fontSize: 18.5, marginLeft: 25, color: "#000" }}>
+                  {text}
+                </Text>
               )}
             </View>
             <RadioButton.Item value={value} />
@@ -82,15 +80,12 @@ export default function ({ navigation }) {
       </RadioButton.Group>
       {/* Continue Button */}
 
-      <Spacer size="xxl">
-        <ContinueView>
-          <ContinueButton
-            onPress={() => navigation.navigate("logisticsBooking")}
-          >
-            <ContinuewButtonText> continue</ContinuewButtonText>
-          </ContinueButton>
-        </ContinueView>
-      </Spacer>
+      <Button
+        style={{ marginVertical: 24 }}
+        onPress={() => navigate("paymentScreen")}
+      >
+        <Text style={{ fontSize: 24, color: "#fff" }}>Continue</Text>
+      </Button>
     </View>
   );
 }
