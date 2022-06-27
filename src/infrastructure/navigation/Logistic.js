@@ -9,7 +9,7 @@ import LogisticsDetails from "../../features/logictics/screens/logisticsDetails"
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
 import { createStackNavigator } from "@react-navigation/stack";
-
+import Stores from "../../features/Stores/Stores.screen";
 import {
   PaymentScreen,
   PaymentOptions,
@@ -78,7 +78,6 @@ export const Tab = () => {
             backgroundColor: "#9A8340",
           },
 
-<<<<<<< HEAD
           tabBarStyle: {
             elevation: 10,
             backgroundColor: "#0B090A",
@@ -92,19 +91,6 @@ export const Tab = () => {
         {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
       </Tabs.Navigator>
     </>
-=======
-        tabBarStyle: {
-          elevation: 10,
-          backgroundColor: "#0B090A",
-          borderRadius: 1,
-        },
-      }}
-    >
-      {/* <Tabs.Screen name="Puddle" component={Puddle */}
-      <Tabs.Screen name="Logistics" component={LogisticNavigator} />
-      {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
-    </Tabs.Navigator>
->>>>>>> bcd08f447096eecc6c5403e93f7b88567801bf6f
   );
 };
 

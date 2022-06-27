@@ -7,7 +7,7 @@ export default () => {
   const { goBack } = useNavigation();
   return (
     <Header
-      iconLeft={require("../../../../assets/backIcon.png")}
+      iconLeft={require("../../../../../../assets/backIcon.png")}
       onLeftIconPress={() => goBack()}
       IconRightComponent={() => (
         <View
@@ -29,7 +29,7 @@ export default () => {
             <FontAwesome color="#C3AD60" name={"bell"} size={20} />
           </Pressable>
           <Pressable>
-            <Image source={require("../../../../assets/hamburger.png")} />
+            <Image source={require("../../../../../../assets/hamburger.png")} />
           </Pressable>
         </View>
       )}
