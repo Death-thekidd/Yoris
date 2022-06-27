@@ -16,8 +16,6 @@ export default () => {
         paddingHorizontal: 25,
       }}
     >
-      <Header />
-
       {/* Profile Image */}
       <Section
         style={{

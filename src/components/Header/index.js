@@ -26,7 +26,10 @@ export default function ({
       {IconLeftComponent ? (
         <IconLeftComponent />
       ) : (
-        <Pressable style={{}} onPress={() => onLeftIconPress()}>
+        <Pressable
+          style={{}}
+          onPress={() => onLeftIconPress && onLeftIconPress()}
+        >
           {iconLeft && <Image source={iconLeft} />}
         </Pressable>
       )}
@@ -53,7 +56,7 @@ export default function ({
           style={{
             marginLeft: 20,
           }}
-          onPress={onRightIconPress}
+          onPress={() => onRightIconPress && onRightIconPress()}
         >
           {iconRight && <Image source={iconRight} />}
         </Pressable>

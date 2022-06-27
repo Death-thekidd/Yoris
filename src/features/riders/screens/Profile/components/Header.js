@@ -1,10 +1,14 @@
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
+import { DrawerToggleButton } from "@react-navigation/drawer";
 import { Image, Pressable, View } from "react-native";
 import Header from "../../../../../components/Header";
 import { FontAwesome } from "../../../../../components/Icons";
+import { useEffect } from "react";
 
-export default () => {
-  const { goBack } = useNavigation();
+export default ({ navigation }) => {
+  useEffect(() => console.log("navigation => ", navigation), []);
+  const { goBack, dispatch } = useNavigation();
+  const onToggle = () => dispatch(DrawerActions.toggleDrawer());
   return (
     <Header
       iconLeft={require("../../../../../../assets/backIcon.png")}
@@ -28,7 +32,7 @@ export default () => {
           >
             <FontAwesome color="#C3AD60" name={"bell"} size={20} />
           </Pressable>
-          <Pressable>
+          <Pressable onPress={onToggle}>
             <Image source={require("../../../../../../assets/hamburger.png")} />
           </Pressable>
         </View>

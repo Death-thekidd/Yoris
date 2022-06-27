@@ -52,17 +52,7 @@ export default function () {
           <ListAccordion />
           {/* Pass order number and tracking number and dob */}
         </View>
-        <View
-          style={{
-            borderWidth: 1,
-            borderColor: "#C3AD60",
-            borderRadius: 7,
-            marginVertical: 15,
-          }}
-        >
-          <ListAccordion />
-          {/* Pass order number and tracking number and dob */}
-        </View>
+
         <View
           style={{
             borderWidth: 1,
