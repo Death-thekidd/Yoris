@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
 import { Checkbox } from 'react-native-paper';
+import { Layout } from "../../../components/Layout";
 import { Button } from 'react-native-paper';
 import { 
      OrderContainer,
@@ -23,9 +23,7 @@ import { LocationBtn } from '../components/location.styles';
 export default function LogisticsOrder({ navigation }) {
    const [checked, setChecked] = useState(true);
   return (
-  <SafeAreaView>
-   <ScrollView>
-    <OrderContainer>
+     <Layout>
       <Button style={{ right: 100}} onPress={() => navigation.navigate("logisticsVehicle")}>
          <ImageBackground
            source={require("../../../../assets/backIcon.png")}
@@ -70,8 +68,6 @@ export default function LogisticsOrder({ navigation }) {
            </OrderBox>
         </OrderWrapper>
        <LocationBtn onPress={() => navigation.navigate("paymentScreen")}>Process To Payment</LocationBtn>
-    </OrderContainer>
-    </ScrollView>
-    </SafeAreaView>
+      </Layout>
   );
 };

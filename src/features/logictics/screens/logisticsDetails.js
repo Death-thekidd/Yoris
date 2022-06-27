@@ -1,8 +1,9 @@
 import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
+import { Layout } from "../../../components/Layout";
 import { Button } from 'react-native-paper';
+
 import { 
-     DetailsContainer,
      DetailsWrapper,
      DetailsRow,
      ImageBackground,
@@ -25,9 +26,9 @@ import {
 
 export default function LogisticsDetails({ navigation }) {
     return(
-    <SafeAreaView>
-    <ScrollView>
-     <DetailsContainer>
+      <SafeAreaView>
+      <ScrollView>
+      <Layout>
        <DetailsWrapper>
           <DetailsRow>
             <Button onPress={() => navigation.navigate("logisticBooking")}>
@@ -81,8 +82,8 @@ export default function LogisticsDetails({ navigation }) {
          </DetailsWrapper>
        </DetailsHover>
        <DetailsBtn>confirm</DetailsBtn>
-     </DetailsContainer>
-     </ScrollView>
-     </SafeAreaView>
+      </Layout>
+      </ScrollView>
+      </SafeAreaView>
     );
 };

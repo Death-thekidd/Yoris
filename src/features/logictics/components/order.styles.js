@@ -1,14 +1,7 @@
 import styled from 'styled-components/native';
 
 
-export const OrderContainer = styled.View`
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     padding: 50px;
-     background-color: #000;
-     flex: 1;
-`;
+
 
 export const ImageBackground = styled.Image`
    width: 26.19px;
@@ -21,6 +14,7 @@ export const OrderCycle = styled.View`
    height: 360px;
    margin-bottom: 30px;
    top: 40px;
+   left: 60px;
    border: 1px solid #C3AD60;
 `;
 
@@ -104,7 +98,8 @@ export const OrderNumber = styled.Text`
 
 export const OrderBox = styled.View`
   flex-direction: row;
-  margin-top: 15px;
+  margin-top: 15px; 
+  left: 60px;
 `;
 
 export const Span = styled.Text`
