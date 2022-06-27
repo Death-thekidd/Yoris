@@ -61,24 +61,7 @@ export default function Logisticscreen() {
 
       {/* Container */}
       <View style={[styles.container]}>
-        {!isMultiple ? (
-          <>
-            <OneOff />
-            <Button
-              onPress={() =>
-                navigation.navigate("pickUp", {
-                  singlePickup: true,
-                  singleDropOff: true,
-                })
-              }
-              style={{ backgroundColor: "#C3AD60", marginTop: 74 }}
-            >
-              <Text style={{ fontSize: 24 }}>Continue</Text>
-            </Button>
-          </>
-        ) : (
-          <Multiple />
-        )}
+        {!isMultiple ? <OneOff /> : <Multiple />}
       </View>
     </Layout>
   );

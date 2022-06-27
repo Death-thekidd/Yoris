@@ -69,7 +69,6 @@ const LogisticNavigator = () => {
       <Stack.Screen name="pickUp" component={PickUp} />
       <Stack.Screen name="dropOff" component={DropOff} />
       <Stack.Screen name="confirmOrder" component={ConfirmOrder} />
-
       <Stack.Screen name="logisticBooking" component={LogisticsAddress} />
       <Stack.Screen name="logisticsVehicle" component={LogisticsVehicle} />
       <Stack.Screen name="logisticsDetails" component={LogisticsDetails} />
@@ -79,6 +78,7 @@ const LogisticNavigator = () => {
       <Stack.Screen name="paymentOptions" component={PaymentOptions} />
       <Stack.Screen name="confirmPayment" component={ConfirmedPayment} />
       <Stack.Screen name="orderHistory" component={OrderHistory} />
+      <Stack.Screen name="singleOrder" component={SingleOrder} />
     </Stack.Navigator>
   );
 };

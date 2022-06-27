@@ -1,22 +1,18 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useCallback, useEffect } from "react";
-import { useState } from "react";
-import { TextInput, Image, FlatList, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Image, FlatList, View } from "react-native";
 import { Button } from "../../../../components/Button";
 import Header from "../../../../components/Header";
-import {
-  Layout,
-  LayoutScrollView,
-  Section,
-  Text,
-} from "../../../../components/Layout";
+import { LayoutScrollView, Section, Text } from "../../../../components/Layout";
 import Modal from "../../../../components/Modal";
-import { Row } from "../../../../components/Modal/styles";
+import Selector from "../../../../components/Selector";
 import AddLocationInput from "../../components/AddLocationInput";
-import AddressBox from "../../components/AddressBox/AddressBox";
+import InfoInput from "../../components/InfoInput";
 import MultiItem from "../../components/MultiItem";
 import VehicleType from "../../components/VehicleType";
+import { Seperator } from "../ConfirmOrder/styles";
 
+const itemCategory = ["Food"];
 const vehicles = [
   {
     desc: "Medium - Large size packages.",
@@ -41,20 +37,20 @@ export default () => {
   const [values, setValues] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [pickups, setPickups] = useState([]);
+  const [showAddInput, setShowAddInput] = useState(true);
+  const isMultiple = params.multiPickup && params.multiDropOff;
+  const onVehicleChange = (key) => setSelectedVehicle(key);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const onVehicleChange = (key) => {
-    setSelectedVehicle(key);
-    // console.log("Vehicle =>", vehicles[key]);
-  };
-
-  useEffect(() => console.log("Pickups =>", pickups), [pickups]);
+  useEffect(() => console.log("Values =>", values), [values]);
 
   return (
     <LayoutScrollView style={{ paddingHorizontal: 30 }}>
       <Header
         iconLeft={require("../../../../../assets/backIcon.png")}
         onLeftIconPress={() => goBack()}
-        headerTitle={"Pickup Location"}
+        onRightIconPress={() => navigate("logisticsMain")}
+        headerTitle={!isMultiple ? "Pickup Location" : "Enter Information"}
         headerTitleStyle={{
           color: "#C3AD60",
         }}
@@ -80,24 +76,31 @@ export default () => {
         />
       )}
 
-      <Section
+      <Button
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: 0,
+          borderWidth: 0,
         }}
+        onPress={() => setShowAddInput(false)}
       >
         <Image source={require("../../../../../assets/mapPointerGold.png")} />
         <Text style={{ fontSize: 24 }}>Use Current Location</Text>
-      </Section>
-
-      <AddLocationInput label={"Add Pickup Location"} setValues={setValues} />
+      </Button>
+      {showAddInput && (
+        <AddLocationInput
+          label={"Add Pickup Location"}
+          setValues={setValues}
+          isMultiple={isMultiple}
+        />
+      )}
 
       <Section
         style={{
           flexDirection: "row",
-          flexWrap: "wrap",
+          marginVertical: 2,
         }}
       >
         <FlatList
@@ -115,6 +118,38 @@ export default () => {
           numColumns={2}
         />
       </Section>
+      {isMultiple && (
+        <Section>
+          {/* Category Selector */}
+          <Selector
+            data={itemCategory}
+            buttonStyle={{
+              marginVertical: 20,
+              width: "100%",
+            }}
+            dropdownIconPosition={"right"}
+            defaultButtonText="Select Item Category"
+            buttonTextStyle={{
+              fontSize: 20,
+            }}
+            setSelectedItem={setSelectedCategory}
+          />
+          <View
+            style={{
+              borderBottomColor: "#C3AD60",
+              borderWidth: 1,
+              width: "100%",
+              marginBottom: 25,
+            }}
+          />
+          <InfoInput
+            setValues={setValues}
+            namePlaceholder={"Receiver’s name"}
+            phonePlaceholder={"Receiver’s Phone"}
+          />
+        </Section>
+      )}
+
       <Section>
         {params.multiPickup && (
           <Button
@@ -127,7 +162,13 @@ export default () => {
           </Button>
         )}
 
+        {/* Modal */}
         <Modal
+          modalButtonCallBack={
+            !params.multiPickup
+              ? () => setPickups((prevPickups) => [...prevPickups, values])
+              : false
+          }
           ModalTitle={() => (
             <Text style={{ fontSize: 24, color: "#000", marginBottom: 15 }}>
               Save New Address?

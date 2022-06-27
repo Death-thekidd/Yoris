@@ -7,11 +7,13 @@ export const PressableContainer = styled.Pressable`
   width: 166;
   height: 82;
   margin-bottom: 5px;
+  margin-right: 5px;
+  justify-content: center;
 `;
 
 export const Contents = styled.View`
   flex-direction: row;
-  padding: 0 18px;
+  padding: 0 15px;
   justify-content: space-between;
   align-items: center;
 `;

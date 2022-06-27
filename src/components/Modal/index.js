@@ -4,7 +4,13 @@ import { Button } from "../Button";
 import { Text } from "../Layout/";
 import { ModalView, ModalCenteredView, Row } from "./styles";
 
-export default ({ BottomRow, ModalTitle, modalVisible, setModalVisible }) => {
+export default ({
+  BottomRow,
+  ModalTitle,
+  modalVisible,
+  setModalVisible,
+  modalButtonCallBack: cb,
+}) => {
   return (
     <>
       <Modal
@@ -31,7 +37,10 @@ export default ({ BottomRow, ModalTitle, modalVisible, setModalVisible }) => {
 
       <Button
         style={{ backgroundColor: "#C3AD60" }}
-        onPress={() => setModalVisible(true)}
+        onPress={() => {
+          setModalVisible(true);
+          cb && cb();
+        }}
       >
         <Text style={{ fontSize: 24 }}>Continue</Text>
       </Button>

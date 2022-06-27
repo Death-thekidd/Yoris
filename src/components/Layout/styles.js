@@ -16,7 +16,7 @@ export const StyledText = styled.Text`
 `;
 
 export const StyledView = styled.View`
-  margin: 30px 0;
+  margin: 20px 0;
 `;
 
 export default Layout;

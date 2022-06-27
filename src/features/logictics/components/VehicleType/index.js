@@ -29,14 +29,14 @@ export default ({
       </Row>
 
       <Contents style={{}}>
-        <Image
-          // style={{ paddingRight: 5 }}
-          source={imgSrc}
-        />
+        <Image source={imgSrc} />
         <Text
           style={{
             color: "#C4C4C4",
+            flex: 1,
             marginLeft: 5,
+            fontSize: 13.5,
+            flexWrap: "wrap",
           }}
         >
           {desc || "PassDesc"}
