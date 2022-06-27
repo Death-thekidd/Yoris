@@ -19,20 +19,7 @@ export default () => {
         color: "#000",
       },
     },
-    {
-      routeParams: {
-        singlePickup: false,
-        singleDropOff: false,
-        multiPickup: true,
-        multiDropOff: true,
-      },
-      textRight: "Multiple Pickup",
-      textLeft: "Multiple DropOff",
-      textStyle: {
-        fontSize: 18,
-        color: "#000",
-      },
-    },
+
     {
       routeParams: {
         singlePickup: false,
@@ -42,6 +29,20 @@ export default () => {
       },
       textRight: "Multiple Pickup",
       textLeft: "Single DropOff",
+      textStyle: {
+        fontSize: 18,
+        color: "#000",
+      },
+    },
+    {
+      routeParams: {
+        singlePickup: false,
+        singleDropOff: false,
+        multiPickup: true,
+        multiDropOff: true,
+      },
+      textRight: "Multiple Pickup",
+      textLeft: "Multiple DropOff",
       textStyle: {
         fontSize: 18,
         color: "#000",

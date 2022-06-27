@@ -11,7 +11,7 @@ export const PressableContainer = styled.Pressable`
 
 export const Contents = styled.View`
   flex-direction: row;
-  padding: 0 18px;
+  padding: 0 15px;
   justify-content: space-between;
   align-items: center;
 `;

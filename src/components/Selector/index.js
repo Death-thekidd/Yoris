@@ -46,6 +46,9 @@ export default function Selector({
           color={dropDownIconColor}
         />
       )}
+      dropdownStyle={{
+        backgroundColor: "#C3AD60",
+      }}
       dropdownIconPosition={dropdownIconPosition}
     />
   );

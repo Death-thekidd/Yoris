@@ -79,6 +79,7 @@ const LogisticNavigator = () => {
       <Stack.Screen name="paymentOptions" component={PaymentOptions} />
       <Stack.Screen name="confirmPayment" component={ConfirmedPayment} />
       <Stack.Screen name="orderHistory" component={OrderHistory} />
+      <Stack.Screen name="singleOrder" component={SingleOrder} />
     </Stack.Navigator>
   );
 };
