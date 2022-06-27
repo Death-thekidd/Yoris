@@ -2,14 +2,6 @@ import styled from 'styled-components/native';
 import { colors } from "../../../infrastructure/theme/colors";
 import { Button } from 'react-native-paper';
 
-export const DetailsContainer = styled.View`
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     background-color: #000;
-     padding: 70px;
-     flex: 1;
-`;
 
 export const DetailsWrapper = styled.View`
    display: flex;
@@ -50,7 +42,7 @@ export const DetailsSecondary = styled.Text`
    font-weight: bold;
    top: 20px;
    text-align: left;
-   right: 40px;
+   left: 60px;
    font-family: 'Roboto';
 `;
 
@@ -59,7 +51,7 @@ export const DetailsTertiary = styled.Text`
   top: 40px;
   font-size: 15px;
   text-align: left;
-  right: 75px;
+  left: 60px;
   font-famiy: 'Roboto';
 `;
 
@@ -68,6 +60,7 @@ export const DetailsHover = styled.View`
    width: 260px;
    height: 96px;
    top: 55px;
+   left: 60px;
    background: #C3AD60;
    margin-bottom: 20px;
    border-radius: 5px;
@@ -93,7 +86,7 @@ export const DetailsLocation = styled.Text`
   top: 60px;
   font-size: 15px;
   text-align: left;
-  right: 65px;
+  left: 60px;
   font-famiy: 'Roboto';
 `;
 
@@ -103,6 +96,7 @@ export const DetailsCycle = styled.View`
   height: 80px;
   top: 80px;
   margin-bottom: 30px;
+  left: 60px;
   border: 1px solid #C3AD60;
   border-radius: 10px;
 `;
@@ -112,7 +106,7 @@ export const DetailsDrop = styled.Text`
   top: 60px;
   font-size: 15px;
   text-align: left;
-  right: 60px;
+  left: 60px;
   font-famiy: 'Roboto';
 `;
 
@@ -131,7 +125,7 @@ export const DetailsType = styled.Text`
   top: 60px;
   font-size: 15px;
   text-align: left;
-  right: 65px;
+  left: 60px;
   margin-bottom: 10px;
   font-famiy: 'Roboto';
 `;
@@ -152,14 +146,15 @@ export const ImageBike = styled.Image`
 export const DetailsBtn = styled(Button).attrs({ color: colors.brand.primary })`
    width: 260px;
    height: 65px;
-   top: 70px;
+   top: 60px;
    border: 1px solid #C3AD60;
    align-items: center;
    color: #C3AD60;
-   padding: 12px;
+   left: 60px;
    font-weight: 400;
+   padding: 6px;
    font-size: 18px;
-   margin-bottom: 30px;
+   margin-bottom: 100px;
    border-radius: 10px;
    text-transform: uppercase;
 `;

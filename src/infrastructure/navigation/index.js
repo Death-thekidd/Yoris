@@ -17,6 +17,7 @@ export const Navigation = () => {
       >
         <Stack.Screen name="tab" component={Tab} />
         <Stack.Screen name="profile" component={ProfileNavigation} />
+        {/* <Stack.Screen name="profile" component={ProfileDra} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -118,7 +118,7 @@ export default () => {
 
         <Button
           style={{ backgroundColor: "#C3AD60" }}
-          onPress={() => navigate("confirmOrder", params)}
+          onPress={() => navigate("logisticBooking", params)}
         >
           <Text style={{ color: "#000", fontSize: 24 }}>Continue</Text>
         </Button>
