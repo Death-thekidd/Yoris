@@ -35,7 +35,7 @@ export default function LogisticsVehicle({ navigation }) {
           <ImageCancel source={require("../../../../assets/cancel.png")} />
         </VehicleRow>
       </VehicleWrapper>
-      <VehicleCycle onPress={() => navigation.navigate("logisticsOrder")}>
+      <VehicleCycle  onPress={() => navigation.navigate("logisticsOrder")}>
         <VehicleWrapper>
           <VehicleRow>
             <ImageVehicle source={require("../../../../assets/vehicle1.png")} />

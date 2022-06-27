@@ -9,7 +9,6 @@ import LogisticsDetails from "../../features/logictics/screens/logisticsDetails"
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
 import { createStackNavigator } from "@react-navigation/stack";
-import Stores from "../../features/Stores/Stores.screen";
 
 import {
   PaymentScreen,
@@ -48,7 +47,6 @@ export const Tab = () => {
       }}
     >
       {/* <Tabs.Screen name="Puddle" component={Puddle */}
-      <Tabs.Screen name="Stores" component={Stores} />
       <Tabs.Screen name="Logistics" component={LogisticNavigator} />
       {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
     </Tabs.Navigator>

@@ -71,9 +71,9 @@ export default function Logisticscreen() {
                   singleDropOff: true,
                 })
               }
-              style={{ backgroundColor: "#C3AD60", marginTop: 74 }}
+              style={{ backgroundColor: "#C3AD60", marginTop: 74, color: "#000"}}
             >
-              <Text style={{ fontSize: 24 }}>Continue</Text>
+              <Text style={{ fontSize: 24, color: "#000" }}>Continue</Text>
             </Button>
           </>
         ) : (

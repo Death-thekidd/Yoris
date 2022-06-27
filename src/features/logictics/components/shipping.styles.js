@@ -2,15 +2,6 @@ import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Button, TextInput } from "react-native-paper";
 
-export const ShippingContainer = styled.View`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  padding: 25px;
-  flex: 1;
-`;
-
 export const ShippingWrapper = styled.View`
   display: flex;
   flex-direction: row;

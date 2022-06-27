@@ -7,7 +7,7 @@ export const DetailsContainer = styled.View`
      align-items: center;
      justify-content: center;
      background-color: #000;
-     padding: 70px;
+     padding: 0 70px;
      flex: 1;
 `;
 
