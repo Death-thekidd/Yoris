@@ -1,7 +1,7 @@
 import React from "react";
-import { FlatList, Dimensions } from "react-native";
+import { FlatList, Dimensions, Pressable, View } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import Logisticscreen from "../../features/logictics/screens/logisticscreen";
 import LogisticsAddress from "../../features/logictics/screens/logisticsAddress";
 import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle";
@@ -9,7 +9,7 @@ import LogisticsDetails from "../../features/logictics/screens/logisticsDetails"
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
 import { createStackNavigator } from "@react-navigation/stack";
-import Stores from "../../features/Stores/Stores.screen";
+
 import {
   PaymentScreen,
   PaymentOptions,
@@ -20,25 +20,79 @@ import SingleOrder from "../../features/logictics/screens/SingleOrder";
 import PickUp from "../../features/logictics/screens/PickUp";
 import DropOff from "../../features/logictics/screens/DropOff";
 import ConfirmOrder from "../../features/logictics/screens/ConfirmOrder";
+import Header from "../../components/Header";
+import { FontAwesome } from "../../components/Icons";
+import Profile from "../../features/riders/screens/Profile";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
 
 export const Tab = () => {
+  const { navigate } = useNavigation();
   return (
-    <Tabs.Navigator
-      headerMode="none"
-      screenOptions={{
-        activeTintColor: "#50d3a7",
-        tabBarActiveTintColor: "#C3AD60",
-        tabBarInactiveTintColor: "#C3AD60",
-        inactiveTintColor: "white",
-        tabBarPressColor: "transparent",
-        tabBarShowIcon: true,
-        tabBarIndicatorStyle: {
-          backgroundColor: "#9A8340",
-        },
+    <>
+      <Header
+        containerStyle={{
+          padding: 10,
+          marginBottom: 0,
+          marginTop: 0,
+          backgroundColor: "#000",
+        }}
+        IconRightComponent={() => (
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: 100,
+            }}
+          >
+            <Pressable>
+              <FontAwesome color="#C3AD60" name={"search"} size={20} />
+            </Pressable>
+            <Pressable>
+              <FontAwesome color="#C3AD60" name={"bell"} size={20} />
+            </Pressable>
+            <Pressable
+              onPress={() =>
+                navigate("profile", {
+                  /* data should be dynamic */ isUser: false,
+                  isRider: true,
+                })
+              }
+            >
+              <FontAwesome color="#C3AD60" name={"user"} size={20} />
+            </Pressable>
+          </View>
+        )}
+      />
+      <Tabs.Navigator
+        screenOptions={{
+          activeTintColor: "#50d3a7",
+          tabBarActiveTintColor: "#C3AD60",
+          tabBarInactiveTintColor: "#C3AD60",
+          inactiveTintColor: "white",
+          tabBarPressColor: "transparent",
+          tabBarShowIcon: true,
+          tabBarIndicatorStyle: {
+            backgroundColor: "#9A8340",
+          },
 
+<<<<<<< HEAD
+          tabBarStyle: {
+            elevation: 10,
+            backgroundColor: "#0B090A",
+            borderRadius: 1,
+          },
+        }}
+      >
+        {/* <Tabs.Screen name="Puddle" component={Puddle */}
+        <Tabs.Screen name="Stores" component={Stores} />
+        <Tabs.Screen name="Logistics" component={LogisticNavigator} />
+        {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
+      </Tabs.Navigator>
+    </>
+=======
         tabBarStyle: {
           elevation: 10,
           backgroundColor: "#0B090A",
@@ -47,10 +101,10 @@ export const Tab = () => {
       }}
     >
       {/* <Tabs.Screen name="Puddle" component={Puddle */}
-      <Tabs.Screen name="Stores" component={Stores} />
       <Tabs.Screen name="Logistics" component={LogisticNavigator} />
       {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
     </Tabs.Navigator>
+>>>>>>> bcd08f447096eecc6c5403e93f7b88567801bf6f
   );
 };
 
@@ -79,6 +133,7 @@ const LogisticNavigator = () => {
       <Stack.Screen name="confirmPayment" component={ConfirmedPayment} />
       <Stack.Screen name="orderHistory" component={OrderHistory} />
       <Stack.Screen name="singleOrder" component={SingleOrder} />
+      {/* <Stack.Screen name="profile" component={Profile} /> */}
     </Stack.Navigator>
   );
 };

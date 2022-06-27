@@ -10,6 +10,7 @@ export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary })`
   text-align: center;
   color: #000;
   font-weight: 400;
+  left: 60px;
   font-size: 18px;
   background: #c3ad60;
   border-radius: 5px;

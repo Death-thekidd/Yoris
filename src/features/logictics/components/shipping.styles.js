@@ -2,15 +2,6 @@ import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Button, TextInput } from "react-native-paper";
 
-export const ShippingContainer = styled.View`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  padding: 25px;
-  flex: 1;
-`;
-
 export const ShippingWrapper = styled.View`
   display: flex;
   flex-direction: row;
@@ -43,7 +34,7 @@ export const ShippingParagraph = styled.Text`
   color: #fff;
   font-weight: bold;
   top: 30px;
-  right: 40px;
+  left: 70px;
   font-family: "Roboto";
 `;
 
@@ -60,6 +51,7 @@ export const ShippingFeatures = styled.View`
   top: 50px;
   background: #4e4e4e;
   margin-bottom: 30px;
+  left: 60px;
   border-radius: 5px;
 `;
 
@@ -86,6 +78,7 @@ export const ShippingBoxInput = styled(TextInput)`
   top: 50px;
   font-size: 8.5px;
   padding: 12px;
+  left: 60px;
   margin-bottom: 50px;
   background: #4e4e4e;
   border-radius: 3px;
@@ -126,6 +119,7 @@ export const ShippingTracking = styled(Button).attrs({
   padding: 12px;
   font-weight: 400;
   font-size: 18px;
+  left: 60px;
   border-radius: 10px;
   text-transform: uppercase;
 `;
@@ -140,6 +134,7 @@ export const ShippingBtn = styled(Button).attrs({ color: colors.ui.primary })`
   font-weight: 400;
   font-size: 18px;
   background: #c3ad60;
+  left: 60px;
   border-radius: 5px;
   margin-bottom: 50px;
   text-transform: uppercase;

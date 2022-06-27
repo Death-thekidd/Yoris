@@ -1,99 +1,131 @@
 import React from 'react'
-
 import styled from "styled-components/native";
 import { Button, TextInput } from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Text } from "../../../components/typography/text.component";
 
 
-
-
-
-export const AccountBackground = styled.View`
-
-flex: 1;
-align-items: center;
-justify-content: center;
-background: #000000
-
-`;
-
-export const DatePickerStyle = styled.View`
-width: "100%",
-marginTop: 10,
-borderColor: "#ccc",
-borderRadius: 3,
-borderWidth: 0,
-alignItems: "center",
-backgroundColor: "#fff",
-padding: 5,
-
-`
-
-
-
-
-export const Cover = styled.Image`
-
-  width: 140px;
-  height: 100px;
-  bottom:80px
-
-
-`;
-
-export const AccountCover = styled.View`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color:#000000;
-`;
-
-export const AccountContainer = styled.View`
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: ${(props) => props.theme.space[4]};
-  margin-top: ${(props) => props.theme.space[2]};
-`;
-
-export const AuthButton = styled(Button).attrs({
-  color: colors.brand.primary,
-
-})`
-  padding: ${(props) => props.theme.space[1]};
-height: 48px
-width: 300px
-bottom: -30px
-`;
-
-export const AuthInput = styled(TextInput)`
-background-color: #4E4E4E
-  width: 300px;
-  boxShadow: 0px 4px 4px rgba(0,0,0,25)
-  height: 48px
-  border-radius:5px
-  bottom: 40px
-`;
-
-export const Title = styled(Text)`
-  font-size: 30px;
-  color:#C3AD60
-`;
-
-export const ErrorContainer = styled.View`
-  max-width: 300px;
+export const RegisterContainer = styled.View`
+   display: flex;
   align-items: center;
-  align-self: center;
-  margin-top: ${(props) => props.theme.space[2]};
-  margin-bottom: ${(props) => props.theme.space[2]};
+  justify-content: center;
+  background-color: #000;
+  flex: 1;
 `;
 
-export const AnimationWrapper = styled.View`
-  width: 100%;
-  height: 40%;
-  position: absolute;
-  top: 30px;
-  padding: ${(props) => props.theme.space[2]};
+export const ImageLogo = styled.Image`
+   top: 3px;
 `;
+
+export const ImageBackground = styled.Image`
+    width: 26.19px;
+    right: 80px;
+    height: 20px
+`;
+
+export const RegisterForm = styled.View`
+  display: flex;
+`;
+
+export const RegisterInput = styled(TextInput)`
+   width: 300px;
+   height: 48px;
+   background: #4E4E4E;
+   border: 3px;
+   border-radisu: 40px;
+   margin-top: 20px;
+   border-radius: 5px;
+   box-sizing: border-box;
+`;
+
+
+
+
+// export const AccountBackground = styled.View`
+
+// flex: 1;
+// align-items: center;
+// justify-content: center;
+// background: #000000
+
+// `;
+
+// export const DatePickerStyle = styled.View`
+// width: "100%",
+// marginTop: 10,
+// borderColor: "#ccc",
+// borderRadius: 3,
+// borderWidth: 0,
+// alignItems: "center",
+// backgroundColor: "#fff",
+// padding: 5,
+
+// `
+
+
+
+
+// export const Cover = styled.Image`
+
+//   width: 140px;
+//   height: 100px;
+//   bottom:80px
+
+
+// `;
+
+// export const AccountCover = styled.View`
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   background-color:#000000;
+// `;
+
+// export const AccountContainer = styled.View`
+//   background-color: rgba(255, 255, 255, 0.1);
+//   padding: ${(props) => props.theme.space[4]};
+//   margin-top: ${(props) => props.theme.space[2]};
+// `;
+
+// export const AuthButton = styled(Button).attrs({
+//   color: colors.brand.primary,
+
+// })`
+//   padding: ${(props) => props.theme.space[1]};
+// height: 48px
+// width: 300px
+// bottom: -30px
+// `;
+
+// export const AuthInput = styled(TextInput)`
+// background-color: #4E4E4E
+//   width: 300px;
+//   boxShadow: 0px 4px 4px rgba(0,0,0,25)
+//   height: 48px
+//   border-radius:5px
+//   bottom: 40px
+// `;
+
+// export const Title = styled(Text)`
+//   font-size: 30px;
+//   color:#C3AD60
+// `;
+
+// export const ErrorContainer = styled.View`
+//   max-width: 300px;
+//   align-items: center;
+//   align-self: center;
+//   margin-top: ${(props) => props.theme.space[2]};
+//   margin-bottom: ${(props) => props.theme.space[2]};
+// `;
+
+// export const AnimationWrapper = styled.View`
+//   width: 100%;
+//   height: 40%;
+//   position: absolute;
+//   top: 30px;
+//   padding: ${(props) => props.theme.space[2]};
+// `;
 
 
 

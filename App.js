@@ -4,7 +4,7 @@ import { theme } from "./src/infrastructure/theme/index";
 import { ThemeProvider } from "styled-components/native";
 import { Navigation } from "./src/infrastructure/navigation";
 
-import { LogBox } from "react-native";
+import { LogBox, SafeAreaView, StatusBar, StyleSheet } from "react-native";
 import _ from "lodash";
 
 import {
@@ -35,11 +35,13 @@ export default function App() {
   }
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView style={[styles.container]}>
         <Navigation />
-      </ThemeProvider>
-      <ExpoStatusBar style="auto" />
-    </>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
+const styles = StyleSheet.create({
+  container: { flex: 1, marginTop: StatusBar.currentHeight },
+});
