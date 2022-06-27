@@ -7,6 +7,8 @@ export default function ({
   containerStyle,
   iconLeft,
   iconRight,
+  IconLeftComponent,
+  IconRightComponent,
   headerTitle,
   headerTitleStyle,
 }) {
@@ -21,9 +23,14 @@ export default function ({
         containerStyle,
       ]}
     >
-      <Pressable style={{}} onPress={() => onLeftIconPress()}>
-        {iconLeft && <Image source={iconLeft} />}
-      </Pressable>
+      {IconLeftComponent ? (
+        <IconLeftComponent />
+      ) : (
+        <Pressable style={{}} onPress={() => onLeftIconPress()}>
+          {iconLeft && <Image source={iconLeft} />}
+        </Pressable>
+      )}
+
       {headerTitle && (
         <Text
           style={[
@@ -39,14 +46,18 @@ export default function ({
           {headerTitle}
         </Text>
       )}
-      <Pressable
-        style={{
-          marginLeft: 20,
-        }}
-        onPress={onRightIconPress}
-      >
-        {iconRight && <Image source={iconRight} />}
-      </Pressable>
+      {IconRightComponent ? (
+        <IconRightComponent />
+      ) : (
+        <Pressable
+          style={{
+            marginLeft: 20,
+          }}
+          onPress={onRightIconPress}
+        >
+          {iconRight && <Image source={iconRight} />}
+        </Pressable>
+      )}
     </Section>
   );
 }
