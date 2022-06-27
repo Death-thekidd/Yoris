@@ -33,8 +33,9 @@ export default ({
         <Text
           style={{
             color: "#C4C4C4",
+            flex: 1,
             marginLeft: 5,
-            fontSize: 13,
+            fontSize: 13.5,
             flexWrap: "wrap",
           }}
         >

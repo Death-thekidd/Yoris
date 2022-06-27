@@ -10,6 +10,7 @@ import AddLocationInput from "../../components/AddLocationInput";
 import InfoInput from "../../components/InfoInput";
 import MultiItem from "../../components/MultiItem";
 import VehicleType from "../../components/VehicleType";
+import { Seperator } from "../ConfirmOrder/styles";
 
 const itemCategory = ["Food"];
 const vehicles = [
