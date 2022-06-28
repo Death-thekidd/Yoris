@@ -1,6 +1,6 @@
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { DrawerToggleButton } from "@react-navigation/drawer";
-import { Image, Pressable, View } from "react-native";
+import { Image, Pressable, Button, View } from "react-native";
 import Header from "../../../../../components/Header";
 import { FontAwesome } from "../../../../../components/Icons";
 import { useEffect } from "react";

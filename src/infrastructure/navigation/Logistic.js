@@ -23,12 +23,13 @@ import ConfirmOrder from "../../features/logictics/screens/ConfirmOrder";
 import Header from "../../components/Header";
 import { FontAwesome } from "../../components/Icons";
 import Profile from "../../features/riders/screens/Profile";
+import RiderOrder from "../../features/riders/components/RiderOrder/riderOrder";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
 
 export const Tab = () => {
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
   return (
     <>
       <Header
@@ -49,7 +50,7 @@ export const Tab = () => {
           >
             <Pressable
               onPress={() =>
-                navigate("profile", {
+                navigation.navigate("profile", {
                   /* data should be dynamic */ isUser: false,
                   isRider: true,
                 })
@@ -113,7 +114,8 @@ const LogisticNavigator = () => {
       <Stack.Screen name="confirmPayment" component={ConfirmedPayment} />
       <Stack.Screen name="orderHistory" component={OrderHistory} />
       <Stack.Screen name="singleOrder" component={SingleOrder} />
-      {/* <Stack.Screen name="profile" component={Profile} /> */}
+      <Stack.Screen name="riderOrder" component={RiderOrder} />
+      <Stack.Screen name="profile" component={Profile} />
     </Stack.Navigator>
   );
 };
