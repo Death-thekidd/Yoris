@@ -5,6 +5,7 @@ import { Row } from "../../../../../logictics/components/VehicleType/styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { Title, Detail } from "./style";
 import { useNavigation } from "@react-navigation/native";
+import RejectReason from "../../../../components/RejectReason";
 
 export default () => {
   const [order, setOrder] = useState({});
@@ -144,32 +145,14 @@ export default () => {
               Delivered
             </Text>
           </Pressable>
-          <Pressable
-            onPress={() =>
-              setPackageState(
-                !(packageState.delivered && packageState.pickedUp)
-              )
-            }
-            style={{
-              borderRadius: 50,
-              borderWidth: 1,
-              borderColor: "#C3AD60",
-              justifyContent: "center",
-              alignItems: "center",
+          <RejectReason
+            buttonStyle={{
               paddingVertical: 15,
               marginTop: 10,
               width: "50%",
               alignSelf: "center",
             }}
-          >
-            <Text
-              style={{
-                fontWeight: "500",
-              }}
-            >
-              Unable to deliver
-            </Text>
-          </Pressable>
+          />
         </>
       )}
     </Layout>

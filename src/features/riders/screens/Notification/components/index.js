@@ -1,16 +1,65 @@
 import { useState } from "react";
-import { Image, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import { List } from "react-native-paper";
 import { Section, Text } from "../../../../../components/Layout";
 import { PressableSection } from "../../../../../components/Layout/styles";
 import { Row } from "../../../../logictics/components/VehicleType/styles";
+import RejectReason from "../../../components/RejectReason";
+import { Detail, Title } from "./Express/style";
 
-export const UserAccordion = ({ BottomComponent }) => {
+const Details = () => {
+  return (
+    <>
+      <Section>
+        <Title style={{ color: "#fff" }}>Pick-up Details:</Title>
+
+        <Detail>Street name, bus-stop, local govt area.</Detail>
+
+        <Detail>Phone Number</Detail>
+        <Title style={{ color: "#fff" }}>Delivery Details:</Title>
+
+        <Detail>Street name, bus-stop, local govt area.</Detail>
+
+        <Detail>Phone Number: </Detail>
+        <Detail>Delivery fee: N0.00 </Detail>
+        <Detail>Commission fee: N0.00 </Detail>
+
+        <Row>
+          <Pressable
+            onPress={() => navigate("orderAccepted", { delivered: true })}
+            style={{
+              borderRadius: 50,
+              backgroundColor: "#C3AD60",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 10,
+              marginTop: 10,
+              alignSelf: "center",
+            }}
+          >
+            <Text
+              style={{
+                color: "#000",
+                fontWeight: "500",
+              }}
+            >
+              Picked up
+            </Text>
+          </Pressable>
+          <RejectReason />
+        </Row>
+      </Section>
+    </>
+  );
+};
+
+export const UserAccordion = ({ BottomComponent, details = false }) => {
   const [expanded, setExpanded] = useState(false);
 
-  const handlePress = () => setExpanded(!expanded);
+  const handlePress = details ? () => setExpanded(!expanded) : null;
   return (
     <PressableSection
+      onPress={handlePress}
       style={{ flexDirection: "row", justifyContent: "space-evenly" }}
     >
       <Image
@@ -60,7 +109,9 @@ export const UserAccordion = ({ BottomComponent }) => {
             0.7km Away
           </Text>
         </Row>
-        {BottomComponent && <BottomComponent />}
+        {!expanded && <>{BottomComponent && <BottomComponent />}</>}
+
+        {details && expanded && <Details />}
       </View>
     </PressableSection>
   );

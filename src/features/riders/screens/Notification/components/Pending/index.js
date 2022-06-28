@@ -2,7 +2,9 @@ import { useState } from "react";
 import { FlatList, Pressable } from "react-native";
 import { UserAccordion } from "..";
 import FlatlistSeperator from "../../../../../../components/FlatlistSeperator";
-import { Layout, Text } from "../../../../../../components/Layout";
+import { Layout, Section, Text } from "../../../../../../components/Layout";
+import { Row } from "../../../../../logictics/components/VehicleType/styles";
+import { Detail, Title } from "../Express/style";
 
 export default () => {
   const [newOrders, setNewOrders] = useState([{}, {}, {}, {}, {}, {}]);
@@ -13,8 +15,10 @@ export default () => {
         ItemSeparatorComponent={FlatlistSeperator}
         renderItem={() => (
           <UserAccordion
+            details={true}
             BottomComponent={() => (
               <Pressable
+                onPress={() => setShowDetails(true)}
                 style={{
                   borderRadius: 50,
                   backgroundColor: "#C4C4C4",

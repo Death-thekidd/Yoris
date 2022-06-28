@@ -13,7 +13,8 @@ export default () => {
         data={newOrders}
         renderItem={() => (
           <UserAccordion
-            BottomComponent={() => ( 
+            details={false}
+            BottomComponent={() => (
               <Row
                 style={{
                   marginVertical: 20,
