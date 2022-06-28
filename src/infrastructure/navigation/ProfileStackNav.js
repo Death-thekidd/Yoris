@@ -44,7 +44,7 @@ const ProfileDrawer = () => {
               <Header />
             </View>
           ),
-          title: "Profile",
+          title: "Edit Profile",
           drawerIcon: (props) => <FontAwesome {...props} name="user-edit" />,
         }}
         component={Profile}
