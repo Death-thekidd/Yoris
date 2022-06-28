@@ -143,10 +143,13 @@ export function ListAccordion() {
         }}
       >
         {expanded && (
-          <Image
-            style={[styles.listIcon, { transform: [{ rotate: "-180deg" }] }]}
-            source={require("../../../assets/caretDown.png")}
-          />
+          <Pressable onPress={handlePress}>
+            {" "}
+            <Image
+              style={[styles.listIcon, { transform: [{ rotate: "-180deg" }] }]}
+              source={require("../../../assets/caretDown.png")}
+            />
+          </Pressable>
         )}
       </View>
     </List.Accordion>

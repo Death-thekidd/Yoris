@@ -10,6 +10,9 @@ export default ({
   modalVisible,
   setModalVisible,
   modalButtonCallBack: cb,
+  buttonText = "Continue",
+  buttonTextStyle,
+  buttonStyle,
 }) => {
   return (
     <>
@@ -36,13 +39,13 @@ export default ({
       </Modal>
 
       <Button
-        style={{ backgroundColor: "#C3AD60" }}
+        style={[{ backgroundColor: "#C3AD60" }, buttonStyle]}
         onPress={() => {
           setModalVisible(true);
           cb && cb();
         }}
       >
-        <Text style={{ fontSize: 24 }}>Continue</Text>
+        <Text style={[{ fontSize: 24 }, buttonTextStyle]}>{buttonText}</Text>
       </Button>
     </>
   );
@@ -50,6 +53,7 @@ export default ({
 
 const styles = StyleSheet.create({
   modalView: {
+    borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

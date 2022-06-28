@@ -5,9 +5,8 @@ import Header from "../../../../../components/Header";
 import { FontAwesome } from "../../../../../components/Icons";
 import { useEffect } from "react";
 
-export default ({ navigation }) => {
-  useEffect(() => console.log("navigation => ", navigation), []);
-  const { goBack, dispatch } = useNavigation();
+export default ({ RightComponent }) => {
+  const { goBack, dispatch, navigate } = useNavigation();
   const onToggle = () => dispatch(DrawerActions.toggleDrawer());
   return (
     <Header
@@ -17,24 +16,32 @@ export default ({ navigation }) => {
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent: !RightComponent ? "space-between" : "flex-end",
             alignItems: "center",
             width: 100,
           }}
         >
-          <Pressable
-            onPress={() =>
-              navigate("profile", {
-                /* data should be dynamic */ isUser: false,
-                isRider: true,
-              })
-            }
-          >
-            <FontAwesome color="#C3AD60" name={"bell"} size={20} />
-          </Pressable>
-          <Pressable onPress={onToggle}>
-            <Image source={require("../../../../../../assets/hamburger.png")} />
-          </Pressable>
+          {!RightComponent ? (
+            <>
+              <Pressable
+                onPress={() =>
+                  navigate("notifications", {
+                    /* data should be dynamic */ isUser: false,
+                    isRider: true,
+                  })
+                }
+              >
+                <FontAwesome color="#C3AD60" name={"bell"} size={20} />
+              </Pressable>
+              <Pressable onPress={onToggle}>
+                <Image
+                  source={require("../../../../../../assets/hamburger.png")}
+                />
+              </Pressable>
+            </>
+          ) : (
+            <RightComponent />
+          )}
         </View>
       )}
     />

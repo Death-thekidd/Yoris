@@ -42,17 +42,11 @@ export const Tab = () => {
           <View
             style={{
               flexDirection: "row",
-              justifyContent: "space-between",
+              justifyContent: "flex-end",
               alignItems: "center",
               width: 100,
             }}
           >
-            <Pressable>
-              <FontAwesome color="#C3AD60" name={"search"} size={20} />
-            </Pressable>
-            <Pressable>
-              <FontAwesome color="#C3AD60" name={"bell"} size={20} />
-            </Pressable>
             <Pressable
               onPress={() =>
                 navigate("profile", {

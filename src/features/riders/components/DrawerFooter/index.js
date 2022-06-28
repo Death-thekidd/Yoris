@@ -3,25 +3,25 @@ import { Section, Text } from "../../../../components/Layout";
 
 export default () => {
   return (
-    <View
+    <Section
       style={{
-        backgroundColor: "#F62424",
+        backgroundColor: "#C3AD60",
         flexDirection: "row",
         alignItems: "center",
         padding: 20,
         flex: 1,
-        alignContent: "flex-end",
+        bottom: -10,
       }}
     >
       <Image source={require("../../../../../assets/signoutWhite.png")} />
       <Text
         style={{
-          fontSize: 25,
+          fontSize: 18,
           marginLeft: 20,
         }}
       >
         Logout
       </Text>
-    </View>
+    </Section>
   );
 };

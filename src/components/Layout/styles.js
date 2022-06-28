@@ -19,4 +19,8 @@ export const StyledView = styled.View`
   margin: 20px 0;
 `;
 
+export const PressableSection = styled.Pressable`
+  margin: 20px 0;
+`;
+
 export default Layout;
