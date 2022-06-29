@@ -24,12 +24,14 @@ import Header from "../../components/Header";
 import { FontAwesome } from "../../components/Icons";
 import Profile from "../../features/riders/screens/Profile";
 import RiderOrder from "../../features/riders/components/RiderOrder/riderOrder";
+import { Constants } from "../../../constants/db.mock";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
 
 export const Tab = () => {
   const navigation = useNavigation();
+  const theme = Constants.theme;
   return (
     <>
       <Header
@@ -37,7 +39,7 @@ export const Tab = () => {
           padding: 10,
           marginBottom: 0,
           marginTop: 0,
-          backgroundColor: "#000",
+          backgroundColor: theme.dark,
         }}
         IconRightComponent={() => (
           <View
@@ -56,7 +58,7 @@ export const Tab = () => {
                 })
               }
             >
-              <FontAwesome color="#C3AD60" name={"user"} size={20} />
+              <FontAwesome color={theme.primary} name={"user"} size={20} />
             </Pressable>
           </View>
         )}
@@ -64,26 +66,24 @@ export const Tab = () => {
       <Tabs.Navigator
         screenOptions={{
           activeTintColor: "#50d3a7",
-          tabBarActiveTintColor: "#C3AD60",
-          tabBarInactiveTintColor: "#C3AD60",
+          tabBarActiveTintColor: theme.primary,
+          tabBarInactiveTintColor: theme.primary,
           inactiveTintColor: "white",
           tabBarPressColor: "transparent",
           tabBarShowIcon: true,
           tabBarIndicatorStyle: {
-            backgroundColor: "#9A8340",
+            backgroundColor: theme.primary,
           },
 
           tabBarStyle: {
             elevation: 10,
-            backgroundColor: "#0B090A",
+            backgroundColor: theme.dark,
             borderRadius: 1,
           },
         }}
       >
-        {/* <Tabs.Screen name="Puddle" component={Puddle */}
         <Tabs.Screen name="Stores" component={Stores} />
         <Tabs.Screen name="Logistics" component={LogisticNavigator} />
-        {/* <Tabs.Screen name="Yoris Pay" component={LogisticNavigator} /> */}
       </Tabs.Navigator>
     </>
   );

@@ -1,11 +1,12 @@
 import { Image, View } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 import { Section, Text } from "../../../../components/Layout";
 
 export default () => {
   return (
     <Section
       style={{
-        backgroundColor: "#C3AD60",
+        backgroundColor: Constants.theme.primary,
         flexDirection: "row",
         alignItems: "center",
         padding: 20,

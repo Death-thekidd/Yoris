@@ -13,7 +13,7 @@ export const Section = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: #c3ad60;
+  color: Constants.theme.primary;
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 20;

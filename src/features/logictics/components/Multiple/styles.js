@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Constants } from "../../../../../constants/db.mock";
 
 export const Constainer = styled.View`
   justify-content: center;
@@ -8,7 +9,7 @@ export const Constainer = styled.View`
 
 export const StyledMultiButton = styled.Pressable`
   flex-direction: row;
-  background-color: #c3ad60;
+  background-color: ${Constants.theme.primary};
   width: 360px;
   height: 64px;
   border-radius: 10px;

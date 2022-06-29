@@ -3,6 +3,7 @@ import { Text } from "../../../../components/Layout";
 import { PressableContainer, Contents, Row } from "./styles";
 import { Pressable } from "react-native";
 import { FontAwesome } from "../../../../components/Icons";
+import { Constants } from "../../../../../constants/db.mock";
 
 export default ({
   vehicle,
@@ -24,7 +25,7 @@ export default ({
           {vehicle || "Not passed"}
         </Text>
         {selectedVehicle === itemKey && (
-          <FontAwesome name="check" color="#C3AD60" />
+          <FontAwesome name="check" color={Constants.theme.primary} />
         )}
       </Row>
 
@@ -32,7 +33,7 @@ export default ({
         <Image source={imgSrc} />
         <Text
           style={{
-            color: "#C4C4C4",
+            color: Constants.theme.gray,
             flex: 1,
             marginLeft: 5,
             fontSize: 13.5,

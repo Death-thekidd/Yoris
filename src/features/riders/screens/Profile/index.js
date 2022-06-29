@@ -1,4 +1,5 @@
 import { Image, View } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 import { FontAwesome } from "../../../../components/Icons";
 import {
   Layout,
@@ -27,7 +28,7 @@ export default () => {
             width: 128,
             height: 128,
             borderWidth: 1,
-            borderColor: "#C3AD60",
+            borderColor: Constants.theme.primary,
             borderRadius: 100,
             marginBottom: 20,
             resizeMode: "contain",
@@ -71,11 +72,11 @@ export default () => {
           >
             Rating:
           </Text>
-          <FontAwesome name="star" color={"#C3AD60"} size={20} />
-          <FontAwesome name="star" color={"#C3AD60"} size={20} />
-          <FontAwesome name="star" color={"#C3AD60"} size={20} />
-          <FontAwesome name="star" color={"#C3AD60"} size={20} />
-          <FontAwesome name="star" color={"#C3AD60"} size={20} />
+          <FontAwesome name="star" color={Constants.theme.primary} size={20} />
+          <FontAwesome name="star" color={Constants.theme.primary} size={20} />
+          <FontAwesome name="star" color={Constants.theme.primary} size={20} />
+          <FontAwesome name="star" color={Constants.theme.primary} size={20} />
+          <FontAwesome name="star" color={Constants.theme.primary} size={20} />
         </Row>
       </Section>
       <Section>
@@ -83,7 +84,7 @@ export default () => {
           style={{
             fontSize: 25,
             fontWeight: "600",
-            color: "#C3AD60",
+            color: Constants.theme.primary,
           }}
         >
           Delivery History
@@ -91,7 +92,7 @@ export default () => {
         <View
           style={{
             borderWidth: 1,
-            borderColor: "#C3AD60",
+            borderColor: Constants.theme.primary,
             borderRadius: 7,
             marginVertical: 15,
           }}
@@ -102,7 +103,7 @@ export default () => {
         <View
           style={{
             borderWidth: 1,
-            borderColor: "#C3AD60",
+            borderColor: Constants.theme.primary,
             borderRadius: 7,
             marginVertical: 15,
           }}
@@ -113,7 +114,7 @@ export default () => {
         <View
           style={{
             borderWidth: 1,
-            borderColor: "#C3AD60",
+            borderColor: Constants.theme.primary,
             borderRadius: 7,
             marginVertical: 15,
           }}
@@ -124,7 +125,7 @@ export default () => {
         <View
           style={{
             borderWidth: 1,
-            borderColor: "#C3AD60",
+            borderColor: Constants.theme.primary,
             borderRadius: 7,
             marginVertical: 15,
           }}

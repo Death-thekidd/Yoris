@@ -12,6 +12,7 @@ import Pending from "../../features/riders/screens/Notification/components/Pendi
 import Express from "../../features/riders/screens/Notification/components/Express";
 import Arrivals from "../../features/riders/screens/Notification/components/Arrivals";
 import OrderAccepted from "../../features/riders/components/OrderAccepted";
+import { Constants } from "../../../constants/db.mock";
 
 const Drawer = createDrawerNavigator();
 
@@ -22,8 +23,8 @@ const NotificationsTab = () => {
     <Tab.Navigator
       screenOptions={{
         activeTintColor: "#50d3a7",
-        tabBarActiveTintColor: "#C3AD60",
-        tabBarInactiveTintColor: "#C3AD60",
+        tabBarActiveTintColor: Constants.theme.primary,
+        tabBarInactiveTintColor: Constants.theme.primary,
         inactiveTintColor: "white",
         tabBarPressColor: "transparent",
         tabBarShowIcon: true,
@@ -114,7 +115,11 @@ const ProfileNavigation = () => {
                       })
                     }
                   >
-                    <FontAwesome color="#C3AD60" name={"user"} size={20} />
+                    <FontAwesome
+                      color={Constants.theme.primary}
+                      name={"user"}
+                      size={20}
+                    />
                   </Pressable>
                 )}
               />

@@ -18,6 +18,7 @@ export default () => {
               <Row
                 style={{
                   marginVertical: 20,
+                  justifyContent: "space-around",
                 }}
               >
                 <Pressable onPress={() => console.log("Reject Order")}>
@@ -25,7 +26,14 @@ export default () => {
                     source={require("../../../../../../../assets/cancelOrder.png")}
                   />
                 </Pressable>
-                <Pressable onPress={() => console.log("Accept Order")}>
+                <Pressable
+                  style={
+                    {
+                      // marginLeft: 30,
+                    }
+                  }
+                  onPress={() => console.log("Accept Order")}
+                >
                   <Image
                     source={require("../../../../../../../assets/acceptOrder.png")}
                   />

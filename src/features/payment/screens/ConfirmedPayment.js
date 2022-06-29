@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import { View, Text } from "react-native";
+import { Constants } from "../../../../constants/db.mock";
 import { SubTitle, Title } from "./style";
 export default function () {
   const { navigate } = useNavigation();
@@ -13,7 +14,7 @@ export default function () {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#C3AD60",
+        backgroundColor: Constants.theme.primary,
         justifyContent: "center",
         alignItems: "center",
       }}

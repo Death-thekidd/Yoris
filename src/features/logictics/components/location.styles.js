@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Button } from "react-native-paper";
+import { Constants } from "../../../../constants/db.mock";
 
 export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary })`
   width: 260px;
@@ -12,7 +13,7 @@ export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary })`
   font-weight: 400;
   left: 60px;
   font-size: 18px;
-  background: #c3ad60;
+  background: ${Constants.theme.primary};
   border-radius: 5px;
   margin-bottom: 60px;
   text-transform: uppercase;

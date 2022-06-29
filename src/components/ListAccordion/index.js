@@ -5,7 +5,10 @@ import styles from "./styles";
 import StepIndicator from "react-native-step-indicator";
 import { useNavigation } from "@react-navigation/native";
 import { Section, Text } from "../Layout";
+import { Constants } from "../../../constants/db.mock";
+
 export function ListAccordion() {
+  const theme = Constants.theme;
   const navigation = useNavigation();
   const labels = ["Accepted", "Picked up", "Delivered"];
 
@@ -17,12 +20,12 @@ export function ListAccordion() {
     separatorStrokeFinishedWidth: 0,
     currentStepStrokeWidth: 5,
     stepStrokeWidth: 4,
-    stepStrokeCurrentColor: "#C3AD60",
-    stepStrokeFinishedColor: "#C3AD60",
+    stepStrokeCurrentColor: theme.primary,
+    stepStrokeFinishedColor: theme.primary,
     stepStrokeUnFinishedColor: "#aaaaaa",
-    separatorFinishedColor: "#C3AD60",
+    separatorFinishedColor: theme.primary,
     separatorUnFinishedColor: "##aaaaaa",
-    stepIndicatorFinishedColor: "#C3AD60",
+    stepIndicatorFinishedColor: theme.primary,
     stepIndicatorUnFinishedColor: "##aaaaaa",
     stepIndicatorCurrentColor: "#ffffff",
     stepIndicatorLabelFontSize: 15,
@@ -33,7 +36,7 @@ export function ListAccordion() {
     labelColor: "#fff",
     labelSize: 13,
     labelAlign: "center",
-    currentStepLabelColor: "#C3AD60",
+    currentStepLabelColor: theme.primary,
   };
 
   const [expanded, setExpanded] = useState(false);
@@ -55,7 +58,7 @@ export function ListAccordion() {
         </View>
       }
       style={{
-        backgroundColor: "#000",
+        backgroundColor: theme.dark,
       }}
       right={({ style }) => (
         <View
@@ -144,7 +147,6 @@ export function ListAccordion() {
       >
         {expanded && (
           <Pressable onPress={handlePress}>
-            {" "}
             <Image
               style={[styles.listIcon, { transform: [{ rotate: "-180deg" }] }]}
               source={require("../../../assets/caretDown.png")}

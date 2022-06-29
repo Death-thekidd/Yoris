@@ -15,6 +15,7 @@ import { Button } from "../../../../components/Button";
 import MultiItem from "../../components/MultiItem";
 import AddLocationInput from "../../components/AddLocationInput";
 import InfoInput from "../../components/InfoInput";
+import { Constants } from "../../../../../constants/db.mock";
 
 const itemCategory = ["Food"];
 export default () => {
@@ -42,7 +43,7 @@ export default () => {
         onRightIconPress={() => navigate("mainLogistics")}
         headerTitle={"Drop-Off Location"}
         headerTitleStyle={{
-          color: "#C3AD60",
+          color: Constants.themeConstants.primary,
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
@@ -96,7 +97,7 @@ export default () => {
         />
         <View
           style={{
-            borderBottomColor: "#C3AD60",
+            borderBottomColor: Constants.theme.primary,
             borderWidth: 1,
             width: "100%",
             marginBottom: 25,
@@ -112,12 +113,14 @@ export default () => {
       <Section>
         {params.multiDropOff && (
           <Button style={{ marginBottom: 10 }} onPress={addDrop}>
-            <Text style={{ color: "#C3AD60", fontSize: 24 }}>Add New</Text>
+            <Text style={{ color: Constants.theme.primary, fontSize: 24 }}>
+              Add New
+            </Text>
           </Button>
         )}
 
         <Button
-          style={{ backgroundColor: "#C3AD60" }}
+          style={{ backgroundColor: Constants.theme.primary }}
           onPress={() => navigate("logisticBooking", params)}
         >
           <Text style={{ color: "#000", fontSize: 24 }}>Continue</Text>

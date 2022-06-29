@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Image, Pressable, View } from "react-native";
 import { List } from "react-native-paper";
+import { Constants } from "../../../../../../constants/db.mock";
 import { Section, Text } from "../../../../../components/Layout";
 import { PressableSection } from "../../../../../components/Layout/styles";
 import { Row } from "../../../../logictics/components/VehicleType/styles";
@@ -9,47 +10,45 @@ import { Detail, Title } from "./Express/style";
 
 const Details = () => {
   return (
-    <>
-      <Section>
-        <Title style={{ color: "#fff" }}>Pick-up Details:</Title>
+    <Section>
+      <Title style={{ color: "#fff", marginTop: 0 }}>Pick-up Details:</Title>
 
-        <Detail>Street name, bus-stop, local govt area.</Detail>
+      <Detail>Street name, bus-stop, local govt area.</Detail>
 
-        <Detail>Phone Number</Detail>
-        <Title style={{ color: "#fff" }}>Delivery Details:</Title>
+      <Detail>Phone Number</Detail>
+      <Title style={{ color: "#fff" }}>Delivery Details:</Title>
 
-        <Detail>Street name, bus-stop, local govt area.</Detail>
+      <Detail>Street name, bus-stop, local govt area.</Detail>
 
-        <Detail>Phone Number: </Detail>
-        <Detail>Delivery fee: N0.00 </Detail>
-        <Detail>Commission fee: N0.00 </Detail>
+      <Detail>Phone Number: </Detail>
+      <Detail>Delivery fee: N0.00 </Detail>
+      <Detail>Commission fee: N0.00 </Detail>
 
-        <Row>
-          <Pressable
-            onPress={() => navigate("orderAccepted", { delivered: true })}
+      <Row>
+        <Pressable
+          onPress={() => navigate("orderAccepted", { delivered: true })}
+          style={{
+            borderRadius: 50,
+            backgroundColor: Constants.theme.primary,
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 10,
+            marginTop: 10,
+            alignSelf: "center",
+          }}
+        >
+          <Text
             style={{
-              borderRadius: 50,
-              backgroundColor: "#C3AD60",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: 10,
-              marginTop: 10,
-              alignSelf: "center",
+              color: "#000",
+              fontWeight: "500",
             }}
           >
-            <Text
-              style={{
-                color: "#000",
-                fontWeight: "500",
-              }}
-            >
-              Picked up
-            </Text>
-          </Pressable>
-          <RejectReason />
-        </Row>
-      </Section>
-    </>
+            Picked up
+          </Text>
+        </Pressable>
+        <RejectReason />
+      </Row>
+    </Section>
   );
 };
 
@@ -73,7 +72,7 @@ export const UserAccordion = ({ BottomComponent, details = false }) => {
       <View style={{}}>
         <Text
           style={{
-            color: "#C3AD60",
+            color: Constants.theme.primary,
             fontSize: 20,
           }}
         >
@@ -109,7 +108,7 @@ export const UserAccordion = ({ BottomComponent, details = false }) => {
             0.7km Away
           </Text>
         </Row>
-        {!expanded && <>{BottomComponent && <BottomComponent />}</>}
+        {!expanded && BottomComponent && <BottomComponent />}
 
         {details && expanded && <Details />}
       </View>

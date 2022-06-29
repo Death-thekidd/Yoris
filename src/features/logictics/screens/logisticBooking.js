@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, TextInput, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import { Constants } from "../../../../constants/db.mock";
 import Header from "../../../components/Header";
 import { LayoutScrollView, Section, Text } from "../../../components/Layout";
 import AddressBox from "../components/AddressBox/AddressBox";
@@ -34,7 +35,7 @@ export default function LogisticsBooking() {
         iconRight={require("../../../../assets/cancelGold.png")}
         headerTitle={"Drop-Off Location"}
         headerTitleStyle={{
-          color: "#C3AD60",
+          color: Constants.theme.primary,
         }}
       />
 

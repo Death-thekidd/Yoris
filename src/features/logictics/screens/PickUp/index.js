@@ -1,6 +1,7 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { Image, FlatList, View } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 import { Button } from "../../../../components/Button";
 import Header from "../../../../components/Header";
 import { LayoutScrollView, Section, Text } from "../../../../components/Layout";
@@ -52,7 +53,7 @@ export default () => {
         onRightIconPress={() => navigate("logisticsMain")}
         headerTitle={!isMultiple ? "Pickup Location" : "Enter Information"}
         headerTitleStyle={{
-          color: "#C3AD60",
+          color: Constants.theme.primary,
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
@@ -136,7 +137,7 @@ export default () => {
           />
           <View
             style={{
-              borderBottomColor: "#C3AD60",
+              borderBottomColor: Constants.theme.primary,
               borderWidth: 1,
               width: "100%",
               marginBottom: 25,
@@ -158,7 +159,9 @@ export default () => {
               setPickups((prevPickups) => [...prevPickups, values])
             }
           >
-            <Text style={{ color: "#C3AD60", fontSize: 24 }}>Add Pickup</Text>
+            <Text style={{ color: Constants.theme.primary, fontSize: 24 }}>
+              Add Pickup
+            </Text>
           </Button>
         )}
 
@@ -190,7 +193,10 @@ export default () => {
                 <Text style={{ color: "#fff", fontSize: 24 }}>No</Text>
               </Button>
               <Button
-                style={{ backgroundColor: "#C3AD60", paddingHorizontal: 30 }}
+                style={{
+                  backgroundColor: Constants.theme.primary,
+                  paddingHorizontal: 30,
+                }}
                 onPress={() => {
                   setModalVisible(false);
                   navigate("dropOff", { ...params, pickups });

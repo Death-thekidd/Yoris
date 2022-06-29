@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Pressable, StyleSheet, View } from "react-native";
+import { Constants } from "../../../constants/db.mock";
 import { Button } from "../Button";
 import { Text } from "../Layout/";
 import { ModalView, ModalCenteredView, Row } from "./styles";
@@ -39,7 +40,7 @@ export default ({
       </Modal>
 
       <Button
-        style={[{ backgroundColor: "#C3AD60" }, buttonStyle]}
+        style={[{ backgroundColor: Constants.theme.primary }, buttonStyle]}
         onPress={() => {
           setModalVisible(true);
           cb && cb();
@@ -54,7 +55,7 @@ export default ({
 const styles = StyleSheet.create({
   modalView: {
     borderRadius: 5,
-    shadowColor: "#000",
+    shadowColor: Constants.theme.primary,
     shadowOffset: {
       width: 0,
       height: 2,

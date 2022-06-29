@@ -1,5 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { FlatList } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 import { Button } from "../../../../components/Button";
 import Header from "../../../../components/Header";
 import { Layout, LayoutScrollView, Text } from "../../../../components/Layout";
@@ -23,7 +24,7 @@ export default () => {
         onLeftIconPress={() => goBack()}
         headerTitle={"Confirm Details"}
         headerTitleStyle={{
-          color: "#C3AD60",
+          color: Constants.theme.primary,
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
@@ -33,7 +34,7 @@ export default () => {
           <MultiItem
             containerStyle={{
               backgroundColor: "transparent",
-              borderColor: "#C3AD60",
+              borderColor: Constants.theme.primary,
               borderWidth: 1,
               marginVertical: 25,
             }}
@@ -41,7 +42,7 @@ export default () => {
               params.singleDropOff ? "Drop-Off Location" : "Pickup Location"
             }
             titleStyle={{
-              color: "#C3AD60",
+              color: Constants.theme.primary,
               fontWeight: "500",
             }}
             address={"123, Lorem street, Ibeju Lekki, Lagos."}

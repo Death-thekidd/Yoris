@@ -3,6 +3,15 @@
  */
 export const orderStatus = ["Accepted", "Picked up", "Delivered"];
 
+export const Constants = {
+  theme: {
+    primary: "#C3AD60",
+    dark: "#000",
+    light: "#fff",
+    gray: "#C4C4C4",
+  },
+};
+
 export default {
   orders: [
     {

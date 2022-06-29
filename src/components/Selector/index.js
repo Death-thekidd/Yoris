@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 
 import SelectDropdown from "react-native-select-dropdown";
+import { Constants } from "../../../constants/db.mock";
 import { FontAwesome } from "../Icons";
 
 /**
@@ -31,7 +32,7 @@ export default function Selector({
       defaultButtonText={defaultButtonText}
       buttonStyle={{
         borderRadius: 6,
-        backgroundColor: "#C3AD60",
+        backgroundColor: Constants.theme.primary,
         ...buttonStyle,
       }}
       buttonTextStyle={{
@@ -47,7 +48,7 @@ export default function Selector({
         />
       )}
       dropdownStyle={{
-        backgroundColor: "#C3AD60",
+        backgroundColor: Constants.theme.primary,
       }}
       dropdownIconPosition={dropdownIconPosition}
     />

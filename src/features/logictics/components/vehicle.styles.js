@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
-import { Button } from 'react-native-paper';
+import { Button } from "react-native-paper";
+import { Constants } from "../../../../constants/db.mock";
 
 export const VehicleContainer = styled.View`
   display: flex;
@@ -31,7 +32,7 @@ export const ImageBackground = styled.Image`
 `;
 
 export const VehiclePrimary = styled.Text`
-  color: #c3ad60;
+  color: ${Constants.theme.primary};
   font-size: 20px;
   font-weight: 400;
   font-family: "Roboto";
@@ -39,9 +40,9 @@ export const VehiclePrimary = styled.Text`
 `;
 
 export const ImageCancel = styled.Image`
-   width: 20.07px;px;
-   position: relative;
-   height: 20px;
+  width: 20.07px;
+  position: relative;
+  height: 20px;
 `;
 
 export const VehicleCycle = styled.TouchableOpacity`
@@ -50,7 +51,7 @@ export const VehicleCycle = styled.TouchableOpacity`
   height: 80px;
   top: 20px;
   margin-bottom: 20px;
-  border: 1px solid #c3ad60;
+  border: 1px solid ${Constants.theme.primary};
   border-radius: 10px;
   transition: all 0.2s ease-in-out;
 `;
@@ -85,7 +86,7 @@ export const VehicleBtn = styled(Button).attrs({ color: colors.ui.primary })`
   color: #000;
   font-weight: 400;
   font-size: 18px;
-  background: #c3ad60;
+  background: ${Constants.theme.primary};
   border-radius: 5px;
   margin-bottom: 35px;
   text-transform: uppercase;

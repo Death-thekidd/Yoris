@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import { Image, View } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 import { Layout, Section, Text } from "../../../../components/Layout";
 import {
   ModalCenteredView,
@@ -18,7 +19,7 @@ export default () => {
       <Text
         style={{
           fontSize: 30,
-          color: "#C3AD60",
+          color: Constants.theme.primary,
           marginTop: 25,
         }}
       >

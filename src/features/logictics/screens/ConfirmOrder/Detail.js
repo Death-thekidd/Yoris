@@ -1,4 +1,5 @@
 import { View, Image } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 
 import { Text } from "../../../../components/Layout";
 import { DetailOrderNumber, LocationText } from "./styles";
@@ -20,7 +21,7 @@ export default () => {
       <View>
         <Text
           style={{
-            color: "#C3AD60",
+            color: Constants.theme.primary,
           }}
         >
           PickUp Location
@@ -32,7 +33,7 @@ export default () => {
       <View>
         <Text
           style={{
-            color: "#C3AD60",
+            color: Constants.theme.primary,
           }}
         >
           Drop-Off Location

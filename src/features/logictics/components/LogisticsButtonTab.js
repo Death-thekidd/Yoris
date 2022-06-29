@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Pressable, Text, StyleSheet } from "react-native";
+import { Constants } from "../../../../constants/db.mock";
 
 export default function ({ onPress, isActive, text = "tab" }) {
   return (
@@ -8,7 +9,7 @@ export default function ({ onPress, isActive, text = "tab" }) {
       style={[
         styles.buttonTab,
         {
-          backgroundColor: isActive ? "#C3AD60" : "transparent",
+          backgroundColor: isActive ? Constants.theme.primary : "transparent",
           borderTopRightRadius: 5,
           borderBottomRightRadius: 5,
         },
@@ -17,7 +18,7 @@ export default function ({ onPress, isActive, text = "tab" }) {
       <Text
         style={[
           styles.buttonTabText,
-          { color: !isActive ? "#C3AD60" : "#000" },
+          { color: !isActive ? Constants.theme.primary : "#000" },
         ]}
       >
         {text}

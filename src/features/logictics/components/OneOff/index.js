@@ -12,6 +12,7 @@ import useDateTimePicker from "../../../../hooks/useDateTimePicker";
 import LogisticsInfo from "../../components/LogisticsInfo";
 import { Button } from "../../../../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { Constants } from "../../../../../constants/db.mock";
 export default () => {
   const countries = getNames();
   const navigation = useNavigation();
@@ -214,7 +215,7 @@ export default () => {
             singleDropOff: true,
           })
         }
-        style={{ backgroundColor: "#C3AD60", marginTop: 74 }}
+        style={{ backgroundColor: Constants.theme.primary, marginTop: 74 }}
       >
         <Text style={{ fontSize: 24 }}>Continue</Text>
       </Button>

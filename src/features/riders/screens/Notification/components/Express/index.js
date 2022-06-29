@@ -6,6 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Title, Detail } from "./style";
 import { useNavigation } from "@react-navigation/native";
 import RejectReason from "../../../../components/RejectReason";
+import { Constants } from "../../../../../../../constants/db.mock";
 
 export default () => {
   const [order, setOrder] = useState({});
@@ -103,7 +104,7 @@ export default () => {
           onPress={() => setPackageState({ pickedUp: true })}
           style={{
             borderRadius: 50,
-            backgroundColor: "#C3AD60",
+            backgroundColor: Constants.theme.primary,
             justifyContent: "center",
             alignItems: "center",
             paddingVertical: 15,
@@ -127,7 +128,7 @@ export default () => {
             onPress={() => navigate("orderAccepted", { delivered: true })}
             style={{
               borderRadius: 50,
-              backgroundColor: "#C3AD60",
+              backgroundColor: Constants.theme.primary,
               justifyContent: "center",
               alignItems: "center",
               paddingVertical: 15,

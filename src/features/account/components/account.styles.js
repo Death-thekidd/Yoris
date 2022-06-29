@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components/native";
 import { Button, TextInput } from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Text } from "../../../components/typography/text.component";
 
-
 export const RegisterContainer = styled.View`
-   display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: #000;
@@ -14,13 +13,13 @@ export const RegisterContainer = styled.View`
 `;
 
 export const ImageLogo = styled.Image`
-   top: 3px;
+  top: 3px;
 `;
 
 export const ImageBackground = styled.Image`
-    width: 26.19px;
-    right: 80px;
-    height: 20px
+  width: 26.19px;
+  right: 80px;
+  height: 20px;
 `;
 
 export const RegisterForm = styled.View`
@@ -28,18 +27,15 @@ export const RegisterForm = styled.View`
 `;
 
 export const RegisterInput = styled(TextInput)`
-   width: 300px;
-   height: 48px;
-   background: #4E4E4E;
-   border: 3px;
-   border-radisu: 40px;
-   margin-top: 20px;
-   border-radius: 5px;
-   box-sizing: border-box;
+  width: 300px;
+  height: 48px;
+  background: #4e4e4e;
+  border: 3px;
+  border-radisu: 40px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
 `;
-
-
-
 
 // export const AccountBackground = styled.View`
 
@@ -62,15 +58,11 @@ export const RegisterInput = styled(TextInput)`
 
 // `
 
-
-
-
 // export const Cover = styled.Image`
 
 //   width: 140px;
 //   height: 100px;
 //   bottom:80px
-
 
 // `;
 
@@ -108,7 +100,7 @@ export const RegisterInput = styled(TextInput)`
 
 // export const Title = styled(Text)`
 //   font-size: 30px;
-//   color:#C3AD60
+//   color:Constants.theme.primary
 // `;
 
 // export const ErrorContainer = styled.View`
@@ -127,21 +119,13 @@ export const RegisterInput = styled(TextInput)`
 //   padding: ${(props) => props.theme.space[2]};
 // `;
 
-
-
-
-
-
-
 // export default function loginscreen() {
 //   return (
 //     <View style={styles.container}>
 
-
 //       <View>
 //         <Image style={styles.img} source={require('../../../../assets/YorisIcon1.png')} />
 //       </View>
-
 
 //       <View style={styles.inputView}>
 //         <TextInput style={styles.inputText}
@@ -162,7 +146,6 @@ export const RegisterInput = styled(TextInput)`
 //       <TouchableOpacity style={styles.loginBtn}>
 //         <Text style={styles.loginText}>Login </Text>
 //       </TouchableOpacity>
-
 
 //       <TouchableOpacity style={styles.loginBtn}>
 //         <Text style={styles.loginText}>Signup</Text>
@@ -204,7 +187,7 @@ export const RegisterInput = styled(TextInput)`
 //  },
 //  loginBtn: {
 //    width: "80%",
-//    backgroundColor: "#C3AD60",
+//    backgroundColor: ${Constants.theme.primary},
 //    borderRadius: 25,
 //    height: 50,
 //    alignItems: "center",
@@ -220,7 +203,7 @@ export const RegisterInput = styled(TextInput)`
 //  },
 //
 //  forget: {
-//    backgroundColor: '#C3AD60',
+//    backgroundColor: 'Constants.theme.primary',
 //    color: '#ffffff',
 //
 //
@@ -236,11 +219,7 @@ export const RegisterInput = styled(TextInput)`
 //   padding: ${(props) => props.theme.space[2]};
 // `;
 
-
 // okasy so any values that we are not giong to use immdiately we have to store this value
 // so we not just naming variables because we have to but because we have to store used values so that would not be
 // lost
-// so we have to name the variable in memory to hold this data 
-
-
-
+// so we have to name the variable in memory to hold this data

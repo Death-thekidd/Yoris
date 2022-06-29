@@ -2,10 +2,11 @@ import styled from "styled-components/native";
 import { Text } from "../../../../../../components/Layout";
 
 export const Title = styled.Text`
-  color: #c3ad60;
+  color: Constants.theme.primary;
   font-size: 20px;
+  margin: 8px 0;
 `;
 
 export const Detail = styled(Text)`
-  margin: 10px 0;
+  margin: 5px 0;
 `;

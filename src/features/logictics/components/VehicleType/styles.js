@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
+import { Constants } from "../../../../../constants/db.mock";
 
 export const PressableContainer = styled.Pressable`
   border-radius: 5;
-  border-color: #c3ad60;
+  border-color: ${Constants.theme.primary};
   border-width: 2;
   width: 166;
   height: 82;

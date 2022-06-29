@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Pressable, TextInput, View } from "react-native";
+import { Constants } from "../../../../../constants/db.mock";
 import { Button } from "../../../../components/Button";
 import { Section, Text } from "../../../../components/Layout";
 import {
@@ -45,7 +46,9 @@ export default ({ buttonStyle }) => {
                   paddingHorizontal: 25,
                 }}
               >
-                <Text style={{ color: "#C3AD60" }}>Client not Available</Text>
+                <Text style={{ color: Constants.theme.primary }}>
+                  Client not Available
+                </Text>
               </Button>
               <Button
                 style={{
@@ -53,7 +56,9 @@ export default ({ buttonStyle }) => {
                   paddingHorizontal: 25,
                 }}
               >
-                <Text style={{ color: "#C3AD60" }}>Rejected Order</Text>
+                <Text style={{ color: Constants.theme.primary }}>
+                  Rejected Order
+                </Text>
               </Button>
             </Section>
             <View
@@ -85,7 +90,7 @@ export default ({ buttonStyle }) => {
                   marginBottom: 25,
                   borderRadius: 50,
                   paddingHorizontal: 25,
-                  backgroundColor: "#C3AD60",
+                  backgroundColor: Constants.theme.primary,
                 }}
               >
                 <Text style={{ color: "#000" }}>Submit</Text>
@@ -101,7 +106,7 @@ export default ({ buttonStyle }) => {
           {
             borderRadius: 50,
             borderWidth: 1,
-            borderColor: "#C3AD60",
+            borderColor: Constants.theme.primary,
             justifyContent: "center",
             alignItems: "center",
             padding: 10,

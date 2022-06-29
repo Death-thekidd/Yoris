@@ -4,6 +4,7 @@ import { Image, Pressable, Button, View } from "react-native";
 import Header from "../../../../../components/Header";
 import { FontAwesome } from "../../../../../components/Icons";
 import { useEffect } from "react";
+import { Constants } from "../../../../../../constants/db.mock";
 
 export default ({ RightComponent }) => {
   const { goBack, dispatch, navigate } = useNavigation();
@@ -31,7 +32,11 @@ export default ({ RightComponent }) => {
                   })
                 }
               >
-                <FontAwesome color="#C3AD60" name={"bell"} size={20} />
+                <FontAwesome
+                  color={Constants.theme.primary}
+                  name={"bell"}
+                  size={20}
+                />
               </Pressable>
               <Pressable onPress={onToggle}>
                 <Image

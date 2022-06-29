@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { Button } from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
 import { fonts } from "../../../infrastructure/theme/fonts";
+import { Constants } from "../../../../constants/db.mock";
 
 export const Title = styled.Text`
   text-align: center;
@@ -94,7 +95,7 @@ export const LogisticBtnCont = styled.View`
   width: 340px;
   height: 64px;
   background: #9a8340;
-  border: 1px solid #c3ad60;
+  border: 1px solid ${Constants.theme.primary};
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 `;
@@ -135,7 +136,7 @@ export const ContinueView = styled.View`
   height: 48px;
   text-align: center;
   align-self: center;
-  background: #c3ad60;
+  background: ${Constants.theme.primary};
   border: 1px solid #9a8340;
   border-radius: 10px;
 `;

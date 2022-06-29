@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const StyledMultiItemView = styled.Pressable`
   flex-direction: row;
-  background: #c3ad60;
+  background: Constants.theme.primary;
   justify-content: space-between;
   padding: 10px 15px;
   border-radius: 7px;

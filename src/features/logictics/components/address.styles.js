@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
-import { colors } from '../../../infrastructure/theme/colors';
-import { Button } from 'react-native-paper';
-
+import styled from "styled-components/native";
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button } from "react-native-paper";
+import { Constants } from "../../../../constants/db.mock";
 
 export const LogisticsContainer = styled.View`
   display: flex;
@@ -12,48 +12,50 @@ export const LogisticsContainer = styled.View`
 `;
 
 export const LogisticsPrimary = styled.Text`
-   margin-top: 30px;
-   color: #fff;
-   text-align: center;
-   font-size: 20px;
-   font-weight: bold;
+  margin-top: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
- export const LogisticsWrapper = styled.View`
-    display: flex;
-    flex-flow: row;
- `;
+export const LogisticsWrapper = styled.View`
+  display: flex;
+  flex-flow: row;
+`;
 
- export const LogisticsRow = styled.View`
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    padding: 25px;
-    align-items: center;
- `;
+export const LogisticsRow = styled.View`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 25px;
+  align-items: center;
+`;
 
- export const AddressBtn = styled(Button).attrs({ color: colors.ui.primary})`
-    width: 128px;
-    height: 64px;
-    background: #C3AD60;
-    font-size: 12px;
-    padding: 12px;
-    left: 30px;
-    top: 20px;
-    font-weight: 200;
-    border-radius: 15px;
- `;
+export const AddressBtn = styled(Button).attrs({ color: colors.ui.primary })`
+  width: 128px;
+  height: 64px;
+  background: ${Constants.theme.primary};
+  font-size: 12px;
+  padding: 12px;
+  left: 30px;
+  top: 20px;
+  font-weight: 200;
+  border-radius: 15px;
+`;
 
- export const AddressCover = styled(Button).attrs({ color: colors.ui.quaternary })`
-    width: 128px;
-    height: 64px;;
-   background: #4E4E4E;
-   font-size: 12px;
-   top: 20px;
-   font-weight: 200;
-   padding: 12px;
-   border-radius: 15px;
- `;
+export const AddressCover = styled(Button).attrs({
+  color: colors.ui.quaternary,
+})`
+  width: 128px;
+  height: 64px;
+  background: #4e4e4e;
+  font-size: 12px;
+  top: 20px;
+  font-weight: 200;
+  padding: 12px;
+  border-radius: 15px;
+`;
 
 //  export const LogisticsSlot = styled.Text`
 //     display: flex;
@@ -96,7 +98,7 @@ export const LogisticsPrimary = styled.Text`
 //      left: 10px;
 //      font-weight: 400;
 //      font-size: 18px;
-//      background: #C3AD60;
+//      background: Constants.theme.primary;
 //      border-radius: 10px;
 //      text-transform: uppercase;
 // `;

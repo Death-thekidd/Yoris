@@ -3,6 +3,7 @@ import { View, StyleSheet, Image } from "react-native";
 import StepIndicator from "../../../components/StepIndicator";
 import Layout, { Text } from "../../../components/Layout";
 import { Section } from "../../payment/screens/style";
+import { Constants } from "../../../../constants/db.mock";
 
 const customStyles = {
   stepIndicatorSize: 5,
@@ -12,12 +13,12 @@ const customStyles = {
   separatorStrokeFinishedWidth: 0,
   currentStepStrokeWidth: 5,
   stepStrokeWidth: 4,
-  stepStrokeCurrentColor: "#C3AD60",
-  stepStrokeFinishedColor: "#C3AD60",
+  stepStrokeCurrentColor: Constants.theme.primary,
+  stepStrokeFinishedColor: Constants.theme.primary,
   stepStrokeUnFinishedColor: "#aaaaaa",
-  separatorFinishedColor: "#C3AD60",
+  separatorFinishedColor: Constants.theme.primary,
   separatorUnFinishedColor: "##aaaaaa",
-  stepIndicatorFinishedColor: "#C3AD60",
+  stepIndicatorFinishedColor: Constants.theme.primary,
   stepIndicatorUnFinishedColor: "##aaaaaa",
   stepIndicatorCurrentColor: "#ffffff",
   stepIndicatorLabelFontSize: 15,
@@ -28,7 +29,7 @@ const customStyles = {
   labelColor: "#fff",
   labelSize: 13,
   labelAlign: "center",
-  currentStepLabelColor: "#C3AD60",
+  currentStepLabelColor: Constants.theme.primary,
 };
 
 const labels = ["Pending", "Delivering", "Delivered"];
@@ -42,7 +43,7 @@ export default function ({ style }) {
       <View
         style={{
           borderWidth: 1,
-          borderColor: "#C3AD60",
+          borderColor: Constants.theme.primary,
           borderRadius: 7,
           marginVertical: 25,
           padding: 15,
