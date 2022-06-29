@@ -1,5 +1,6 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from 'react-native';
+import { Layout } from "../../../components/Layout";
 import { Button } from 'react-native-paper';
 import {
   VehicleContainer,
@@ -19,6 +20,7 @@ export default function LogisticsVehicle({ navigation }) {
   return (
     <SafeAreaView>
     <ScrollView>
+    <Layout>
     <VehicleContainer>
       <VehicleWrapper>
         <VehicleRow>
@@ -98,6 +100,7 @@ export default function LogisticsVehicle({ navigation }) {
       </VehicleCycle>
       <VehicleBtn>continue</VehicleBtn>
     </VehicleContainer>
+    </Layout>
     </ScrollView>
     </SafeAreaView>
   );

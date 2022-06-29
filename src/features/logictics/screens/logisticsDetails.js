@@ -26,12 +26,14 @@ import {
 
 export default function LogisticsDetails({ navigation }) {
     return(
-      <SafeAreaView>
-      <ScrollView>
+    <SafeAreaView>
+    <ScrollView>
       <Layout>
        <DetailsWrapper>
           <DetailsRow>
-            <Button onPress={() => navigation.navigate("logisticBooking")}>
+            <Button style={{
+              left: 20,
+            }} onPress={() => navigation.navigate("logisticBooking")}>
               <ImageBackground
                 source={require("../../../../assets/backIcon.png")}
               />

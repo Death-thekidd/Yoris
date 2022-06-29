@@ -27,6 +27,7 @@ export const DetailsPrimary = styled.Text`
      text-align: left;
      font-size: 20px;
      font-weight: 400;
+     left: 10px;
      font-family: 'Roboto';
 `;
 
@@ -34,6 +35,7 @@ export const ImageCancel = styled.Image`
      width: 20.07px;px;
      position: relative;
      height: 20px;
+     left: 16px;
 `;
 
 export const DetailsSecondary = styled.Text`
