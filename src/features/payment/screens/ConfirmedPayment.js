@@ -32,7 +32,7 @@ export default function () {
             marginBottom: 0,
           }}
         >
-          Congratulations{" "}
+          Congratulations
         </Title>
         <SubTitle
           style={{

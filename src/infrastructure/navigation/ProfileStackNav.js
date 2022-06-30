@@ -13,6 +13,7 @@ import Express from "../../features/riders/screens/Notification/components/Expre
 import Arrivals from "../../features/riders/screens/Notification/components/Arrivals";
 import OrderAccepted from "../../features/riders/components/OrderAccepted";
 import { Constants } from "../../../constants/db.mock";
+import Wallet from "../../features/riders/screens/Wallets";
 
 const Drawer = createDrawerNavigator();
 
@@ -122,6 +123,23 @@ const ProfileNavigation = () => {
                     />
                   </Pressable>
                 )}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="wallet"
+        component={Wallet}
+        options={{
+          headerShown: true,
+          header: () => (
+            <View style={{ paddingHorizontal: 20, backgroundColor: "#000" }}>
+              <Header
+                title="Wallet"
+                titleStyle={{
+                  color: Constants.theme.primary,
+                }}
               />
             </View>
           ),

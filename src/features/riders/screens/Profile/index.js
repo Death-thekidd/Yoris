@@ -1,4 +1,5 @@
-import { Image, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Image, Pressable, View } from "react-native";
 import { Constants } from "../../../../../constants/db.mock";
 import { FontAwesome } from "../../../../components/Icons";
 import {
@@ -11,6 +12,7 @@ import { ListAccordion } from "../../../../components/ListAccordion";
 import { Row } from "../../../logictics/components/VehicleType/styles";
 import Header from "./components/Header";
 export default () => {
+  const { navigate } = useNavigation();
   return (
     <LayoutScrollView
       style={{
@@ -80,15 +82,37 @@ export default () => {
         </Row>
       </Section>
       <Section>
-        <Text
+        <Row
           style={{
-            fontSize: 25,
-            fontWeight: "600",
-            color: Constants.theme.primary,
+            paddingRight: 5,
           }}
         >
-          Delivery History
-        </Text>
+          <Text
+            style={{
+              fontSize: 25,
+              fontWeight: "600",
+              color: Constants.theme.primary,
+            }}
+          >
+            Delivery History
+          </Text>
+
+          <Pressable
+            style={{
+              backgroundColor: "#fff",
+              padding: 10,
+              borderRadius: 50,
+            }}
+            onPress={() => navigate("wallet")}
+          >
+            <FontAwesome
+              name="wallet"
+              color={Constants.theme.primary}
+              size={17}
+            />
+          </Pressable>
+        </Row>
+
         <View
           style={{
             borderWidth: 1,

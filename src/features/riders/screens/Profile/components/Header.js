@@ -6,13 +6,15 @@ import { FontAwesome } from "../../../../../components/Icons";
 import { useEffect } from "react";
 import { Constants } from "../../../../../../constants/db.mock";
 
-export default ({ RightComponent }) => {
+export default ({ RightComponent, title = "", titleStyle }) => {
   const { goBack, dispatch, navigate } = useNavigation();
   const onToggle = () => dispatch(DrawerActions.toggleDrawer());
   return (
     <Header
       iconLeft={require("../../../../../../assets/backIcon.png")}
       onLeftIconPress={() => goBack()}
+      headerTitle={title ? title : false}
+      headerTitleStyle={[titleStyle]}
       IconRightComponent={() => (
         <View
           style={{

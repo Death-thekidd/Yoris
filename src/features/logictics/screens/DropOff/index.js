@@ -2,8 +2,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { FlatList, Pressable, TextInput, View } from "react-native";
 import Header from "../../../../components/Header";
 import Selector from "../../../../components/Selector";
-import { countries } from "countries-list";
-import { getCodes } from "country-list";
 import {
   Layout,
   LayoutScrollView,
