@@ -14,6 +14,8 @@ export default ({
   buttonText = "Continue",
   buttonTextStyle,
   buttonStyle,
+  modalBg,
+  buttonColor = "#fff",
 }) => {
   return (
     <>
@@ -22,7 +24,6 @@ export default ({
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
       >
@@ -46,7 +47,9 @@ export default ({
           cb && cb();
         }}
       >
-        <Text style={[{ fontSize: 24 }, buttonTextStyle]}>{buttonText}</Text>
+        <Text style={[{ fontSize: 24, color: buttonColor }, buttonTextStyle]}>
+          {buttonText}
+        </Text>
       </Button>
     </>
   );

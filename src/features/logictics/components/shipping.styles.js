@@ -131,7 +131,7 @@ export const ShippingBtn = styled(Button).attrs({ color: colors.ui.primary })`
   padding: 12px;
   top: 55px;
   text-align: center;
-  color: #000;
+  color: ${Constants.theme.dark};
   font-weight: 400;
   font-size: 18px;
   background: ${Constants.theme.primary};

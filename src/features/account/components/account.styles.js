@@ -3,12 +3,13 @@ import styled from "styled-components/native";
 import { Button, TextInput } from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Text } from "../../../components/typography/text.component";
+import { Constants } from "../../../../constants/db.mock";
 
 export const RegisterContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
   flex: 1;
 `;
 
@@ -42,7 +43,7 @@ export const RegisterInput = styled(TextInput)`
 // flex: 1;
 // align-items: center;
 // justify-content: center;
-// background: #000000
+// background: Constants.theme.dark000
 
 // `;
 
@@ -70,7 +71,7 @@ export const RegisterInput = styled(TextInput)`
 //   position: absolute;
 //   width: 100%;
 //   height: 100%;
-//   background-color:#000000;
+//   background-color:Constants.theme.dark000;
 // `;
 
 // export const AccountContainer = styled.View`
@@ -159,7 +160,7 @@ export const RegisterInput = styled(TextInput)`
 //const styles = StyleSheet.create({
 //  container: {
 //    flex: 1,
-//    backgroundColor: '#000000',
+//    backgroundColor: 'Constants.theme.dark000',
 //    color: '#ffffff',
 //    alignItems: 'center',
 //    justifyContent: 'center',

@@ -1,13 +1,14 @@
 import styled from "styled-components/native";
+import { Constants } from "../../../constants/db.mock";
 
 const Layout = styled.View`
   flex: 1;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
 `;
 
 export const StyledScrollView = styled.ScrollView`
   flex: 1;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
   padding: 0 25px;
 `;
 

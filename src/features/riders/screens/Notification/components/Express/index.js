@@ -115,7 +115,7 @@ export default () => {
         >
           <Text
             style={{
-              color: "#000",
+              color: Constants.theme.dark,
               fontWeight: "500",
             }}
           >
@@ -139,7 +139,7 @@ export default () => {
           >
             <Text
               style={{
-                color: "#000",
+                color: Constants.theme.dark,
                 fontWeight: "500",
               }}
             >

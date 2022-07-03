@@ -177,7 +177,10 @@ export default () => {
       {isLocalActive && isRegularActive && (
         <View style={[styles.row, { justifyContent: "space-between" }]}>
           {/* Date Selector */}
-          <Pressable style={[styles.row]} onPress={showDatepicker}>
+          <Pressable
+            style={[styles.row, { alignItems: "center" }]}
+            onPress={showDatepicker}
+          >
             <Image
               style={styles.icon}
               source={require("../../../../../assets/calender.png")}
@@ -186,7 +189,10 @@ export default () => {
           </Pressable>
 
           {/* Time selector */}
-          <Pressable style={[styles.row]} onPress={showTimepicker}>
+          <Pressable
+            style={[styles.row, { alignItems: "center" }]}
+            onPress={showTimepicker}
+          >
             <Image
               style={styles.icon}
               source={require("../../../../../assets/history.png")}

@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Image, Pressable, View } from "react-native";
 import { List } from "react-native-paper";
@@ -7,8 +8,10 @@ import { PressableSection } from "../../../../../components/Layout/styles";
 import { Row } from "../../../../logictics/components/VehicleType/styles";
 import RejectReason from "../../../components/RejectReason";
 import { Detail, Title } from "./Express/style";
+import OtpInputModal from "../../../../../components/OtpInputModal/Index";
 
 const Details = () => {
+  const { navigate } = useNavigation();
   return (
     <Section>
       <Title style={{ color: "#fff", marginTop: 0 }}>Pick-up Details:</Title>
@@ -25,9 +28,9 @@ const Details = () => {
       <Detail>Commission fee: N0.00 </Detail>
 
       <Row>
-        <Pressable
-          onPress={() => navigate("orderAccepted", { delivered: true })}
-          style={{
+        <OtpInputModal
+          buttonText={"Picked up"}
+          buttonStyle={{
             borderRadius: 50,
             backgroundColor: Constants.theme.primary,
             justifyContent: "center",
@@ -35,17 +38,11 @@ const Details = () => {
             padding: 10,
             marginTop: 10,
             alignSelf: "center",
+            height: 40,
           }}
-        >
-          <Text
-            style={{
-              color: "#000",
-              fontWeight: "500",
-            }}
-          >
-            Picked up
-          </Text>
-        </Pressable>
+          onOtpValidate={() => navigate("orderAccepted")}
+        />
+
         <RejectReason />
       </Row>
     </Section>

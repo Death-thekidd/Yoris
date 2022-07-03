@@ -24,7 +24,7 @@ export default ({ buttonStyle }) => {
         <ModalCenteredView>
           <ModalView
             style={{
-              backgroundColor: "#000",
+              backgroundColor: Constants.theme.dark,
             }}
           >
             <Text
@@ -93,7 +93,7 @@ export default ({ buttonStyle }) => {
                   backgroundColor: Constants.theme.primary,
                 }}
               >
-                <Text style={{ color: "#000" }}>Submit</Text>
+                <Text style={{ color: Constants.theme.dark }}>Submit</Text>
               </Button>
             </Section>
           </ModalView>

@@ -41,7 +41,7 @@ export default () => {
         onRightIconPress={() => navigate("mainLogistics")}
         headerTitle={"Drop-Off Location"}
         headerTitleStyle={{
-          color: Constants.themeConstants.primary,
+          color: Constants.theme.primary,
         }}
         iconRight={require("../../../../../assets/cancel.png")}
       />
@@ -58,8 +58,12 @@ export default () => {
               }}
               bottomComp={
                 <>
-                  <Text style={{ color: "#000" }}>Receiver’s Name</Text>
-                  <Text style={{ color: "#000" }}>Receiver’s Phone</Text>
+                  <Text style={{ color: Constants.theme.dark }}>
+                    Receiver’s Name
+                  </Text>
+                  <Text style={{ color: Constants.theme.dark }}>
+                    Receiver’s Phone
+                  </Text>
                 </>
               }
             />
@@ -118,10 +122,14 @@ export default () => {
         )}
 
         <Button
-          style={{ backgroundColor: Constants.theme.primary }}
-          onPress={() => navigate("logisticBooking", params)}
+          style={{
+            backgroundColor: Constants.theme.primary,
+          }}
+          onPress={() => navigate("confirmOrder", params)}
         >
-          <Text style={{ color: "#000", fontSize: 24 }}>Continue</Text>
+          <Text style={{ color: Constants.theme.dark, fontSize: 24 }}>
+            Continue
+          </Text>
         </Button>
       </Section>
     </LayoutScrollView>

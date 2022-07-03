@@ -1,12 +1,13 @@
 import styled from "styled-components/native";
 import { colors } from "../../../../infrastructure/theme/colors";
 import { Button } from "react-native-paper";
+import { Constants } from "../../../../../constants/db.mock";
 
 export const RiderBackground = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
   flex: 1;
 `;
 
@@ -24,8 +25,8 @@ export const RiderWrap = styled.View`
 export const RiderBtn = styled(Button).attrs({ color: colors.brand.primary })`
   width: 278px;
   height: 68px;
-  border: 1px solid Constants.theme.primary;
-  color: Constants.theme.primary;
+  border: 1px solid ${Constants.theme.primary};
+  color: ${Constants.theme.primary};
   padding: 12px;
   margin-top: 20px;
   font-size: 15px;
@@ -43,7 +44,7 @@ export const RiderSpecify = styled.View`
 export const RiderSubmit = styled(Button).attrs({ color: colors.ui.primary })`
   width: 278px;
   height: 48px;
-  background: Constants.theme.primary;
+  background: ${Constants.theme.primary};
   border-radius: 40px;
   font-size: 15px;
   padding: 2px;

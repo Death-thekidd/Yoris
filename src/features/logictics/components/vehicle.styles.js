@@ -7,7 +7,7 @@ export const VehicleContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
   padding: 20px;
   flex: 1;
 `;
@@ -83,7 +83,7 @@ export const VehicleBtn = styled(Button).attrs({ color: colors.ui.primary })`
   padding: 12px;
   top: 35px;
   text-align: center;
-  color: #000;
+  color: ${Constants.theme.dark};
   font-weight: 400;
   font-size: 18px;
   background: ${Constants.theme.primary};

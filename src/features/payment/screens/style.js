@@ -1,9 +1,10 @@
 import styled from "styled-components/native";
+import { Constants } from "../../../../constants/db.mock";
 
 // PAYMENT SCREEN STYLES START
 export const PaymentContainer = styled.View`
   flex: 1;
-  background-color: #000000;
+  background-color: ${Constants.theme.dark};
   padding-right: 35px;
   padding-left: 35px;
 `;
@@ -13,7 +14,7 @@ export const Section = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: Constants.theme.primary;
+  color: ${Constants.theme.primary};
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 20;

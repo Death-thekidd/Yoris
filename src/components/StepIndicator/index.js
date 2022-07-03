@@ -9,6 +9,7 @@ import {
   ViewStyle,
   TextStyle,
 } from "react-native";
+import { Constants } from "../../../constants/db.mock";
 
 const STEP_STATUS = {
   CURRENT: "current",
@@ -34,10 +35,10 @@ const defaultStyles = {
   stepIndicatorCurrentColor: "#ffffff",
   stepIndicatorLabelFontSize: 15,
   currentStepIndicatorLabelFontSize: 15,
-  stepIndicatorLabelCurrentColor: "#000000",
+  stepIndicatorLabelCurrentColor: Constants.theme.dark,
   stepIndicatorLabelFinishedColor: "#ffffff",
   stepIndicatorLabelUnFinishedColor: "rgba(255,255,255,0.5)",
-  labelColor: "#000000",
+  labelColor: Constants.theme.dark,
   labelSize: 13,
   labelAlign: "center",
   currentStepLabelColor: "#4aae4f",

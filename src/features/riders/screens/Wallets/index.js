@@ -2,15 +2,21 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Image, Pressable, View, StyleSheet, FlatList } from "react-native";
 import { Constants } from "../../../../../constants/db.mock";
-import { Layout, Section, Text } from "../../../../components/Layout";
+import {
+  Layout,
+  LayoutScrollView,
+  Section,
+  Text,
+} from "../../../../components/Layout";
 import Header from "../Profile/components/Header";
+import { WalletActionBtn } from "./styles";
 
 export default () => {
   const { navigate } = useNavigation();
-  const [wallets, setWallets] = useState([{}, {}, {}]);
+  const [wallets, setWallets] = useState([{}, {}, {}, {}, {}, {}]);
 
   return (
-    <Layout>
+    <LayoutScrollView>
       <Section>
         <View
           style={{
@@ -68,22 +74,11 @@ export default () => {
           <Text style={{ fontSize: 30 }}>N100,000.00</Text>
         </View>
 
-        <Pressable
-          onPress={() => setModalVisible(true)}
+        <WalletActionBtn
+          onPress={() => console.log(true)}
           style={[
             {
-              borderRadius: 50,
-              borderWidth: 1,
               backgroundColor: Constants.theme.primary,
-              justifyContent: "space-between",
-              paddingHorizontal: 15,
-              alignItems: "center",
-              height: 48,
-
-              width: "75%",
-              marginTop: 10,
-              alignSelf: "center",
-              flexDirection: "row",
             },
           ]}
         >
@@ -102,24 +97,11 @@ export default () => {
             Withdraw
           </Text>
           <Image source={require("../../../../../assets/arrowBlack.png")} />
-        </Pressable>
-        <Pressable
-          onPress={() => setModalVisible(true)}
+        </WalletActionBtn>
+        <WalletActionBtn
+          onPress={() => console.log("Send")}
           style={[
             {
-              paddingHorizontal: 15,
-
-              borderRadius: 50,
-              borderWidth: 1,
-              borderColor: Constants.theme.primary,
-              justifyContent: "space-between",
-              alignItems: "center",
-              height: 48,
-
-              width: "75%",
-              marginTop: 10,
-              alignSelf: "center",
-              flexDirection: "row",
               marginBottom: 50,
             },
           ]}
@@ -139,7 +121,7 @@ export default () => {
             Send
           </Text>
           <Image source={require("../../../../../assets/arrowGold.png")} />
-        </Pressable>
+        </WalletActionBtn>
 
         <FlatList
           data={wallets}
@@ -174,7 +156,7 @@ export default () => {
           )}
         />
       </Section>
-    </Layout>
+    </LayoutScrollView>
   );
 };
 

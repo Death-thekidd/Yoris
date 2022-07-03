@@ -6,6 +6,7 @@ import {
 import DrawerHeader from "../../features/riders/components/DrawerHeader";
 import DrawerFooter from "../../features/riders/components/DrawerFooter";
 import { FontAwesome } from "../Icons";
+import { Constants } from "../../../constants/db.mock";
 
 const drawerContent = [
   {
@@ -32,7 +33,7 @@ export default (props) => {
     <DrawerContentScrollView
       {...props}
       style={{
-        backgroundColor: "#000",
+        backgroundColor: Constants.theme.dark,
         height: "100%",
       }}
     >

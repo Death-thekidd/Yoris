@@ -12,7 +12,9 @@ import { Seperator } from "./styles";
 export default () => {
   const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
+  const isSingle = params.singleDropOff || params.singlePickup;
 
+  console.log(params);
   return (
     <LayoutScrollView
       style={{
@@ -29,44 +31,46 @@ export default () => {
         iconRight={require("../../../../../assets/cancel.png")}
       />
 
-      {params.singleDropOff ||
-        (params.singlePickup && (
-          <MultiItem
-            containerStyle={{
-              backgroundColor: "transparent",
-              borderColor: Constants.theme.primary,
-              borderWidth: 1,
-              marginVertical: 25,
-            }}
-            title={
-              params.singleDropOff ? "Drop-Off Location" : "Pickup Location"
-            }
-            titleStyle={{
-              color: Constants.theme.primary,
-              fontWeight: "500",
-            }}
-            address={"123, Lorem street, Ibeju Lekki, Lagos."}
-            addressStyle={{
-              color: "#fff",
-            }}
-            {...(params.singleDropOff && {})}
-            bottomComp={
-              params.singleDropOff && (
-                <>
-                  <Text style={{ color: "#4E4E4E" }}>Receiver’s Name</Text>
-                  <Text style={{ color: "#4E4E4E" }}>Receiver’s Phone</Text>
-                </>
-              )
-            }
-          />
-        ))}
+      {isSingle && (
+        <MultiItem
+          containerStyle={{
+            backgroundColor: "transparent",
+            borderColor: Constants.theme.primary,
+            borderWidth: 1,
+            marginVertical: 25,
+          }}
+          title={params.singleDropOff ? "Drop-Off Location" : "Pickup Location"}
+          titleStyle={{
+            color: Constants.theme.primary,
+            fontWeight: "500",
+          }}
+          address={"123, Lorem street, Ibeju Lekki, Lagos."}
+          addressStyle={{
+            color: "#fff",
+          }}
+          {...(params.singleDropOff && {})}
+          bottomComp={
+            params.singleDropOff && (
+              <>
+                <Text style={{ color: "#4E4E4E" }}>Receiver’s Name</Text>
+                <Text style={{ color: "#4E4E4E" }}>Receiver’s Phone</Text>
+              </>
+            )
+          }
+        />
+      )}
 
       {params.singlePickup && params.singleDropOff ? (
         <>{/* for single packages/orders */}</>
       ) : (
         <FlatList
           data={["", "", "", "", "", ""]}
-          renderItem={() => <Detail />}
+          renderItem={() => (
+            <Detail
+              isPickupSingle={params.singlePickup}
+              isDropSingle={params.singleDropOff}
+            />
+          )}
           ItemSeparatorComponent={() => <Seperator />}
         />
       )}

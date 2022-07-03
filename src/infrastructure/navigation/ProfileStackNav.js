@@ -14,6 +14,7 @@ import Arrivals from "../../features/riders/screens/Notification/components/Arri
 import OrderAccepted from "../../features/riders/components/OrderAccepted";
 import { Constants } from "../../../constants/db.mock";
 import Wallet from "../../features/riders/screens/Wallets";
+import Map from "../../features/riders/screens/Map";
 
 const Drawer = createDrawerNavigator();
 
@@ -53,7 +54,12 @@ const drawerScreens = [
     name: "mainProfile",
     options: {
       header: () => (
-        <View style={{ paddingHorizontal: 20, backgroundColor: "#000" }}>
+        <View
+          style={{
+            paddingHorizontal: 20,
+            backgroundColor: Constants.theme.dark,
+          }}
+        >
           <Header />
         </View>
       ),
@@ -69,7 +75,7 @@ const ProfileDrawer = () => {
     <Drawer.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#000",
+          backgroundColor: Constants.theme.dark,
         },
         drawerActiveTintColor: "#fff",
         drawerActiveBackgroundColor: "transparent",
@@ -105,7 +111,12 @@ const ProfileNavigation = () => {
         options={{
           headerShown: true,
           header: () => (
-            <View style={{ paddingHorizontal: 20, backgroundColor: "#000" }}>
+            <View
+              style={{
+                paddingHorizontal: 20,
+                backgroundColor: Constants.theme.dark,
+              }}
+            >
               <Header
                 RightComponent={() => (
                   <Pressable
@@ -134,7 +145,12 @@ const ProfileNavigation = () => {
         options={{
           headerShown: true,
           header: () => (
-            <View style={{ paddingHorizontal: 20, backgroundColor: "#000" }}>
+            <View
+              style={{
+                paddingHorizontal: 20,
+                backgroundColor: Constants.theme.dark,
+              }}
+            >
               <Header
                 title="Wallet"
                 titleStyle={{
@@ -146,6 +162,7 @@ const ProfileNavigation = () => {
         }}
       />
       <Stack.Screen name="orderAccepted" component={OrderAccepted} />
+      <Stack.Screen name="map" component={Map} />
     </Stack.Navigator>
   );
 };

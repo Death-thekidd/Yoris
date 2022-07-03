@@ -7,7 +7,7 @@ export const WelcomeContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
   flex: 1;
 `;
 

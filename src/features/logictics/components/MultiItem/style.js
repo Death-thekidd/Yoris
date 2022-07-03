@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
-
+import { Constants } from "../../../../../constants/db.mock";
 export const StyledMultiItemView = styled.Pressable`
   flex-direction: row;
-  background: Constants.theme.primary;
+  background: ${Constants.theme.primary};
   justify-content: space-between;
   padding: 10px 15px;
   border-radius: 7px;

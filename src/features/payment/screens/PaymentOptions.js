@@ -5,6 +5,7 @@ import Header from "../../../components/Header";
 import { Button } from "../../../components/Button";
 import { Text } from "../../../components/Layout";
 import { useNavigation } from "@react-navigation/native";
+import { Constants } from "../../../../constants/db.mock";
 
 const methods = [
   {
@@ -30,7 +31,7 @@ export default function () {
       style={{
         flex: 1,
         paddingHorizontal: 25,
-        backgroundColor: "#000",
+        backgroundColor: Constants.theme.dark,
       }}
     >
       {/* Header */}
@@ -69,7 +70,13 @@ export default function () {
             >
               <Image style={{ resizeMode: "contain" }} source={imageSource} />
               {text && (
-                <Text style={{ fontSize: 18.5, marginLeft: 25, color: "#000" }}>
+                <Text
+                  style={{
+                    fontSize: 18.5,
+                    marginLeft: 25,
+                    color: Constants.theme.dark,
+                  }}
+                >
                   {text}
                 </Text>
               )}

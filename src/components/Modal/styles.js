@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
+import { Constants } from "../../../constants/db.mock";
 
 export const ModalView = styled.View`
   margin: 20px;
-  background-color: white;
+  background-color: ${Constants.theme.dark};
   border-radius: 20px;
   padding: 35px;
   align-items: center;

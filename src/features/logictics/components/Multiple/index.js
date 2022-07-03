@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
+import { Constants } from "../../../../../constants/db.mock";
 import { Text } from "../../../../components/Layout";
 import { StyledMultiButton, Constainer } from "./styles";
 
@@ -16,7 +17,7 @@ export default () => {
       textLeft: "Multiple DropOff",
       textStyle: {
         fontSize: 18,
-        color: "#000",
+        color: Constants.theme.dark,
       },
     },
 
@@ -31,7 +32,7 @@ export default () => {
       textLeft: "Single DropOff",
       textStyle: {
         fontSize: 18,
-        color: "#000",
+        color: Constants.theme.dark,
       },
     },
     {
@@ -45,7 +46,7 @@ export default () => {
       textLeft: "Multiple DropOff",
       textStyle: {
         fontSize: 18,
-        color: "#000",
+        color: Constants.theme.dark,
       },
     },
   ];

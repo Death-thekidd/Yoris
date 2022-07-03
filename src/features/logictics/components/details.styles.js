@@ -74,7 +74,7 @@ export const ImageDetails = styled.Image`
 `;
 
 export const DetailsParagraph = styled.Text`
-  color: #000;
+  color: ${Constants.theme.dark};
   font-size: 18px;
   font-weight: 400;
   left: 50px;
@@ -131,7 +131,7 @@ export const DetailsType = styled.Text`
 `;
 
 export const DetailsCopy = styled.Text`
-  color: #000;
+  color: ${Constants.theme.dark};
   font-size: 18px;
   font-weight: 400;
   left: 20px;

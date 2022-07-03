@@ -2,7 +2,17 @@ import { FlatList, TextInput, View } from "react-native";
 import { Section, Text } from "../../../../components/Layout";
 import AddressBox from "../AddressBox/AddressBox";
 
-export default ({ setValues, label, isMultiple }) => {
+export default ({
+  setValues,
+  label,
+  isMultiple,
+  dropOffs = [],
+  pickUps = [],
+  notShowSaved,
+  isEdit,
+  defaultDropVal,
+  defaultPickupVal,
+}) => {
   return (
     <>
       <Section
@@ -13,9 +23,10 @@ export default ({ setValues, label, isMultiple }) => {
         <>
           <Text style={{ marginBottom: 10 }}>{label}</Text>
           <TextInput
-            onChangeText={(text) =>
-              setValues((states) => ({ ...states, address: text }))
-            }
+            defaultValue={isEdit ? defaultPickupVal : false}
+            onChangeText={(text) => {
+              setValues((states) => ({ ...states, address: text }));
+            }}
             placeholder={"Address"}
             placeholderTextColor={"white"}
             style={{
@@ -31,13 +42,15 @@ export default ({ setValues, label, isMultiple }) => {
         {isMultiple && (
           <>
             <Text style={{ marginBottom: 10 }}>Enter DropOff Location</Text>
+
             <TextInput
-              onChangeText={(text) =>
+              defaultValue={isEdit ? defaultDropVal : false}
+              onChangeText={(text) => {
                 setValues((states) => ({
                   ...states,
                   dropOff: { address: text },
-                }))
-              }
+                }));
+              }}
               placeholder={"Enter Drop Off Address"}
               placeholderTextColor={"white"}
               style={{
@@ -51,36 +64,40 @@ export default ({ setValues, label, isMultiple }) => {
           </>
         )}
       </Section>
-      <Section>
-        <View
-          style={{
-            ...(isMultiple && { marginBottom: 20 }),
-          }}
-        >
-          <Text style={{ marginBottom: 10 }}>Saved Pick-up Addresses</Text>
-          <FlatList
-            data={["add 1", "", "", ""]}
-            horizontal
-            renderItem={({ item, index }) => (
-              <AddressBox text={`Address ${index}`} />
-            )}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-        {isMultiple && (
-          <View>
-            <Text style={{ marginBottom: 10 }}>Saved Drop-Off Addresses</Text>
-            <FlatList
-              data={["add 1", "", "", ""]}
-              horizontal
-              renderItem={({ item, index }) => (
-                <AddressBox text={`Address ${index}`} />
-              )}
-              showsHorizontalScrollIndicator={false}
-            />
-          </View>
-        )}
-      </Section>
+      {!notShowSaved && (
+        <Section>
+          {pickUps.length > 0 && (
+            <View
+              style={{
+                ...(isMultiple && { marginBottom: 20 }),
+              }}
+            >
+              <Text style={{ marginBottom: 10 }}>Saved Pick-up Addresses</Text>
+              <FlatList
+                data={pickUps}
+                horizontal
+                renderItem={({ item, index }) => (
+                  <AddressBox text={`Address ${index}`} />
+                )}
+                showsHorizontalScrollIndicator={false}
+              />
+            </View>
+          )}
+          {dropOffs.length > 0 && isMultiple && (
+            <View>
+              <Text style={{ marginBottom: 10 }}>Saved Drop-Off Addresses</Text>
+              <FlatList
+                data={dropOffs}
+                horizontal
+                renderItem={({ item, index }) => (
+                  <AddressBox text={`Address ${index}`} />
+                )}
+                showsHorizontalScrollIndicator={false}
+              />
+            </View>
+          )}
+        </Section>
+      )}
     </>
   );
 };

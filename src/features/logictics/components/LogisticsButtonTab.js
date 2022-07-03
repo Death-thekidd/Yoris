@@ -18,7 +18,9 @@ export default function ({ onPress, isActive, text = "tab" }) {
       <Text
         style={[
           styles.buttonTabText,
-          { color: !isActive ? Constants.theme.primary : "#000" },
+          {
+            color: !isActive ? Constants.theme.primary : Constants.theme.dark,
+          },
         ]}
       >
         {text}

@@ -9,6 +9,5 @@ export default styled.Pressable`
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  /* // paddingVertical: 20; */
   height: 48px;
 `;

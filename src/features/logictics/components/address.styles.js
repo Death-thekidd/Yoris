@@ -7,7 +7,7 @@ export const LogisticsContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: ${Constants.theme.dark};
   flex: 1;
 `;
 
@@ -94,7 +94,7 @@ export const AddressCover = styled(Button).attrs({
 //      padding: 12px;
 //      top: 3px;
 //      align-items: center;
-//      color: #000;
+//      color: Constants.theme.dark;
 //      left: 10px;
 //      font-weight: 400;
 //      font-size: 18px;

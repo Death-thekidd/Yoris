@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FlatList, Pressable, View } from "react-native";
 import { UserAccordion } from "..";
+import { Constants } from "../../../../../../../constants/db.mock";
 import FlatlistSeperator from "../../../../../../components/FlatlistSeperator";
 import { Layout, Text } from "../../../../../../components/Layout";
 
@@ -26,10 +27,10 @@ export default () => {
               >
                 <Text
                   style={{
-                    color: "#000",
+                    color: Constants.theme.dark,
                   }}
                 >
-                  Droped Off
+                  Dropped Off
                 </Text>
               </Pressable>
             )}
