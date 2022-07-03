@@ -3,11 +3,11 @@ import { Pressable, Text, View, StyleSheet } from "react-native";
 import { Constants } from "../../../../constants/db.mock";
 import LogisticsButtonTab from "./LogisticsButtonTab";
 
-export default function ({ data, style }) {
+export default function ({ data, style, ...rest }) {
   return (
     <View style={[styles.buttonTabGroup, style]}>
       {data.map((tab, i) => (
-        <LogisticsButtonTab key={i} {...tab} />
+        <LogisticsButtonTab key={i} {...rest} index={data} {...tab} />
       ))}
     </View>
   );

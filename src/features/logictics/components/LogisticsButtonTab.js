@@ -2,24 +2,50 @@ import { useEffect } from "react";
 import { Pressable, Text, StyleSheet } from "react-native";
 import { Constants } from "../../../../constants/db.mock";
 
-export default function ({ onPress, isActive, text = "tab" }) {
+export default function ({
+  onPress,
+  isActive,
+  text = "tab",
+  buttonStyle,
+  index,
+  buttonActiveColor,
+  buttonInactiveColor,
+  buttonTextInactiveColor,
+}) {
   return (
     <Pressable
       onPress={onPress}
       style={[
         styles.buttonTab,
         {
-          backgroundColor: isActive ? Constants.theme.primary : "transparent",
-          borderTopRightRadius: 5,
-          borderBottomRightRadius: 5,
+          backgroundColor: isActive
+            ? !buttonActiveColor
+              ? Constants.theme.primary
+              : buttonActiveColor
+            : !buttonInactiveColor
+            ? "transparent"
+            : buttonInactiveColor,
+          ...(index.length == 0 && {
+            borderTopRightRadius: 5,
+            borderBottomRightRadius: 5,
+          }),
+          ...(index.length == -1 && {
+            borderTopLefttRadius: 5,
+            borderBottomLefttRadius: 5,
+          }),
         },
+        buttonStyle,
       ]}
     >
       <Text
         style={[
           styles.buttonTabText,
           {
-            color: !isActive ? Constants.theme.primary : Constants.theme.dark,
+            color: !isActive
+              ? !buttonTextInactiveColor
+                ? Constants.theme.primary
+                : buttonTextInactiveColor
+              : Constants.theme.dark,
           },
         ]}
       >

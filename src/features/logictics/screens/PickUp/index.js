@@ -1,15 +1,10 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Image, FlatList, View } from "react-native";
 import { Constants } from "../../../../../constants/db.mock";
 import { Button } from "../../../../components/Button";
 import Header from "../../../../components/Header";
-import {
-  Layout,
-  LayoutScrollView,
-  Section,
-  Text,
-} from "../../../../components/Layout";
+import { LayoutScrollView, Section, Text } from "../../../../components/Layout";
 import Modal from "../../../../components/Modal";
 import Selector from "../../../../components/Selector";
 import useBottomSheet from "../../../../hooks/useBottomSheet";
@@ -17,14 +12,9 @@ import AddLocationInput from "../../components/AddLocationInput";
 import InfoInput from "../../components/InfoInput";
 import MultiItem from "../../components/MultiItem";
 import VehicleType from "../../components/VehicleType";
-import {
-  BottomSheetModal,
-  BottomSheetModalProvider,
-  BottomSheetTextInput,
-} from "@gorhom/bottom-sheet";
-import { useMemo } from "react";
-import { useCallback } from "react";
-import { useRef } from "react";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GOOGLE_MAPS_DIRECTIONS_API } from "@env";
+import * as Location from "expo-location";
 
 const itemCategory = ["Food"];
 const vehicles = [
@@ -57,6 +47,8 @@ export default () => {
   const [showAddInput, setShowAddInput] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [presentDropIndex, setPresentDropIndex] = useState(null);
+  const [errMsg, setErrorMsg] = useState();
+  const [location, setLocation] = useState();
 
   const isMultiple = params.multiPickup && params.multiDropOff;
   const onVehicleChange = (key) => setSelectedVehicle(key);
@@ -82,6 +74,25 @@ export default () => {
 
     return true;
   };
+  const useCurrentLocation = async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      setErrorMsg("Permission to access location was denied");
+      return;
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${location.coords.latitude},${location.coords.longitude}&key=${GOOGLE_MAPS_DIRECTIONS_API}`
+    )
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(
+          "ADDRESS GEOCODE is BACK!! => " + JSON.stringify(responseJson)
+        );
+      });
+    setLocation(location);
+  };
 
   useEffect(() => {
     setValues((states) => ({
@@ -92,7 +103,8 @@ export default () => {
   }, [selectedVehicle, selectedCategory]);
   useEffect(() => {
     console.log("values =>", values);
-  }, [values]);
+    console.log("Location =>", location);
+  }, [values, location]);
   return (
     <BottomSheetModalProvider>
       <LayoutScrollView style={{ paddingHorizontal: 30 }}>
@@ -140,14 +152,16 @@ export default () => {
             marginBottom: 0,
             borderWidth: 0,
           }}
-          onPress={() => setShowAddInput(false)}
+          onPress={useCurrentLocation}
         >
           <Image source={require("../../../../../assets/mapPointerGold.png")} />
           <Text style={{ fontSize: 24 }}>Use Current Location</Text>
         </Button>
+
         {showAddInput && (
           <AddLocationInput
             label={"Add Pickup Location"}
+            pickupValue={location?.pickupAddress}
             setValues={setValues}
             isMultiple={isMultiple}
             dropOffs={dropOffs}
