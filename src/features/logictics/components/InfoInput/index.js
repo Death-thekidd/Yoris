@@ -3,7 +3,13 @@ import { useState } from "react";
 import { Dimensions, TextInput, View } from "react-native";
 import Selector from "../../../../components/Selector";
 
-export default ({ setValues, namePlaceholder = "", phonePlaceholder = "" }) => {
+export default ({
+  setValues,
+  namePlaceholder = "",
+  phonePlaceholder = "",
+  defaultNameVal,
+  defaultPhoneVal,
+}) => {
   const [selectedCountryCode, setSelectedCountryCode] = useState(
     `+${countries.NG.phone}`
   );
@@ -27,6 +33,7 @@ export default ({ setValues, namePlaceholder = "", phonePlaceholder = "" }) => {
               dropOff: { ...states?.dropOff, receiversName: text },
             }))
           }
+          defaultValue={defaultNameVal}
           placeholder={namePlaceholder}
           placeholderTextColor={"white"}
           style={{
@@ -66,6 +73,7 @@ export default ({ setValues, namePlaceholder = "", phonePlaceholder = "" }) => {
           }}
         >
           <TextInput
+            defaultValue={defaultPhoneVal}
             onChangeText={(text) =>
               setValues((states) => ({
                 ...states,

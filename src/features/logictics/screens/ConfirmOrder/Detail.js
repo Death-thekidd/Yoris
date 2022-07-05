@@ -1,10 +1,20 @@
+import { useRoute } from "@react-navigation/native";
 import { View, Image } from "react-native";
 import { Constants } from "../../../../../constants/db.mock";
 
 import { Text } from "../../../../components/Layout";
 import { DetailOrderNumber, LocationText } from "./styles";
 
-export default ({ isPickupSingle, isDropSingle }) => {
+export default ({
+  isPickupSingle,
+  isDropSingle,
+  orderNumber,
+  address,
+  pickupAddress,
+  dropAddress,
+}) => {
+  const { params } = useRoute();
+  const isSingle = params.singleDropOff || params.singlePickup;
   return (
     <View>
       <View
@@ -24,11 +34,9 @@ export default ({ isPickupSingle, isDropSingle }) => {
               color: Constants.theme.primary,
             }}
           >
-            PickUp Location
+            {params.isInternationalActive ? "Tracking ID" : "PickUp Location"}
           </Text>
-          <LocationText>
-            15 AP street, Federal Low-cost Housing Estate, Ikorodu.
-          </LocationText>
+          <LocationText>{isSingle ? address : pickupAddress}</LocationText>
         </View>
       )}
 
@@ -41,9 +49,7 @@ export default ({ isPickupSingle, isDropSingle }) => {
           >
             Drop-Off Location
           </Text>
-          <LocationText>
-            15 AP street, Federal Low-cost Housing Estate, Ikorodu.
-          </LocationText>
+          <LocationText>{isSingle ? address : dropAddress}</LocationText>
         </View>
       )}
     </View>

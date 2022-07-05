@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import { Constants } from "../../../../../constants/db.mock";
@@ -56,6 +56,36 @@ export default () => {
       },
     },
   ];
+  const international_buttons = [
+    {
+      routeParams: {
+        singlePickup: false,
+        singleDropOff: true,
+        multiPickup: true,
+        multiDropOff: false,
+      },
+      textRight: "Multiple Pickup",
+      textLeft: "Single DropOff",
+      textStyle: {
+        fontSize: 18,
+        color: Constants.theme.dark,
+      },
+    },
+    {
+      routeParams: {
+        singlePickup: false,
+        singleDropOff: false,
+        multiPickup: true,
+        multiDropOff: true,
+      },
+      textRight: "Multiple Pickup",
+      textLeft: "Multiple DropOff",
+      textStyle: {
+        fontSize: 18,
+        color: Constants.theme.dark,
+      },
+    },
+  ];
 
   const [{ isInternationalActive, isLocalActive }, setIsActive] = useState({
     isLocalActive: true,
@@ -81,6 +111,7 @@ export default () => {
         break;
     }
   };
+
   return (
     <Constainer>
       <LogisticsButtonTabGroup
@@ -111,19 +142,40 @@ export default () => {
         ]}
       />
 
-      {buttons.map(({ textLeft, textRight, textStyle, routeParams }) => (
-        <StyledMultiButton
-          onPress={() =>
-            navigation.navigate("pickUp", {
-              ...routeParams,
-              type: isInternationalActive ? "international" : "local",
-            })
-          }
-        >
-          <Text style={[textStyle]}>{textRight}</Text>
-          <Text style={[textStyle]}>{textLeft}</Text>
-        </StyledMultiButton>
-      ))}
+      {isLocalActive
+        ? buttons.map(({ textLeft, textRight, textStyle, routeParams }, i) => (
+            <StyledMultiButton
+              key={i}
+              onPress={() =>
+                navigation.navigate("pickUp", {
+                  ...routeParams,
+                  isInternationalActive,
+                  isLocalActive,
+                })
+              }
+            >
+              <Text style={[textStyle]}>{textRight}</Text>
+              <Text style={[textStyle]}>{textLeft}</Text>
+            </StyledMultiButton>
+          ))
+        : isInternationalActive &&
+          international_buttons.map(
+            ({ textLeft, textRight, textStyle, routeParams }, i) => (
+              <StyledMultiButton
+                key={i}
+                onPress={() =>
+                  navigation.navigate("pickUp", {
+                    ...routeParams,
+                    isInternationalActive,
+                    isLocalActive,
+                  })
+                }
+              >
+                <Text style={[textStyle]}>{textRight}</Text>
+                <Text style={[textStyle]}>{textLeft}</Text>
+              </StyledMultiButton>
+            )
+          )}
     </Constainer>
   );
 };

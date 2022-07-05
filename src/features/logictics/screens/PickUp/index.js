@@ -7,7 +7,7 @@ import Header from "../../../../components/Header";
 import { LayoutScrollView, Section, Text } from "../../../../components/Layout";
 import Modal from "../../../../components/Modal";
 import Selector from "../../../../components/Selector";
-import useBottomSheet from "../../../../hooks/useBottomSheet";
+import useEditInfoBottomSheet from "../../../../hooks/useEditInfoBottomSheet";
 import AddLocationInput from "../../components/AddLocationInput";
 import InfoInput from "../../components/InfoInput";
 import MultiItem from "../../components/MultiItem";
@@ -46,21 +46,23 @@ export default () => {
   const [pickups, setPickups] = useState([]);
   const [showAddInput, setShowAddInput] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [presentDropIndex, setPresentDropIndex] = useState(null);
+  const [presentItemIndex, setPresentItemIndex] = useState(null);
   const [errMsg, setErrorMsg] = useState();
   const [location, setLocation] = useState();
 
   const isMultiple = params.multiPickup && params.multiDropOff;
   const onVehicleChange = (key) => setSelectedVehicle(key);
   const { BottomSheetModalComponent, handlePresentModalPress } =
-    useBottomSheet();
+    useEditInfoBottomSheet();
 
   const onSaveAddress = () => {
     setModalVisible(false);
 
     navigate(!isMultiple ? "dropOff" : "confirmOrder", {
       ...params,
-      pickups,
+      ...(!params.multiPickup
+        ? { pickup: savedAddresses[0] || pickups[0] }
+        : { pickups: savedAddresses }),
     });
   };
 
@@ -74,6 +76,7 @@ export default () => {
 
     return true;
   };
+
   const useCurrentLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -101,10 +104,13 @@ export default () => {
       vehicle: vehicles[selectedVehicle].vehicle,
     }));
   }, [selectedVehicle, selectedCategory]);
+
+  // Log Values
   useEffect(() => {
     console.log("values =>", values);
     console.log("Location =>", location);
-  }, [values, location]);
+    console.log("SavedAddresses =>", savedAddresses);
+  }, [values, location, params, savedAddresses]);
   return (
     <BottomSheetModalProvider>
       <LayoutScrollView style={{ paddingHorizontal: 30 }}>
@@ -124,16 +130,24 @@ export default () => {
             data={savedAddresses}
             renderItem={({ index, item }) => (
               <MultiItem
-                title="Pick-Up Location"
-                address={item?.address}
-                dropOffAddress={item?.dropOff.address}
+                title={
+                  params.isInternationalActive
+                    ? "Tracking ID"
+                    : "Pick-Up Location"
+                }
+                address={
+                  item?.[
+                    params.isInternationalActive ? "trackingId" : "address"
+                  ]
+                }
+                dropOffAddress={isMultiple && item?.dropOff.address}
                 containerStyle={{
                   marginRight: 10,
                   width: 310,
                 }}
                 isMultiple={isMultiple}
-                onDropPress={() => {
-                  setPresentDropIndex(index);
+                onItemPress={() => {
+                  setPresentItemIndex(index);
                   handlePresentModalPress();
                 }}
               />
@@ -160,7 +174,11 @@ export default () => {
 
         {showAddInput && (
           <AddLocationInput
-            label={"Add Pickup Location"}
+            label={
+              params.isInternationalActive
+                ? "Add Tracking ID"
+                : "Add Pickup Location"
+            }
             pickupValue={location?.pickupAddress}
             setValues={setValues}
             isMultiple={isMultiple}
@@ -172,7 +190,8 @@ export default () => {
         <Section
           style={{
             flexDirection: "row",
-            marginVertical: 2,
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <FlatList
@@ -227,11 +246,7 @@ export default () => {
             <Button
               style={{ marginBottom: 10 }}
               onPress={() =>
-                setSavedAddresses((prevPickups) => {
-                  // return new Items
-                  // const new
-                  return [...prevPickups, values];
-                })
+                setSavedAddresses((prevPickups) => [...prevPickups, values])
               }
             >
               <Text style={{ color: Constants.theme.primary, fontSize: 24 }}>
@@ -241,8 +256,9 @@ export default () => {
           )}
 
           <BottomSheetModalComponent
-            info={savedAddresses[presentDropIndex]}
-            index={presentDropIndex}
+            selectedVehicleIndex={selectedVehicle}
+            info={savedAddresses[presentItemIndex]}
+            index={presentItemIndex}
             isMultiple={isMultiple}
             vehicles={vehicles}
             itemCategory={itemCategory}

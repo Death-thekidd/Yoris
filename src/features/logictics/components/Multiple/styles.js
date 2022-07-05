@@ -18,3 +18,5 @@ export const StyledMultiButton = styled.Pressable`
   align-items: center;
   margin: 20px 0;
 `;
+
+const MultiVariants = styled.View``;

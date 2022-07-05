@@ -20,6 +20,7 @@ export default function Selector({
   dropdownIconPosition = "left",
   dropDownIconColor,
   dropDownIconSize = 20,
+  defaultValue,
 }) {
   const onSelect = useCallback(
     (item, i) => setSelectedItem(item),
@@ -40,6 +41,7 @@ export default function Selector({
         fontWeight: "500",
         ...buttonTextStyle,
       }}
+      defaultValue={defaultValue}
       renderDropdownIcon={() => (
         <FontAwesome
           name={"caret-down"}
