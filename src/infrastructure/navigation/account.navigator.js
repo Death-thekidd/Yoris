@@ -12,8 +12,8 @@ export const Tab = () => {
       headerMode="none"
       screenOptions={{
         activeTintColor: "#50d3a7",
-        tabBarActiveTintColor: ${Constants.theme.primary},
-        tabBarInactiveTintColor: ${Constants.theme.primary},
+        tabBarActiveTintColor: "#fff",
+        tabBarInactiveTintColor: "#fff",
         inactiveTintColor: "white",
         tabBarPressColor: "transparent",
         tabBarShowIcon: true,

@@ -64,7 +64,7 @@ export default function LogisticsShipping({ navigation }) {
         <ShippingRow>
           <ShippingInput type="checkbox" id="navi-toggle">
             <ShippingLabel>
-              <ImageBitmap source={require("../../../../assets/Group.png")} />
+              <ImageBitmap source={require("../../../../assets/group.png")} />
             </ShippingLabel>
           </ShippingInput>
         </ShippingRow>
