@@ -38,6 +38,7 @@ export default ({
             marginLeft: 5,
             fontSize: 13.5,
             flexWrap: "wrap",
+            textAlign: "center",
           }}
         >
           {desc || "PassDesc"}

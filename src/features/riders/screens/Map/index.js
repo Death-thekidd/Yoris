@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import MapView, { Polyline } from "react-native-maps";
 
 export default () => {
-  const {} = useNavigation();
+  const { navigate } = useNavigation();
   return (
     <View
       style={{

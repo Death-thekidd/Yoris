@@ -12,9 +12,12 @@ import { Seperator } from "./styles";
 export default () => {
   const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
-  const isSingle = params.singleDropOff || params.singlePickup;
+  const isMultiple = params.multiDropOff && params.multiPickup;
 
-  console.log(params);
+  const isSingle = params.singleDropOff || params.singlePickup;
+  const isBothSingle = params.singleDropOff && params.singlePickup;
+
+  // console.log("params => ", params);
   return (
     <LayoutScrollView
       style={{
@@ -31,7 +34,7 @@ export default () => {
         iconRight={require("../../../../../assets/cancel.png")}
       />
 
-      {isSingle && (
+      {isSingle && !isBothSingle && (
         <MultiItem
           containerStyle={{
             backgroundColor: "transparent",
@@ -44,7 +47,7 @@ export default () => {
             color: Constants.theme.primary,
             fontWeight: "500",
           }}
-          address={"123, Lorem street, Ibeju Lekki, Lagos."}
+          address={params.info.address || params.info.dropOff.address}
           addressStyle={{
             color: "#fff",
           }}
@@ -52,8 +55,12 @@ export default () => {
           bottomComp={
             params.singleDropOff && (
               <>
-                <Text style={{ color: "#4E4E4E" }}>Receiver’s Name</Text>
-                <Text style={{ color: "#4E4E4E" }}>Receiver’s Phone</Text>
+                <Text style={{ color: "#4E4E4E" }}>
+                  {params.info.dropOff.receiversName}
+                </Text>
+                <Text style={{ color: "#4E4E4E" }}>
+                  {params.info.dropOff.receiversPhone}
+                </Text>
               </>
             )
           }
@@ -63,12 +70,27 @@ export default () => {
       {params.singlePickup && params.singleDropOff ? (
         <>{/* for single packages/orders */}</>
       ) : (
+        /* <Text>{JSON.stringify(params.info)}</Text> */
         <FlatList
-          data={["", "", "", "", "", ""]}
-          renderItem={() => (
+          data={
+            isSingle
+              ? params.info.dropOffs
+                ? params.info.dropOffs
+                : params.info.pickups && params.info.pickups
+              : isMultiple && params.pickups
+          }
+          renderItem={({ item, index }) => (
             <Detail
+              key={index}
               isPickupSingle={params.singlePickup}
               isDropSingle={params.singleDropOff}
+              pickupAddress={
+                item[params.isInternationalActive ? "trackingId" : "address"]
+              }
+              address={
+                item[params.isInternationalActive ? "trackingId" : "address"]
+              }
+              dropAddress={item.dropOff ? item?.dropOff.address : null}
             />
           )}
           ItemSeparatorComponent={() => <Seperator />}

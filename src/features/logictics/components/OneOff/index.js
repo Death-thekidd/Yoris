@@ -221,7 +221,7 @@ export default () => {
             singleDropOff: true,
           })
         }
-        style={{ backgroundColor: Constants.theme.primary, marginTop: 74 }}
+        style={{ backgroundColor: Constants.theme.primary, marginTop: 30 }}
       >
         <Text style={{ fontSize: 24 }}>Continue</Text>
       </Button>

@@ -14,20 +14,56 @@ import MultiItem from "../../components/MultiItem";
 import AddLocationInput from "../../components/AddLocationInput";
 import InfoInput from "../../components/InfoInput";
 import { Constants } from "../../../../../constants/db.mock";
+import { isArray } from "lodash";
+import { isObject } from "lodash";
 
 const itemCategory = ["Food"];
 export default () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [values, setValues] = useState(null);
-  const [dropOff, setDropOff] = useState([]);
-
-  const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
 
-  useEffect(() => console.log("DropOffs =>", dropOff), [dropOff]);
-  const addDrop = useCallback(() =>
-    setDropOff((prevState) => [...prevState, { ...params.pickups, values }])
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [values, setValues] = useState(null);
+  const [dropOff, setDropOff] = useState(
+    params.multiDropOff ? [] : params.singleDropOff && {}
   );
+
+  const { goBack, navigate } = useNavigation();
+
+  useEffect(() => {
+    console.log("ParamsPickup =>", params["pickup" || "pickups"]);
+    console.log("Params =>", params);
+    console.log("DropOffs =>", dropOff);
+    console.log("Values =>", values);
+  }, [dropOff, values, params]);
+  const addDrop = useCallback(() => {
+    // check if single pickup to multi drops
+    if (params.singlePickup && params.multiDropOff)
+      setDropOff((prevDrops) => [
+        ...prevDrops,
+        { ...prevDrops.dropOff, ...values.dropOff },
+      ]);
+    // check if multi pickup to single drop
+    if (params.multiPickup && params.singleDropOff)
+      setDropOff((prevDrops) => ({
+        ...prevDrops.dropOff,
+        ...values.dropOff,
+      }));
+  });
+  const onSaveInfo = () => {
+    const { pickups, pickup, ...rest } = params;
+    navigate("confirmOrder", {
+      ...rest,
+      info: {
+        ...(pickup && pickup),
+        ...(pickups && { pickups }),
+        category: selectedCategory,
+        [params.multiDropOff ? "dropOffs" : params.singleDropOff && "dropOff"]:
+          params.multiDropOff
+            ? dropOff
+            : params.singleDropOff && { ...values.dropOff },
+      },
+    });
+  };
 
   return (
     <LayoutScrollView
@@ -51,7 +87,7 @@ export default () => {
           renderItem={({ item, index }) => (
             <MultiItem
               title="Drop-Off Location"
-              address={item.dropOff}
+              address={item?.address}
               containerStyle={{
                 marginRight: 10,
                 width: 310,
@@ -59,10 +95,10 @@ export default () => {
               bottomComp={
                 <>
                   <Text style={{ color: Constants.theme.dark }}>
-                    Receiver’s Name
+                    {item?.receiversName}
                   </Text>
                   <Text style={{ color: Constants.theme.dark }}>
-                    Receiver’s Phone
+                    {item?.receiversPhone}
                   </Text>
                 </>
               }
@@ -74,7 +110,11 @@ export default () => {
         />
       )}
 
-      <AddLocationInput label={"Add DropOff Location"} setValues={setValues} />
+      <AddLocationInput
+        isDropScreen
+        label={"Add DropOff Location"}
+        setValues={setValues}
+      />
 
       {/* Category Selector */}
       <Section
@@ -125,7 +165,7 @@ export default () => {
           style={{
             backgroundColor: Constants.theme.primary,
           }}
-          onPress={() => navigate("confirmOrder", params)}
+          onPress={onSaveInfo}
         >
           <Text style={{ color: Constants.theme.dark, fontSize: 24 }}>
             Continue

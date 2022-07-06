@@ -20,7 +20,7 @@ export default memo(
     containerStyle,
     isMultiple,
     dropOffAddress,
-    onDropPress,
+    onItemPress,
   }) => {
     const [showDropOffInfo, setShowDropOffInfo] = useState(false);
 
@@ -29,7 +29,11 @@ export default memo(
         <StyledMultiItemView
           style={containerStyle}
           onPress={
-            isMultiple ? () => setShowDropOffInfo(!showDropOffInfo) : null
+            isMultiple
+              ? () => setShowDropOffInfo(!showDropOffInfo)
+              : onItemPress
+              ? onItemPress
+              : null
           }
         >
           <ContentsView>
@@ -42,7 +46,7 @@ export default memo(
         {isMultiple && showDropOffInfo && (
           <Animated.View entering={FadeInUp} exiting={FadeOutUp}>
             <StyledMultiItemView
-              onPress={() => onDropPress()}
+              onPress={() => onItemPress()}
               style={[
                 {
                   marginTop: 10,

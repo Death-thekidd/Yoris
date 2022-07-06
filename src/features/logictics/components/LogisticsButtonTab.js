@@ -25,14 +25,16 @@ export default function ({
             : !buttonInactiveColor
             ? "transparent"
             : buttonInactiveColor,
-          ...(index.length == 0 && {
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-          }),
-          ...(index.length == -1 && {
-            borderTopLefttRadius: 5,
-            borderBottomLefttRadius: 5,
-          }),
+          ...(!buttonStyle &&
+            index[0] && {
+              borderTopRightRadius: 5,
+              borderBottomRightRadius: 5,
+            }),
+          ...(!buttonStyle &&
+            index[index.length - 1] && {
+              borderTopLeftRadius: 5,
+              borderBottomLeftRadius: 5,
+            }),
         },
         buttonStyle,
       ]}
