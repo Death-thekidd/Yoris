@@ -15,6 +15,12 @@ import VehicleType from "../../components/VehicleType";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GOOGLE_MAPS_DIRECTIONS_API } from "@env";
 import * as Location from "expo-location";
+import {
+  addressCheck,
+  nameCheck,
+  phoneCheck,
+} from "../../../../util/valueValidator";
+import { countries } from "countries-list";
 
 const itemCategory = ["Food"];
 const vehicles = [
@@ -41,14 +47,18 @@ export default () => {
   const [selectedVehicle, setSelectedVehicle] = useState(0);
   const [values, setValues] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const [dropOffs, setDropOffs] = useState([]);
   const [savedAddresses, setSavedAddresses] = useState([]);
+  const [dropOffs, setDropOffs] = useState([]);
   const [pickups, setPickups] = useState([]);
   const [showAddInput, setShowAddInput] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [presentItemIndex, setPresentItemIndex] = useState(null);
   const [errMsg, setErrorMsg] = useState();
   const [location, setLocation] = useState();
+  const [error, setError] = useState({});
+  const [selectedCountryCode, setSelectedCountryCode] = useState(
+    `+${countries.NG.phone}`
+  );
 
   const isMultiple = params.multiPickup && params.multiDropOff;
   const onVehicleChange = (key) => setSelectedVehicle(key);
@@ -58,23 +68,42 @@ export default () => {
   const onSaveAddress = () => {
     setModalVisible(false);
 
-    navigate(!isMultiple ? "dropOff" : "confirmOrder", {
+    if (!addressCheck(values?.address || values?.trackingId))
+      return setError({
+        [params.isInternationalActive ? "trackingId" : "address"]: true,
+      });
+
+    if (isMultiple)
+      if (
+        !values?.dropOff ||
+        !addressCheck(!values?.dropOff.address ? "" : values?.dropOff.address)
+      )
+        return setError({ ["dropOffAddress"]: true });
+
+    if (
+      !values?.dropOff ||
+      !values?.dropOff.receiversName ||
+      !nameCheck(values?.dropOff.receiversName && values?.dropOff.receiversName)
+    )
+      return setError({
+        receiversName: true,
+      });
+
+    if (
+      !values.dropOff ||
+      !values?.dropOff.receiversPhone ||
+      !phoneCheck(
+        values?.dropOff.receiversPhone && values?.dropOff.receiversPhone
+      )
+    )
+      return setError({ receiversPhone: true });
+
+    /* navigate(!isMultiple ? "dropOff" : "confirmOrder", {
       ...params,
       ...(!params.multiPickup
         ? { pickup: savedAddresses[0] || pickups[0] }
         : { pickups: savedAddresses }),
-    });
-  };
-
-  const validateInputs = () => {
-    if (!values) throw new Error("Value cannot be empty");
-    if (values?.address == " ")
-      throw new Error("Pickup Address cannot be empty");
-    if (isMultiple)
-      if (values?.dropOff.address == " ")
-        throw new Error("DropOff address cannot be empty");
-
-    return true;
+    }); */
   };
 
   const useCurrentLocation = async () => {
@@ -91,7 +120,7 @@ export default () => {
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(
-          "ADDRESS GEOCODE is BACK!! => " + JSON.stringify(responseJson)
+          `ADDRESS GEOCODE is BACK!! => ${JSON.stringify(responseJson)}`
         );
       });
     setLocation(location);
@@ -106,11 +135,11 @@ export default () => {
   }, [selectedVehicle, selectedCategory]);
 
   // Log Values
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log("values =>", values);
     console.log("Location =>", location);
     console.log("SavedAddresses =>", savedAddresses);
-  }, [values, location, params, savedAddresses]);
+  }, [values, location, params, savedAddresses]); */
   return (
     <BottomSheetModalProvider>
       <LayoutScrollView style={{ paddingHorizontal: 30 }}>
@@ -174,6 +203,8 @@ export default () => {
 
         {showAddInput && (
           <AddLocationInput
+            error={error}
+            setError={setError}
             label={
               params.isInternationalActive
                 ? "Add Tracking ID"
@@ -234,9 +265,13 @@ export default () => {
               }}
             />
             <InfoInput
+              error={error}
+              setError={setError}
               setValues={setValues}
               namePlaceholder={"Receiver’s name"}
               phonePlaceholder={"Receiver’s Phone"}
+              selectedCountryCode={selectedCountryCode}
+              setSelectedCountryCode={setSelectedCountryCode}
             />
           </Section>
         )}
@@ -268,11 +303,6 @@ export default () => {
           {/* Modal */}
           <Modal
             buttonColor={Constants.theme.dark}
-            modalButtonCallBack={
-              !params.multiPickup
-                ? () => setPickups((prevPickups) => [...prevPickups, values])
-                : false
-            }
             ModalTitle={() => (
               <Text
                 style={{

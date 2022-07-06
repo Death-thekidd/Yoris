@@ -15,8 +15,9 @@ export default () => {
   const isMultiple = params.multiDropOff && params.multiPickup;
 
   const isSingle = params.singleDropOff || params.singlePickup;
+  const isBothSingle = params.singleDropOff && params.singlePickup;
 
-  console.log("params => ", params);
+  // console.log("params => ", params);
   return (
     <LayoutScrollView
       style={{
@@ -33,7 +34,7 @@ export default () => {
         iconRight={require("../../../../../assets/cancel.png")}
       />
 
-      {isSingle && (
+      {isSingle && !isBothSingle && (
         <MultiItem
           containerStyle={{
             backgroundColor: "transparent",

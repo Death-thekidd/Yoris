@@ -1,4 +1,5 @@
 import { countries } from "countries-list";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Dimensions, TextInput, View } from "react-native";
 import Selector from "../../../../components/Selector";
@@ -9,30 +10,39 @@ export default ({
   phonePlaceholder = "",
   defaultNameVal,
   defaultPhoneVal,
+  error,
+  setError,
+  selectedCountryCode,
+  setSelectedCountryCode,
 }) => {
-  const [selectedCountryCode, setSelectedCountryCode] = useState(
+  /*   const [selectedCountryCode, setSelectedCountryCode] = useState(
     `+${countries.NG.phone}`
-  );
+  ); */
   const codes = [];
-  for (let code in countries) {
-    codes.push(`+${countries[code].phone}`);
-  }
+  useEffect(() => {
+    for (let code in countries) {
+      codes.push(`+${countries[code].phone}`);
+    }
+  }, []);
+
   return (
     <>
       <View
         style={{
-          borderBottomColor: "#C4C4C4",
+          borderBottomColor: error.receiversName ? "red" : "#C4C4C4",
           borderWidth: 1,
           width: "100%",
         }}
       >
         <TextInput
-          onChangeText={(text) =>
+          onChangeText={(text) => {
+            setError({});
+
             setValues((states) => ({
               ...states,
               dropOff: { ...states?.dropOff, receiversName: text },
-            }))
-          }
+            }));
+          }}
           defaultValue={defaultNameVal}
           placeholder={namePlaceholder}
           placeholderTextColor={"white"}
@@ -67,22 +77,23 @@ export default ({
 
         <View
           style={{
-            borderBottomColor: "#C4C4C4",
+            borderBottomColor: error.receiversPhone ? "red" : "#C4C4C4",
             borderWidth: 1,
             width: 252,
           }}
         >
           <TextInput
             defaultValue={defaultPhoneVal}
-            onChangeText={(text) =>
+            onChangeText={(text) => {
+              setError({});
               setValues((states) => ({
                 ...states,
                 dropOff: {
                   ...states.dropOff,
                   receiversPhone: selectedCountryCode + text,
                 },
-              }))
-            }
+              }));
+            }}
             placeholder={phonePlaceholder}
             placeholderTextColor={"white"}
             style={{

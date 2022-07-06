@@ -2,8 +2,11 @@ import { useRoute } from "@react-navigation/native";
 import { FlatList, TextInput, View } from "react-native";
 import { Section, Text } from "../../../../components/Layout";
 import AddressBox from "../AddressBox/AddressBox";
+import { ErrorText } from "./styles";
 
 export default ({
+  error,
+  setError,
   setValues,
   label,
   isMultiple,
@@ -29,6 +32,7 @@ export default ({
             <TextInput
               defaultValue={isEdit ? defaultPickupVal : null}
               onChangeText={(text) => {
+                setError({});
                 setValues((states) => ({
                   ...states,
                   [params.isInternationalActive ? "trackingId" : "address"]:
@@ -44,12 +48,32 @@ export default ({
               style={{
                 backgroundColor: "#4E4E4E",
                 borderRadius: 5,
-                ...(isMultiple && { marginBottom: 20 }),
+                ...(isMultiple && {
+                  marginBottom: error?.[
+                    params.isInternationalActive ? "trackingId" : "address"
+                  ]
+                    ? 5
+                    : 20,
+                }),
                 marginVertical: 5,
                 padding: 10,
                 color: "#fff",
               }}
             />
+            {error?.[
+              params.isInternationalActive ? "trackingId" : "address"
+            ] && (
+              <ErrorText
+                style={{
+                  ...(isMultiple && {
+                    marginBottom: 15,
+                  }),
+                }}
+              >
+                Enter Correct
+                {params.isInternationalActive ? "Tracking Id" : "Address"}
+              </ErrorText>
+            )}
           </>
         )}
 
@@ -60,6 +84,7 @@ export default ({
             <TextInput
               defaultValue={isEdit ? defaultDropVal : false}
               onChangeText={(text) => {
+                setError({});
                 setValues((states) => ({
                   ...states,
                   dropOff: { ...states?.dropOff, address: text },
@@ -75,6 +100,9 @@ export default ({
                 color: "#fff",
               }}
             />
+            {error?.dropOffAddress && (
+              <ErrorText>Enter Correct DropOff Address</ErrorText>
+            )}
           </>
         )}
       </Section>
