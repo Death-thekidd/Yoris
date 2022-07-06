@@ -1,81 +1,41 @@
+import React from 'react';
+import { 
+     RegisterContainer,
+     ImageBackground,
+     RegisterBackIcon,
+     RegisterSection,
+     RegisterInput,
+     RegisterPassword,
+     RegisterUser,
+     RegisterLink
+ } from '../components/account.styles';
+import { Button } from 'react-native-paper';
+import { Pressable } from 'react-native';
 
-import React, { useState } from 'react'
-import { ActivityIndicator, Colors } from 'react-native-paper';
-
-import {
-
-
-    Cover,
-    AccountBackground,
-    AccountContainer,
-    AuthButton,
-    AuthInput,
-    ErrorContainer,
-    Title,
-} from '../components/account.styles'
-import { Text } from '../../../components/typography/text.component'
-import { Spacer } from '../../../components/spacer/spacer.component';
-
-
-export default function LoginScreen({ navigation }) {
-
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const { onLogin, error, isLoading } = useState(true);
+export default function LoginUsers({ navigation }) {
     return (
-
-        <AccountBackground>
-            <Cover source={require('../../../../assets/Yoris.png')} />
-
-            <AuthInput
-                label='Email'
-                value={email}
-                textContentType="emailAddress"
-                keyboardType="email-address"
-                autoCapitalize="none"
-                mode='outlined'
-
-                onChangeText={(u) => setEmail(u)}
-
+    <RegisterContainer>
+        <Button style={{ right: 130, top: 20,}} onPress={()=>navigation.navigate('register')}>
+         <ImageBackground source={require("../../../../assets/backIcon.png")} />
+      </Button>
+         <RegisterBackIcon source={require("../../../../assets/Yoris.png")} />
+         <RegisterSection>
+           <RegisterInput
+              type="text"
+              placeholder={"Email"}
+              placeholderTextColor={"#fff"}
             />
-            <Spacer size="xl">
-
-                <AuthInput
-                    label="Password"
-                    value={password}
-                    textContentType="password"
-                    secureTextEntry
-                    autoCapitalize="none"
-                    onChangeText={(p) => setPassword(p)}
-                />
-            </Spacer>
-
-            {error && (
-                <ErrorContainer size="large">
-                    <Text variant="error">{error}</Text>
-                </ErrorContainer>
-            )}
-
-            <Spacer size="large">
-                {!isLoading ? (
-                    <AuthButton
-                        icon="lock-open-outline"
-                        mode="contained"
-                        onPress={() => console.log(email, password)}
-                    >
-                        Login
-                    </AuthButton>
-                ) : (
-                    <ActivityIndicator animating={true} color={Colors.blue300} />
-                )}
-            </Spacer>
-
-            <Spacer size="large">
-                <AuthButton mode="contained" onPress={() => navigation.goBack()}>
-                    Back
-                </AuthButton>
-            </Spacer>
-
-        </AccountBackground >
-    )
+            <RegisterInput 
+              type="text"
+              placeholder={"Password"}
+              placeholderTextColor={"#fff"}
+            />
+            <Pressable onPress={() => navigation.navigate('forgotPassword')}>
+               <RegisterPassword>Forgotten Password?</RegisterPassword>
+            </Pressable>
+            <RegisterUser>SIGN IN</RegisterUser>
+            <RegisterLink>BACK</RegisterLink>
+         </RegisterSection>
+    </RegisterContainer>
+    );
 }

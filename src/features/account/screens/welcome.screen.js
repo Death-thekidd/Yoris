@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pressable } from 'react-native';
+import { Button } from 'react-native-paper';
 import { 
      WelcomeContainer,
      WelcomeText,

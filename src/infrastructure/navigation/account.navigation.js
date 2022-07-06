@@ -1,8 +1,12 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import WelcomeUsers from "../../features/account/screens/welcome.screen";
 import RegisterUsers from "../../features/account/screens/Register.Screen";
+import LoginUsers from '../../features/account/screens/login.screen';
+import ForgotPassword from '../../features/account/screens/forgotPassword.screen';
+import ResetPassword from '../../features/account/screens/resetPassword.screen';
+import CodeScreen from '../../features/account/screens/code.screen';
 
 const Tabs = createMaterialTopTabNavigator();
 
@@ -12,8 +16,8 @@ export const Tab = () => {
       headerMode="none"
       screenOptions={{
         activeTintColor: "#50d3a7",
-        tabBarActiveTintColor: ${Constants.theme.primary},
-        tabBarInactiveTintColor: ${Constants.theme.primary},
+        tabBarActiveTintColor: "#C3AD60",
+        tabBarInactiveTintColor: "#C3AD60",
         inactiveTintColor: "white",
         tabBarPressColor: "transparent",
         tabBarShowIcon: true,
@@ -41,10 +45,14 @@ const Stack = createStackNavigator();
 // read the documentation
 
 const AccountNavigator = () => {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="welcome" component={WelcomeUsers} />
-      <Stack.Screen name="register" component={RegisterUsers} />
-    </Stack.Navigator>
-  );
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="welcome" component={WelcomeUsers} />
+            <Stack.Screen name="register" component={RegisterUsers} />
+            <Stack.Screen name="login" component={LoginUsers} />
+            <Stack.Screen name="forgotPassword" component={ForgotPassword} />
+            <Stack.Screen name="resetPassword" component={ResetPassword} />
+            <Stack.Screen name="code" component={CodeScreen} />
+        </Stack.Navigator>
+    );
 };

@@ -1,226 +1,144 @@
-import React from "react";
-import styled from "styled-components/native";
-import { Button, TextInput } from "react-native-paper";
-import { colors } from "../../../infrastructure/theme/colors";
-import { Text } from "../../../components/typography/text.component";
-import { Constants } from "../../../../constants/db.mock";
+import styled from 'styled-components/native';
+import { TextInput } from "react-native";
+import { colors } from '../../../infrastructure/theme/colors';
+import { Button } from 'react-native-paper';
 
 export const RegisterContainer = styled.View`
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${Constants.theme.dark};
+  background-color: #000;
+  padding: 35px;
   flex: 1;
 `;
 
-export const ImageLogo = styled.Image`
-  top: 3px;
-`;
-
 export const ImageBackground = styled.Image`
-  width: 26.19px;
-  right: 80px;
-  height: 20px;
+   width: 26.19px;
+   position: relative;
+   height: 20px;
+   right: 100px;
 `;
 
-export const RegisterForm = styled.View`
-  display: flex;
+export const RegisterSection = styled.View`
+   display: flex;
+`;
+
+export const ImageLogo = styled.Image`
+   top: 30px;
+   left: 90px;
 `;
 
 export const RegisterInput = styled(TextInput)`
   width: 300px;
   height: 48px;
-  background: #4e4e4e;
-  border: 3px;
-  border-radisu: 40px;
-  margin-top: 20px;
-  border-radius: 5px;
-  box-sizing: border-box;
+  top: 40px;
+  background: #4E4E4E;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  padding: 10px;
 `;
 
-// export const AccountBackground = styled.View`
+export const RegisterPrimary = styled.Text`
+    color: #fff;
+    margin-top: 30px;
+    font-size: 10px;
+    left: 10px;
+    text-align: left;
+`;
 
-// flex: 1;
-// align-items: center;
-// justify-content: center;
-// background: Constants.theme.dark000
+export const RegisterDate = styled.View`
+  flex: 1;
+  margin-top: 20px;
+`;
 
-// `;
+export const RegisterDrop = styled.View`
+  position: relative;
+  margin-bottom: 10px;
+`;
 
-// export const DatePickerStyle = styled.View`
-// width: "100%",
-// marginTop: 10,
-// borderColor: "#ccc",
-// borderRadius: 3,
-// borderWidth: 0,
-// alignItems: "center",
-// backgroundColor: "#fff",
-// padding: 5,
+export const RegisterLine = styled(TextInput)`
+   width: 300px;
+   position: relative;
+   height: 1px;
+   background: #C3AD60;
+   top: 20px;
+   margin-bottom: 20px;
+`;
 
-// `
+export const RegisterBtn = styled(Button).attrs({ color: colors.ui.primary })`
+  width: 300px;
+  height: 48px;
+  background: #C3AD60;
+  border-radius: 40px;
+  font-size: 15px;
+  padding: 2px;
+  margin-top: 50px;
+  font-weight: 300;
+  text-transform: uppercase;
+`;
 
-// export const Cover = styled.Image`
+export const RegisterSecondary = styled.Text`
+   color: #C3AD60;
+   font-size: 15px;
+   top: 20px;
+   text-align: center;
+   font-weight: 200;
+`;
 
-//   width: 140px;
-//   height: 100px;
-//   bottom:80px
+export const RegisterLink = styled(Button).attrs({ color: colors.brand.primary })`
+ width: 300px;
+ height: 48px;
+ top: 30px;
+ border: 1px solid #C3AD60;
+ color: #C3AD60;
+ padding: 2px;
+ font-weight: 400;
+ font-size: 10px;
+ margin-bottom: 30px;
+ border-radius: 30px;
+`;
 
-// `;
+export const RegisterBackIcon = styled.Image`
+   display: flex;
+`;
 
-// export const AccountCover = styled.View`
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   background-color:Constants.theme.dark000;
-// `;
+export const RegisterPassword = styled.Text`
+  color: #C3AD60;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 60px;
+  left: 50px;
+`;
 
-// export const AccountContainer = styled.View`
-//   background-color: rgba(255, 255, 255, 0.1);
-//   padding: ${(props) => props.theme.space[4]};
-//   margin-top: ${(props) => props.theme.space[2]};
-// `;
+export const RegisterUser = styled(Button).attrs({ color: colors.ui.primary })`
+  width: 300px;
+  height: 48px;
+  background: #C3AD60;
+  border-radius: 40px;
+  font-size: 15px;
+  padding: 2px;
+  margin-top: 20px;
+  font-weight: 300;
+`;
 
-// export const AuthButton = styled(Button).attrs({
-//   color: colors.brand.primary,
+export const RegisterTertiary = styled.Text`
+   color: #fff;
+   font-size: 20px;
+   font-weight: bold;
+   text-align: center;
+   margin-top: 20px;
+`;
 
-// })`
-//   padding: ${(props) => props.theme.space[1]};
-// height: 48px
-// width: 300px
-// bottom: -30px
-// `;
+export const RegisterParagraph = styled.Text`
+   color: #fff;
+   font-size: 10px;
+   margin-top: 20px;
+   font-weight: 200;
+   text-align: center;
+`;
 
-// export const AuthInput = styled(TextInput)`
-// background-color: #4E4E4E
-//   width: 300px;
-//   boxShadow: 0px 4px 4px rgba(0,0,0,25)
-//   height: 48px
-//   border-radius:5px
-//   bottom: 40px
-// `;
-
-// export const Title = styled(Text)`
-//   font-size: 30px;
-//   color:Constants.theme.primary
-// `;
-
-// export const ErrorContainer = styled.View`
-//   max-width: 300px;
-//   align-items: center;
-//   align-self: center;
-//   margin-top: ${(props) => props.theme.space[2]};
-//   margin-bottom: ${(props) => props.theme.space[2]};
-// `;
-
-// export const AnimationWrapper = styled.View`
-//   width: 100%;
-//   height: 40%;
-//   position: absolute;
-//   top: 30px;
-//   padding: ${(props) => props.theme.space[2]};
-// `;
-
-// export default function loginscreen() {
-//   return (
-//     <View style={styles.container}>
-
-//       <View>
-//         <Image style={styles.img} source={require('../../../../assets/YorisIcon1.png')} />
-//       </View>
-
-//       <View style={styles.inputView}>
-//         <TextInput style={styles.inputText}
-//           placeholder='Email'
-//           placeholderTextColor={'#ffff'} />
-//       </View>
-
-//       <View style={styles.inputView}>
-//         <TextInput style={styles.inputText}
-//           placeholder='Password'
-//           placeholderTextColor={'#ffff'} />
-//       </View>
-
-//       <TouchableOpacity>
-//         <Text style={styles.forget}>Forgot Password?</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.loginBtn}>
-//         <Text style={styles.loginText}>Login </Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.loginBtn}>
-//         <Text style={styles.loginText}>Signup</Text>
-//       </TouchableOpacity>
-
-//     </View>
-
-//   )
-// }
-
-//const styles = StyleSheet.create({
-//  container: {
-//    flex: 1,
-//    backgroundColor: 'Constants.theme.dark000',
-//    color: '#ffffff',
-//    alignItems: 'center',
-//    justifyContent: 'center',
-//
-//  },
-//
-//  img: {
-//    width: 150,
-//    height: 150
-//  },
-//  inputext: {
-//    height: 50,
-//    fontSize: 20,
-//    color: "white",
-//  },
-//  inputView: {
-//    width: "80%",
-//    borderRadius: 25,
-//    height: 50,
-//    marginBottom: 13,
-//    justifyContent: "center",
-//    padding: 20,
-//    backgroundColor: '#4E4E4E',
-//
-//  },
-//  loginBtn: {
-//    width: "80%",
-//    backgroundColor: ${Constants.theme.primary},
-//    borderRadius: 25,
-//    height: 50,
-//    alignItems: "center",
-//    justifyContent: "center",
-//    marginTop: 13,
-//    marginBottom: 15,
-//  },
-//
-//  loginText: {
-//    color: "white",
-//    fontSize: 20,
-//    fontWeight: "bold"
-//  },
-//
-//  forget: {
-//    backgroundColor: 'Constants.theme.primary',
-//    color: '#ffffff',
-//
-//
-//  },
-//
-//
-//});
-// export const AnimationWrapper = styled.View`
-//   width: 100%;
-//   height: 40%;
-//   position: absolute;
-//   top: 30px;
-//   padding: ${(props) => props.theme.space[2]};
-// `;
-
-// okasy so any values that we are not giong to use immdiately we have to store this value
-// so we not just naming variables because we have to but because we have to store used values so that would not be
-// lost
-// so we have to name the variable in memory to hold this data
+export const RegisterRow = styled.View`
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+`;
