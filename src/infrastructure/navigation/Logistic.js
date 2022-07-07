@@ -1,7 +1,4 @@
 import React from "react";
-import { FlatList, Dimensions, Pressable, View } from "react-native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import Logisticscreen from "../../features/logictics/screens/logisticscreen";
 import LogisticsAddress from "../../features/logictics/screens/logisticsAddress";
 import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle";
@@ -9,7 +6,6 @@ import LogisticsDetails from "../../features/logictics/screens/logisticsDetails"
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
 import { createStackNavigator } from "@react-navigation/stack";
-import Stores from "../../features/Stores/Stores.screen";
 import {
   PaymentScreen,
   PaymentOptions,
@@ -20,74 +16,9 @@ import SingleOrder from "../../features/logictics/screens/SingleOrder";
 import PickUp from "../../features/logictics/screens/PickUp";
 import DropOff from "../../features/logictics/screens/DropOff";
 import ConfirmOrder from "../../features/logictics/screens/ConfirmOrder";
-import Header from "../../components/Header";
-import { FontAwesome } from "../../components/Icons";
+
 import Profile from "../../features/riders/screens/Profile";
 import RiderOrder from "../../features/riders/components/RiderOrder/riderOrder";
-import { Constants } from "../../../constants/db.mock";
-
-/// just the way we use the stack navigation
-const Tabs = createMaterialTopTabNavigator();
-
-export const Tab = () => {
-  const navigation = useNavigation();
-  const theme = Constants.theme;
-  return (
-    <>
-      <Header
-        containerStyle={{
-          padding: 10,
-          marginBottom: 0,
-          marginTop: 0,
-          backgroundColor: theme.dark,
-        }}
-        IconRightComponent={() => (
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              width: 100,
-            }}
-          >
-            <Pressable
-              onPress={() =>
-                navigation.navigate("profile", {
-                  /* data should be dynamic */ isUser: false,
-                  isRider: true,
-                })
-              }
-            >
-              <FontAwesome color={theme.primary} name={"user"} size={20} />
-            </Pressable>
-          </View>
-        )}
-      />
-      <Tabs.Navigator
-        screenOptions={{
-          activeTintColor: "#50d3a7",
-          tabBarActiveTintColor: theme.primary,
-          tabBarInactiveTintColor: theme.primary,
-          inactiveTintColor: "white",
-          tabBarPressColor: "transparent",
-          tabBarShowIcon: true,
-          tabBarIndicatorStyle: {
-            backgroundColor: theme.primary,
-          },
-
-          tabBarStyle: {
-            elevation: 10,
-            backgroundColor: theme.dark,
-            borderRadius: 1,
-          },
-        }}
-      >
-        <Tabs.Screen name="Stores" component={Stores} />
-        <Tabs.Screen name="Logistics" component={LogisticNavigator} />
-      </Tabs.Navigator>
-    </>
-  );
-};
 
 const Stack = createStackNavigator();
 // JUST THE WAY IT SOUNDS WE ARE STACKING THE VIEWS
@@ -119,3 +50,5 @@ const LogisticNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+export default LogisticNavigator;

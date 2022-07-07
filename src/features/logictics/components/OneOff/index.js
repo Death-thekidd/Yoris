@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Image, Pressable, StyleSheet, View, Text } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+} from "react-native";
 import Selector from "../../../../components/Selector";
 import {
   LogisticsCountryContainer,
@@ -75,7 +82,7 @@ export default () => {
     showTimepicker,
   } = useDateTimePicker();
   return (
-    <>
+    <ScrollView>
       {/**
        * BTN tabs Group
        */}
@@ -225,7 +232,7 @@ export default () => {
       >
         <Text style={{ fontSize: 24 }}>Continue</Text>
       </Button>
-    </>
+    </ScrollView>
   );
 };
 

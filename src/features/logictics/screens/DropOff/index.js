@@ -60,7 +60,7 @@ export default () => {
         [params.multiDropOff ? "dropOffs" : params.singleDropOff && "dropOff"]:
           params.multiDropOff
             ? dropOff
-            : params.singleDropOff && { ...values.dropOff },
+            : params.singleDropOff && values.dropOff && { ...values.dropOff },
       },
     });
   };

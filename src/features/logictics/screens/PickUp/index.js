@@ -98,12 +98,12 @@ export default () => {
     )
       return setError({ receiversPhone: true });
 
-    /* navigate(!isMultiple ? "dropOff" : "confirmOrder", {
+    navigate(!isMultiple ? "dropOff" : "confirmOrder", {
       ...params,
       ...(!params.multiPickup
         ? { pickup: savedAddresses[0] || pickups[0] }
         : { pickups: savedAddresses }),
-    }); */
+    });
   };
 
   const useCurrentLocation = async () => {
