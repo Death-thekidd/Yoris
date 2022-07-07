@@ -9,7 +9,7 @@ const Layout = styled.View`
 export const StyledScrollView = styled.ScrollView`
   flex: 1;
   background-color: ${Constants.theme.dark};
-  padding: 0 25px;
+  /* padding: 0 25px; */
 `;
 
 export const StyledText = styled.Text`

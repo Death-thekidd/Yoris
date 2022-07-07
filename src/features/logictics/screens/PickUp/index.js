@@ -98,7 +98,7 @@ export default () => {
     )
       return setError({ receiversPhone: true });
 
-    navigate(!isMultiple ? "dropOff" : "confirmOrder", {
+    return navigate(!isMultiple ? "dropOff" : "confirmOrder", {
       ...params,
       ...(!params.multiPickup
         ? { pickup: savedAddresses[0] || pickups[0] }

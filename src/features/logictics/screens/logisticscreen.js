@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { View, Pressable, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../../../components/Header";
-import { Layout, Text } from "../../../components/Layout";
+import { Layout, LayoutScrollView, Text } from "../../../components/Layout";
 import OneOff from "../components/OneOff";
 import Multiple from "../components/Multiple";
 import { Button } from "../../../components/Button";
@@ -12,7 +12,7 @@ export default function Logisticscreen() {
   const [isMultiple, setIsMultiple] = useState(false);
 
   return (
-    <Layout
+    <LayoutScrollView
       styles={{
         paddingHorizontal: 50,
       }}
@@ -63,7 +63,7 @@ export default function Logisticscreen() {
       <View style={[styles.container]}>
         {!isMultiple ? <OneOff /> : <Multiple />}
       </View>
-    </Layout>
+    </LayoutScrollView>
   );
 }
 
