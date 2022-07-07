@@ -1,15 +1,13 @@
-import React from "react";
-import { Button } from "react-native-paper";
-import { Layout } from "../../../components/Layout";
+import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   ShippingWrapper,
   ShippingRow,
-  ImageBackground,
   ShippingPrimary,
   ShippingParagraph,
   ShippingSpan,
   ShippingFeatures,
-  ShippingAddress,
+  ShippingAddressInput,
   ImageShipping,
   ShippingBoxInput,
   ShippingInput,
@@ -18,17 +16,22 @@ import {
   ShippingTracking,
   ShippingBtn,
 } from "../components/shipping.styles";
+import { LayoutScrollView } from '../../../components/Layout';
+import Header from '../../../components/Header';
 
 export default function LogisticsShipping({ navigation }) {
+   const { goBack, navigate } = useNavigation();
+   const [values, setValues] = useState(null);
+   const [error, setError] = useState({});
   return (
-    <Layout>
+    <LayoutScrollView>
       <ShippingWrapper>
         <ShippingRow>
-          <Button onPress={() => navigation.navigate("logisticBooking")}>
-            <ImageBackground
-              source={require("../../../../assets/backIcon.png")}
-            />
-          </Button>
+        <Header
+           iconLeft={require("../../../../assets/backIcon.png")}
+           onLeftIconPress={() => goBack()}
+           onRightIconPress={() => navigate("logisticsMain")}
+        />
         </ShippingRow>
         <ShippingRow>
           <ShippingPrimary>Shipping Address</ShippingPrimary>
@@ -38,13 +41,21 @@ export default function LogisticsShipping({ navigation }) {
         Yoris<ShippingSpan>(Username)</ShippingSpan>
       </ShippingParagraph>
       <ShippingFeatures>
-        <ShippingAddress>Yoris Address</ShippingAddress>
-        <ImageShipping source={require("../../../../assets/location.png")} />
+         <ShippingAddressInput 
+            placeholder={"Yoris Address"}
+            placeholderTextColor={"#fff"}  
+            error={error} 
+            setError={setError}
+            setValues={setValues}
+         />
+         <ImageShipping source={require("../../../../assets/location.png")} />
       </ShippingFeatures>
       <ShippingBoxInput
-        type="text"
         placeholder={"Tracking Number From Shipping Company"}
         placeholderTextColor={"#fff"}
+        error={error}
+        setError={setError}
+        setValues={setValues}
       />
       <ShippingWrapper>
         <ShippingRow>
@@ -64,7 +75,7 @@ export default function LogisticsShipping({ navigation }) {
         <ShippingRow>
           <ShippingInput type="checkbox" id="navi-toggle">
             <ShippingLabel>
-              <ImageBitmap source={require("../../../../assets/Group.png")} />
+              <ImageBitmap source={require("../../../../assets/group.png")} />
             </ShippingLabel>
           </ShippingInput>
         </ShippingRow>
@@ -87,6 +98,6 @@ export default function LogisticsShipping({ navigation }) {
       <ShippingBtn onPress={() => navigation.navigate("logisticsVehicle")}>
         continue
       </ShippingBtn>
-    </Layout>
+    </LayoutScrollView>
   );
 }

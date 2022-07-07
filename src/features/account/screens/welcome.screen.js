@@ -1,6 +1,5 @@
 import React from 'react';
 import { Pressable } from 'react-native';
-import { Button } from 'react-native-paper';
 import { 
      WelcomeContainer,
      WelcomeText,
@@ -11,10 +10,10 @@ export default function WelcomeUsers({ navigation }) {
     return(
       <WelcomeContainer>
          <WelcomeText>Welcome!</WelcomeText>
-         <Pressable onPress={() => navigation.navigate("register")}>
+         <Pressable>
             <WelcomeButton>sign in</WelcomeButton>
          </Pressable>
-         <Pressable>
+         <Pressable onPress={() => navigation.navigate("register")}>
             <WelcomeButton>register</WelcomeButton>
          </Pressable>
       </WelcomeContainer>

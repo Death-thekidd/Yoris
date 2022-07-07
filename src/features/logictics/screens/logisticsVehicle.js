@@ -1,11 +1,9 @@
 import React from "react";
-import { SafeAreaView, ScrollView } from 'react-native';
-import { Button } from 'react-native-paper';
+import { useNavigation } from "@react-navigation/native";
 import {
   VehicleContainer,
   VehicleWrapper,
   VehicleRow,
-  ImageBackground,
   VehiclePrimary,
   ImageCancel,
   VehicleCycle,
@@ -14,19 +12,21 @@ import {
   VehicleText,
   VehicleBtn
 } from "../components/vehicle.styles";
+import { LayoutScrollView } from '../../../components/Layout';
+import Header from '../../../components/Header';
 
 export default function LogisticsVehicle({ navigation }) {
+  const { goBack, navigate } = useNavigation();
   return (
-    <SafeAreaView>
-    <ScrollView>
+   <LayoutScrollView>
     <VehicleContainer>
       <VehicleWrapper>
         <VehicleRow>
-        <Button onPress={() => navigation.navigate("shipping")}>
-           <ImageBackground
-             source={require("../../../../assets/backIcon.png")}
-            />
-          </Button>
+          <Header
+            iconLeft={require("../../../../assets/backIcon.png")}
+            onLeftIconPress={() => goBack()}
+            onRightIconPress={() => navigate("logisticsMain")}
+          />
         </VehicleRow>
         <VehicleRow>
           <VehiclePrimary>Vehicle Specification</VehiclePrimary>
@@ -98,7 +98,6 @@ export default function LogisticsVehicle({ navigation }) {
       </VehicleCycle>
       <VehicleBtn>continue</VehicleBtn>
     </VehicleContainer>
-    </ScrollView>
-    </SafeAreaView>
+    </LayoutScrollView>
   );
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
 import { Checkbox } from 'react-native-paper';
-import { Layout } from "../../../components/Layout";
-import { Button } from 'react-native-paper';
+import { LayoutScrollView } from '../../../components/Layout';
 import { 
-     OrderContainer,
-     ImageBackground,
+     OrderHeader,
      OrderCycle,
      OrderPrimary,
      OrderText,
@@ -19,16 +18,20 @@ import {
      Span
   } from '../components/order.styles';
 import { LocationBtn } from '../components/location.styles';
+import Header from '../../../components/Header';
 
 export default function LogisticsOrder({ navigation }) {
+   const { goBack, navigate } = useNavigation();
    const [checked, setChecked] = useState(true);
   return (
-     <Layout>
-      <Button style={{ right: 100}} onPress={() => navigation.navigate("logisticsVehicle")}>
-         <ImageBackground
-           source={require("../../../../assets/backIcon.png")}
-          />
-       </Button>
+     <LayoutScrollView>
+      <OrderHeader>
+         <Header
+           iconLeft={require("../../../../assets/backIcon.png")}
+           onLeftIconPress={() => goBack()}
+           onRightIconPress={() => navigate("logisticsMain")}
+        />
+      </OrderHeader>
        <OrderCycle>
           <OrderPrimary>#oRDerNuMbeR</OrderPrimary>
           <OrderText>Type of good</OrderText>
@@ -57,7 +60,7 @@ export default function LogisticsOrder({ navigation }) {
         <OrderWrapper>
            <OrderBox>
              <Checkbox 
-              status={checked ? 'checked' : 'unchecked'}
+              status={checked ? 'unchecked' : 'checked'}
               onPress={() => {
                 setChecked(!checked);
               }}
@@ -68,6 +71,6 @@ export default function LogisticsOrder({ navigation }) {
            </OrderBox>
         </OrderWrapper>
        <LocationBtn onPress={() => navigation.navigate("paymentScreen")}>Process To Payment</LocationBtn>
-      </Layout>
+      </LayoutScrollView>
   );
-};
+}

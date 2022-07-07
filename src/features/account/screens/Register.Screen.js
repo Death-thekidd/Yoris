@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Button } from 'react-native-paper';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import { LayoutScrollView } from '../../../components/Layout';
 import { 
    RegisterContainer,
-   ImageBackground,
+   RegisterHeader,
    RegisterSection,
    ImageLogo,
    RegisterInput,
@@ -17,35 +17,44 @@ import {
 } from '../components/account.styles';
 import CustomDatePicker from '../datePicker/datepicker';
 import Selector from '../selector/selector';
+import Header from '../../../components/Header';
+
 
 const itemCategory = ["Fintech"];
 export default function RegisterUsers({ navigation }) {
    const [phoneNumber, setPhoneNumber] = useState("");
    const [input, setInput] = useState("");
+   const { goBack, navigate } = useNavigation();
    const [text, setText] = useState("");
   return (
- <SafeAreaView>
-   <ScrollView>
+   <LayoutScrollView>
     <RegisterContainer>
-      <Button style={{ right: 130, top: 20,}} onPress={()=>navigation.navigate('welcome')}>
-         <ImageBackground source={require("../../../../assets/backIcon.png")} />
-      </Button>
+      <RegisterHeader>
+       <Header
+          iconLeft={require("../../../../assets/backIcon.png")}
+          onLeftIconPress={() => goBack()}
+          onRightIconPress={() => navigate("logisticsMain")}
+         />
+      </RegisterHeader>
        <RegisterSection>
           <ImageLogo source={require("../../../../assets/Yoris.png")} />
           <RegisterInput
              type="text"
              placeholder={"Full Name"}
              placeholderTextColor={"#fff"}
+             setText={setText}
           />
           <RegisterInput 
              type="text"
              placeholder={"Email"}
              placeholderTextColor={"#fff"}
+             setText={setText}
            />
            <RegisterInput
               type="text"
               placeholder={"Create Password"}
               placeholderTextColor={"#fff"}
+              setText={setText}
             />
             <RegisterPrimary>Date of birth:</RegisterPrimary>
            <RegisterDate>
@@ -71,7 +80,7 @@ export default function RegisterUsers({ navigation }) {
                 borderRadius: 30,
                }}
                dropdownIconPosition={"right"}
-               defaultButtonText="Industries"
+               defaultButtonText="Industry"
                buttonTextStyle={{
                  fontSize: 20,
                }}
@@ -82,23 +91,25 @@ export default function RegisterUsers({ navigation }) {
            type="text"
            placeholder={"User Name"}
            placeholderTextColor={"#fff"}
+           setText={setText}
          />
           <RegisterInput 
            type="text"
            placeholder={"Create Handle"}
            placeholderTextColor={"#fff"}
+           setText={setText}
          />
          <RegisterInput 
             type="text"
             placeholder={"Input referal code"}
             placeholderTextColor={"#fff"}
+            setText={setText}
          />
-         <RegisterBtn>Create Account</RegisterBtn>
+         <RegisterBtn onPress={() => navigation.navigate('signIn')}>Create Account</RegisterBtn>
          <RegisterSecondary>Already have an account?</RegisterSecondary>
-         <RegisterLink onPress={()=> navigation.navigate('login')}>SIGN IN</RegisterLink>
+         <RegisterLink>SIGN IN</RegisterLink>
        </RegisterSection>
     </RegisterContainer>
-   </ScrollView>
-  </SafeAreaView>
+   </LayoutScrollView>
   );
-}
+};

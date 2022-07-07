@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import WelcomeUsers from "../../features/account/screens/welcome.screen";
 import RegisterUsers from "../../features/account/screens/Register.Screen";
-import LoginUsers from "../../features/account/screens/login.screen";
+import  SignIn from "../../features/account/screens/signIn.screen";
 import ForgotPassword from "../../features/account/screens/forgotPassword.screen";
 import ResetPassword from "../../features/account/screens/resetPassword.screen";
 import CodeScreen from "../../features/account/screens/code.screen";
@@ -18,7 +18,7 @@ const AccountNavigator = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="welcome" component={WelcomeUsers} />
       <Stack.Screen name="register" component={RegisterUsers} />
-      <Stack.Screen name="login" component={LoginUsers} />
+      <Stack.Screen name="signIn" component={SignIn} />
       <Stack.Screen name="forgotPassword" component={ForgotPassword} />
       <Stack.Screen name="resetPassword" component={ResetPassword} />
       <Stack.Screen name="code" component={CodeScreen} />

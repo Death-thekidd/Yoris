@@ -8,14 +8,11 @@ export const RegisterContainer = styled.View`
   align-items: center;
   justify-content: center;
   background-color: #000;
-  padding: 35px;
+  padding: 40px;
   flex: 1;
 `;
 
-export const ImageBackground = styled.Image`
-   width: 26.19px;
-   position: relative;
-   height: 20px;
+export const RegisterHeader = styled.View`
    right: 100px;
 `;
 
@@ -24,14 +21,13 @@ export const RegisterSection = styled.View`
 `;
 
 export const ImageLogo = styled.Image`
-   top: 30px;
    left: 90px;
 `;
 
 export const RegisterInput = styled(TextInput)`
   width: 300px;
   height: 48px;
-  top: 40px;
+  top: 20px;
   background: #4E4E4E;
   margin-bottom: 20px;
   border-radius: 30px;
