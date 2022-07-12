@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Text } from "react-native";
 import {
     LogicticsBacground,
     DeliveryImage,
@@ -9,7 +10,7 @@ import {
     LogisticBtnCont,
     LogisticBtnView,
     CategoryView,
-    SViews
+    SViews,
 } from '../components/logictics.styles';
 import { Spacer } from '../../../components/spacer/spacer.component'
 
@@ -36,8 +37,8 @@ export default function Logisticscreen({ navigation }) {
             <LogisticBtnView>
                 <LogisticBtnCont>
 
-                    <LogisticBtn>lOCAL</LogisticBtn>
-                    <LogisticBtn>INTERNATIONAL</LogisticBtn>
+                    <LogisticBtn><Text>lOCAL</Text></LogisticBtn>
+                    <LogisticBtn><Text>INTERNATIONAL</Text></LogisticBtn>
 
                 </LogisticBtnCont>
 
@@ -45,8 +46,8 @@ export default function Logisticscreen({ navigation }) {
                 <Spacer size="xl">
 
                     <LogisticBtnCont>
-                        <LogisticBtn> REGULAR</LogisticBtn>
-                        <LogisticBtn>EXPRESS</LogisticBtn>
+                        <LogisticBtn><Text>REGULAR</Text></LogisticBtn>
+                        <LogisticBtn><Text>EXPRESS</Text></LogisticBtn>
                     </LogisticBtnCont>
 
                 </Spacer>
@@ -56,7 +57,7 @@ export default function Logisticscreen({ navigation }) {
             <Spacer size="xxl">
 
                 <ContinueView>
-                    <ContinueButton onPress={() => { navigation.navigate("logisticBooking") }} >continue</ContinueButton>
+                    <ContinueButton onPress={() => { navigation.navigate("Booking") }} ><Text>continue</Text></ContinueButton>
                 </ContinueView>
             </Spacer>
 

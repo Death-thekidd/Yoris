@@ -4,13 +4,135 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Logisticscreen from '../../features/logictics/screens/logisticscreen';
 import LogisticsBooking from '../../features/logictics/screens/logisticBooking';
 import LogisticsAddress from '../../features/logictics/screens/logisticsAddress';
-import LogisticsLocation from '../../features/logictics/screens/logisticsLocation';
+import LogisticsLocation from '../../features/logictics/screens/logisticslocation';
 import { createStackNavigator } from '@react-navigation/stack';
 import Stores from '../../features/Stores/Stores.screen';
-
-
+import Fintech1 from '../../features/Fintech/screens/fintech1';
+import Fintech2 from '../../features/Fintech/screens/fintech2';
+import Fintech3 from '../../features/Fintech/screens/fintech3';
+import Fintech4 from '../../features/Fintech/screens/fintech4';
+import Fintech5 from '../../features/Fintech/screens/fintech5';
+import Pending from '../../features/Fintech/screens/fintech6';
+import Submitted from '../../features/Fintech/screens/fintech7';
+import Fintech8 from '../../features/Fintech/screens/fintech8';
+import Submitted1 from '../../features/Fintech/screens/fintech9';
+import Notifications from '../../features/Fintech/screens/fintech10';
+import History from '../../features/Fintech/screens/fintech11';
+import App from '../../features/Fintech/screens/calendarScreen';
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
+const Stack = createStackNavigator();
+
+const FintechScreen = ()=>{
+    return(
+        <Stack.Navigator>
+        <Stack.Screen
+         name="Fintech1"
+         component={Fintech1}
+         options={{
+             headerShown:false
+         }}/>
+        <Stack.Screen
+        name="Fintech2"
+        component={Fintech2}
+        options={{
+            headerShown: false
+        }}/>
+        <Stack.Screen
+        name="Fintech3"
+        component={Fintech3}
+        options={{
+            headerShown: false
+        }}
+        />
+        <Stack.Screen
+        name="Fintech4"
+        component={Fintech4}
+        options={{
+            headerShown: false
+        }}
+        />
+        <Stack.Screen
+        name="Fintech5"
+        component={Fintech5}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+        <Stack.Screen
+        name="Fintech6"
+        component={Pending}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+        <Stack.Screen
+        name="Fintech7"
+        component={Submitted}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+        <Stack.Screen
+        name="Fintech8"
+        component={Fintech8}
+        options={{
+            headerShown: false
+        }}
+        />
+         <Stack.Screen
+        name="Fintech9"
+        component={Submitted1}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+        <Stack.Screen
+        name="Fintech10"
+        component={Notifications}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+        <Stack.Screen
+        name="Fintech11"
+        component={History}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+        <Stack.Screen
+        name="Calendar"
+        component={App}
+        options={{
+            headerShown: false
+        }}
+        initialParams={{
+            paramKey:'Link'
+        }}
+        />
+    </Stack.Navigator>
+    )
+    
+}
 
 export const AccountNavigator = () => {
 
@@ -72,7 +194,7 @@ export const AccountNavigator = () => {
             />
             <Tabs.Screen
                 name="Yoris Pay"
-                component={LogisticsAddress}
+                component={FintechScreen}
             />
             <Tabs.Screen
               name="Pick Up"
@@ -86,7 +208,7 @@ export const AccountNavigator = () => {
     );
 };
 
-const Stack = createStackNavigator();
+
 // JUST THE WAY IT SOUNDS WE ARE STACKING THE VIEWS
 // read the documentation
 
