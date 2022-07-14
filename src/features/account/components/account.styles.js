@@ -133,8 +133,20 @@ export const RegisterParagraph = styled.Text`
    text-align: center;
 `;
 
+
 export const RegisterRow = styled.View`
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
+`;
+
+export const RegisterButton = styled(Button).attrs({ color: colors.ui.primary })`
+  width: 300px;
+  height: 48px;
+  background: #C3AD60;
+  border-radius: 40px;
+  font-size: 15px;
+  padding: 2px;
+  margin-top: 20px;
+  font-weight: 300;
 `;

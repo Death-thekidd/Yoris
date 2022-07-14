@@ -42,7 +42,7 @@ export default function SignIn({ navigation }) {
                <RegisterPassword>Forgotten Password?</RegisterPassword>
             </Pressable>
             <RegisterUser>SIGN IN</RegisterUser>
-            <RegisterLink>BACK</RegisterLink>
+            <RegisterLink>SIGN UP</RegisterLink>
          </RegisterSection>
        </WelcomeContainer>
      </LayoutScrollView>

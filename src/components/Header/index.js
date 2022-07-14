@@ -4,11 +4,14 @@ import { Section } from "../../features/payment/screens/style";
 export default function ({
   onLeftIconPress,
   onRightIconPress,
+  onEndIconPress,
   containerStyle,
   iconLeft,
   iconRight,
+  iconEnd,
   IconLeftComponent,
   IconRightComponent,
+  IconEndComponent,
   headerTitle,
   headerTitleStyle,
 }) {
@@ -23,6 +26,18 @@ export default function ({
         containerStyle,
       ]}
     >
+      {IconEndComponent ? (
+       <IconEndComponent /> 
+     ) : (
+       <Pressable
+         style={{
+           left: 260,
+         }}
+         onPress={() => onEndIconPress && onEndIconPress}
+       >
+         {iconEnd && <Image source={iconEnd} />}
+       </Pressable>
+     )}
       {IconLeftComponent ? (
         <IconLeftComponent />
       ) : (
@@ -33,7 +48,6 @@ export default function ({
           {iconLeft && <Image source={iconLeft} />}
         </Pressable>
       )}
-
       {headerTitle && (
         <Text
           style={[
@@ -61,6 +75,7 @@ export default function ({
           {iconRight && <Image source={iconRight} />}
         </Pressable>
       )}
+
     </Section>
   );
 }

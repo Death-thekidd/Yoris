@@ -107,7 +107,7 @@ export default function RegisterUsers({ navigation }) {
          />
          <RegisterBtn onPress={() => navigation.navigate('signIn')}>Create Account</RegisterBtn>
          <RegisterSecondary>Already have an account?</RegisterSecondary>
-         <RegisterLink>SIGN IN</RegisterLink>
+         <RegisterLink onPress={() => navigation.navigate('signIn')}>SIGN IN</RegisterLink>
        </RegisterSection>
     </RegisterContainer>
    </LayoutScrollView>

@@ -20,7 +20,7 @@ export default function ForgotPassword({ navigation }) {
              <RegisterInput 
                 type="text"
              />
-             <RegisterBtn onPress={() => navigation.navigate('resetPassword')}>continue</RegisterBtn>
+             <RegisterBtn onPress={() => navigation.navigate('code')}>continue</RegisterBtn>
          </RegisterSection>
      </RegisterContainer>
     );
