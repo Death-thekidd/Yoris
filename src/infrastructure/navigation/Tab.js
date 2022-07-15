@@ -7,6 +7,7 @@ import { FontAwesome } from "../../components/Icons";
 import Storesscreen from "../../features/Stores/Stores.screen";
 import AccountNavigator from "./account.navigation";
 import LogisticNavigator from "./Logistic";
+import SocialNavigator from "./social.navigation";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
@@ -72,6 +73,7 @@ const Tab = () => {
         <Tabs.Screen name="Stores" component={Storesscreen} />
         <Tabs.Screen name="Account" component={AccountNavigator} />
         <Tabs.Screen name="Logistics" component={LogisticNavigator} />
+        <Tabs.Screen name="SocialMedia" component={SocialNavigator} />
       </Tabs.Navigator>
     </>
   );
