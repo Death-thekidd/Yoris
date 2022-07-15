@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
-import { Button, TextInput } from "react-native-paper";
+import { Button } from "react-native-paper";
+import { TextInput } from 'react-native';
 import { Constants } from "../../../../constants/db.mock";
 
 export const ShippingWrapper = styled.View`
@@ -24,7 +25,7 @@ export const ImageBackground = styled.Image`
 
 export const ShippingPrimary = styled.Text`
   color: ${Constants.theme.primary};
-  right: 15px;
+  right: 5px;
   font-size: 20px;
   font-weight: 400;
   font-family: "Roboto";
@@ -34,7 +35,7 @@ export const ShippingParagraph = styled.Text`
   font-size: 20px;
   color: #fff;
   font-weight: bold;
-  top: 30px;
+  top: 10px;
   left: 70px;
   font-family: "Roboto";
 `;
@@ -46,37 +47,29 @@ export const ShippingSpan = styled.Text`
 `;
 
 export const ShippingFeatures = styled.View`
-  position: relative;
-  width: 256px;
-  height: 96px;
-  top: 50px;
+  top: 20px;
   background: #4e4e4e;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  width: 256px;
+  height: 130px;
   left: 60px;
+  padding: 12px;
   border-radius: 5px;
 `;
 
-export const ShippingAddress = styled.Text`
-  color: #fff;
-  text-align: left;
-  font-size: 12px;
-  margin-top: 20px;
-  left: 20px;
-  font-weight: 300;
+export const ShippingAddressInput = styled(TextInput)`
+  height: 96px;
 `;
 
 export const ImageShipping = styled.Image`
-  left: 220px;
-  position: relative;
-  width: 20px;
-  top: 10px;
+   left: 200px;
 `;
 
 export const ShippingBoxInput = styled(TextInput)`
   width: 260px;
-  height: 30px;
+  height: 48px;
   color: #fff;
-  top: 50px;
+  top: 20px;
   font-size: 8.5px;
   padding: 12px;
   left: 60px;
@@ -96,7 +89,6 @@ export const ShippingLabel = styled.View`
   border-radius: 60px;
   z-index: 2000;
   left: 10px;
-  margin-top: 20px;
   cursor: pointer;
 `;
 
@@ -113,8 +105,8 @@ export const ShippingTracking = styled(Button).attrs({
 })`
   width: 260px;
   height: 65px;
-  top: 40px;
-  border: 1px solid ${Constants.theme.primary};
+  top: 20px;
+  border: 1px solid #C3AD60;
   align-items: center;
   color: ${Constants.theme.primary};
   padding: 12px;
@@ -129,7 +121,7 @@ export const ShippingBtn = styled(Button).attrs({ color: colors.ui.primary })`
   width: 260px;
   height: 60px;
   padding: 12px;
-  top: 55px;
+  top: 35px;
   text-align: center;
   color: ${Constants.theme.dark};
   font-weight: 400;

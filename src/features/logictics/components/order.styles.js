@@ -1,9 +1,7 @@
 import styled from "styled-components/native";
 
-export const ImageBackground = styled.Image`
-  width: 26.19px;
-  position: relative;
-  height: 20px;
+export const OrderHeader = styled.View`
+   left: 30px;
 `;
 
 export const OrderCycle = styled.View`
@@ -12,7 +10,7 @@ export const OrderCycle = styled.View`
   margin-bottom: 30px;
   top: 40px;
   left: 60px;
-  border: 1px solid Constants.theme.primary;
+  border: 1px solid #C3AD60;
 `;
 
 export const OrderPrimary = styled.Text`

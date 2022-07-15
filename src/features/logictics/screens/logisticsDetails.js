@@ -1,12 +1,9 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
-import { Layout } from "../../../components/Layout";
-import { Button } from 'react-native-paper';
-
+import { useNavigation } from "@react-navigation/native";
+import { LayoutScrollView } from '../../../components/Layout';
 import { 
      DetailsWrapper,
      DetailsRow,
-     ImageBackground,
      DetailsPrimary,
      ImageCancel,
      DetailsSecondary,
@@ -23,20 +20,20 @@ import {
      DetailsCopy,
      DetailsBtn
  } from '../components/details.styles';
+ import Header from '../../../components/Header';
 
-export default function LogisticsDetails({ navigation }) {
+export default function LogisticsDetails() {
+  const { goBack, navigate } = useNavigation();
     return(
-      <SafeAreaView>
-      <ScrollView>
-      <Layout>
+     <LayoutScrollView>
        <DetailsWrapper>
-          <DetailsRow>
-            <Button onPress={() => navigation.navigate("logisticBooking")}>
-              <ImageBackground
-                source={require("../../../../assets/backIcon.png")}
-              />
-           </Button>
-          </DetailsRow>
+        <DetailsRow>
+          <Header
+              iconLeft={require("../../../../assets/backIcon.png")}
+              onLeftIconPress={() => goBack()}
+              onRightIconPress={() => navigate("logisticsMain")}
+            />
+         </DetailsRow>
           <DetailsRow>
              <DetailsPrimary>Confirm Details</DetailsPrimary>
           </DetailsRow>
@@ -82,8 +79,6 @@ export default function LogisticsDetails({ navigation }) {
          </DetailsWrapper>
        </DetailsHover>
        <DetailsBtn>confirm</DetailsBtn>
-      </Layout>
-      </ScrollView>
-      </SafeAreaView>
+      </LayoutScrollView>
     );
-};
+}

@@ -4,6 +4,8 @@ import { Button } from "../../../components/Button";
 import { Section, Text } from "../../../components/Layout";
 import { PressableSection } from "../../../components/Layout/styles";
 import { ModalCenteredView, ModalView, Row } from "../Modal/styles";
+import Header from "../../../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 export default ({
   buttonStyle = {
@@ -15,24 +17,25 @@ export default ({
     marginTop: 10,
   },
   buttonText,
-  onOtpValidate,
+  onOtpValidate
 }) => {
   const textInputRef = useRef();
   const [modalVisible, setModalVisible] = useState(false);
   const [code, setCode] = useState(0);
   const [pinReady, setPinReady] = useState(false);
   const [inputFocused, setinputfocused] = useState(false);
-  const [showOtpInput, setShowOtpInput] = useState(false);
+  const [showOtpInput, setShowOtpInput] = useState(true);
   const [values, setValue] = useState(null);
+  const navigation = useNavigation();
 
   const NumPins = new Array(4).fill(0);
 
   useEffect(() => {
     setPinReady(code.length === 4);
-    return setPinReady(false);
+    return setPinReady(true);
   }, [code]);
 
-  const handleOnBlur = () => setinputfocused(false);
+  const handleOnBlur = () => setinputfocused(true);
   const toCodeDigitInput = (_val, i) => {
     const emptyChar = " ";
     const digit = code[i] || emptyChar;
@@ -66,7 +69,7 @@ export default ({
   };
   const handleOnPress = () => {
     setinputfocused(true);
-    textInputRef?.current?.focus();
+    textInputRef?.current?.focus(false);
   };
 
   return (
@@ -86,13 +89,17 @@ export default ({
               alignItems: "flex-start",
             }}
           >
+          
+           <Header 
+              iconEnd={require("../../../../assets/cancel.png")}
+            />
             <Text
               style={{
                 textAlign: "left",
                 fontSize: 25,
               }}
             >
-              {showOtpInput ? "Input OTP" : "Authentication"}
+              {showOtpInput ? "Input PIN" : "Authentication"}
             </Text>
             <Text
               style={{
@@ -100,10 +107,9 @@ export default ({
               }}
             >
               {showOtpInput
-                ? "Admin will send a 4 digit code to be inputed below. "
+                ? "Admin will send a 4 digit pin to be inputed below. "
                 : "Select authentication mode"}
             </Text>
-
             <Section
               style={{
                 width: 280,
@@ -137,6 +143,19 @@ export default ({
                 onBlur={handleOnBlur}
               />
               <Button
+               onPress={() => navigation.navigate('resetPassword')}
+                style={{
+                  marginBottom: 25,
+                  borderRadius: 50,
+                  paddingHorizontal: 25,
+                  backgroundColor: "#4E4E4E",
+                }}
+              >
+                <Text style={{ color: "#fff" }}>
+                  {showOtpInput ? "Submit" : "Input Pin"}
+                </Text>
+              </Button>
+              <Button
                 onPress={
                   showOtpInput
                     ? () => {
@@ -146,25 +165,12 @@ export default ({
                     : null
                 }
                 style={{
-                  marginBottom: 25,
-                  borderRadius: 50,
-                  paddingHorizontal: 25,
-                  backgroundColor: "#4E4E4E",
-                }}
-              >
-                <Text style={{ color: "#000" }}>
-                  {showOtpInput ? "Submit" : "In App"}
-                </Text>
-              </Button>
-              <Button
-                onPress={() => setShowOtpInput(true)}
-                style={{
                   borderRadius: 50,
                   paddingHorizontal: 25,
                 }}
               >
                 <Text style={{ color: "#fff" }}>
-                  {showOtpInput ? "Resend OTP" : "Request OTP"}
+                  {showOtpInput ? "Resend PIN" : "Request PIN"}
                 </Text>
               </Button>
             </Section>
@@ -173,18 +179,20 @@ export default ({
       </Modal>
       <Pressable
         onPress={() => {
-          setModalVisible(true);
+          setModalVisible(true)
         }}
         style={[buttonStyle]}
       >
         <Text
           style={{
             fontWeight: "500",
+            color: "#000",
+            fontSize: 15,
           }}
         >
-          {buttonText}
+          Enter Pin
         </Text>
       </Pressable>
     </>
   );
-};
+}

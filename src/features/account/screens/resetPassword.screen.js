@@ -27,7 +27,7 @@ export default function ResetPassword({ navigation }) {
                 placeholder={"Confirm Password"}
                 placeholderTextColor={"#fff"}
             />
-            <RegisterBtn onPress={() => navigation.navigate("code")}>continue</RegisterBtn>
+            <RegisterBtn onPress={() => navigation.navigate("signIn")}>continue</RegisterBtn>
         </RegisterSection>
       </RegisterContainer>
     );
