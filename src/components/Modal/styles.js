@@ -9,7 +9,7 @@ export const ModalView = styled.View`
   align-items: center;
 `;
 
-export const ModalCenteredView = styled.View`
+export const ModalCenteredView = styled.Pressable`
   flex: 1;
   justify-content: center;
   align-items: center;

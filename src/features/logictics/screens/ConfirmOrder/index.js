@@ -17,7 +17,7 @@ export default () => {
   const isSingle = params.singleDropOff || params.singlePickup;
   const isBothSingle = params.singleDropOff && params.singlePickup;
 
-  // console.log("params => ", params);
+  console.log("params => ", params);
   return (
     <LayoutScrollView
       style={{
@@ -32,6 +32,7 @@ export default () => {
           color: Constants.theme.primary,
         }}
         iconRight={require("../../../../../assets/cancel.png")}
+        onRightIconPress={() => navigate("logisticsMain")}
       />
 
       {isSingle && !isBothSingle && (

@@ -6,6 +6,7 @@ import { Text } from "../Layout/";
 import { ModalView, ModalCenteredView, Row } from "./styles";
 
 export default ({
+  error,
   BottomRow,
   ModalTitle,
   modalVisible,
@@ -27,7 +28,7 @@ export default ({
           setModalVisible(!modalVisible);
         }}
       >
-        <ModalCenteredView>
+        <ModalCenteredView onPress={() => setModalVisible(false)}>
           <ModalView style={styles.modalView}>
             {ModalTitle && <ModalTitle />}
 
@@ -42,10 +43,7 @@ export default ({
 
       <Button
         style={[{ backgroundColor: Constants.theme.primary }, buttonStyle]}
-        onPress={() => {
-          setModalVisible(true);
-          cb && cb();
-        }}
+        onPress={cb}
       >
         <Text style={[{ fontSize: 24, color: buttonColor }, buttonTextStyle]}>
           {buttonText}

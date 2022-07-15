@@ -1,6 +1,6 @@
 const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g;
-const nameRegex = /^[a-zA-Z]+$/g;
+const nameRegex = /^[a-zA-Z\s]+$/g;
 const userNameRegex = /^[a-zA-Z0-9]+$/g;
 
 // Password Conditions
@@ -21,13 +21,13 @@ function empty(value) {
 }
 
 function isEmpty(value) {
-  if (value === "") return true;
+  if (value === " ") return true;
 
   return false;
 }
 
 function onlyLetters(value) {
-  if (nameRegex.test(value)) return true;
+  if (value.match(nameRegex)) return true;
   else {
     return false;
   }
@@ -74,7 +74,7 @@ function containsChar(value, code) {
   }
 }
 
-function matchWithRegex(regEx, value) {
+function matchWithRegex(regEx, value = "") {
   if (value.match(regEx)) return true;
   else {
     return false;

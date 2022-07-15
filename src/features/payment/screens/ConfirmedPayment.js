@@ -6,7 +6,7 @@ import { SubTitle, Title } from "./style";
 export default function () {
   const { navigate } = useNavigation();
 
-  const redirect = () => setTimeout(() => navigate("logisticsMain"), 5000);
+  const redirect = () => setTimeout(() => navigate("logisticsMain"), 200);
   useEffect(() => {
     redirect();
   }, []);

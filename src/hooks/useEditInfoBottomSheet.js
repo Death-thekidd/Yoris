@@ -1,21 +1,18 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useEffect, useCallback, useMemo, useRef, useState } from "react";
 import { Section, Text } from "../components/Layout";
-import {
-  BottomSheetModal,
-  BottomSheetTextInput,
-  BottomSheetScrollView,
-} from "@gorhom/bottom-sheet";
+import { BottomSheetModal, BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { Constants } from "../../constants/db.mock";
-import { useEffect } from "react";
-import { memo } from "react";
 import AddLocationInput from "../features/logictics/components/AddLocationInput";
 import Selector from "../components/Selector";
-import { FlatList, View } from "react-native";
+import { FlatList, Pressable, View } from "react-native";
 import InfoInput from "../features/logictics/components/InfoInput";
 import VehicleType from "../features/logictics/components/VehicleType";
 import { Button } from "../components/Button";
 import { useRoute } from "@react-navigation/native";
 import Header from "../components/Header";
+import useInput from "./useInput";
+import { FontAwesome } from "../components/Icons";
+import { Controller, useForm } from "react-hook-form";
 
 export default () => {
   // ref
@@ -42,34 +39,77 @@ export default () => {
       itemCategory,
       setSavedAddresses,
       selectedVehicleIndex,
+      isDrop = null,
     }) => {
       const { params } = useRoute();
       // states
       const [selectedVehicle, setSelectedVehicle] =
         useState(selectedVehicleIndex);
       const [selectedCategory, setSelectedCategory] = useState(null);
-      const [values, setValues] = useState();
+      const [values, setValues] = useState(null);
       const onVehicleChange = (key) => setSelectedVehicle(key);
+
+      const {
+        handleSubmit,
+        formState: { errors },
+        setError,
+        setValue,
+        control,
+      } = useForm();
+
+      const { Input } = useInput();
 
       useEffect(() => {
         setValues((prevValues) => ({
           ...prevValues,
           category: selectedCategory,
-          vehicle: vehicles[selectedVehicle].vehicle,
+          ...(isMultiple && { vehicle: vehicles[selectedVehicle].vehicle }),
         }));
         return setValues(null);
       }, [selectedCategory, selectedVehicle]);
 
-      const onSaveAddress = () => {
-        setSavedAddresses((prevPickups) => {
-          let newArr = [...prevPickups];
-          newArr[index] = {
-            ...newArr[index],
-            ...values,
-          };
-          return newArr;
-        });
-        setValues(null);
+      const onSaveAddress = (data) => {
+        !isDrop &&
+          setSavedAddresses((prevData) => {
+            let newArr = [...prevData];
+            newArr[index] = {
+              ...newArr[index],
+              address:
+                data[
+                  params.isInternationalActive ? "trackingId" : "pickUpAddress"
+                ],
+              ...(isMultiple && {
+                dropOff: {
+                  address: data.dropOffAddress,
+                  receiversName: data.receiversName,
+                  receiversPhone: data.receiversPhone,
+                },
+              }),
+            };
+            return newArr;
+          });
+
+        isDrop &&
+          setSavedAddresses((prevData) => {
+            let newArr = [...prevData];
+            newArr[index] = {
+              ...newArr[index],
+              ...(isMultiple && {
+                address:
+                  data[
+                    params.isInternationalActive
+                      ? "trackingId"
+                      : "pickUpAddress"
+                  ],
+                dropOff: {
+                  address: data.dropOffAddress,
+                  receiversName: data.receiversName,
+                  receiversPhone: data.receiversPhone,
+                },
+              }),
+            };
+            return newArr;
+          });
       };
 
       return (
@@ -95,50 +135,59 @@ export default () => {
               headerTitle={<Text>Edit Details</Text>}
               iconRight={require("../../assets/cancel.png")}
               onRightIconPress={onClose}
+              IconLeftComponent={() => (
+                <Pressable
+                  onPress={() =>
+                    setSavedAddresses((prevData) => {
+                      let newArr = [...prevData];
+                      newArr.splice(index, 1);
+                      console.log(newArr);
+
+                      return newArr;
+                    })
+                  }
+                >
+                  <FontAwesome
+                    name="trash-alt"
+                    color={Constants.theme.primary}
+                    size={25}
+                  />
+                </Pressable>
+              )}
             />
             <AddLocationInput
-              label={
-                params.isInternationalActive
-                  ? "Edit Tracking ID"
-                  : "Edit Pickup Location"
-              }
-              setValues={setValues}
+              errors={errors}
+              Input={Input}
               isMultiple={isMultiple}
-              notShowSaved
-              isEdit
-              defaultDropVal={
-                params.isInternationalActive && !isMultiple
-                  ? false
-                  : isMultiple
-                  ? info?.dropOff.address
-                  : null
-              }
-              defaultPickupVal={
-                info?.[params.isInternationalActive ? "trackingId" : "address"]
-              }
+              Controller={Controller}
+              control={control}
             />
-            <Section
-              style={{
-                flexDirection: "row",
-                marginVertical: 2,
-              }}
-            >
-              <FlatList
-                data={vehicles}
-                renderItem={({ item, index }) => (
-                  <VehicleType
-                    itemKey={index}
-                    onVehicleSelect={onVehicleChange}
-                    selectedVehicle={selectedVehicle}
-                    desc={item.desc}
-                    imgSrc={item.imgSrc}
-                    vehicle={item.vehicle}
-                  />
-                )}
-                numColumns={2}
-              />
-            </Section>
-            {isMultiple && (
+
+            {!isDrop && (
+              <Section
+                style={{
+                  flexDirection: "row",
+                  marginVertical: 2,
+                }}
+              >
+                <FlatList
+                  data={vehicles}
+                  renderItem={({ item, index }) => (
+                    <VehicleType
+                      itemKey={index}
+                      onVehicleSelect={onVehicleChange}
+                      selectedVehicle={selectedVehicle}
+                      desc={item.desc}
+                      imgSrc={item.imgSrc}
+                      vehicle={item.vehicle}
+                    />
+                  )}
+                  numColumns={2}
+                />
+              </Section>
+            )}
+
+            {(isMultiple || isDrop) && (
               <Section>
                 {/* Category Selector */}
                 <Selector
@@ -164,22 +213,25 @@ export default () => {
                   }}
                 />
                 <InfoInput
-                  setValues={setValues}
+                  Input={Input}
+                  errors={errors}
+                  setError={setError}
+                  setValue={setValue}
                   namePlaceholder={"Receiver’s name"}
                   phonePlaceholder={"Receiver’s Phone"}
-                  defaultNameVal={
-                    isMultiple ? info?.dropOff.receiversName : undefined
-                  }
-                  defaultPhoneVal={
-                    isMultiple ? info?.dropOff.receiversPhone : undefined
-                  }
+
+                  Controller={Controller}
+                  control={control}
                 />
               </Section>
             )}
 
-            <Button style={{ marginBottom: 10 }} onPress={onSaveAddress}>
+            <Button
+              style={{ marginBottom: 10 }}
+              onPress={handleSubmit(onSaveAddress)}
+            >
               <Text style={{ color: Constants.theme.primary, fontSize: 24 }}>
-                {"Save"}
+                Save
               </Text>
             </Button>
           </BottomSheetScrollView>

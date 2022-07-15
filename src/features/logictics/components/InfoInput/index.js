@@ -1,27 +1,29 @@
 import { countries } from "countries-list";
-import { useEffect } from "react";
-import { useState } from "react";
+import { isObject } from "lodash";
+import { useEffect, useState } from "react";
 import { Dimensions, TextInput, View } from "react-native";
 import Selector from "../../../../components/Selector";
 
 export default ({
-  setValues,
+  setError,
+  setValue,
+  Input,
+  Controller,
+  control,
   namePlaceholder = "",
   phonePlaceholder = "",
   defaultNameVal,
   defaultPhoneVal,
-  error,
-  setError,
-  selectedCountryCode,
-  setSelectedCountryCode,
+  errors,
 }) => {
-  /*   const [selectedCountryCode, setSelectedCountryCode] = useState(
+    const [selectedCountryCode, setSelectedCountryCode] = useState(
     `+${countries.NG.phone}`
-  ); */
-  const codes = [];
+  );
+  const [codes, setCodes] = useState("");
+
   useEffect(() => {
     for (let code in countries) {
-      codes.push(`+${countries[code].phone}`);
+      setCodes([`+${countries[code].phone}`]);
     }
   }, []);
 
@@ -29,20 +31,16 @@ export default ({
     <>
       <View
         style={{
-          borderBottomColor: error.receiversName ? "red" : "#C4C4C4",
+          borderBottomColor: errors?.receiversName ? "red" : "#C4C4C4",
           borderWidth: 1,
           width: "100%",
         }}
       >
-        <TextInput
-          onChangeText={(text) => {
-            setError({});
-
-            setValues((states) => ({
-              ...states,
-              dropOff: { ...states?.dropOff, receiversName: text },
-            }));
-          }}
+        <Input
+          name={"receiversName"}
+          required
+          Controller={Controller}
+          control={control}
           defaultValue={defaultNameVal}
           placeholder={namePlaceholder}
           placeholderTextColor={"white"}
@@ -53,6 +51,7 @@ export default ({
           }}
         />
       </View>
+
       <View
         style={{
           flexDirection: "row",
@@ -77,23 +76,18 @@ export default ({
 
         <View
           style={{
-            borderBottomColor: error.receiversPhone ? "red" : "#C4C4C4",
+            borderBottomColor: errors?.receiversPhone ? "red" : "#C4C4C4",
             borderWidth: 1,
             width: 252,
           }}
         >
-          <TextInput
+          <Input
+            name="receiversPhone"
             defaultValue={defaultPhoneVal}
-            onChangeText={(text) => {
-              setError({});
-              setValues((states) => ({
-                ...states,
-                dropOff: {
-                  ...states.dropOff,
-                  receiversPhone: selectedCountryCode + text,
-                },
-              }));
-            }}
+            Controller={Controller}
+            control={control}
+            phoneNumber
+            keyboaredType={"phone-pad"}
             placeholder={phonePlaceholder}
             placeholderTextColor={"white"}
             style={{
