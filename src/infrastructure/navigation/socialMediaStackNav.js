@@ -1,0 +1,143 @@
+import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import ProfileScreen from "../../features/socialMedia/screens/ProfileScreen";
+import Header from "../../features/socialMedia/Drawer/Header";
+import { Pressable, View } from "react-native";
+import CustomDrawer from "../../components/CustomDrawer";
+import { FontAwesome } from "../../components/Icons";
+import { createMaterialTopNavigator } from "@react-navigation/material-top-tabs";
+import New from "../../features/riders/screens/Notification/components/New";
+import { ueNavigation } from "@react-navigation/native";
+import Pending from "../../features/riders/screens/Notification/components/Pending";
+import Express from "../../features/riders/screens/Notification/components/Express";
+import Arrivals from "../../features/riders/screens/Notification/components/Arrivals";
+import OrderAccepted from "../../features/riders/components/OrderAccepted";
+import { Constants } from "../../../constants/db.mock";
+
+
+const Drawer = createDrawerNavigator();
+
+const Tab = createMaterialTopTabNavigator();
+
+const NotificationsTab = () => {
+  return (
+   <Tab.Navigator
+     screenOptions={{
+      activeTintColor: "#50d3a7",
+      tabBarActiveTintColor: Constants.theme.primary,
+      tabBarInactiveTintColor: Constants.theme.primary,
+      inactiveTintColor: "white",
+      tabBarPressColor: "transparent",
+      tabBarShowIcon: true,
+      tabBarIndicatorStyle: {
+        backgroundColor: "#9A8340",
+      },
+
+      tabBarStyle: {
+        elevation: 10,
+        backgroundColor: "#0B090A",
+        borderRadius: 1,
+      }
+     }}
+    >
+      <Tab.Screen name="New" component={New} />
+      <Tab.Screen name="Pending" component={Pending} />
+      <Tab.Screen name="Arrivals" component={Arrivals} />
+      <Tab.Screen name="Express" component={Express} />
+   </Tab.Navigator>
+  );
+};
+
+const drawerScreens = [
+  {
+   name: "mainProfile",
+   options: {
+     header: () => (
+       <View
+         style={{
+          paddingHorizontal: 20,
+          backgroundColor: Constants.theme.dark,
+         }}
+       >
+         <Header />
+      </View>
+     ),
+     title: "Profile",
+     drawerIcon: (props) => <FonttAwesome {...props} name="user-edit" />,
+   },
+   component: ProfileScreen,
+  },
+];
+
+const ProfileDrawer = () => {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Constants.theme.dark,
+        },
+        drawerActiveTintColor: "#fff",
+        drawerActiveBackgroundColor: "transparent",
+        drawerInactiveTintColor: "#fff",
+        drawerItemStyle: {
+          marginVertical: 20,
+        }
+      }}
+      drawerContent={(props) => <CustomDrawer {...props}  />}
+     >
+     {drawerScreens.map((props) => (
+      <Drawer.Screen {...props} />
+     ))}
+    </Drawer.Navigator>
+  );
+};
+
+const Stack = createStackNavigator();
+
+const ProfileNavigation = () => {
+  const { navigate } = useNavigation();
+  return (
+    <Stack.Navigator
+       screenOptions={{
+        headerShown: false,
+       }}
+    >
+     <Stack.Screen name="profileDrawer" component={ProfileDrawer} />
+
+     <Stack.Screen 
+        name="notifications"
+        component={NotificationsTab}
+        options={{
+          headerShown: true,
+          header: () => (
+            <View
+              style={{
+                paddingHorizontal: 20,
+                backgroundColor: Constants.theme.dark,
+              }}
+             >
+             <Header 
+               RightComponent={() => (
+                <Pressable
+                  onPress={() => 
+                  navigate("profileDrawer", {
+                    isUser: false,
+                    isSocial: true,
+                  })
+                }
+                >
+                 <FontAwesome 
+                   color={Constants.theme.primary}
+                   name={"user"}
+                   size={20}
+                 />
+                </Pressable>
+               )}
+             />
+            </View>
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
+}

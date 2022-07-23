@@ -33,7 +33,6 @@ export default function RegisterUsers({ navigation }) {
        <Header
           iconLeft={require("../../../../assets/backIcon.png")}
           onLeftIconPress={() => goBack()}
-          onRightIconPress={() => navigate("logisticsMain")}
          />
       </RegisterHeader>
        <RegisterSection>

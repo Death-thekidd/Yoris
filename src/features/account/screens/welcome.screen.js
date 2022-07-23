@@ -10,7 +10,7 @@ export default function WelcomeUsers({ navigation }) {
     return(
       <WelcomeContainer>
          <WelcomeText>Welcome!</WelcomeText>
-         <Pressable>
+         <Pressable onPress={() => navigation.navigate("settings")}>
             <WelcomeButton>sign in</WelcomeButton>
          </Pressable>
          <Pressable onPress={() => navigation.navigate("register")}>

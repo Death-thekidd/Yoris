@@ -70,10 +70,9 @@ const Tab = () => {
           },
         }}
       >
-        <Tabs.Screen name="Stores" component={Storesscreen} />
+        <Tabs.Screen name="Puddle" component={SocialNavigator} />
         <Tabs.Screen name="Account" component={AccountNavigator} />
         <Tabs.Screen name="Logistics" component={LogisticNavigator} />
-        <Tabs.Screen name="SocialMedia" component={SocialNavigator} />
       </Tabs.Navigator>
     </>
   );
