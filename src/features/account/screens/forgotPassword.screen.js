@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { 
     RegisterContainer,
     RegisterTertiary,
@@ -9,6 +9,8 @@ import {
 } from '../components/account.styles';
 
 export default function ForgotPassword({ navigation }) {
+    const [text, setText] = useState("");
+    
     return (
      <RegisterContainer>
          <RegisterTertiary>Forgot Password</RegisterTertiary>
@@ -19,6 +21,13 @@ export default function ForgotPassword({ navigation }) {
          <RegisterSection>
              <RegisterInput 
                 type="text"
+                name="password"
+                autoCapitalize="none"
+                autoCorrect={false}
+                textContentType="forgotPassword"
+                secureTextEntry
+                enablesReturnKeyAutomatically
+                setText={setText}
              />
              <RegisterBtn onPress={() => navigation.navigate('code')}>continue</RegisterBtn>
          </RegisterSection>

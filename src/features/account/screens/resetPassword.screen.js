@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { 
     RegisterContainer,
     RegisterTertiary,
@@ -9,6 +9,7 @@ import {
 } from '../components/account.styles';
 
 export default function ResetPassword({ navigation }) {
+    const [text, setText] = useState("");
     return (
       <RegisterContainer>
          <RegisterTertiary>Reset Password</RegisterTertiary>
@@ -19,13 +20,27 @@ export default function ResetPassword({ navigation }) {
         <RegisterSection>
             <RegisterInput 
                type="text"
+               name="password"
+               autoCapitalize="none"
+               autoCorrect={false}
+               textContentType="newPassword"
+               secureTextEntry
+               enablesReturnKeyAutomatically
                placeholder={"Password"}
                placeholderTextColor={"#fff"}
+               setTExt={setText}
             />
             <RegisterInput 
                 type="text"
+                name="password"
+                autoCapitalize="none"
+                autoCorrect={false}
+                textContentType="newPassword"
+                secureTextEntry
+                enablesReturnKeyAutomatically
                 placeholder={"Confirm Password"}
                 placeholderTextColor={"#fff"}
+                setText={setText}
             />
             <RegisterBtn onPress={() => navigation.navigate("signIn")}>continue</RegisterBtn>
         </RegisterSection>

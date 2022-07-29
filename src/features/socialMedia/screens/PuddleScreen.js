@@ -17,11 +17,11 @@ import {
  ProfileInput,
  ProfileInputBox,
  ProfileInputImage,
+ ProfileCircleImage,
  ProfileIconView,
  ProfileIconText,
  ProfileImageView,
- ProfileImagePost,
- ProfileCommentBox
+ ProfileImagePost
 } from '../components/profile.styles';
 const scrollElementHeightPercent = 45;
 
@@ -32,7 +32,7 @@ export default function PuddleScreen({ navigation }) {
     const [scrollViewHeight, setScrollViewHeight] = useState(0);
 
     const scrollPerc =  (contentOffset.y / (contentSize - scrollViewHeight)) 
-       * (200 - scrollElementHeightPercent);
+       * (170 - scrollElementHeightPercent);
     return (
       <LayoutScrollView
          style={{
@@ -222,17 +222,9 @@ export default function PuddleScreen({ navigation }) {
              </ProfileInput>
             <ProfileInput>
                <TouchableOpacity>
-                  <ProfileCommentBox>
-                     <Chats 
-                       style={{
-                        top: 10,
-                        left: 10,
-                       }}
-                       color="#000"
-                       size={20}
-                       name="hipchat"
-                     />
-                  </ProfileCommentBox>
+                    <ProfileCircleImage 
+                      source={require("../../../../assets/Chat.png")}
+                    />
                </TouchableOpacity>
            </ProfileInput>
            </View>

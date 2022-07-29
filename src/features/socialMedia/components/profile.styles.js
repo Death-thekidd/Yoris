@@ -72,16 +72,6 @@ export const ProfileInputBox = styled.View`
    cursor: pointer;
 `;
 
-export const ProfileCommentBox = styled.View`
-   background-color: ${Constants.theme.primary};
-   height: ${ww(48)}px;
-   width: ${ww(48)}px;
-   border-radius: 60px;
-   z-index: 100;
-   top: 300px;
-   left: 250px;
-   cursor: pointer
-`;
 
 export const ProfileImageBox = styled.Image`
    width: ${ww(20)}px;
@@ -95,6 +85,16 @@ export const ProfileInputImage = styled.Image`
    height: ${ww(29)}px;
    top: 10px;
    left: 7px;
+`;
+
+export const ProfileCircleImage = styled.Image`
+    height: ${ww(100)}px;
+   width: ${ww(100)}px;
+   border-radius: 60px;
+   z-index: 100;
+   top: 300px;
+   left: 230px;
+   cursor: pointer
 `;
 
 export const ProfileView = styled.View`

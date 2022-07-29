@@ -30,7 +30,9 @@ export const RegisterInput = styled(TextInput)`
   top: 20px;
   background: #4E4E4E;
   margin-bottom: 20px;
+  font-size: 16px;
   border-radius: 30px;
+  color: #fff;
   padding: 10px;
 `;
 
