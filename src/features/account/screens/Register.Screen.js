@@ -23,7 +23,7 @@ import { useTogglePasswordVisibility } from './../toggle/index';
 
 
 
-const itemCategory = ["Fintech"];
+const itemCategory = ["Industry"];
 export default function RegisterUsers({ navigation }) {
    const { goBack, navigate } = useNavigation();
    const [text, setText] = useState("");
