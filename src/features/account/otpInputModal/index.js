@@ -145,7 +145,7 @@ export default ({
               <Button
                onPress={() => navigation.navigate('resetPassword')}
                 style={{
-                  marginBottom: 25,
+                  marginBottom: 24,
                   borderRadius: 50,
                   paddingHorizontal: 25,
                   backgroundColor: "#4E4E4E",
