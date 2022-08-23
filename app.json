@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Yoris",
+    "slug": "Yoris",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/Yoris.png",
+    "splash": {
+      "image": "./assets/Yoris.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "",
+        "backgroundColor": "#000000"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": ""
+  }
+}

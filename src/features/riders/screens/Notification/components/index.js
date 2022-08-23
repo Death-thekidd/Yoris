@@ -1,0 +1,114 @@
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import { Image, Pressable, View } from "react-native";
+import { List } from "react-native-paper";
+import { Constants } from "../../../../../../constants/db.mock";
+import { Section, Text } from "../../../../../components/Layout";
+import { PressableSection } from "../../../../../components/Layout/styles";
+import { Row } from "../../../../logictics/components/VehicleType/styles";
+import RejectReason from "../../../components/RejectReason";
+import { Detail, Title } from "./Express/style";
+import OtpInputModal from "../../../../../components/OtpInputModal/Index";
+
+const Details = () => {
+  const { navigate } = useNavigation();
+  return (
+    <Section>
+      <Title style={{ color: "#fff", marginTop: 0 }}>Pick-up Details:</Title>
+
+      <Detail>Street name, bus-stop, local govt area.</Detail>
+
+      <Detail>Phone Number</Detail>
+      <Title style={{ color: "#fff" }}>Delivery Details:</Title>
+
+      <Detail>Street name, bus-stop, local govt area.</Detail>
+
+      <Detail>Phone Number: </Detail>
+      <Detail>Delivery fee: N0.00 </Detail>
+      <Detail>Commission fee: N0.00 </Detail>
+
+      <Row>
+        <OtpInputModal
+          buttonText={"Picked up"}
+          buttonStyle={{
+            borderRadius: 50,
+            backgroundColor: Constants.theme.primary,
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 10,
+            marginTop: 10,
+            alignSelf: "center",
+            height: 40,
+          }}
+          onOtpValidate={() => navigate("orderAccepted")}
+        />
+
+        <RejectReason />
+      </Row>
+    </Section>
+  );
+};
+
+export const UserAccordion = ({ BottomComponent, details = false }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handlePress = details ? () => setExpanded(!expanded) : null;
+  return (
+    <PressableSection
+      onPress={handlePress}
+      style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+    >
+      <Image
+        style={{
+          width: 64,
+          height: 64,
+          // marginRight: 500,
+        }}
+        source={require("../../../../../../assets/profile.png")}
+      />
+      <View style={{}}>
+        <Text
+          style={{
+            color: Constants.theme.primary,
+            fontSize: 20,
+          }}
+        >
+          User 4 ordered XXXXXX
+        </Text>
+        <Row
+          style={{
+            justifyContent: "space-between",
+          }}
+        >
+          <Text
+            style={{
+              color: "#C4C4C4",
+              marginRight: 10,
+            }}
+          >
+            8/3/2022
+          </Text>
+          <Text
+            style={{
+              color: "#C4C4C4",
+              marginRight: 10,
+            }}
+          >
+            N0.00
+          </Text>
+          <Text
+            style={{
+              color: "#C4C4C4",
+              marginRight: 10,
+            }}
+          >
+            0.7km Away
+          </Text>
+        </Row>
+        {!expanded && BottomComponent && <BottomComponent />}
+
+        {details && expanded && <Details />}
+      </View>
+    </PressableSection>
+  );
+};
