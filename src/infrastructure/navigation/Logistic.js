@@ -78,6 +78,8 @@ import SignIn from "../../features/account/screens/signIn.screen";
 import ForgotPassword from "../../features/account/screens/forgotPassword.screen";
 import CodeScreen from "../../features/account/screens/code.screen";
 import ResetPassword from "../../features/account/screens/resetPassword.screen";
+import Notification2 from "../../features/ecommerce/notification";
+import Filter from "../../features/ecommerce/filterSearch";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
