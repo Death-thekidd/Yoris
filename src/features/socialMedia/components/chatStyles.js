@@ -6,6 +6,7 @@ export const TopView = styled.View`
   flex-direction: row;
   align-items: center;
   display: flex;
+  margin-top: ${ww(60)}px;
 `;
 
 export const HeadText = styled.Text`

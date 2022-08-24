@@ -282,6 +282,7 @@ export const AccountNavigator = () => {
     >
       <Tabs.Screen name="Tabs" component={TabScreen} />
       <Screens.Screen name="Ecommerce" component={Ecommerce} />
+      <Screens.Screen name="Filter" component={Filter} />
       <Screens.Screen name="Fintech1" component={Fintech1} />
       <Screens.Screen name="Ecommerce2" component={Ecommerce2} />
       <Screens.Screen name="Ecommerce3" component={Ecommerce3} />
@@ -371,6 +372,7 @@ export const AccountNavigator = () => {
       <Screens.Screen name="deleted" component={Deleted} />
       <Screens.Screen name="editVendorProfile" component={EditVendorProfile} />
       <Screens.Screen name="notification" component={Notification} />
+      <Screens.Screen name="notification2" component={Notification2} />
       <Screens.Screen name="settings" component={Settings} />
       <Screens.Screen name="register" component={RegisterScreen} />
       <Screens.Screen name="signIn" component={SignIn} />

@@ -19,7 +19,7 @@ import Contacts from "../components/Contacts";
 import Vendors from "../components/Vendors";
 import { ww, hh, wp } from "../components/Vendors";
 
-export default function ChatScreen() {
+export default function ChatScreen({ navigation }) {
   const [isVendors, setIsVendors] = useState(false);
   return (
     <SafeAreaView style={styles.chatContainer}>
