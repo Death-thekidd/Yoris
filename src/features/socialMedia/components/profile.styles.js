@@ -82,7 +82,7 @@ export const ProfileImageBox = styled.Image`
   width: ${ww(20)}px;
   height: ${ww(20)}px;
   top: 10px;
-  left: 7px;
+  align-self: center;
 `;
 
 export const ProfileInputImage = styled.Image`
@@ -131,7 +131,7 @@ export const ProfileSpan = styled.Text`
 `;
 
 export const ProfileIconView = styled.View`
-  margin-top: 450px;
+  margin-top: 470px;
   left: 20px;
   margin-bottom: 20px;
 `;

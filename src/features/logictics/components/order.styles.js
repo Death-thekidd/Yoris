@@ -1,25 +1,29 @@
 import styled from "styled-components/native";
+import { Button } from "react-native-paper";
+import { colors } from '../../../infrastructure/theme/colors';
+import { Constants } from '../../../../constants/db.mock';
+import { ww, wp } from "../../../../responsive";
 
 export const OrderHeader = styled.View`
-   right: 70px;
+   right: 130px;
 `;
 
 export const OrderCycle = styled.View`
-  width: 240px;
-  height: 360px;
-  margin-bottom: 30px;
-  top: 40px;
+  width: ${ww(240)}px;
+  height: ${ww(360)}px;
+  margin-bottom: ${ww(20)}px;
+  margin-top: ${(20)}px;
   align-self: center;
   border: 1px solid #C3AD60;
 `;
 
 export const OrderPrimary = styled.Text`
   color: #fff;
-  font-size: 18px;
+  font-size: ${ww(18)}px;
   font-weight: bold;
-  top: 20px;
+  margin-top: ${(20)}px;
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-family: "Roboto";
   left: 20px;
 `;
@@ -41,34 +45,31 @@ export const OrderRow = styled.View`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: ${ww(10)}px;
   align-items: center;
 `;
 
 export const OrderCost = styled.Text`
   color: #fff;
   font-weight: 300;
-  font-size: 13px;
-  top: 40px;
-  left: 10px;
+  font-size: ${ww(13)}px;
+  left: ${ww(10)}px;
   text-align: left;
 `;
 
 export const OrderPrice = styled.Text`
   color: #fff;
   font-weight: 300;
-  font-size: 13px;
-  top: 40px;
-  left: 5px;
+  font-size: ${ww(13)}px;
+  left: 13px;
   text-align: left;
 `;
 
 export const OrderTag = styled.Text`
   color: #fff;
   font-weight: 300;
-  font-size: 13px;
-  top: 40px;
-  left: 70px;
+  font-size: ${ww(13)}px;
+  left: 68px;
   text-align: left;
 `;
 
@@ -76,7 +77,6 @@ export const OrderEstimate = styled.Text`
   color: #fff;
   font-weight: 300;
   font-size: 13px;
-  top: 40px;
   left: 18px;
   text-align: left;
 `;
@@ -86,14 +86,12 @@ export const OrderNumber = styled.Text`
   font-weight: bold;
   font-size: 30px;
   left: 15px;
-  top: 30px;
   text-align: left;
 `;
 
 export const OrderBox = styled.View`
   flex-direction: row;
-  margin-top: 15px;
-  left: 20px;
+  padding-left: ${ww(50)}px;
   align-self: center;
 `;
 
@@ -104,4 +102,20 @@ export const Span = styled.Text`
   left: 15px;
   font-weight: 300;
   font-family: "Roboto";
+`;
+
+export const OrderBtn = styled(Button).attrs({
+  color: colors.brand.primary,
+})`
+  width: ${ww(300)}px;
+  height: 48px;
+  border: 1px solid ${Constants.theme.primary};
+  align-items: center;
+  color: ${Constants.theme.primary};
+  padding: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  align-self: center;
+  border-radius: 10px;
+  text-transform: uppercase;
 `;

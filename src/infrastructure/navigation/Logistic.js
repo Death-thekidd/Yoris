@@ -42,6 +42,7 @@ import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle"
 import LogisticsDetails from "../../features/logictics/screens/logisticsDetails";
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
+import ShippingDetails from '../../features/logictics/screens/shipingDetails';
 import {
   PaymentScreen,
   PaymentOptions,
@@ -72,7 +73,7 @@ import Notification from "../../features/socialMedia/screens/notification";
 import Settings from "../../features/socialMedia/screens/settings";
 
 import WelcomeScreen from "../../features/account/screens/welcome.screen";
-import RegisterScreen from "../../features/account/screens/Register.Screen";
+import RegisterUsers from "../../features/account/screens/Register.Screen";
 import SignIn from "../../features/account/screens/signIn.screen";
 import ForgotPassword from "../../features/account/screens/forgotPassword.screen";
 import CodeScreen from "../../features/account/screens/code.screen";
@@ -353,6 +354,7 @@ export const AccountNavigator = () => {
       <Screens.Screen name="confirmOrder" component={ConfirmOrder} />
       <Screens.Screen name="logisticsVehicle" component={LogisticsVehicle} />
       <Screens.Screen name="logisticsDetails" component={LogisticsDetails} />
+      <Screens.Screen name="ship" component={ShippingDetails} />
       <Screens.Screen name="logisticsOrder" component={LogisticsOrder} />
       <Screens.Screen name="shipping" component={LogisticsShipping} />
       <Screens.Screen name="paymentScreen" component={PaymentScreen} />
@@ -374,7 +376,7 @@ export const AccountNavigator = () => {
       <Screens.Screen name="notification" component={Notification} />
       <Screens.Screen name="notification2" component={Notification2} />
       <Screens.Screen name="settings" component={Settings} />
-      <Screens.Screen name="register" component={RegisterScreen} />
+      <Screens.Screen name="register" component={RegisterUsers} />
       <Screens.Screen name="signIn" component={SignIn} />
       <Screens.Screen name="forgotPassword" component={ForgotPassword} />
       <Screens.Screen name="resetPassword" component={ResetPassword} />

@@ -15,12 +15,13 @@ import {
      OrderEstimate,
      OrderNumber,
      OrderBox,
-     Span
+     Span,
+     OrderBtn
   } from '../components/order.styles';
 import { LocationBtn } from '../components/location.styles';
 import Header from '../../../components/Header';
 
-export default function LogisticsOrder({ navigation }) {
+export default function LogisticsOrder() {
    const { goBack, navigate } = useNavigation();
    const [checked, setChecked] = useState(true);
   return (
@@ -70,7 +71,14 @@ export default function LogisticsOrder({ navigation }) {
               <Span>Read Terms and conditions?</Span>
            </OrderBox>
         </OrderWrapper>
-       <LocationBtn onPress={() => navigation.navigate("paymentScreen")}>Process To Payment</LocationBtn>
+       <LocationBtn 
+         onPress={() => navigate("paymentScreen")}
+         >
+          Proceed To Payment
+        </LocationBtn>
+        <OrderBtn>
+         print reciept
+        </OrderBtn>
       </LayoutScrollView>
   );
 }

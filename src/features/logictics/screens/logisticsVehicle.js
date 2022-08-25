@@ -84,7 +84,9 @@ export default function LogisticsVehicle({ navigation }) {
            </VehicleRow>
         </VehicleWrapper>
       </VehicleCycle>
-      <VehicleCycle>
+      <VehicleCycle 
+        onPress={() => navigate('ship')}
+      >
         <VehicleWrapper>
            <VehicleRow>
               <ImageVehicle source={require("../../../../assets/vehicle2.png")} />

@@ -1,5 +1,8 @@
 import styled from 'styled-components/native';
-import { TextInput } from 'react-native-paper';
+import { Button } from 'react-native-paper';
+import { colors } from '../../../infrastructure/theme/colors';
+import { Constants } from '../../../../constants/db.mock';
+import { ww } from '../../../../responsive';
 
 export const LocationContainer = styled.View`
    display: flex;
@@ -145,18 +148,17 @@ export const LocationNumber = styled.Text`
    border-radius: 3px;
 `;
 
-export const LocationBtn = styled.Text`
-   position: relative;
-   width: 260px
-   height: 60px;
-   padding: 12px;
-   top: 43px;
+export const LocationBtn = styled(Button).attrs({ color: colors.ui.primary  })`
+   width: ${ww(300)}px;
+   height: 48px;
+   padding: 5px;
+   margin-top: 20px;
    align-self: center;
-   color: #000;
+   color: ${Constants.theme.dark};
    font-weight: 400;
-   font-size: 18px;
-   background: #C3AD60;
-   border-radius: 5px;
+   font-size: ${ww(18)}px;
+   background: ${Constants.theme.primary};
+   border-radius: 10px;
    text-transform: uppercase;
    margin-bottom: 30px;
 `;
