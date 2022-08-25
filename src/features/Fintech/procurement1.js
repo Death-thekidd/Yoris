@@ -17,6 +17,7 @@ import {
   BtnText,
   MiddleText,
 } from "../componenets/fintech1Style";
+import { ww, hh, wp } from "../../../responsive";
 
 export default function Procurement1({ navigation }) {
   return (
@@ -24,29 +25,34 @@ export default function Procurement1({ navigation }) {
       <ScrollView>
         <FirstView>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <AntDesign size={30} color="#C3AD60" name="back" />
+            <AntDesign
+              size={20}
+              color="#C3AD60"
+              name="back"
+              style={{ paddingLeft: ww(54) }}
+            />
           </TouchableOpacity>
 
           <BigText style={styles.padd}>Procurement</BigText>
 
-          <View style={styles.icons}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Procurement9")}
-            >
-              <AntDesign size={20} color="#C3AD60" name="bells" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.touch}
-              onPress={() => navigation.navigate("Procurement6")}
-            >
-              <Feather size={20} color="#C3AD60" name="clipboard" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Procurement10")}
-            >
-              <MaterialIcons size={20} color="#C3AD60" name="history" />
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={styles.bells}
+            onPress={() => navigation.navigate("Procurement9")}
+          >
+            <AntDesign size={20} color="#C3AD60" name="bells" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.clipboard}
+            onPress={() => navigation.navigate("Procurement6")}
+          >
+            <Feather size={20} color="#C3AD60" name="clipboard" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.history}
+            onPress={() => navigation.navigate("Procurement10")}
+          >
+            <MaterialIcons size={20} color="#C3AD60" name="history" />
+          </TouchableOpacity>
         </FirstView>
 
         <SecondView>
@@ -75,13 +81,12 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#000",
     flex: 1,
-    paddingTop: 20,
   },
   btn: {
     backgroundColor: "#C3AD60",
     borderRadius: 100,
-    height: 65,
-    width: 283,
+    height: ww(64),
+    width: ww(320),
     alignItems: "center",
     justifyContent: "center",
     color: "#000",
@@ -90,8 +95,8 @@ const styles = StyleSheet.create({
     marginTop: 39,
     backgroundColor: "#C3AD60",
     borderRadius: 100,
-    height: 65,
-    width: 283,
+    height: ww(64),
+    width: ww(320),
     alignItems: "center",
     justifyContent: "center",
     color: "#000",
@@ -106,11 +111,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     color: "#fff",
   },
-  touch: {},
-  icons: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "30%",
+  clipboard: {
+    paddingLeft: ww(29),
+  },
+  bells: {
+    paddingLeft: ww(36),
+  },
+  history: {
+    paddingLeft: ww(32),
   },
 });

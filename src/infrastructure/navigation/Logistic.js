@@ -236,14 +236,6 @@ const TabScreen = () => {
       //     }
       // }}
     >
-      <Tabs.Screen
-        name="Account"
-        component={WelcomeScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-
       <Tabs.Screen name="Logistic" component={Logisticscreen} />
 
       <Tabs.Screen
@@ -279,8 +271,10 @@ export const AccountNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
+      initialRouteName="Account"
     >
       <Tabs.Screen name="Tabs" component={TabScreen} />
+      <Screens.Screen name="Account" component={WelcomeScreen} />
       <Screens.Screen name="Ecommerce" component={Ecommerce} />
       <Screens.Screen name="Filter" component={Filter} />
       <Screens.Screen name="Fintech1" component={Fintech1} />
