@@ -22,7 +22,7 @@ import {
  } from '../components/details.styles';
  import Header from '../../../components/Header';
 
-export default function LogisticsDetails() {
+export default function ShippingDetails() {
   const { goBack, navigate } = useNavigation();
     return(
      <LayoutScrollView>
@@ -68,13 +68,14 @@ export default function LogisticsDetails() {
        <DetailsHover>
          <DetailsWrapper>
           <DetailsRow>
-            <ImageBike source={require('../../../../assets/details1.png')} />
+            <ImageBike source={require('../../../../assets/ship.png')} />
           </DetailsRow>
           <DetailsRow>
-            <DetailsCopy>Motorcycle</DetailsCopy>
+            <DetailsCopy>Ship</DetailsCopy>
             <DetailsText>
-              Small - Medium Size {'\n'}
-              packages 
+              All size packages {'\n'}
+              Local and international {'\n'}
+              regular delivery 
             </DetailsText>
           </DetailsRow>
          </DetailsWrapper>

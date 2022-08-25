@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Button } from "react-native-paper";
 import { Constants } from "../../../../constants/db.mock";
+import { ww } from '../../../../responsive';
 
 export const DetailsWrapper = styled.View`
   display: flex;
@@ -42,7 +43,7 @@ export const DetailsSecondary = styled.Text`
   font-weight: bold;
   top: 20px;
   text-align: left;
-  left: 60px;
+  padding-left: 30px;
   font-family: "Roboto";
 `;
 
@@ -51,13 +52,12 @@ export const DetailsTertiary = styled.Text`
   top: 40px;
   font-size: 15px;
   text-align: left;
-  left: 60px;
+  padding-left: 30px;
   font-famiy: "Roboto";
 `;
 
 export const DetailsHover = styled.View`
-  position: relative;
-  width: 260px;
+  width: ${ww(300)}px;
   height: 96px;
   top: 55px;
   align-self: center;
@@ -78,7 +78,7 @@ export const DetailsParagraph = styled.Text`
   font-size: 18px;
   font-weight: 400;
   left: 50px;
-  top: 15px;
+  top: 20px;
 `;
 
 export const DetailsLocation = styled.Text`
@@ -86,8 +86,7 @@ export const DetailsLocation = styled.Text`
   top: 60px;
   font-size: 15px;
   text-align: left;
-  left: 60px;
-  font-famiy: "Roboto";
+  padding-left: 30px;
 `;
 
 export const DetailsCycle = styled.View`
@@ -106,8 +105,7 @@ export const DetailsDrop = styled.Text`
   top: 60px;
   font-size: 15px;
   text-align: left;
-  left: 60px;
-  font-famiy: "Roboto";
+  padding-left: 30px;
 `;
 
 export const DetailsAddress = styled.Text`
@@ -125,7 +123,7 @@ export const DetailsType = styled.Text`
   top: 60px;
   font-size: 15px;
   text-align: left;
-  left: 60px;
+  padding-left: 30px;
   margin-bottom: 10px;
   font-famiy: "Roboto";
 `;
@@ -133,28 +131,34 @@ export const DetailsType = styled.Text`
 export const DetailsCopy = styled.Text`
   color: ${Constants.theme.dark};
   font-size: 18px;
-  font-weight: 400;
-  left: 20px;
-  top: 15px;
+  font-weight: bold;
+  top: 8px;
+`;
+
+export const DetailsText = styled.Text`
+  color: ${Constants.theme.dark};
+  font-size: 10px;
+  padding-left: 20px;
+  top: 2px;
 `;
 
 export const ImageBike = styled.Image`
-  top: 20px;
   left: 20px;
+  top: 10px;
 `;
 
 export const DetailsBtn = styled(Button).attrs({ color: colors.brand.primary })`
-  width: 260px;
-  height: 65px;
-  top: 60px;
+  width: ${ww(300)}px;
+  height: 48px;
+  margin-top: 60px;
   border: 1px solid ${Constants.theme.primary};
   align-items: center;
   color: ${Constants.theme.primary};
   align-self: center;
   font-weight: 400;
-  padding: 6px;
+  padding: 5px;
   font-size: 18px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   border-radius: 10px;
   text-transform: uppercase;
 `;

@@ -18,7 +18,6 @@ export default function CodeScreen() {
               email/phone number
           </RegisterParagraph>
           <RegisterRow>
-
            <OtpInputModal
                buttonStyle={{
                  borderRadius: 100,
