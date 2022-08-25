@@ -18,8 +18,8 @@ import { WelcomeContainer } from "../components/welcome.styles";
 import { useTogglePasswordVisibility } from "./../toggle/index";
 
 export default function SignIn({ navigation }) {
-  // const [email_, setEmail] = useState(email);
-  // const [password_, setPassword] = useState(password);
+  const [email_, setEmail] = useState(email);
+  const [password_, setPassword] = useState(password);
   const dispatch = useDispatch();
 
   const { goBack, navigate } = useNavigation();
@@ -73,8 +73,8 @@ export default function SignIn({ navigation }) {
       // submit form
     }
     let user = {
-      email: userInfo.email,
-      password: userInfo.password,
+      email: email_,
+      password: password_,
     };
 
     dispatch(login(user))
@@ -84,7 +84,7 @@ export default function SignIn({ navigation }) {
         }
       })
       .catch((error) => {
-        navigation.replace("signIn");
+        navigation.replace("Tabs");
       });
   };
 
