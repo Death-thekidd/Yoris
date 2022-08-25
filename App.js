@@ -1,16 +1,15 @@
-
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React from 'react'
+import React from "react";
 import { theme } from "./src/infrastructure/theme/index";
-
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Provider as StoreProvider } from "react-redux";
 import { ThemeProvider } from "styled-components/native";
 
-
-
 import { Navigation } from "./src/infrastructure/navigation";
+import store from "./src/store";
 
-import { LogBox } from 'react-native';
-import _ from 'lodash';
+import { LogBox } from "react-native";
+import _ from "lodash";
 
 import {
   useFonts as useOswald,
@@ -18,24 +17,14 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-
-
-
 export default function App() {
-
-
-  LogBox.ignoreLogs(['Setting a timer']);
+  LogBox.ignoreLogs(["Setting a timer"]);
   const _console = _.clone(console);
-  console.warn = message => {
-    if (message.indexOf('Setting a timer') <= -1) {
+  console.warn = (message) => {
+    if (message.indexOf("Setting a timer") <= -1) {
       _console.warn(message);
     }
   };
-
-
-
-
-
 
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -50,13 +39,11 @@ export default function App() {
   }
 
   return (
-    <>
+    <StoreProvider store={store}>
       <ThemeProvider theme={theme}>
-
-
         <Navigation />
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
-    </>
-  )
+    </StoreProvider>
+  );
 }
