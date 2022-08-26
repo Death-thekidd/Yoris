@@ -25,6 +25,7 @@
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
     "@react-navigation/stack": "^6.2.1",
+    "@reduxjs/toolkit": "^1.8.5",
     "camelize": "^1.0.0",
     "countries-list": "*",
     "country-list": "*",

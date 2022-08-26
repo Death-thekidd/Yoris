@@ -42,7 +42,7 @@ import LogisticsVehicle from "../../features/logictics/screens/logisticsVehicle"
 import LogisticsDetails from "../../features/logictics/screens/logisticsDetails";
 import LogisticsOrder from "../../features/logictics/screens/logisticsOrder";
 import LogisticsShipping from "../../features/logictics/screens/logisticsShipping";
-import ShippingDetails from '../../features/logictics/screens/shipingDetails';
+import ShippingDetails from "../../features/logictics/screens/shipingDetails";
 import {
   PaymentScreen,
   PaymentOptions,
@@ -80,6 +80,7 @@ import CodeScreen from "../../features/account/screens/code.screen";
 import ResetPassword from "../../features/account/screens/resetPassword.screen";
 import Notification2 from "../../features/ecommerce/notification";
 import Filter from "../../features/ecommerce/filterSearch";
+import { ww, wp } from "../../../responsive";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
@@ -206,13 +207,17 @@ const TabScreen = () => {
       // }}
       screenOptions={{
         activeTintColor: "#50d3a7",
-        tabBarActiveTintColor: "#fff",
-        tabBarInactiveTintColor: "#ddd",
+        tabBarActiveTintColor: "#c3ad60",
+        tabBarInactiveTintColor: "#9A8340",
         inactiveTintColor: "white",
         tabBarPressColor: "#cec6c6",
         tabBarShowIcon: true,
         tabBarIndicatorStyle: {
           backgroundColor: "#9A8340",
+        },
+
+        tabBarLabelStyle: {
+          fontSize: ww(12),
         },
 
         tabBarStyle: {
@@ -237,7 +242,13 @@ const TabScreen = () => {
       //     }
       // }}
     >
-      <Tabs.Screen name="Logistic" component={Logisticscreen} />
+      <Tabs.Screen
+        name="Puddle"
+        component={PuddleScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
 
       <Tabs.Screen
         name="Store"
@@ -246,13 +257,8 @@ const TabScreen = () => {
           headerShown: false,
         }}
       />
-      <Tabs.Screen
-        name="Social Media"
-        component={PuddleScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
+
+      <Tabs.Screen name="Logistic" component={Logisticscreen} />
 
       <Tabs.Screen
         name="Yoris Pay"
@@ -313,7 +319,13 @@ export const AccountNavigator = () => {
       <Screens.Screen name="Procurement7" component={Procurement7} />
       <Screens.Screen name="Procurement3" component={Procurement3} />
       <Screens.Screen name="Procurement2" component={Procurement2} />
-      <Screens.Screen name="Procurement10" component={Procurement10} />
+      <Screens.Screen
+        name="Procurement10"
+        component={Procurement10}
+        initialParams={{
+          paramKey: "Link",
+        }}
+      />
       <Screens.Screen
         name="Procurement6"
         component={Procurement6}
