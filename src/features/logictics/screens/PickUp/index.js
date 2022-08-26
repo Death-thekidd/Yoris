@@ -40,7 +40,7 @@ const vehicles = [
     vehicle: "Bus",
   },
 ];
-export default () => {
+export default ({ navigtion }) => {
   const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
   // states

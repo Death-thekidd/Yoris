@@ -43,7 +43,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <Navigation />
       </ThemeProvider>
-      <ExpoStatusBar style="auto" />
+      <ExpoStatusBar style="auto" hidden={true} />
     </StoreProvider>
   );
 }

@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   TextInput,
   Pressable,
+  FlatList,
   Modal,
 } from "react-native";
 import {
@@ -24,6 +25,7 @@ import {
   SugoiDekaitxt,
   Txt,
 } from "../componenets/fintech6Style";
+import { Products } from "./list";
 import { ww, hh, wp } from "../../../responsive";
 
 import { PhotoView, Quantity, QtyText } from "../componenets/fintech4Style";
@@ -31,6 +33,29 @@ export default function Pending({ navigation, route }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible1, setModalVisible1] = useState(false);
   const [routee, setRoute] = useState(route.params.paramKey);
+
+  const renderItem = ({ item }) => {
+    return item.type ? (
+      <View style={styles.photoview}>
+        <Image source={item.image} style={styles.image} />
+        <Quantity>
+          <QtyText>Qty: 1</QtyText>
+          <Icon name="caretdown" size={6} color="#fff" />
+        </Quantity>
+        <View style={styles.linkView}>
+          <Text style={styles.link}>{routee}</Text>
+        </View>
+      </View>
+    ) : (
+      <View style={styles.photoview}>
+        <Image source={item.image} style={styles.image} />
+        <Quantity>
+          <QtyText>Qty: 1</QtyText>
+          <Icon name="caretdown" size={6} color="#fff" />
+        </Quantity>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.fintech6container}>
@@ -51,52 +76,11 @@ export default function Pending({ navigation, route }) {
           </TouchableOpacity>
         </FirstView6>
         <SecondView6>
-          <View style={styles.photoview}>
-            <Image
-              source={require("../../../assets/camera.png")}
-              style={styles.image}
-            />
-            <Quantity>
-              <QtyText>Qty: 1</QtyText>
-              <Icon name="caretdown" size={6} color="#fff" />
-            </Quantity>
-            <View style={styles.linkView}>
-              <Text style={styles.link}>{routee}</Text>
-            </View>
-          </View>
-          <View style={styles.photoview}>
-            <Image
-              source={require("../../../assets/soap.png")}
-              style={styles.image}
-            />
-            <Quantity>
-              <QtyText>Qty: 1</QtyText>
-              <Icon name="caretdown" size={6} color="#fff" />
-            </Quantity>
-          </View>
-          <View style={styles.photoview}>
-            <Image
-              source={require("../../../assets/pro.png")}
-              style={styles.image}
-            />
-            <Quantity>
-              <QtyText>Qty: 1</QtyText>
-              <Icon name="caretdown" size={6} color="#fff" />
-            </Quantity>
-          </View>
-          <View style={styles.photoview}>
-            <Image
-              source={require("../../../assets/shoe.png")}
-              style={styles.image}
-            />
-            <Quantity>
-              <QtyText>Qty: 1</QtyText>
-              <Icon name="caretdown" size={6} color="#fff" />
-            </Quantity>
-          </View>
-          {/* <TouchableOpacity style={styles.paybtn}>
-                    <PayText>Pay All</PayText>
-                </TouchableOpacity> */}
+          <FlatList
+            data={Products}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+          />
         </SecondView6>
       </ScrollView>
     </SafeAreaView>

@@ -1,4 +1,5 @@
 import { LOGIN_SUCCESS, LOGOUT } from "../actions/type";
+import { createReducer } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const user = AsyncStorage.getItem("user");
 const initialState = user
