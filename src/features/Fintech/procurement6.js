@@ -24,6 +24,9 @@ import {
   Bigtxt,
   SugoiDekaitxt,
   Txt,
+  DateView,
+  Date,
+  Time,
 } from "../componenets/fintech6Style";
 import { Products } from "./list";
 import { ww, hh, wp } from "../../../responsive";
@@ -45,6 +48,10 @@ export default function Pending({ navigation, route }) {
         <View style={styles.linkView}>
           <Text style={styles.link}>{routee}</Text>
         </View>
+        <DateView>
+          <Date>DD/MM/YYYY</Date>
+          <Time>00:00AM</Time>
+        </DateView>
       </View>
     ) : (
       <View style={styles.photoview}>
@@ -53,6 +60,10 @@ export default function Pending({ navigation, route }) {
           <QtyText>Qty: 1</QtyText>
           <Icon name="caretdown" size={6} color="#fff" />
         </Quantity>
+        <DateView>
+          <Date>DD/MM/YYYY</Date>
+          <Time>00:00AM</Time>
+        </DateView>
       </View>
     );
   };
