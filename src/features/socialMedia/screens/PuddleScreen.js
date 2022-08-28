@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Image,
   View,
+  ScrollView,
   SafeAreaView,
   StyleSheet,
 } from "react-native";
@@ -15,6 +16,7 @@ import {
   ProfileWrapper,
   ProfileBody,
   ProfileRow,
+  ProfileLove,
   ProfileName,
   ProfileHandleRow,
   ProfileHandleImage,
@@ -110,7 +112,7 @@ export default function PuddleScreen({ navigation }) {
             marginBottom: 30,
           }}
         >
-          <ProfileRow>
+          <ProfileLove>
             <TouchableOpacity
               style={{
                 left: 40,
@@ -118,8 +120,8 @@ export default function PuddleScreen({ navigation }) {
             >
               <Image source={require("../../../../assets/like.png")} />
             </TouchableOpacity>
-          </ProfileRow>
-          <ProfileRow>
+          </ProfileLove>
+          <ProfileLove>
             <TouchableOpacity
               style={{
                 left: 40,
@@ -127,11 +129,11 @@ export default function PuddleScreen({ navigation }) {
             >
               <Image source={require("../../../../assets/love.png")} />
             </TouchableOpacity>
-          </ProfileRow>
+          </ProfileLove>
           <ProfileRow>
             <TouchableOpacity
               style={{
-                left: 40,
+                left: 30,
               }}
             >
               <Image source={require("../../../../assets/new.png")} />
@@ -140,7 +142,7 @@ export default function PuddleScreen({ navigation }) {
           <ProfileRow>
             <TouchableOpacity
               style={{
-                left: 40,
+                left: 20,
               }}
             >
               <Image source={require("../../../../assets/unlike.png")} />
@@ -164,7 +166,7 @@ export default function PuddleScreen({ navigation }) {
                 <Dots
                   style={{
                     top: 10,
-                    paddingLeft: 100,
+                    paddingLeft: ww(174),
                   }}
                   name="dots-three-vertical"
                   color="#fff"
@@ -176,26 +178,26 @@ export default function PuddleScreen({ navigation }) {
 
           <ProfileIconView>
             <ProfileBody>
-              <ProfileRow>
+              <ProfileLove>
                 <TouchableOpacity>
                   <Image source={require("../../../../assets/like.png")} />
                 </TouchableOpacity>
-              </ProfileRow>
-              <ProfileRow>
+              </ProfileLove>
+              <ProfileLove>
                 <TouchableOpacity>
                   <Image source={require("../../../../assets/love.png")} />
                 </TouchableOpacity>
-              </ProfileRow>
-              <ProfileRow>
+              </ProfileLove>
+              <ProfileLove>
                 <TouchableOpacity>
                   <Image source={require("../../../../assets/new.png")} />
                 </TouchableOpacity>
-              </ProfileRow>
-              <ProfileRow>
+              </ProfileLove>
+              <ProfileLove>
                 <TouchableOpacity>
                   <Image source={require("../../../../assets/unlike.png")} />
                 </TouchableOpacity>
-              </ProfileRow>
+              </ProfileLove>
             </ProfileBody>
           </ProfileIconView>
           <ProfileIconText>
@@ -224,7 +226,7 @@ export default function PuddleScreen({ navigation }) {
               }}
             >
               <Dots
-                style={{ paddingLeft: 50 }}
+                style={{ paddingLeft: ww(100) }}
                 name="dots-three-vertical"
                 color="#fff"
                 size={15}
@@ -241,26 +243,26 @@ export default function PuddleScreen({ navigation }) {
             left: 20,
           }}
         >
-          <ProfileRow>
+          <ProfileLove>
             <TouchableOpacity>
               <Image source={require("../../../../assets/like.png")} />
             </TouchableOpacity>
-          </ProfileRow>
-          <ProfileRow>
+          </ProfileLove>
+          <ProfileLove>
             <TouchableOpacity>
               <Image source={require("../../../../assets/love.png")} />
             </TouchableOpacity>
-          </ProfileRow>
-          <ProfileRow>
+          </ProfileLove>
+          <ProfileLove>
             <TouchableOpacity>
               <Image source={require("../../../../assets/new.png")} />
             </TouchableOpacity>
-          </ProfileRow>
-          <ProfileRow>
+          </ProfileLove>
+          <ProfileLove>
             <TouchableOpacity>
               <Image source={require("../../../../assets/unlike.png")} />
             </TouchableOpacity>
-          </ProfileRow>
+          </ProfileLove>
         </ProfileBody>
         <ProfileImageView>
           <ProfileIconText>

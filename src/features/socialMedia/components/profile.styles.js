@@ -4,7 +4,6 @@ import { ww, wp } from "../../../../responsive";
 
 export const ProfileWrapper = styled.View`
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
 `;
 
@@ -12,11 +11,22 @@ export const ProfileBody = styled.View`
   flex-direction: row;
 `;
 
+export const ProfileFirm = styled.View`
+  flex-direction: row;
+  justify-content: center;
+`;
+
 export const ProfileRow = styled.View`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 20px;
   align-self: center;
+`;
+
+export const ProfileLove = styled.View`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 `;
 
 export const ProfileLayout = styled.View`
@@ -24,7 +34,7 @@ export const ProfileLayout = styled.View`
 `;
 
 export const ProfileHandleRow = styled.View`
-  padding: ${ww(5)}px;
+  padding-left: ${ww(15)}px;
 `;
 
 export const ProfileText = styled.Text`
@@ -34,7 +44,7 @@ export const ProfileText = styled.Text`
 `;
 
 export const ProfileImageBackground = styled.ImageBackground`
-  width: ${ww(420)}px;
+  width: 427.59px;
   height: ${ww(100)}px;
   top: 25px;
 `;
@@ -75,7 +85,7 @@ export const ProfileInputBox = styled.View`
   transition: all 0.3s;
   align-items: center;
   justify-content: center;
-  margin-bottom: ${ww(20)}px;
+  margin-bottom: ${ww(14)}px;
 `;
 
 export const ProfileImageBox = styled.Image`
@@ -95,12 +105,9 @@ export const ProfileCircleImage = styled.Image`
   width: ${ww(100)}px;
   border-radius: 60px;
   z-index: 100;
-  margin-top: ${ww(20)}px;
 `;
 
-export const ProfileView = styled.View`
-  display: flex;
-`;
+export const ProfileView = styled.View``;
 
 export const ProfileName = styled.Text`
   color: ${Constants.theme.primary};
@@ -140,6 +147,7 @@ export const ProfileBreak = styled.View`
   width: ${ww(340)}px;
   height: ${ww(0)}px;
   border: 1px solid #faf6f3;
+  align-self: center;
 `;
 
 export const ProfileBrand = styled.Text`
@@ -147,6 +155,7 @@ export const ProfileBrand = styled.Text`
   font-size: 24px;
   font-weight: 700;
   margin-top: 20px;
+  padding-left: 38px;
   margin-bottom: 20px;
 `;
 
@@ -184,13 +193,19 @@ export const ProfileHandleImage = styled.Image`
 
 export const ProfileUsers = styled.Text`
   color: ${Constants.theme.light};
-  font-size: 18px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: ${ww(18)}px;
 `;
 
 export const ProfileUsersSpan = styled.Text`
   color: ${Constants.theme.dim};
-  font-size: 14px;
-  opacity: 1.5;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: ${ww(14)}px;
+  opacity: 0.5;
 `;
 
 export const ProfileContent = styled.Text`
@@ -223,9 +238,10 @@ export const ProfileCommentsSpan = styled.Text`
 `;
 
 export const ProfileJetImage = styled.ImageBackground`
-  width: ${ww(427.59)}px;
+  width: 100%;
   height: ${ww(809)}px;
   margin-bottom: 30px;
+  padding-top: ${ww(23)}px;
 `;
 
 export const ProfileIconText = styled.Text`

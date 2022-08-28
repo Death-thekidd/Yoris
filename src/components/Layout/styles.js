@@ -8,7 +8,6 @@ const Layout = styled.View`
 export const StyledScrollView = styled.ScrollView`
   flex: 1;
   background-color: #000;
-  padding: 0 25px;
 `;
 
 export const StyledText = styled.Text`
