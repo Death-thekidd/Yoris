@@ -13,6 +13,7 @@ import {
   TextInput,
   Pressable,
   Image,
+  FlatList,
 } from "react-native";
 import {
   LastView,
@@ -30,15 +31,112 @@ import {
 } from "../componenets/fintech10Style";
 import { BigText5, FirstView6, Smalltxt } from "../componenets/fintech6Style";
 import { QtyText } from "../componenets/fintech4Style";
-
+import { Products } from "./list";
 import { QtyText1 } from "../componenets/fintech5Style";
 import { ww, hh, wp } from "../../../responsive";
 
 export default function Notifications({ navigation, route }) {
   const [routee, setRoute] = useState(route.params.paramKey);
   const [all, setAll] = useState(false);
-  const [select, setSelect] = useState(false);
+  const [select1, setSelect1] = useState(false);
   const [select2, setSelect2] = useState(false);
+  const [select3, setSelect3] = useState(false);
+  const [select4, setSelect4] = useState(false);
+  const [select5, setSelect5] = useState(false);
+  const [select6, setSelect6] = useState(false);
+
+  const renderItem = ({ item, i }) => {
+    return item.type ? (
+      <View>
+        <View style={styles.photoview}>
+          <Image style={styles.image} source={item.image} />
+          <View style={styles.position}>
+            <Quantity1>
+              <QtyText1>Qty: 1</QtyText1>
+              <Icon name="caretdown" size={6} color="#fff" />
+            </Quantity1>
+          </View>
+          <View style={styles.roundView}>
+            <Icon3 name="trash-o" size={20} color="#fff" />
+          </View>
+
+          <View style={styles.linkView}>
+            <Text style={styles.link}>{routee}</Text>
+            {select1 ? (
+              <TouchableOpacity onPress={() => setSelect1(!select1)}>
+                <Radiobtn></Radiobtn>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={() => setSelect1(!select1)}>
+                <Radiobtn2></Radiobtn2>
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+        <View style={styles.white2}>
+          <Smalltxt>
+            Procurement Fee: <Bold>10%</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            Product Price: <Bold>N0.00</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            Shipping Fee/Kg: <Bold>N0.00</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            Import Duty/Kg: <Bold>N0.00</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            VAT: <Bold>7.5%</Bold>
+          </Smalltxt>
+        </View>
+      </View>
+    ) : (
+      <View>
+        <View style={styles.photoview}>
+          <Image style={styles.image} source={item.image} />
+          <View style={styles.position}>
+            <Quantity1>
+              <QtyText>Qty: 1</QtyText>
+              <Icon name="caretdown" size={6} color="#fff" />
+            </Quantity1>
+          </View>
+          <View style={styles.roundView}>
+            <Icon3 name="trash-o" size={20} color="#fff" />
+          </View>
+          <View style={styles.php}>
+            {select2 ? (
+              <TouchableOpacity onPress={() => setSelect2(!select2)}>
+                <Radiobtn></Radiobtn>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={() => setSelect2(!select2)}>
+                <Radiobtn2></Radiobtn2>
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+        <View style={styles.white2}>
+          <Smalltxt>
+            Procurement Fee: <Bold>10%</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            Product Price: <Bold>N0.00</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            Shipping Fee/Kg: <Bold>N0.00</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            Import Duty/Kg: <Bold>N0.00</Bold>
+          </Smalltxt>
+          <Smalltxt>
+            VAT: <Bold>7.5%</Bold>
+          </Smalltxt>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.notificationsContainer}>
       <ScrollView>
@@ -93,95 +191,11 @@ export default function Notifications({ navigation, route }) {
           )}
         </Second>
         <Third>
-          <View style={styles.photoview}>
-            <Image
-              style={styles.image}
-              source={require("../../../assets/pro.png")}
-            />
-            <View style={styles.position}>
-              <Quantity1>
-                <QtyText1>Qty: 1</QtyText1>
-                <Icon name="caretdown" size={6} color="#fff" />
-              </Quantity1>
-            </View>
-            <View style={styles.roundView}>
-              <Icon3 name="trash-o" size={20} color="#fff" />
-            </View>
-
-            <View style={styles.linkView}>
-              <Text style={styles.link}>{routee}</Text>
-              {select ? (
-                <TouchableOpacity onPress={() => setSelect(!select)}>
-                  <Radiobtn></Radiobtn>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity onPress={() => setSelect(!select)}>
-                  <Radiobtn2></Radiobtn2>
-                </TouchableOpacity>
-              )}
-            </View>
-          </View>
-          <View style={styles.white2}>
-            <Smalltxt>
-              Procurement Fee: <Bold>10%</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              Product Price: <Bold>N0.00</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              Shipping Fee/Kg: <Bold>N0.00</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              Import Duty/Kg: <Bold>N0.00</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              VAT: <Bold>7.5%</Bold>
-            </Smalltxt>
-          </View>
-
-          <View style={styles.photoview}>
-            <Image
-              style={styles.image}
-              source={require("../../../assets/soap.png")}
-            />
-            <View style={styles.position}>
-              <Quantity1>
-                <QtyText>Qty: 1</QtyText>
-                <Icon name="caretdown" size={6} color="#fff" />
-              </Quantity1>
-            </View>
-            <View style={styles.roundView}>
-              <Icon3 name="trash-o" size={20} color="#fff" />
-            </View>
-            <View style={styles.php}>
-              {select2 ? (
-                <TouchableOpacity onPress={() => setSelect2(!select2)}>
-                  <Radiobtn></Radiobtn>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity onPress={() => setSelect2(!select2)}>
-                  <Radiobtn2></Radiobtn2>
-                </TouchableOpacity>
-              )}
-            </View>
-          </View>
-          <View style={styles.white2}>
-            <Smalltxt>
-              Procurement Fee: <Bold>10%</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              Product Price: <Bold>N0.00</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              Shipping Fee/Kg: <Bold>N0.00</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              Import Duty/Kg: <Bold>N0.00</Bold>
-            </Smalltxt>
-            <Smalltxt>
-              VAT: <Bold>7.5%</Bold>
-            </Smalltxt>
-          </View>
+          <FlatList
+            data={Products}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+          />
         </Third>
         <View style={styles.whitespace}></View>
       </ScrollView>
@@ -254,7 +268,6 @@ const styles = StyleSheet.create({
   },
   white2: {
     alignSelf: "flex-start",
-    paddingLeft: ww(45),
     paddingTop: ww(20),
   },
   php: {

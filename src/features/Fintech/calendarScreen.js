@@ -158,7 +158,12 @@ export default function ({ navigation }) {
           getSelectedDayEvents(day.dateString);
         }}
       />
-      <TouchableOpacity style={styles.selectbtn}>
+      <TouchableOpacity
+        style={styles.selectbtn}
+        onPress={() => {
+          navigation.navigate("HistoryFilter");
+        }}
+      >
         <Select>Select</Select>
       </TouchableOpacity>
     </View>

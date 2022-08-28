@@ -81,6 +81,7 @@ import ResetPassword from "../../features/account/screens/resetPassword.screen";
 import Notification2 from "../../features/ecommerce/notification";
 import Filter from "../../features/ecommerce/filterSearch";
 import { ww, wp } from "../../../responsive";
+import HistoryFilter from "../../features/Fintech/historyFilter";
 
 /// just the way we use the stack navigation
 const Tabs = createMaterialTopTabNavigator();
@@ -307,6 +308,13 @@ export const AccountNavigator = () => {
       <Screens.Screen name="Food4" component={Food4} />
       <Screens.Screen name="Procurement1" component={Procurement1} />
       <Screens.Screen name="Procurement11" component={Procurement11} />
+      <Screens.Screen
+        name="HistoryFilter"
+        component={HistoryFilter}
+        initialParams={{
+          paramKey: "Link",
+        }}
+      />
       <Screens.Screen
         name="Procurement8"
         component={Procurement8}

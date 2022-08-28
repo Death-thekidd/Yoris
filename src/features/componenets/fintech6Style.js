@@ -17,6 +17,31 @@ export const BigText5 = styled.Text`
   padding-left: ${ww(70)}px;
 `;
 
+export const DateView = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px;
+  margin-top: ${ww(4)}px;
+`;
+
+export const Date = styled.Text`
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: -0.333333px;
+  color: #ffffff;
+`;
+
+export const Time = styled.Text`
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: -0.333333px;
+  color: #ffffff;
+`;
+
 export const ProductImage = styled.Image`
   width: ${ww(340)}px;
   heiht: ${ww(128)}px;

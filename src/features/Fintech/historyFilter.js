@@ -33,7 +33,7 @@ import { BigText5 } from "../componenets/fintech6Style";
 import { Products } from "./list";
 import { ww, hh, wp } from "../../../responsive";
 
-export default function History({ navigation, route }) {
+export default function HistoryFilter({ navigation, route }) {
   const [routee, setRoute] = useState(route.params.paramKey);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -111,16 +111,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   backup: {
-    height: ww(48),
-    width: ww(300),
+    height: 48,
+    width: 300,
     borderColor: "#C3AD60",
     borderWidth: 2,
     backgroundColor: "#000",
     position: "absolute",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: ww(100),
-    margin: ww(20),
+    borderRadius: 100,
+    margin: 20,
   },
   linkView: {
     height: ww(45),
